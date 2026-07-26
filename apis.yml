@@ -1,0 +1,136 @@
+aid: fixflo
+url: https://raw.githubusercontent.com/api-evangelist/fixflo/refs/heads/main/apis.yml
+name: Fixflo
+kind: company
+description: >-
+  Fixflo (a trading name of Tactile Limited, London, United Kingdom, acquired by
+  Aareon in 2021) is a UK repairs, maintenance and compliance management platform
+  for lettings agents, block managers and commercial property managers. Occupiers
+  report issues through a guided fault tree, and Fixflo routes the work to
+  contractors, tracks jobs, service programmes, warranties and invoices, and syncs
+  the resulting records back into the agency CRM. It sits in the post-tenancy
+  operations layer of the UK property value chain rather than the listings layer —
+  the UK has no MLS and no RESO, so there is no industry-mandated machine-readable
+  listing contract here and Fixflo makes no RESO claim. Its API posture is unusually
+  open for the sector in one respect and closed in another. A genuinely public
+  Stoplight developer portal at api-docs.fixflo.com publishes a complete OpenAPI 3.0
+  description of the v2 API (135 paths, 164 operations, 25 resource tags) that anyone
+  can read and download without logging in, but actually calling it is licensed.
+  Every use of the API is subject to the signed Fixflo Application Developer and API
+  Licence Agreement, keys are issued by support after a review of the use case, and
+  the runtime base URL is the customer's own per-tenant subdomain. Read the contract
+  freely; sign an agreement to use it.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/fixflo.png
+tags:
+- Real Estate
+- United Kingdom
+- Property Management
+- PropTech
+- Repairs and Maintenance
+- Block Management
+- Lettings
+- Rentals
+- Commercial Real Estate
+- Contractors
+created: '2026-07-26'
+modified: '2026-07-26'
+specificationVersion: '0.19'
+apis:
+- aid: fixflo:fixflo-api-v2
+  name: Fixflo API v2
+  description: >-
+    The Fixflo v2 REST API, described by a publicly downloadable OpenAPI 3.0
+    document on the Fixflo Stoplight developer portal. It exposes the repairs and
+    maintenance domain — issues and issue drafts, properties, blocks and estates,
+    agencies, agents, brands and teams, landlords, leaseholders, tenants and
+    customers, contractors and contractor networks, assets and warranties, cost
+    codes, service programmes, service agreements and service events, jobs, custom
+    field configuration and webhook subscriptions. Authentication is a bearer token
+    issued inside a Fixflo account (documented as OAuth2-aligned but deliberately
+    not a full OAuth2 implementation), and a separate OpenID Connect discovery
+    document is served anonymously at api.fixflo.com. Production calls are made
+    against the customer's own subdomain (https://[subdomain].fixflo.com/api/v2);
+    the published server is the shared sandbox. Rate limiting is documented as not
+    below 500 requests per minute, returning HTTP 429. Use of the API requires the
+    signed Fixflo Application Developer and API Licence Agreement.
+  humanURL: https://api-docs.fixflo.com/
+  baseURL: https://api-sandbox.fixflo.com/api/v2
+  tags:
+  - Agent
+  - Agency
+  - Asset
+  - Block
+  - Cost code
+  - Brand
+  - Contractor
+  - Estate
+  - FaultTree
+  - Issue
+  - Issue draft
+  - Landlord
+  - Leaseholder
+  - Property
+  - Service programme definition
+  - Team
+  - Tenant
+  - Warranty
+  - Webhook
+  - Contractor networks
+  - Customer
+  - Service Event
+  - Service Programme
+  - Service Agreement
+  - CustomFieldConfiguration
+  properties:
+  - type: OpenAPI
+    url: openapi/fixflo-api-v2-openapi.yml
+  - type: Documentation
+    url: https://api-docs.fixflo.com/
+  - type: APIReference
+    url: https://api-docs.fixflo.com/5aaf5f6f6bc52-fixflo
+  - type: GettingStarted
+    url: https://api-docs.fixflo.com/72b66de24898e-welcome-to-fixflo
+  - type: Webhooks
+    url: https://api-docs.fixflo.com/5cc9374300b99-webhooks
+  - type: Authentication
+    url: authentication/fixflo-openid-configuration.json
+  - type: OpenIDConnectDiscovery
+    url: https://api.fixflo.com/.well-known/openid-configuration
+  - type: JWKS
+    url: https://api.fixflo.com/.well-known/jwks
+  - type: PostmanCollection
+    url: https://www.postman.com/fixflo/fixflo-public/collection/glxckcp/fixflo-docs
+  - type: SDK
+    url: https://www.nuget.org/packages/Fixflo.WebApi.Client.V2/
+  - type: TermsOfService
+    url: https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+  - type: Support
+    url: https://help.fixflo.com/support/solutions/articles/61000295569-api-faqs-commonly-asked-questions-when-creating-an-integration
+common:
+- type: Website
+  url: https://www.fixflo.com/
+- type: Documentation
+  url: https://api-docs.fixflo.com/
+- type: APIReference
+  url: https://api-docs.fixflo.com/5aaf5f6f6bc52-fixflo
+- type: Blog
+  url: https://www.fixflo.com/blog
+- type: Integrations
+  url: https://www.fixflo.com/integrations
+- type: SupportKnowledgeBase
+  url: https://help.fixflo.com/support/home
+- type: StatusPage
+  url: https://status.fixflo.com/
+- type: TermsOfService
+  url: https://www.fixflo.com/legal-and-patents
+- type: PrivacyPolicy
+  url: https://www.fixflo.com/privacy-policy
+- type: GitHubOrganization
+  url: https://github.com/Fixflo
+- type: LinkedIn
+  url: https://www.linkedin.com/company/fixflo
+- type: Twitter
+  url: https://twitter.com/Fixflo
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
