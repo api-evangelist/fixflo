@@ -1,0 +1,56 @@
+generated: '2026-07-26'
+method: searched
+source: live probes of the Fixflo API, sandbox, docs and website hosts
+note: >-
+  Fixflo serves a real, anonymously readable OpenID Connect / OAuth 2.0
+  discovery surface on api.fixflo.com. It describes the Fixflo application
+  login (the tenant web application), not the documented v2 REST API surface,
+  which the published OpenAPI declares as plain HTTP bearer. Both facts are
+  recorded; neither is used to imply the other. No security.txt and no
+  api-catalog are published on any Fixflo host.
+hosts:
+- host: https://api.fixflo.com
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    content_type: application/json;charset=UTF-8
+    file: fixflo-openid-configuration.json
+    spec: OpenID Connect Discovery 1.0
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    content_type: application/json;charset=UTF-8
+    file: fixflo-oauth-authorization-server.json
+    spec: RFC 8414 OAuth 2.0 Authorization Server Metadata
+  - path: /.well-known/jwks
+    status: 200
+    content_type: application/json;charset=UTF-8
+    file: fixflo-jwks.json
+    spec: RFC 7517 JSON Web Key Set
+    note: >-
+      Non-standard path. RFC 8414 registers /.well-known/jwks.json; Fixflo's
+      discovery documents advertise jwks_uri as /.well-known/jwks and that is
+      the path that resolves.
+  - path: /.well-known/security.txt
+    status: 404
+- host: https://www.fixflo.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /llms.txt
+    status: 404
+- host: https://api-sandbox.fixflo.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    note: >-
+      api-sandbox.fixflo.com answers every unmatched path with the tenant login
+      HTML shell, so status codes here were verified against response bodies.
+summary:
+  openid_connect_discovery: true
+  oauth_authorization_server_metadata: true
+  jwks: true
+  security_txt: false
+  api_catalog: false
+  ai_plugin: false

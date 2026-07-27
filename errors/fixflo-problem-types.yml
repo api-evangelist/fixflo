@@ -1,0 +1,87 @@
+generated: '2026-07-26'
+method: derived
+source: openapi/fixflo-api-v2-openapi.yml
+docs: https://api-docs.fixflo.com/72b66de24898e-welcome-to-fixflo
+format: vendor-envelope
+format_note: >-
+  Fixflo does NOT use RFC 9457 problem+json. Error responses are returned as the
+  vendor "Envelope" object with an integer HttpStatusCode, a HttpStatusCodeDesc
+  string, and free-text Errors[] and Messages[] arrays. There is no error code
+  registry, no machine-readable error type URI, and no published error reference
+  page — searched api-docs.fixflo.com (all seven convention articles) and
+  help.fixflo.com and found none.
+envelope:
+  schema: Envelope
+  fields:
+  - HttpStatusCode
+  - HttpStatusCodeDesc
+  - Errors
+  - Messages
+coverage:
+  operations_total: 165
+  operations_with_a_4xx_or_5xx_response: 7
+  documented_error_responses: 8
+  note: >-
+    158 of 165 operations declare only a 2xx response. The error contract below
+    is the complete set the spec actually documents; it is thin, and that is the
+    finding.
+problems:
+- status: 400
+  title: Bad Request
+  schema: Envelope + Asset(Read)
+  media_type: application/json
+  source_operation: openapi/fixflo-api-v2-openapi.yml#post-Asset
+- status: 404
+  title: Not Found
+  schema: Envelope
+  media_type: application/json
+  source_operation: openapi/fixflo-api-v2-openapi.yml#put-Asset-id
+- status: 404
+  title: Property not found
+  schema: Envelope
+  media_type: application/json
+  source_operation: openapi/fixflo-api-v2-openapi.yml#get-Property-Id-Notes
+- status: 404
+  title: Property not found
+  schema: Envelope
+  media_type: application/json
+  source_operation: openapi/fixflo-api-v2-openapi.yml#post-property-Id-Notes
+- status: 404
+  title: Property not found
+  schema: Envelope
+  media_type: application/json
+  source_operation: openapi/fixflo-api-v2-openapi.yml#delete-Property-PropertyId-Notes
+- status: 404
+  title: No leaseholder properties found using the given Property Id
+  schema: null
+  media_type: null
+  source_operation: openapi/fixflo-api-v2-openapi.yml#get-leaseholderpropertyjoin-search
+- status: 409
+  title: Property already has notes so will not be overwritten
+  schema: string
+  media_type: application/json
+  source_operation: openapi/fixflo-api-v2-openapi.yml#post-property-Id-Notes
+  remediation: >-
+    Notes are write-once on a property. Read the existing notes first, or delete
+    them, rather than retrying the POST.
+undocumented_but_stated_in_prose:
+- status: 401
+  title: Unauthorized
+  cause: >-
+    Request made without TLS. Verbatim — "Any request not using SSL will error
+    with HttpStatusCode.Unauthorized (401)." Also the expected response to a
+    missing or invalid bearer token.
+  source: https://api-docs.fixflo.com/72b66de24898e-welcome-to-fixflo
+  in_spec: false
+- status: 429
+  title: Too Many Requests
+  cause: >-
+    Rate limit exceeded. Verbatim — "currently is not below 500 requests a
+    minute. If the limit is hit a 429 http error will be returned."
+  source: https://api-docs.fixflo.com/72b66de24898e-welcome-to-fixflo
+  in_spec: false
+  remediation: Back off and retry; no Retry-After header is documented.
+gaps:
+- No 401/403/429/5xx responses are declared on any operation in the OpenAPI.
+- No stable, machine-readable error code vocabulary — Errors[] carries free text.
+- No documented error reference page.

@@ -1,0 +1,57 @@
+generated: '2026-07-26'
+method: searched
+source: >-
+  NuGet search API (azuresearch-usnc.nuget.org), npm registry search, PyPI JSON
+  API, api.github.com/orgs/Fixflo/repos, and the Fixflo developer portal
+  Introduction article
+note: >-
+  Fixflo ships exactly one first-party client library, for .NET, and links it
+  directly from the developer portal Introduction ("Use .Net? Find the nuget
+  package here or run Install -Package Fixflo.WebApi.Client.V2"). No JavaScript,
+  Python, PHP, Ruby, Java, Go or Rust client is published, and the public
+  github.com/Fixflo organisation (id 3223887) contains zero public repositories,
+  so there is no source for the .NET client either. Registry searches returned:
+  npm "fixflo" 0 results, PyPI "fixflo" 404, NuGet 1 result.
+packages:
+- language: dotnet
+  registry: nuget
+  name: Fixflo.WebApi.Client.V2
+  url: https://www.nuget.org/packages/Fixflo.WebApi.Client.V2/
+  install: Install-Package Fixflo.WebApi.Client.V2
+  version: 3.0.1.93103
+  total_downloads: 118441
+  authors:
+  - Development Team
+  official: true
+  official_evidence: >-
+    Linked as the Fixflo client from https://api-docs.fixflo.com/72b66de24898e-welcome-to-fixflo
+  targets_api: openapi/fixflo-api-v2-openapi.yml
+  source_repository: null
+  source_repository_note: No projectUrl or repository URL is declared on the NuGet package.
+  version_lineage:
+  - 2.0.1.59455
+  - 2.0.1.69238
+  - 3.0.1.89326
+  - 3.0.1.89703
+  - 3.0.1.89925
+  - 3.0.1.93103
+registries_probed:
+- registry: nuget
+  query: fixflo
+  results: 1
+- registry: npm
+  query: fixflo
+  results: 0
+- registry: pypi
+  query: fixflo
+  results: 0
+  status: 404
+- registry: github
+  query: orgs/Fixflo/repos
+  results: 0
+  note: Organisation exists (HTTP 200) but publishes no public repositories.
+summary:
+  official_count: 1
+  languages:
+  - dotnet
+  community_count: 0

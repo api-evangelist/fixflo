@@ -1,0 +1,50 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Fixflo
+providerId: fixflo
+created: '2026-07-26'
+modified: '2026-07-26'
+generated: '2026-07-26'
+method: searched
+reconciled: false
+tags:
+- Property Management
+- PropTech
+- Repairs and Maintenance
+- Rate Limiting
+description: >-
+  Fixflo publishes a single, deliberately soft rate limit in the Introduction
+  article of its developer portal, quoted verbatim below. There is no per-plan
+  table, no per-endpoint limit, no documented rate-limit response header and no
+  documented Retry-After — a client has to implement its own backoff.
+verbatim: >-
+  "Rate limiting is used. The limit is under constant review, but currently is
+  not below 500 requests a minute. If the limit is hit a 429 http error will be
+  returned."
+sources:
+- https://api-docs.fixflo.com/72b66de24898e-welcome-to-fixflo
+responseCodes:
+  throttled: 429
+headers:
+  limit: none documented
+  remaining: none documented
+  reset: none documented
+  retry_after: none documented
+limits:
+- name: Default
+  scope: account
+  metric: requests-per-minute
+  limit: 500
+  limit_qualifier: floor — "not below 500 requests a minute"; the effective ceiling is not published
+  notes: Applies per Fixflo agency account / token. Under constant review by Fixflo.
+policies:
+- name: Backoff Strategy
+  description: >-
+    On 429, back off exponentially with jitter. No Retry-After is sent, so the
+    client owns the schedule. For bulk portfolio syncs, throttle client-side and
+    resume by external reference rather than by page number, since most
+    collections are unpaged and page parameters are inconsistent.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

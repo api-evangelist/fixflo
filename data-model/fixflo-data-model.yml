@@ -1,0 +1,150 @@
+generated: '2026-07-26'
+method: derived
+source: openapi/fixflo-api-v2-openapi.yml
+docs: https://api-docs.fixflo.com/5aaf5f6f6bc52-fixflo
+note: >-
+  Entity-relationship graph derived mechanically from the published OpenAPI:
+  composition edges from schema $ref links, reference edges from *Id / External*Ref
+  fields. Nothing is invented — every entity, field and edge below appears
+  verbatim in openapi/fixflo-api-v2-openapi.yml (67 component schemas).
+identifiers:
+  primary:
+    style: GUID
+    format: '{XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX}'
+    scope: unique within one agency tenant only
+    docs: https://api-docs.fixflo.com/ZG9jOjE4OTA1ODE4-guid-values
+  secondary:
+    style: integrator-supplied external reference
+    fields: [ExternalRef, ExternalPropertyRef, ExternalBlockRef, ExternalEstateRef, ExternalLandlordRef, ExternalLeaseholderRef, ExternalAgentRef, ExternalAssetRef, ExternalContractorRef, AssetRef]
+    uniqueness: must be unique per agency
+    purpose: >-
+      Lets the integrating system address Fixflo records by its own key, and is
+      the mechanism behind Fixflo's natural-key upsert semantics.
+  no_cross_market_identifier: true
+  no_cross_market_identifier_note: >-
+    There is no UPI, UPRN or other cross-market property identifier in the
+    contract; identity is tenant-scoped.
+domains:
+- name: Issue reporting
+  entities: [Issue, IssueSummary, IssueDraft, IssueDraftMedia, IssueDraftAsset, FaultTree, FaultTreeBranch, FaultTreeNode, IssueMergeRequest, IssueMergeResponse, AdditionalDetail, Comment, Media, Tag, TagAdded, TagsAdded]
+- name: Property records
+  entities: [Property, PropertyAddress, Address, Block, Estate, Asset(Read), Asset(Write), Warranty, 'Warranty(Asset)']
+- name: Parties
+  entities: [Agency, AgencySettings, AssignedAgent, Brand, Team, Landlord, LandlordProperty, LandlordPropertyJoin, Leaseholder, LeaseholderProperty, LeaseholderPropertyJoin, Tenant, TenantProperty, Customer, Contractor, ContractorService, ContractorCertification, Jobber, AddJobberDetails]
+- name: Planned maintenance and compliance
+  entities: [ServiceProgrammeDef, ServiceProgramme, ServiceEvent, ServiceEventComplete, Appointment]
+- name: Work and finance
+  entities: [Job, JobCompletionDetails, JobDeclineReasonMessage, JobQuoteApproval, Quote, QuoteApproval, QuoteApprovalRequest, QuoteApprovalFeedback, QuoteFurtherWorks, InvoiceDetails, LineItem, SubmitInvoice, CostCode]
+- name: Platform
+  entities: [Webhook, WebhookDeliveryItem, Envelope, PrevNextPager, CustomConfigurationSelectOption]
+relationships:
+- {from: Issue, to: Block, kind: has_one, via: Block}
+- {from: Issue, to: Job, kind: has_one, via: Job}
+- {from: Issue, to: FaultTree, kind: has_one, via: FaultTree}
+- {from: Issue, to: AssignedAgent, kind: has_one, via: AssignedAgent}
+- {from: Issue, to: Address, kind: has_one, via: Address}
+- {from: Issue, to: Media, kind: has_one, via: Media}
+- {from: Issue, to: Quote, kind: has_many, via: Quotes}
+- {from: Issue, to: AdditionalDetail, kind: has_many, via: AdditionalDetails}
+- {from: Issue, to: Tenant, kind: belongs_to, via: TenantId}
+- {from: Issue, to: ServiceEvent, kind: belongs_to, via: ServiceEventId}
+- {from: Job, to: Issue, kind: belongs_to, via: IssueId}
+- {from: Job, to: Contractor, kind: has_one, via: Contractor}
+- {from: Job, to: JobQuoteApproval, kind: has_one, via: LandlordApproval}
+- {from: Job, to: JobQuoteApproval, kind: has_one, via: InsurerApproval}
+- {from: IssueDraft, to: Property, kind: belongs_to, via: PropertyId}
+- {from: IssueDraft, to: Block, kind: belongs_to, via: BlockId}
+- {from: IssueDraft, to: FaultTreeNode, kind: belongs_to, via: FaultId}
+- {from: IssueDraft, to: Address, kind: has_one, via: Address}
+- {from: IssueDraftMedia, to: IssueDraft, kind: belongs_to, via: IssueDraftId}
+- {from: IssueDraftAsset, to: 'Asset(Read)', kind: belongs_to, via: AssetId}
+- {from: FaultTreeBranch, to: FaultTreeNode, kind: has_one, via: Fault}
+- {from: FaultTreeBranch, to: FaultTreeNode, kind: has_many, via: Children}
+- {from: FaultTreeNode, to: FaultTreeNode, kind: belongs_to, via: ParentFaultId}
+- {from: Property, to: Block, kind: belongs_to, via: BlockId}
+- {from: Property, to: Address, kind: has_one, via: Address}
+- {from: Property, to: PropertyAddress, kind: belongs_to, via: PropertyAddressId}
+- {from: Property, to: AssignedAgent, kind: has_one, via: AssignedAgent}
+- {from: Property, to: AssignedAgent, kind: has_one, via: PropertyManager}
+- {from: Property, to: Team, kind: has_one, via: AssignedTeam}
+- {from: Property, to: Warranty, kind: has_many, via: Warranties}
+- {from: PropertyAddress, to: Property, kind: belongs_to, via: PropertyId}
+- {from: Block, to: Estate, kind: belongs_to, via: EstateId}
+- {from: Block, to: Landlord, kind: belongs_to, via: LandlordId}
+- {from: Block, to: Address, kind: has_one, via: Address}
+- {from: Block, to: AssignedAgent, kind: has_one, via: AssignedAgent}
+- {from: Block, to: AssignedAgent, kind: has_one, via: PropertyManager}
+- {from: Block, to: Warranty, kind: has_many, via: Warranties}
+- {from: Estate, to: AssignedAgent, kind: has_one, via: AssignedAgent}
+- {from: 'Asset(Read)', to: 'Warranty(Asset)', kind: has_one, via: Warranty}
+- {from: 'Asset(Write)', to: 'Warranty(Asset)', kind: has_one, via: Warranty}
+- {from: 'Asset(Read)', to: Property, kind: belongs_to, via: ExternalPropertyRef}
+- {from: 'Asset(Read)', to: Block, kind: belongs_to, via: ExternalBlockRef}
+- {from: Warranty, to: Contractor, kind: belongs_to, via: ExternalContractorRef}
+- {from: CostCode, to: Block, kind: belongs_to, via: BlockId}
+- {from: CostCode, to: Estate, kind: belongs_to, via: EstateId}
+- {from: LandlordProperty, to: Landlord, kind: belongs_to, via: LandlordId}
+- {from: LandlordProperty, to: Property, kind: belongs_to, via: PropertyId}
+- {from: LandlordProperty, to: Address, kind: has_one, via: Address}
+- {from: LandlordPropertyJoin, to: Landlord, kind: belongs_to, via: ExternalLandlordRef}
+- {from: LandlordPropertyJoin, to: Property, kind: belongs_to, via: ExternalPropertyRef}
+- {from: LeaseholderProperty, to: Leaseholder, kind: belongs_to, via: LeaseholderId}
+- {from: LeaseholderProperty, to: Property, kind: belongs_to, via: PropertyId}
+- {from: LeaseholderProperty, to: Block, kind: belongs_to, via: BlockId}
+- {from: LeaseholderPropertyJoin, to: Property, kind: belongs_to, via: ExternalPropertyRef}
+- {from: TenantProperty, to: Property, kind: belongs_to, via: PropertyId}
+- {from: Tenant, to: Property, kind: belongs_to, via: ExternalPropertyRef}
+- {from: Tenant, to: Brand, kind: has_one, via: Brand}
+- {from: Tenant, to: Address, kind: has_one, via: Address}
+- {from: Landlord, to: Brand, kind: has_one, via: Brand}
+- {from: Landlord, to: AssignedAgent, kind: has_one, via: AssignedAgent}
+- {from: Leaseholder, to: Brand, kind: has_one, via: Brand}
+- {from: Leaseholder, to: Address, kind: has_one, via: Address}
+- {from: AssignedAgent, to: Brand, kind: has_one, via: Brand}
+- {from: Contractor, to: Brand, kind: has_one, via: Brand}
+- {from: Contractor, to: Address, kind: has_one, via: Address}
+- {from: Contractor, to: InvoiceDetails, kind: has_one, via: InvoiceDetails}
+- {from: Contractor, to: ContractorService, kind: has_many, via: Services}
+- {from: Contractor, to: ContractorCertification, kind: has_many, via: Certifications}
+- {from: ServiceProgramme, to: ServiceProgrammeDef, kind: has_one, via: ServiceProgrammeDef}
+- {from: ServiceProgramme, to: ServiceEvent, kind: has_one, via: MostRecentServiceEvent}
+- {from: ServiceProgramme, to: ServiceEvent, kind: has_one, via: MostRecentCompliantServiceEvent}
+- {from: ServiceProgramme, to: Property, kind: belongs_to, via: PropertyId}
+- {from: ServiceProgramme, to: Block, kind: belongs_to, via: BlockId}
+- {from: ServiceEvent, to: ServiceProgramme, kind: belongs_to, via: ServiceProgrammeId}
+- {from: ServiceEvent, to: ServiceProgrammeDef, kind: has_one, via: ServiceProgrammeDef}
+- {from: ServiceEvent, to: Contractor, kind: has_one, via: Contractor}
+- {from: ServiceEvent, to: AssignedAgent, kind: has_one, via: AssignedAgent}
+- {from: ServiceEvent, to: AssignedAgent, kind: has_one, via: Reviewer}
+- {from: Quote, to: Contractor, kind: has_one, via: Contractor}
+- {from: Quote, to: LineItem, kind: has_many, via: LineItems}
+- {from: Quote, to: Media, kind: has_many, via: Media}
+- {from: QuoteApprovalRequest, to: Quote, kind: belongs_to, via: QuoteId}
+- {from: QuoteApprovalRequest, to: QuoteApproval, kind: has_many, via: QuoteApprovals}
+- {from: QuoteApproval, to: QuoteApprovalRequest, kind: belongs_to, via: QuoteApprovalRequestId}
+- {from: JobQuoteApproval, to: Quote, kind: belongs_to, via: QuoteId}
+- {from: QuoteFurtherWorks, to: Issue, kind: belongs_to, via: IssueId}
+- {from: QuoteFurtherWorks, to: Contractor, kind: belongs_to, via: NetworkContractorId}
+- {from: QuoteFurtherWorks, to: LineItem, kind: has_many, via: LineItems}
+- {from: QuoteFurtherWorks, to: Media, kind: has_many, via: Media}
+- {from: InvoiceDetails, to: LineItem, kind: has_many, via: LineItems}
+- {from: Comment, to: Media, kind: has_many, via: media}
+- {from: Media, to: ServiceProgrammeDef, kind: has_one, via: ServiceProgrammeDef}
+- {from: AddJobberDetails, to: Jobber, kind: has_one, via: Jobber}
+- {from: IssueMergeRequest, to: Issue, kind: belongs_to, via: PrimaryIssueId}
+- {from: IssueMergeResponse, to: Issue, kind: belongs_to, via: MergedIssueId}
+core_spine:
+  description: >-
+    The load-bearing path through the model. An occupier walks the fault tree to
+    produce an IssueDraft, the draft commits into an Issue against a Property
+    (which may sit in a Block, which may sit in an Estate), the Issue is quoted
+    and awarded as a Job to a Contractor, and planned compliance work runs in
+    parallel as ServiceProgrammes that emit ServiceEvents against the same
+    Property or Block.
+  path: FaultTree -> IssueDraft -> Issue -> Quote -> Job -> Contractor
+  parallel: ServiceProgrammeDef -> ServiceProgramme -> ServiceEvent
+summary:
+  schemas: 67
+  entities_with_relationships: 34
+  relationships: 96
+  render: null

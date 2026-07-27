@@ -66,13 +66,44 @@ The Fixflo v2 REST API, described by a publicly downloadable OpenAPI 3.0 documen
 - [API Reference](https://api-docs.fixflo.com/5aaf5f6f6bc52-fixflo)
 - [Getting Started](https://api-docs.fixflo.com/72b66de24898e-welcome-to-fixflo)
 - [Webhooks](https://api-docs.fixflo.com/5cc9374300b99-webhooks)
-- [Authentication](authentication/fixflo-openid-configuration.json)
+- [Authentication](authentication/fixflo-authentication.yml)
 - [OpenID Connect Discovery](https://api.fixflo.com/.well-known/openid-configuration)
 - [JWKS](https://api.fixflo.com/.well-known/jwks)
+- [Overlay](overlays/fixflo-api-v2-overlay.yaml)
+- [Conventions](conventions/fixflo-conventions.yml)
+- [Error Catalog](errors/fixflo-problem-types.yml)
+- [Data Model](data-model/fixflo-data-model.yml)
+- [Sandbox](sandbox/fixflo-sandbox.yml)
+- [Rate Limits](rate-limits/fixflo-rate-limits.yml)
 - [Postman Collection](https://www.postman.com/fixflo/fixflo-public/collection/glxckcp/fixflo-docs)
 - [SDK](https://www.nuget.org/packages/Fixflo.WebApi.Client.V2/)
 - [Terms of Service](https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf)
 - [Support](https://help.fixflo.com/support/solutions/articles/61000295569-api-faqs-commonly-asked-questions-when-creating-an-integration)
+
+## Artifacts
+
+Produced by the API Evangelist enrichment pipeline on 2026-07-26 from the public Fixflo
+developer portal and the published OpenAPI. Nothing here is fabricated; absences (no
+security.txt, no trust centre, no AsyncAPI, no MCP server, no CLI) are recorded as absences.
+
+- [Authentication profile](authentication/fixflo-authentication.yml) — bearer token for the REST API, plus the separate application OIDC surface
+- [OAuth scopes](scopes/fixflo-scopes.yml) — application-login scopes only; the REST API has none
+- [Well-known documents](well-known/fixflo-well-known.yml) — OIDC discovery, RFC 8414 metadata, JWKS (raw files harvested)
+- [Packages / SDKs](packages/fixflo-packages.yml) — one first-party .NET client on NuGet
+- [API conventions](conventions/fixflo-conventions.yml) — auth, tenancy, natural-key upsert idempotency, pagination, locales, error envelope
+- [Rate limits](rate-limits/fixflo-rate-limits.yml) — "not below 500 requests a minute", HTTP 429
+- [Error catalog](errors/fixflo-problem-types.yml) — the eight documented error responses; not RFC 9457
+- [Lifecycle](lifecycle/fixflo-lifecycle.yml) — URI-path versioning, v1 retired, status page, no SLA
+- [Conformance](conformance/fixflo-conformance.yml) — what the contract does and does not conform to
+- [Data model](data-model/fixflo-data-model.yml) — 96 relationships derived from the 67 schemas
+- [Webhook / event surface](asyncapi/fixflo-webhooks.yml) — one event, ff-signature HMAC, retries; no AsyncAPI published
+- [Sandbox](sandbox/fixflo-sandbox.yml) — real but provisioned on request; no published test values
+- [Agent skills](skills/_index.yml) — five generated skills grounded in verified operationIds
+- [MCP candidate tools](mcp/fixflo-mcp.yml) — derived; Fixflo publishes no MCP server
+- [Agentic access contracts](agentic-access/fixflo-agentic-access.yml) — recommended `x-agentic-access` per operation
+- [OpenAPI overlay](overlays/fixflo-api-v2-overlay.yaml) — our enhancements, applied without mutating the harvested spec
+- [Domain security](security/fixflo-domain-security.yml) — TLS/HSTS/DNS probe results
+- [llms.txt](llms/fixflo-llms.txt) — generated; Fixflo publishes none
 
 ## Common Properties
 

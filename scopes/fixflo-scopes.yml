@@ -1,0 +1,54 @@
+generated: '2026-07-26'
+method: searched
+source: well-known/fixflo-oauth-authorization-server.json
+docs: https://api.fixflo.com/.well-known/openid-configuration
+scope: application-login-only
+note: >-
+  The documented Fixflo v2 REST API has NO scope surface — it is authorised by a
+  single opaque bearer token whose privileges are those of the Fixflo user who
+  generated it, and the published OpenAPI declares no oauth2 security scheme.
+  The scopes below are the real, anonymously published scopes of the SEPARATE
+  Fixflo application authorization server at api.fixflo.com (RFC 8414 metadata +
+  OIDC discovery). They govern the Fixflo web application login, not v2 REST
+  authorisation. Recorded because they are genuinely published; not presented as
+  API scopes.
+authorization_server:
+  issuer: https://api.fixflo.com/
+  metadata:
+  - https://api.fixflo.com/.well-known/oauth-authorization-server
+  - https://api.fixflo.com/.well-known/openid-configuration
+  authorizationUrl: https://api.fixflo.com/api/oauth2/authorize
+  tokenUrl: https://api.fixflo.com/api/oauth2/token
+  introspectionUrl: https://api.fixflo.com/api/oauth2/introspection
+  grant_types:
+  - authorization_code
+  - password
+  - refresh_token
+  pkce:
+  - S256
+  - plain
+scopes:
+- scope: openid
+  description: Request an ID token and the OpenID Connect authentication response.
+  flows: [authorizationCode]
+  sources: [well-known/fixflo-oauth-authorization-server.json]
+- scope: profile
+  description: >-
+    Profile claims about the authenticated Fixflo user (name, given_name,
+    family_name, preferred_username).
+  flows: [authorizationCode]
+  sources: [well-known/fixflo-oauth-authorization-server.json]
+- scope: email
+  description: The authenticated Fixflo user's email claim.
+  flows: [authorizationCode]
+  sources: [well-known/fixflo-oauth-authorization-server.json]
+- scope: offline_access
+  description: Issue a refresh token so the client can obtain new access tokens without user interaction.
+  flows: [authorizationCode]
+  sources: [well-known/fixflo-oauth-authorization-server.json]
+rest_api_scopes:
+  count: 0
+  reason: >-
+    Fixflo API v2 uses a single-privilege bearer token, not scoped OAuth. There
+    is no documented per-resource or per-verb scope, and no way to request a
+    reduced-privilege API token.

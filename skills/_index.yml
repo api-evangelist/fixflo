@@ -1,0 +1,30 @@
+generated: '2026-07-26'
+method: generated
+source: openapi/fixflo-api-v2-openapi.yml
+note: >-
+  Fixflo publishes no agent skills, no AGENTS.md and no llms.txt — searched
+  api-docs.fixflo.com, fixflo.com, help.fixflo.com and the public github.com/Fixflo
+  organisation. These are API Evangelist skills, generated from the published v2
+  OpenAPI and the developer portal convention articles. Every operationId
+  referenced was verified verbatim against openapi/fixflo-api-v2-openapi.yml.
+skills:
+- file: fixflo-report-an-issue.md
+  name: Report a repair issue through the Fixflo fault tree
+  api: openapi/fixflo-api-v2-openapi.yml
+  operations: [get-faulttree-walk, post-IssueDraft, post-IssueDraftMedia-Id, post-issuedraft-asset-Id, post-IssueDraft-Commit, post-IssueDraft-Delete, get-Issue, get-issue-id-report]
+- file: fixflo-sync-property-portfolio.md
+  name: Sync a property portfolio from a CRM into Fixflo
+  api: openapi/fixflo-api-v2-openapi.yml
+  operations: [post-estate, post-Block, post-property, post-Property-UpdateAddress, post-Landlord, post-LandlordProperty, post-LandlordPropertyJoin, post-Tenant, post-Tenant-Id-Property, get-Property-Search, get-property, get-propertyaddress-search, get-estates, get-blocks]
+- file: fixflo-track-jobs-to-invoice.md
+  name: Track a Fixflo repair from quote to completed job and invoice
+  api: openapi/fixflo-api-v2-openapi.yml
+  operations: [get-issues, get-issues-jobawarded, get-issues-jobcompleted, get-issues-closed, get-Issue-issueId-quotes, post-Issue-issueId-Quote, post-Issue-issueId-amendquote-quoteId, post-Issue-issueId-declinetoquote, post-Issue-issueId-declineJob, post-Issue-issueId-appointment, put-Issue-issueId-appointment, post-Issue-issueid-jobcompletiondetails, get-Issue-issueid-jobcompletiondetails, post-job-completion-document, get-job-completion-documents, post-issue-issueid-invoicedetails, get-invoice-details, submit-invoice, post-Issue-Id-Comment]
+- file: fixflo-subscribe-to-webhooks.md
+  name: Subscribe to Fixflo webhooks and verify their signatures
+  api: openapi/fixflo-api-v2-openapi.yml
+  operations: [get-webhook-subscribe, get-webhooks, get-webhook-activity, get-webhook-unsubscribe]
+- file: fixflo-planned-maintenance-compliance.md
+  name: Run planned maintenance and compliance programmes in Fixflo
+  api: openapi/fixflo-api-v2-openapi.yml
+  operations: [post-serviceprogrammedef, get-serviceprogrammedef, get-serviceprogrammes, get-serviceprogrammes-by-property, get-serviceprogramme, get-ServiceEvents, get-ServiceEvent, get-Property-propertyId-ServiceProgramme-serviceProgrammeId-ServiceEvents, post-Property-propertyId-ServiceProgramme-serviceProgrammeId-ServiceEvent, post-Property-propertyId-ServiceProgramme-serviceProgramme-ServiceEvent-Complete, post-ServiceEvent-CreateRemedial, get-ServiceEvent-Media, post-Asset, put-Asset-id, get-Assets, post-warranty-add, post-warranty-save]

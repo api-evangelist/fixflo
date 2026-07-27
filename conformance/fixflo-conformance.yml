@@ -1,0 +1,113 @@
+generated: '2026-07-26'
+method: derived
+source: openapi/fixflo-api-v2-openapi.yml
+searched:
+- https://api-docs.fixflo.com/72b66de24898e-welcome-to-fixflo
+- https://api-docs.fixflo.com/5cc9374300b99-webhooks
+- https://www.fixflo.com/legal-and-patents
+- https://www.fixflo.com/privacy-policy
+- https://www.fixflo.com/sitemap.xml
+note: >-
+  Derived from the published contract and the developer portal. Fixflo publishes
+  no certification or compliance programme page (no /security, /trust,
+  /compliance, trust.fixflo.com or security.fixflo.com — all 404), so no
+  Compliance pointer is claimed. Absence is recorded as absence.
+standards:
+- id: openapi-3.0
+  conforms: true
+  evidence: openapi/fixflo-api-v2-openapi.yml declares openapi 3.0.0; 135 paths, 165 operations, 67 schemas, 25 tags.
+- id: http-bearer-rfc6750
+  conforms: true
+  evidence: components.securitySchemes.Bearer is type http / scheme bearer, applied globally.
+- id: oauth2
+  conforms: partial
+  evidence: >-
+    The v2 REST API declares no oauth2 scheme and the docs state "the full range
+    of OAuth2 functionality is not required and has not been implemented".
+    Separately, api.fixflo.com publishes RFC 8414 authorization server metadata
+    for the Fixflo application login (authorization_code, password, refresh_token).
+  sources: [well-known/fixflo-oauth-authorization-server.json]
+- id: oidc-discovery
+  conforms: true
+  evidence: >-
+    https://api.fixflo.com/.well-known/openid-configuration returns a valid
+    OpenID Connect Discovery 1.0 document anonymously (RS256, PKCE S256,
+    introspection and userinfo endpoints).
+  scope: Fixflo application login, not the v2 REST API.
+- id: rfc7517-jwks
+  conforms: true
+  evidence: https://api.fixflo.com/.well-known/jwks returns a JSON Web Key Set.
+  note: Served at a non-standard path; advertised as jwks_uri in the discovery documents.
+- id: rfc7636-pkce
+  conforms: true
+  evidence: code_challenge_methods_supported includes S256 and plain.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: >-
+    No application/problem+json anywhere in the spec. Errors use the vendor
+    Envelope object with free-text Errors[]/Messages[].
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: /.well-known/security.txt returns 404 on www.fixflo.com, fixflo.com and api.fixflo.com.
+- id: rfc8594-sunset-header
+  conforms: false
+  evidence: No Sunset or Deprecation header is documented; deprecation is prose in the portal Versions section.
+- id: rfc9421-http-message-signatures
+  conforms: false
+  evidence: >-
+    Webhooks are signed with a custom ff-signature header carrying
+    sha256={hex HMAC-SHA256 of the raw body}, not HTTP Message Signatures.
+- id: asyncapi
+  conforms: false
+  evidence: No AsyncAPI document is published; the webhook surface is documented in prose (asyncapi/fixflo-webhooks.yml).
+- id: json-api
+  conforms: false
+  evidence: Responses are plain JSON with PascalCase vendor schemas; no JSON:API document structure.
+- id: odata
+  conforms: false
+  evidence: No $metadata service document, no OData query options.
+- id: graphql
+  conforms: false
+  evidence: No /graphql surface on any Fixflo host.
+- id: reso-web-api
+  conforms: false
+  evidence: >-
+    No RESO reference of any kind. RESO is administered around US/Canadian MLS
+    participation and is absent from the UK market; the strings RESO, Data
+    Dictionary, OData, $metadata and UPI do not appear in the 212 KB OpenAPI.
+- id: reso-data-dictionary
+  conforms: false
+  evidence: See reso-web-api.
+- id: pagination
+  conforms: partial
+  evidence: >-
+    Page-number pagination with a PrevNextPager envelope (TotalItems,
+    TotalPages, Items, NextURL, PreviousURL) on 37 references, but the page
+    parameter is spelled Pg on some operations and Page on others and is typed
+    inconsistently, and most collections are unpaged.
+- id: idempotency
+  conforms: partial
+  evidence: >-
+    No Idempotency-Key header. Natural-key upsert on post-agent, post-property,
+    post-estate and post-Issue-externalref, with external references required to
+    be unique per agency. See conventions/fixflo-conventions.yml.
+- id: gdpr
+  conforms: unknown
+  evidence: >-
+    Fixflo is a UK controller/processor of tenant personal data and publishes a
+    privacy policy (https://www.fixflo.com/privacy-policy) and an applicant data
+    privacy notice, but publishes no data-processing addendum, no sub-processor
+    list and no certification claim on any public page.
+certifications:
+  published: false
+  found: []
+  probed:
+  - {url: 'https://trust.fixflo.com/', status: 404}
+  - {url: 'https://security.fixflo.com/', status: 404}
+  - {url: 'https://www.fixflo.com/security', status: 404}
+  - {url: 'https://www.fixflo.com/compliance', status: 404}
+  - {url: 'https://www.fixflo.com/data-security', status: 404}
+  note: >-
+    No SOC 2, ISO 27001, Cyber Essentials, PCI DSS or FedRAMP claim is published
+    on any public Fixflo surface, and the sitemap contains no security, trust or
+    compliance page. Not claimed here.

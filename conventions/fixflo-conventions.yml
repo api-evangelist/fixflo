@@ -1,0 +1,205 @@
+generated: '2026-07-26'
+method: searched
+source: openapi/fixflo-api-v2-openapi.yml
+docs:
+- https://api-docs.fixflo.com/72b66de24898e-welcome-to-fixflo
+- https://api-docs.fixflo.com/6cf7442f38916-date-time-values
+- https://api-docs.fixflo.com/ZG9jOjE4OTA1ODE4-guid-values
+- https://api-docs.fixflo.com/ZG9jOjE3NzA1OTY1-locales
+- https://api-docs.fixflo.com/ZG9jOjE4ODQwNDUy-downloading-binary-data
+- https://api-docs.fixflo.com/5cc9374300b99-webhooks
+note: >-
+  Cross-cutting request/response semantics for Fixflo API v2, searched from the
+  developer portal's dedicated convention articles and derived from the
+  published OpenAPI. Where Fixflo documents nothing, this file records that
+  rather than inventing a convention.
+authentication:
+  style: http-bearer
+  header: 'Authorization: Bearer [token]'
+  token_format: 64-character alphanumeric string
+  scopes: none
+  detail: authentication/fixflo-authentication.yml
+  self_serve: false
+  gate: signed Application Developer and API Licence Agreement
+tenancy:
+  style: per-customer subdomain
+  production_base_url: https://[your subdomain].fixflo.com/api/v2
+  sandbox_base_url: https://api-sandbox.fixflo.com/api/v2
+  note: >-
+    The base host is not a constant. Each Fixflo agency account is served from
+    its own subdomain and a token is scoped to that one account, so an
+    integration must treat the host as configuration.
+idempotency:
+  idempotency_key_header: none
+  mechanism: natural-key upsert
+  supported: partial
+  description: >-
+    Fixflo publishes no Idempotency-Key header and no request-replay cache. It
+    does publish natural-key upsert semantics on its main create endpoints: a
+    POST that carries an existing internal Id, or an external reference that is
+    already known, updates the existing record instead of creating a duplicate.
+    External references are required to be unique per agency, which makes a
+    retried create with the same external reference converge on one record.
+  operations:
+  - operationId: post-agent
+    verbatim: >-
+      "Saves (create or update) agent record. If the Id has a value and the agent
+      entity exists the agent will be updated. If the ExternalagentRef value is
+      set this value must be unique for the given agency."
+    natural_key: ExternalAgentRef
+  - operationId: post-property
+    verbatim: >-
+      "Update or create a property. If the PropertyId has a value > 0 and the
+      property entity exists the property will be updated. If the
+      ExternalPropertyRef value is set this value must be unique."
+    natural_key: ExternalPropertyRef
+  - operationId: post-estate
+    verbatim: Create or update an estate.
+    natural_key: ExternalEstateRef
+  - operationId: post-Issue-externalref
+    verbatim: >-
+      "This endpoint is used to POST an external ref to an Issue associated with
+      given Issue Id. External Ref must be unique per agency. Will overwrite
+      current value if one exists."
+    natural_key: ExternalRef
+  conflict_behaviour:
+    operationId: post-property-Id-Notes
+    status: 409
+    description: Property already has notes so will not be overwritten.
+  webhook_side:
+    consumer_guidance: >-
+      Verbatim from the Webhooks article — "Due to the possibility of retries it
+      is recommended that any logic carried out on the server is idempotent or
+      put another way, is still valid even though the same message may be
+      received more than once."
+    retries: up to 6 attempts over approximately 10 minutes
+  caveat: >-
+    This is upsert idempotency, not request idempotency. A retried POST with no
+    Id and no external reference will create a second record.
+pagination:
+  style: page-number
+  parameters:
+  - name: Pg
+    in: query
+    type: integer
+    description: Page number to return.
+    used_by: [get-contractors, get-estates]
+  - name: Page
+    in: query
+    type: string
+    description: Page.
+    used_by: [get-issues-jobawarded, get-issues-jobcompleted]
+  response_envelope:
+    schema: PrevNextPager
+    fields:
+    - name: TotalItems
+      description: The total number of items.
+    - name: TotalPages
+      description: The total number of pages.
+    - name: Items
+      description: The page of results.
+    - name: NextURL
+      description: The URL of the next page of results.
+    - name: PreviousURL
+      description: The URL of the previous page of results.
+    hateoas: true
+    hateoas_note: NextURL / PreviousURL are absolute follow links, so a client can page without recomputing parameters.
+  fixed_page_sizes:
+  - operationId: get-webhook-activity
+    page_size: 20
+    order: reverse chronological
+  inconsistency_note: >-
+    The page parameter is spelled Pg on some operations and Page on others, and
+    typed integer in one place and string in another. Recorded as found.
+filtering:
+  style: query parameters per resource
+  common_patterns:
+  - Created / Updated windows (CreatedSince, CreatedBefore, UpdatedSince, UpdatedBefore, Created.From, Created.To)
+  - Closed windows (ClosedSince, ClosedBefore)
+  - External reference lookup (ExternalPropertyRef, ExternalAgentRef, ExternalBlockRef, ExternalEstateRef, ExternalRef)
+  - Free-text Keyword search on several collections
+  - IsDeleted / IsDisabled soft-state flags
+  expansion: none
+  sparse_fieldsets: none
+error_envelope:
+  schema: Envelope
+  description: Used to carry/return responses following post operations.
+  fields:
+  - name: HttpStatusCode
+    type: integer
+  - name: HttpStatusCodeDesc
+    type: string
+  - name: Errors
+    type: array of string
+  - name: Messages
+    type: array of string
+  rfc9457: false
+  rfc9457_note: >-
+    No application/problem+json media type and no type/title/detail/instance
+    members anywhere in the spec. Errors are plain strings inside Envelope.
+  detail: errors/fixflo-problem-types.yml
+rate_limiting:
+  documented: true
+  limit: not below 500 requests per minute
+  verbatim: >-
+    "Rate limiting is used. The limit is under constant review, but currently is
+    not below 500 requests a minute. If the limit is hit a 429 http error will be
+    returned."
+  status_code: 429
+  response_headers: none documented
+  retry_after: not documented
+versioning:
+  scheme: uri-path
+  current: v2
+  path: /api/v2
+  policy_verbatim: >-
+    "The API version is defined through the url path. Only major (i.e. breaking
+    changes) require new version changes. Feature enhancements and updates will
+    be undertaken under the current version, unless such changes are deemed
+    'breaking'; then a new version will be created."
+  detail: lifecycle/fixflo-lifecycle.yml
+data_formats:
+  media_type: application/json
+  datetime:
+    format: yyyy-MM-ddTHH:mm:ss
+    date_format: yyyy-MM-dd
+    timezone: UTC unless otherwise stated
+    guidance: >-
+      "It is recommended that language/locale neutral datetime formats are used
+      for url parameters" (C# SortableDateTimePattern).
+    docs: https://api-docs.fixflo.com/6cf7442f38916-date-time-values
+  identifiers:
+    style: GUID
+    format: '{XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX}, X a hex digit'
+    scope: scoped to a single agency tenant; there is no cross-market identifier
+    docs: https://api-docs.fixflo.com/ZG9jOjE4OTA1ODE4-guid-values
+  external_references:
+    purpose: the integrator's own key for a Fixflo record
+    uniqueness: must be unique per agency
+  locales:
+    default: en-GB
+    supported: [en-AU, en-CA, en-GB, en-IE, en-NZ, en-US, en-ZA]
+    set_via: Agency API
+    affects: date and currency presentation
+    docs: https://api-docs.fixflo.com/ZG9jOjE3NzA1OTY1-locales
+  binary_data:
+    supported: true
+    forms: [direct blob download, base-64 encoded data, PDF reports]
+    guidance: >-
+      "The consuming application should undertake all necessary measures to
+      protect against malware when accessing such resources."
+    docs: https://api-docs.fixflo.com/ZG9jOjE4ODQwNDUy-downloading-binary-data
+request_tracing:
+  request_id_header: none documented
+  logs: >-
+    Request logs are available to integrators who register their app with Fixflo
+    support; there is no per-request correlation header in the contract.
+transport:
+  https_required: true
+  non_tls_behaviour: 401 Unauthorized
+cross_links:
+  authentication: authentication/fixflo-authentication.yml
+  errors: errors/fixflo-problem-types.yml
+  lifecycle: lifecycle/fixflo-lifecycle.yml
+  events: asyncapi/fixflo-webhooks.yml
+  data_model: data-model/fixflo-data-model.yml

@@ -1,0 +1,108 @@
+generated: '2026-07-26'
+method: searched
+source: https://api-docs.fixflo.com/5cc9374300b99-webhooks
+spec_type: none
+spec_note: >-
+  Fixflo publishes NO AsyncAPI document. It does publish a real, documented
+  webhook surface with a managed subscription API, HMAC request signing and a
+  documented retry policy — captured here verbatim from the developer portal
+  Webhooks article and the v2 OpenAPI. Nothing below is inferred.
+delivery:
+  transport: HTTPS POST
+  source_host: webhook.fixflo.com
+  source_host_note: >-
+    Verbatim — "Webhooks from Fixflo will be sourced from an IP address defined
+    by the CNAME webhook.fixflo.com" (for firewall allow-listing).
+  tls: recommended
+  tls_note: >-
+    Verbatim — "You may use an HTTP or a HTTPS url. However to help protect
+    against man-in-the-middle issues ... it is strongly advised that you use
+    HTTPS."
+envelope:
+  format: json
+  fields:
+  - name: action
+    description: The type of event that occurred and triggered the webhook.
+  - name: payload
+    description: Further information about the event; for Issue state change this is an Issue object.
+security:
+  signing:
+    algorithm: HMAC SHA256
+    header: ff-signature
+    value_format: sha256={hash}
+    encoding: hex string of the HMAC SHA256 of the raw request body
+    secret: per-webhook configured shared secret
+    verification_steps:
+    - Read the request body in its entirety.
+    - HMAC-SHA256 the body using the secret configured for the webhook.
+    - Hex-encode the digest and compare with the ff-signature value.
+    docs: https://api-docs.fixflo.com/5cc9374300b99-webhooks
+reliability:
+  retries: true
+  max_attempts: 6
+  retry_window: approximately 10 minutes
+  retry_triggers:
+  - connection to the configured server cannot be made
+  - the hooked server responds with an HTTP 5xx error code
+  consumer_guidance: >-
+    Verbatim — "Due to the possibility of retries it is recommended that any
+    logic carried out on the server is idempotent or put another way, is still
+    valid even though the same message may be received more than once."
+  delivery_log:
+    available: true
+    surfaces:
+    - Fixflo webhook configuration page (request + response log)
+    - GET /Webhook/Activity (paged, 20 per page, reverse chronological)
+events:
+- name: Issue state change
+  action_value: Issue state change
+  description: Sent whenever a Fixflo issue's state changes.
+  payload_schema: Issue
+  payload_schema_docs: https://api-docs.fixflo.com/c2NoOjE4ODQwNDYz-issue
+  payload_fields_documented:
+  - Id
+  - Updated
+  - IssueTitle
+  - FaultId
+  - FaultNotes
+  - IssueDraftMedia
+  - Title
+  - Firstname
+  - Surname
+  - EmailAddress
+  - ContactNumber
+  - ContactNumberAlt
+  - Address
+event_catalog_note: >-
+  Verbatim — "So far, users can only subscribe to one event, but we will be
+  adding more in future." Exactly one event type is documented as of this
+  harvest.
+management_api:
+  source: openapi/fixflo-api-v2-openapi.yml
+  operations:
+  - operationId: get-webhooks
+    method: GET
+    path: /Webhooks
+    summary: List the webhooks set up for the agency.
+  - operationId: get-webhook-subscribe
+    method: POST
+    path: /Webhook/Subscribe
+    summary: Create a new webhook for the agency.
+  - operationId: get-webhook-unsubscribe
+    method: DELETE
+    path: /Webhook/Unsubscribe
+    summary: Unsubscribe a webhook.
+  - operationId: get-webhook-activity
+    method: GET
+    path: /Webhook/Activity
+    summary: Paged delivery activity for a specific webhook, 20 per page, reverse chronological.
+  schemas:
+  - Webhook
+  - WebhookDeliveryItem
+summary:
+  asyncapi_published: false
+  webhooks_published: true
+  event_types: 1
+  signed: true
+  subscription_api: true
+  streaming: false

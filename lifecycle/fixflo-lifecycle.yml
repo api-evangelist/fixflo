@@ -1,0 +1,80 @@
+generated: '2026-07-26'
+method: searched
+source: https://api-docs.fixflo.com/72b66de24898e-welcome-to-fixflo
+versioning:
+  scheme: uri-path
+  current: v2
+  path: /api/v2
+  spec_info_version: '2.0'
+  policy_verbatim: >-
+    "The API version is defined through the url path. Only major (i.e. breaking
+    changes) require new version changes. Feature enhancements and updates will
+    be undertaken under the current version, unless such changes are deemed
+    'breaking'; then a new version will be created."
+  docs: https://api-docs.fixflo.com/72b66de24898e-welcome-to-fixflo
+versions:
+- version: v2
+  released: '2014-05-06'
+  status: supported
+  note: Verbatim — "Version V2 - released May 6th 2014. Supported. This the latest version."
+  documented: true
+- version: v1
+  released: '2013-04-26'
+  status: retired
+  note: >-
+    Verbatim — "Version V1 - released April 26th 2013. Not supported.
+    Documentation is not published. Please do not use. This version is planned
+    for depreciation October 2016."
+  documented: false
+  not_in_catalog: true
+deprecation:
+  policy_url: https://api-docs.fixflo.com/72b66de24898e-welcome-to-fixflo
+  policy_published: true
+  policy_summary: >-
+    Fixflo states a real, if terse, deprecation posture in the Versions section
+    of its developer portal: breaking changes create a new URI version, a
+    version is explicitly marked Supported or Not supported, and a retired
+    version is given a stated deprecation date (v1, planned for deprecation
+    October 2016). That is the whole of the published policy — there is no
+    notice-period commitment and no separate deprecation policy page.
+  sunset_header: false
+  deprecation_header: false
+  rfc8594: false
+  notice_period: not published
+deprecated_operations: []
+deprecated_operations_note: >-
+  No operation in openapi/fixflo-api-v2-openapi.yml carries deprecated: true.
+status_page:
+  url: https://status.fixflo.com/
+  status: 200
+  provider: self-hosted
+  history_feed: none
+  note: >-
+    A live Fixflo-operated status page. No RSS/Atom history feed and no public
+    status API were found (/history.rss returns 404).
+sla:
+  published: false
+  uptime_target: null
+  note: >-
+    No public SLA or uptime commitment was found on fixflo.com, the status page,
+    or the developer portal. Service levels are presumably in the signed
+    Application Developer and API Licence Agreement, which is a PDF contract
+    rather than a published SLA page.
+changelog:
+  published: false
+  note: >-
+    No dated API changelog or release-notes feed exists. The Versions section of
+    the portal Introduction is the only version history Fixflo publishes.
+    Product-level roundups appear as marketing posts on the Fixflo blog
+    (for example "Fixflo product updates January to June for block management")
+    but they are not an API changelog and are not treated as one here.
+roadmap:
+  published: false
+support:
+  contact: support@fixflo.com
+  knowledge_base: https://help.fixflo.com/support/home
+  api_faqs: https://help.fixflo.com/support/solutions/articles/61000295569-api-faqs-commonly-asked-questions-when-creating-an-integration
+licence:
+  agreement: https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+  required: true
+  note: Every use of the API is subject to the signed Application Developer and API Licence Agreement.

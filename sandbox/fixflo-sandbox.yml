@@ -1,0 +1,71 @@
+generated: '2026-07-26'
+method: searched
+source: https://api-docs.fixflo.com/72b66de24898e-welcome-to-fixflo
+also_source: openapi/fixflo-api-v2-openapi.yml
+exists: true
+model: provisioned-tenant
+summary: >-
+  Fixflo runs a real, named sandbox and publishes it as the first server in its
+  OpenAPI, but it is not self-serve. A sandbox instance is provisioned by Fixflo
+  on request as part of registering an integration — verbatim from the portal
+  Introduction: "If you'd like a sandbox version of Fixflo we can set one up for
+  you." There are no published test credentials, no test-key prefix scheme, no
+  magic test identifiers and no fixture/trigger tooling, because a sandbox is a
+  provisioned copy of the product rather than a shared public playground.
+environments:
+- name: live sandbox
+  base_url: https://api-sandbox.fixflo.com/api/v2
+  declared_in: openapi/fixflo-api-v2-openapi.yml servers[0]
+  description_verbatim: live sandbox
+  self_serve: false
+  anonymous_access: false
+  probe:
+    url: https://api-sandbox.fixflo.com/api/v2
+    status: 404
+    note: >-
+      No unauthenticated service root. The host answers unmatched paths with the
+      tenant login HTML shell, so status codes were verified against bodies.
+- name: dev
+  base_url: https://plus.dev.fixflo.com/api/v2
+  declared_in: openapi/fixflo-api-v2-openapi.yml servers[1]
+  description_verbatim: dev
+  public: false
+  note: A Fixflo-internal development server, listed in the spec but not offered to integrators.
+- name: production
+  base_url_pattern: https://[your subdomain].fixflo.com/api/v2
+  note: Per-customer subdomain; there is no single shared production host.
+access:
+  how_to_get_one: >-
+    Email support@fixflo.com describing the intended use case, register the
+    app/integration, sign the Application Developer and API Licence Agreement,
+    and request a sandbox instance.
+  contact: support@fixflo.com
+  licence_required: true
+  benefits_of_registering_verbatim:
+  - You will have to access request logs
+  - Authentication management is simplified
+  - If you'd like a sandbox version of Fixflo we can set one up for you.
+test_data:
+  test_credentials_published: false
+  key_prefix_scheme: none
+  magic_test_values: none
+  test_clock: none
+  fixture_tooling: none
+  note: >-
+    Nothing is published to invent from. The only fixed reference values Fixflo
+    documents are the fault-type Ids used by the fault tree (1 Inventory Visit,
+    2 Property Visit, 3 Check Out Inspection, 4 Inventory Remedial, 5 Other) and
+    the supported locale ids — both are production reference data, not test data.
+  fault_ids_docs: https://api-docs.fixflo.com/13741f28addb7-fault-ids
+webhook_testing:
+  available: true
+  surfaces:
+  - Fixflo webhook configuration page — a log of webhook requests sent and the response from the hooked server.
+  - GET /Webhook/Activity — paged (20 per page) reverse-chronological delivery activity.
+  docs: https://api-docs.fixflo.com/5cc9374300b99-webhooks
+console:
+  interactive_try_it: true
+  note: >-
+    The Stoplight Elements developer portal at https://api-docs.fixflo.com/
+    renders a per-operation request console, but every call still needs a real
+    bearer token and a real tenant host.
