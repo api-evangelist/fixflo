@@ -1,0 +1,4036 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Fixflo",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Agent",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Agent",
+            "params": [
+              {
+                "name": "EmailAddress",
+                "value": "",
+                "type": "query",
+                "description": "Agent email address"
+              },
+              {
+                "name": "ExternalAgentRef",
+                "value": "",
+                "type": "query",
+                "description": "External ref"
+              },
+              {
+                "name": "AgentId",
+                "value": "",
+                "type": "query",
+                "description": "Fixflo agent id"
+              }
+            ]
+          },
+          "docs": "Gets agent record"
+        },
+        {
+          "info": {
+            "name": "Agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Agent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Saves (create or update) agent record\n\nIf the Id has a value and the agent entity exists the agent will be updated. If the ExternalagentRef value is set this value must be unique for the given agency. If the Id has a value = null or \"\" an attempt to create a new agent will be made."
+        },
+        {
+          "info": {
+            "name": "Agent / brand",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Agent/:Id/Brand",
+            "params": [
+              {
+                "name": "Id",
+                "value": "",
+                "type": "path",
+                "description": "The Fixflo id of the agent to be updated"
+              },
+              {
+                "name": "Id",
+                "value": "",
+                "type": "query",
+                "description": "Id of agent"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update agent brand"
+        },
+        {
+          "info": {
+            "name": "Agents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Agents",
+            "params": [
+              {
+                "name": "keyword",
+                "value": "",
+                "type": "query",
+                "description": "keywords to search"
+              },
+              {
+                "name": "pg",
+                "value": "",
+                "type": "query",
+                "description": "page to return"
+              }
+            ]
+          },
+          "docs": "Find agents by keyword"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Block",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Block",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Block",
+            "params": [
+              {
+                "name": "Id",
+                "value": "",
+                "type": "query",
+                "description": "The block id"
+              },
+              {
+                "name": "ExternalBlockRef",
+                "value": "",
+                "type": "query",
+                "description": "External block reference"
+              }
+            ]
+          },
+          "docs": "Get block by id or external reference"
+        },
+        {
+          "info": {
+            "name": "Block",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Block",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Saves a block"
+        },
+        {
+          "info": {
+            "name": "Blocks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Blocks",
+            "params": [
+              {
+                "name": "UpdatedSince",
+                "value": "",
+                "type": "query",
+                "description": "Updated since"
+              },
+              {
+                "name": "keyword",
+                "value": "",
+                "type": "query",
+                "description": "Keyword"
+              },
+              {
+                "name": "pg",
+                "value": "",
+                "type": "query",
+                "description": "page"
+              }
+            ]
+          },
+          "docs": "Find blocks"
+        },
+        {
+          "info": {
+            "name": "Block / tags",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Block/:Id/Tags",
+            "params": [
+              {
+                "name": "Id",
+                "value": "",
+                "type": "path",
+                "description": "Id of Block"
+              }
+            ]
+          },
+          "docs": "Returns tags associated with given property id"
+        },
+        {
+          "info": {
+            "name": "Block / tags",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Block/:Id/Tags",
+            "params": [
+              {
+                "name": "Id",
+                "value": "",
+                "type": "path",
+                "description": "Id of Block"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Will replace all tags at the given block with the new given tags"
+        },
+        {
+          "info": {
+            "name": "Block / brand",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Block/:Id/Brand",
+            "params": [
+              {
+                "name": "Id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "gets the current brand by id"
+        },
+        {
+          "info": {
+            "name": "Block / brand",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Block/:Id/Brand",
+            "params": [
+              {
+                "name": "Id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "sets a brand on the current block"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Cost code",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Cost code",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/CostCode",
+            "params": [
+              {
+                "name": "CostCode",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "BlockId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ExternalBlockRef",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get cost code"
+        },
+        {
+          "info": {
+            "name": "Cost code",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/CostCode",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create/update cost code"
+        },
+        {
+          "info": {
+            "name": "Cost codes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/CostCodes",
+            "params": [
+              {
+                "name": "BlockId",
+                "value": "",
+                "type": "query",
+                "description": "block Id"
+              },
+              {
+                "name": "ExternalBlockRef",
+                "value": "",
+                "type": "query",
+                "description": "external block ref"
+              },
+              {
+                "name": "isDeleted",
+                "value": "",
+                "type": "query",
+                "description": "is deleted"
+              },
+              {
+                "name": "pg",
+                "value": "",
+                "type": "query",
+                "description": "pg"
+              },
+              {
+                "name": "Keyword",
+                "value": "",
+                "type": "query",
+                "description": "keyword"
+              },
+              {
+                "name": "EstateId",
+                "value": "",
+                "type": "query",
+                "description": "estate id"
+              },
+              {
+                "name": "ExternalEstateRef",
+                "value": "",
+                "type": "query",
+                "description": "external estate ref"
+              }
+            ]
+          },
+          "docs": "Finds cost codes"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Brand",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Brand",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Brand/:BrandId",
+            "params": [
+              {
+                "name": "BrandId",
+                "value": "",
+                "type": "path",
+                "description": "The brand id (guid)"
+              }
+            ]
+          },
+          "docs": "Gets brand by id"
+        },
+        {
+          "info": {
+            "name": "Brands",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Brands",
+            "params": [
+              {
+                "name": "pg",
+                "value": "",
+                "type": "query",
+                "description": "page number to return"
+              },
+              {
+                "name": "pgsz",
+                "value": "",
+                "type": "query",
+                "description": "page size to return"
+              }
+            ]
+          },
+          "docs": "Returns list of brands"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Contractor",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Contractor",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Contractor/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "EmailAddress",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ExternalRef",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Gets contractor"
+        },
+        {
+          "info": {
+            "name": "Contractor",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Contractor",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates or updates a contractor. \n\nIf the Id of the contractor object is null or empty an attempt to create a new record will be attempted.  \n\nIf the Id of the contractor object is not null or empty it must match an exiting contractor."
+        },
+        {
+          "info": {
+            "name": "Contractor brand",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Contractor/:Id/Brand",
+            "params": [
+              {
+                "name": "Id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint sets the contractor brand. "
+        },
+        {
+          "info": {
+            "name": "Contractors",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Contractors",
+            "params": [
+              {
+                "name": "UpdatedSince",
+                "value": "",
+                "type": "query",
+                "description": "Filters on items that have been updated since this date time. (UTC date/time)"
+              },
+              {
+                "name": "Keyword",
+                "value": "",
+                "type": "query",
+                "description": "Keyword to search with"
+              },
+              {
+                "name": "Pg",
+                "value": "",
+                "type": "query",
+                "description": "Page number to return"
+              }
+            ]
+          },
+          "docs": "Find contractors"
+        },
+        {
+          "info": {
+            "name": "Contractor / services",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Contractor/Services"
+          },
+          "docs": "Get the list of contractor services. There are no paramters for this request"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Estate",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Estate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Estate/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "ExternalEstateRef",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Gets an estate by id or external reference (your ref)"
+        },
+        {
+          "info": {
+            "name": "Estate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Estate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create or update an estate"
+        },
+        {
+          "info": {
+            "name": "Estates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Estates",
+            "params": [
+              {
+                "name": "Keyword",
+                "value": "",
+                "type": "query",
+                "description": "Keyword to search with"
+              },
+              {
+                "name": "UpdatedSince",
+                "value": "",
+                "type": "query",
+                "description": "Filters on items that have been updated since this date time. (UTC date/time)"
+              },
+              {
+                "name": "Pg",
+                "value": "",
+                "type": "query",
+                "description": "pg"
+              }
+            ]
+          },
+          "docs": "Find estates by keyword or other parameters"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "FaultTree",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fault tree walk",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/FaultTree/Walk/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Fault tree branches or leaves"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Issue",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Issue",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Issue/:Id",
+            "params": [
+              {
+                "name": "Id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get issue details"
+        },
+        {
+          "info": {
+            "name": "Issue",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Issue/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Currently this endpoint is only used for updating the AssignedAgent on an issue. Use null to unassign the issue. if the user cannot be found an error will be returned. GET https://[custom domain].fixflo.com/api/v2/Issue\n"
+        },
+        {
+          "info": {
+            "name": "Issue / externalref",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Issue/:Id/ExternalRef",
+            "params": [
+              {
+                "name": "Id",
+                "value": "",
+                "type": "path",
+                "description": "Id associated with required Issue"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint is used to POST an external ref to an Issue associated with given Issue Id.\nExternal Ref must be unique per agency.\nWill overwrite current value if one exists.\n"
+        },
+        {
+          "info": {
+            "name": "Issues",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Issues",
+            "params": [
+              {
+                "name": "CreatedSince",
+                "value": "",
+                "type": "query",
+                "description": "Filters issues that have been created since the specified date time.(UTC date/time)"
+              },
+              {
+                "name": "CreatedBefore",
+                "value": "",
+                "type": "query",
+                "description": "Filters issues that have been created before the specified date time.(UTC date/time)"
+              },
+              {
+                "name": "Status",
+                "value": "",
+                "type": "query",
+                "description": "Filters on the issue status. Click here to see accepted values. If using the nuget package this is an enum."
+              },
+              {
+                "name": "HasExternalPropertyRef",
+                "value": "",
+                "type": "query",
+                "description": "Filters issues that are tied to properties that have an external reference"
+              },
+              {
+                "name": "ClosedSince",
+                "value": "",
+                "type": "query",
+                "description": "Filters issues that have been closed since the specified date time.(UTC date/time)"
+              },
+              {
+                "name": "ClosedBefore",
+                "value": "",
+                "type": "query",
+                "description": "Filters issues that have been closed before the specified date time.(UTC date/time)"
+              },
+              {
+                "name": "JobCreatedSince",
+                "value": "",
+                "type": "query",
+                "description": "Filters issues that have had a job created since the specified date time.(UTC date/time)"
+              },
+              {
+                "name": "JobCreatedBefore",
+                "value": "",
+                "type": "query",
+                "description": "Filters issues that have had a job created before the specified date time.(UTC date/time)"
+              },
+              {
+                "name": "UpdatedSince",
+                "value": "",
+                "type": "query",
+                "description": "Filters issues that have had a status change since the specified date time.(UTC date/time)"
+              },
+              {
+                "name": "UpdatedBefore",
+                "value": "",
+                "type": "query",
+                "description": "Filters issues that have had a status change before the specified date time.(UTC date/time)"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page number to return"
+              }
+            ]
+          },
+          "docs": "Find pages of issues. Optionally date periods may be selected. The issues are returned in created date/time order. For use cases see (downloading and importing issues)[#Downloading-and-importing-issues]\r\n\r\nThe GET url for each issue is returned rather than the whole issue object"
+        },
+        {
+          "info": {
+            "name": "Issue / report",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Issue/:Id/Report",
+            "params": [
+              {
+                "name": "Id",
+                "value": "",
+                "type": "path",
+                "description": "Issue id"
+              }
+            ]
+          },
+          "docs": "Downloads issue report as PDF document. Please see note on downloading binary data."
+        },
+        {
+          "info": {
+            "name": "Issue / job awarded",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Issues/JobAwarded",
+            "params": [
+              {
+                "name": "Page",
+                "value": "",
+                "type": "query",
+                "description": "Page"
+              }
+            ]
+          },
+          "docs": "Endpoint for listing issues with a status of JobAwarded."
+        },
+        {
+          "info": {
+            "name": "Issue / job completed",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Issues/JobCompleted",
+            "params": [
+              {
+                "name": "Page",
+                "value": "",
+                "type": "query",
+                "description": "Page"
+              }
+            ]
+          },
+          "docs": "Endpoint for listing issues with a status of JobCompleted.\n"
+        },
+        {
+          "info": {
+            "name": "Issues / closed",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Issues/Closed"
+          },
+          "docs": "Endpoint for listing issues with a status of Closed."
+        },
+        {
+          "info": {
+            "name": "Issue / quotes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Issue/:issueId/quotes",
+            "params": [
+              {
+                "name": "issueId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Gets all quotes attached to an Issue on an Agency"
+        },
+        {
+          "info": {
+            "name": "Issue / tags",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Issue/:Id/Tags",
+            "params": [
+              {
+                "name": "Id",
+                "value": "",
+                "type": "path",
+                "description": "Id of Issue"
+              }
+            ]
+          },
+          "docs": "Returns tags associated with given issue id"
+        },
+        {
+          "info": {
+            "name": "Merge Issues",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Issues/Merge",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This request will close the primary and related issues and create a new \"merged issue\" that links to all of htem"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Issue draft",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Commits an IssueDraft",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/IssueDraft/Commit",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Converts an IssueDraft object to a live, newly reported issue"
+        },
+        {
+          "info": {
+            "name": "Issue draft",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/IssueDraft",
+            "params": [
+              {
+                "name": "Id",
+                "value": "",
+                "type": "query",
+                "description": "Unique id of IssueDraft. Guid"
+              }
+            ]
+          },
+          "docs": "Get issue draft"
+        },
+        {
+          "info": {
+            "name": "Issue draft",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/IssueDraft",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create/update issue draft"
+        },
+        {
+          "info": {
+            "name": "Issue draft / issue draft media",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/IssueDraft/:id/IssueDraftMedia",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "pg",
+                "value": "",
+                "type": "query",
+                "description": "page"
+              }
+            ]
+          },
+          "docs": "Get issue draft mnedia"
+        },
+        {
+          "info": {
+            "name": "Issue draft",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/IssueDraft/Delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Deletes an IssueDraft object"
+        },
+        {
+          "info": {
+            "name": "Issue draft media",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/IssueDraftMedia"
+          },
+          "docs": "Gets an IssueDraftMedia object"
+        },
+        {
+          "info": {
+            "name": "Issue draft media",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/IssueDraftMedia",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Posts an IssueDraftMedia object. \nIf the id in the body of the request is left empty a new IsseDraftMedia will be created. If a valid id is supplied in the body of the request the API will attempt to update the IssueDraftMedia to which the id belongs."
+        },
+        {
+          "info": {
+            "name": "Issue draft assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/IssueDraft/:Id/Assets",
+            "params": [
+              {
+                "name": "Id",
+                "value": "",
+                "type": "path",
+                "description": "Unique id of the IssueDraft. Guid."
+              },
+              {
+                "name": "pg",
+                "value": "",
+                "type": "query",
+                "description": "Page"
+              }
+            ]
+          },
+          "docs": "Gets a page of assets associated with an issue Draft"
+        },
+        {
+          "info": {
+            "name": "Issue draft assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/IssueDraft/:Id/Assets",
+            "params": [
+              {
+                "name": "Id",
+                "value": "",
+                "type": "path",
+                "description": "Unique id of the IssueDraft. Guid."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Adds an asset to an IssueDraft"
+        },
+        {
+          "info": {
+            "name": "Issue draft media",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/IssueDraftMedia/:Id/Download",
+            "params": [
+              {
+                "name": "Id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "binary data of content type defined by IssueDraftMedia.ContentType"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Default",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Job/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Job id"
+              }
+            ]
+          },
+          "docs": "Gets a Job object"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Landlord",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Landlord",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Landlord"
+          },
+          "docs": "Gets a landlord object"
+        },
+        {
+          "info": {
+            "name": "Landlord",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Landlord",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create/update landlord"
+        },
+        {
+          "info": {
+            "name": "Landlord / brand",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Landlord/:id/Brand",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Gets the brand related to the landlord"
+        },
+        {
+          "info": {
+            "name": "Landlord / brand",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Landlord/:id/Brand",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the brand relating to the landlord"
+        },
+        {
+          "info": {
+            "name": "Landlords",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Landlords",
+            "params": [
+              {
+                "name": "Keyword",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "UpdatedSince",
+                "value": "",
+                "type": "query",
+                "description": "string representing a date/time"
+              },
+              {
+                "name": "pg",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Finds the relevant landlords"
+        },
+        {
+          "info": {
+            "name": "Landlord property",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/LandlordProperty",
+            "params": [
+              {
+                "name": "LandlordPropertyId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "LandlordId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "PropertyId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Gets a specific landlord property. The LandlordPropertyId OR LandlordId and PropertyId must be supplied"
+        },
+        {
+          "info": {
+            "name": "Landlord property",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/LandlordProperty",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Adds a LandlordProperty object. Meaning the explicit relationship bewtween the landlord and the property is added"
+        },
+        {
+          "info": {
+            "name": "Landlord property external",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/LandlordPropertyJoin",
+            "params": [
+              {
+                "name": "LandlordPropertyId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ExtrernalLandlordref",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "LandlordId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ExternalPropertyRef",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "PropertyId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Gets a specific landlord property. The LandlordPropertyId or ExternalPropertyRef and ExtrernalLandlordref or  LandlordId and PropertyId must be supplied"
+        },
+        {
+          "info": {
+            "name": "Landlord property external",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/LandlordPropertyJoin",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Adds a LandlordProperty object. Meaning the explicit relationship bewtween the landlord and the property is added using external refs"
+        },
+        {
+          "info": {
+            "name": "Landlord / landlord properties",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Landlord/:LandlordId/LandlordProperties",
+            "params": [
+              {
+                "name": "LandlordId",
+                "value": "",
+                "type": "path",
+                "description": "LandlordId"
+              }
+            ]
+          },
+          "docs": "Lists all LandlordProperties for a given landlord"
+        },
+        {
+          "info": {
+            "name": "Landlord property / delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/LandlordProperty/Delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Deletes a LandlordProperty object. Meaning the explicit relationship bewtween the landlord and the property is removed"
+        },
+        {
+          "info": {
+            "name": "Landlord property external/ delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/LandlordPropertyJoin/Delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Deletes a LandlordProperty object. Meaning the explicit relationship bewtween the landlord and the property is removed"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Leaseholder",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Leaseholder property external/ delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/LeaseholderPropertyJoin/Delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Deletes a LeaseholderProperty object. Meaning the explicit relationship bewtween the leaseholder and the property is removed"
+        },
+        {
+          "info": {
+            "name": "Leaseholder property external",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/LeaseholderPropertyJoin",
+            "params": [
+              {
+                "name": "LeaseholderPropertyId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ExtrernalLeaseholderref",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "LeaseholderId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ExternalPropertyRef",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "PropertyId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Gets a specific leaseholder property. The LeaseholderPropertyId or ExternalPropertyRef and ExtrernalLeaseholderRef or  LeaseholderId and PropertyId must be supplied"
+        },
+        {
+          "info": {
+            "name": "Leaseholder property external",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/LeaseholderPropertyJoin",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Adds a LeaseholderProperty object. Meaning the explicit relationship bewtween the leaseholder and the property is added using external refs"
+        },
+        {
+          "info": {
+            "name": "Leaseholder property search",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/LeaseholderPropertyJoin/Search",
+            "params": [
+              {
+                "name": "PropertyId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Gets a list of leaseholders for a specified property. "
+        },
+        {
+          "info": {
+            "name": "Leaseholder / brand",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Leaseholder/:id/Brand",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Gets the brand applied to the leasholder"
+        },
+        {
+          "info": {
+            "name": "Leaseholder / brand",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Leaseholder/:id/Brand",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the brand applied to the leaseholder"
+        },
+        {
+          "info": {
+            "name": "Leaseholder",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Leaseholder",
+            "params": [
+              {
+                "name": "LeaseholderId",
+                "value": "",
+                "type": "query",
+                "description": "Leaseholder id"
+              },
+              {
+                "name": "EmailAddress",
+                "value": "",
+                "type": "query",
+                "description": "Leaseholder email address"
+              },
+              {
+                "name": "ExternalLeaseholderRef",
+                "value": "",
+                "type": "query",
+                "description": "Leaseholder external ref"
+              }
+            ]
+          },
+          "docs": "Get leaseholder"
+        },
+        {
+          "info": {
+            "name": "Leaseholder / save",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Leaseholder",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get leaseholder"
+        },
+        {
+          "info": {
+            "name": "Leaseholders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Leaseholders",
+            "params": [
+              {
+                "name": "Keyword",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "updatedSince",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pg",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get leaseholders"
+        },
+        {
+          "info": {
+            "name": "Leaseholder property",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/LeaseholderProperty",
+            "params": [
+              {
+                "name": "LeaseholderPropertyId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "LeaseholderId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "PropertyId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Either a LeaseholderPropertyId OR a LeaseholderId and PropertyId must be supplied."
+        },
+        {
+          "info": {
+            "name": "Leaseholder / leaseholder properties",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Leaseholder/:LeaseholderId/LeaseholderProperties",
+            "params": [
+              {
+                "name": "LeaseholderId",
+                "value": "",
+                "type": "path",
+                "description": "Leaseholder id"
+              },
+              {
+                "name": "pg",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get leaseholders properties"
+        },
+        {
+          "info": {
+            "name": "Leaseholder property / delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/LeaseholderProperty/Delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Deletes a LeaseholderProperty relationship"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Property",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Property / addresses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Property/:Id/Addresses",
+            "params": [
+              {
+                "name": "Id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "pg",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get property addresses"
+        },
+        {
+          "info": {
+            "name": "Property",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Property",
+            "params": [
+              {
+                "name": "Id",
+                "value": "",
+                "type": "query",
+                "description": "Unique Fixflo id of property"
+              },
+              {
+                "name": "ExternalPropertyRef",
+                "value": "",
+                "type": "query",
+                "description": "External property ref"
+              }
+            ]
+          },
+          "docs": "Either Id or ExternalPropertyRef must be supplied. (A property is synonymous with a unit)"
+        },
+        {
+          "info": {
+            "name": "Property / save",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Property",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update or create a property.\n\nIf the PropertyId has a value > 0 and the property entity exists the property will be updated. If the ExternalPropertyRef value is set this value must be unique for the given agency. If the PropertyId has a value = 0 an attempt to create a new property will be made. If the property address already exists a new property will NOT be created and the existing property with the matching address will be returned. This endpoint does not update the address of an existing pr"
+        },
+        {
+          "info": {
+            "name": "Property / issues",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Property/:Id/Issues",
+            "params": [
+              {
+                "name": "Id",
+                "value": "",
+                "type": "path",
+                "description": "Property id"
+              },
+              {
+                "name": "pg",
+                "value": "",
+                "type": "query",
+                "description": "The page number to return"
+              },
+              {
+                "name": "TenantId",
+                "value": "",
+                "type": "query",
+                "description": "Used to filter the issues to only those raised by the tenant matching the provided Id"
+              },
+              {
+                "name": "TenantEmail",
+                "value": "",
+                "type": "query",
+                "description": "Used to filter the issues to only those raised by the tenant matching the provided email"
+              }
+            ]
+          },
+          "docs": "Get property issues"
+        },
+        {
+          "info": {
+            "name": "Property / issues",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Property/Issues",
+            "params": [
+              {
+                "name": "ExternalPropertyRef",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "TenantId",
+                "value": "",
+                "type": "query",
+                "description": "Used to filter the issues to only those raised by the tenant matching the provided Id"
+              },
+              {
+                "name": "TenantEmail",
+                "value": "",
+                "type": "query",
+                "description": "Used to filter the issues to only those raised by the tenant matching the provided email"
+              },
+              {
+                "name": "pg",
+                "value": "",
+                "type": "query",
+                "description": "The page number to return"
+              }
+            ]
+          },
+          "docs": "Get issues at a property by external property ref"
+        },
+        {
+          "info": {
+            "name": "Property / tags",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Property/:Id/Tags",
+            "params": [
+              {
+                "name": "Id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Property"
+              }
+            ]
+          },
+          "docs": "Returns tags associated with given property id"
+        },
+        {
+          "info": {
+            "name": "Property / tags",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Property/:Id/Tags",
+            "params": [
+              {
+                "name": "Id",
+                "value": "",
+                "type": "path",
+                "description": "Id of the Property"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Will replace all tags at the given property with the new given tags"
+        },
+        {
+          "info": {
+            "name": "Property / notes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Property/:Id/Notes",
+            "params": [
+              {
+                "name": "Id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns notes associated with given property id"
+        },
+        {
+          "info": {
+            "name": "Property / notes",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Property/:Id/Notes",
+            "params": [
+              {
+                "name": "Id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Will add notes to the property associated with given property id"
+        },
+        {
+          "info": {
+            "name": "Property / notes",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Property/:Id/Notes",
+            "params": [
+              {
+                "name": "Id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Will delete notes associated with given property id"
+        },
+        {
+          "info": {
+            "name": "Property / tenants",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Property/:Id/Tenants",
+            "params": [
+              {
+                "name": "Id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get property tenants"
+        },
+        {
+          "info": {
+            "name": "Property / landlord properties",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Property/:PropertyId/LandlordProperties",
+            "params": [
+              {
+                "name": "PropertyId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "pg",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get landlords properties"
+        },
+        {
+          "info": {
+            "name": "Property address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/PropertyAddress/:Id",
+            "params": [
+              {
+                "name": "Id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get property address"
+        },
+        {
+          "info": {
+            "name": "Property address / merge",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/PropertyAddress/Merge",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Merge a property address into a property. In other words an existing property address is added to an existing property."
+        },
+        {
+          "info": {
+            "name": "Property address / split",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/PropertyAddress/Split",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Splits out an existing property address from a property.\n"
+        },
+        {
+          "info": {
+            "name": "Property address / search",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/PropertyAddress/Search",
+            "params": [
+              {
+                "name": "Keyword",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ExternalPropertyRef",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "KeyReference",
+                "value": "",
+                "type": "query",
+                "description": "Key reference"
+              },
+              {
+                "name": "HasExternalPropertyRef",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "UpdatedSince",
+                "value": "",
+                "type": "query",
+                "description": "\tFilters on items that have been updated since this date time. (UTC date/time)"
+              }
+            ]
+          },
+          "docs": "Search property addresses"
+        },
+        {
+          "info": {
+            "name": "Property / update address",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Property/UpdateAddress",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the primary address of a property. This call takes the Id or ExternalPropertyRef of an existing property and sets the primary address of the property to the new data. The previous address will be maintained as an alt address.\n\nAs a process this call creates a new property with the new address, merges the new property to the existing property then sets the new address to be the primary address."
+        },
+        {
+          "info": {
+            "name": "Property / search",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Property/Search",
+            "params": [
+              {
+                "name": "Keyword",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ExternalPropertyRef",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "HasExternalPropertyRef",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "KeyReference",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "IncludeAlternates",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "IsDeleted",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pg",
+                "value": "",
+                "type": "query",
+                "description": "page number"
+              },
+              {
+                "name": "pgsz",
+                "value": "",
+                "type": "query",
+                "description": "page size"
+              },
+              {
+                "name": "BlockId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Search for properties"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Service programme definition",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Service programme definition",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/ServiceProgrammeDef",
+            "params": [
+              {
+                "name": "Id",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get service programme definition"
+        },
+        {
+          "info": {
+            "name": "Service programme definition",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/ServiceProgrammeDef",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "If Id is not set the record will be added, the record corresponding to the Id will be updated. If Id is set and a record cannot be found a 404 error will be returned."
+        },
+        {
+          "info": {
+            "name": "Service programme definition",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/ServiceProgrammeDefs",
+            "params": [
+              {
+                "name": "pg",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "keyword",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "isDisabled",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get service programme definitions"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Service Programme",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Service programme by Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/ServiceProgramme/:Id",
+            "params": [
+              {
+                "name": "Id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "Id",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get service programme"
+        },
+        {
+          "info": {
+            "name": "Service programmes by Agency",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/ServiceProgrammes",
+            "params": [
+              {
+                "name": "propertyId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "blockId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "serviceProgrammeDefId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "isStatutory",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pg",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "externalPropertyRef",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "complianceState",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "externalBlockRef",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get agency service programmes"
+        },
+        {
+          "info": {
+            "name": "Service programmes by Property",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Property/:propertyId/ServiceProgrammes",
+            "params": [
+              {
+                "name": "propertyId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "serviceProgrammeDefId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "isStatutory",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pg",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "complianceState",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get property service programmes"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Service Event",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Service event by Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/ServiceEvent/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The id of the Service Event"
+              }
+            ]
+          },
+          "docs": "Get service event"
+        },
+        {
+          "info": {
+            "name": "Service events by Agency",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/ServiceEvents",
+            "params": [
+              {
+                "name": "pg",
+                "value": "",
+                "type": "query",
+                "description": "The page number to return"
+              },
+              {
+                "name": "propertyId",
+                "value": "",
+                "type": "query",
+                "description": "Filters service events by the property Id of the property associated with them"
+              },
+              {
+                "name": "externalPropertyRef",
+                "value": "",
+                "type": "query",
+                "description": "Filters service events by the external property ref of the property associated with them"
+              },
+              {
+                "name": "blockId",
+                "value": "",
+                "type": "query",
+                "description": "Filters service events by the block Id of the block associated with them"
+              },
+              {
+                "name": "externalBlockRef",
+                "value": "",
+                "type": "query",
+                "description": "Filters service events by the external block ref of the block associated with them"
+              },
+              {
+                "name": "serviceProgrammeDefId",
+                "value": "",
+                "type": "query",
+                "description": "Filters service events by their associated service programme def"
+              },
+              {
+                "name": "serviceProgrammeId",
+                "value": "",
+                "type": "query",
+                "description": "Filters service events by their associated service programme"
+              },
+              {
+                "name": "dueDateSince",
+                "value": "",
+                "type": "query",
+                "description": "Filters service events that are due after the specified date time. (UTC date/time)"
+              },
+              {
+                "name": "dueDateBefore",
+                "value": "",
+                "type": "query",
+                "description": "Filters service events that are due before the specified date time. (UTC date/time)"
+              },
+              {
+                "name": "instructionDateSince",
+                "value": "",
+                "type": "query",
+                "description": "Filters service events that are due for instruction after the specified date time. (UTC date/time)"
+              },
+              {
+                "name": "instructionDateBefore",
+                "value": "",
+                "type": "query",
+                "description": "Filters service events that are due for instruction before the specified date time. (UTC date/time)"
+              },
+              {
+                "name": "updateDateSince",
+                "value": "",
+                "type": "query",
+                "description": "Filters service events that have been updated since the specified date time. (UTC date/time)"
+              },
+              {
+                "name": "updateDateBefore",
+                "value": "",
+                "type": "query",
+                "description": "Filters service events that have been updated before the specified date time. (UTC date/time)"
+              },
+              {
+                "name": "completedDateSince",
+                "value": "",
+                "type": "query",
+                "description": "Filters service events that have been completed since the specified date time. (UTC date/time)"
+              },
+              {
+                "name": "completedDateBefore",
+                "value": "",
+                "type": "query",
+                "description": "Filters service events that have been completed before the specified date time. (UTC date/time)"
+              }
+            ]
+          },
+          "docs": "Get agency service events"
+        },
+        {
+          "info": {
+            "name": "Service event media",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/ServiceEvent/:id/Medias",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The id of the Service Event"
+              },
+              {
+                "name": "pg",
+                "value": "",
+                "type": "query",
+                "description": "The page number to return"
+              }
+            ]
+          },
+          "docs": "Get all Media associated with a Service Event"
+        },
+        {
+          "info": {
+            "name": "Create Service Event ",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Property/:propertyId/ServiceProgramme/:serviceProgrammeId/ServiceEvent",
+            "params": [
+              {
+                "name": "propertyId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "serviceProgrammeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "serviceProgrammeId",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Service Event "
+        },
+        {
+          "info": {
+            "name": "Get Service Events by service programme id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Property/:propertyId/ServiceProgramme/:serviceProgrammeId/ServiceEvents",
+            "params": [
+              {
+                "name": "propertyId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "serviceProgrammeId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Service Events by service programme id"
+        },
+        {
+          "info": {
+            "name": "Get Service Event By Property and Service Programme",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Property/:propertyId/ServiceProgramme/:serviceProgrammeId/ServiceEvent/:serviceEventId",
+            "params": [
+              {
+                "name": "propertyId",
+                "value": "",
+                "type": "path",
+                "description": "The Fixflo id of the property"
+              },
+              {
+                "name": "serviceProgrammeId",
+                "value": "",
+                "type": "path",
+                "description": "The Fixflo id of the service programme"
+              },
+              {
+                "name": "serviceEventId",
+                "value": "",
+                "type": "path",
+                "description": "The Fixflo id of the service event"
+              }
+            ]
+          },
+          "docs": "Gets a single service event by property, service programme and service event id."
+        },
+        {
+          "info": {
+            "name": "Update Service Event",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Property/:propertyId/ServiceProgramme/:serviceProgrammeId/ServiceEvent/:serviceEventId",
+            "params": [
+              {
+                "name": "propertyId",
+                "value": "",
+                "type": "path",
+                "description": "The Fixflo id of the property"
+              },
+              {
+                "name": "serviceProgrammeId",
+                "value": "",
+                "type": "path",
+                "description": "The Fixflo id of the service programme"
+              },
+              {
+                "name": "serviceEventId",
+                "value": "",
+                "type": "path",
+                "description": "The Fixflo id of the service event"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the service event identified by property, service programme and service event id."
+        },
+        {
+          "info": {
+            "name": "Your OPTIONS endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "OPTIONS",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Property/:propertyId/ServiceProgramme/:serviceProgrammeId/ServiceEvent/:serviceEventId",
+            "params": [
+              {
+                "name": "propertyId",
+                "value": "",
+                "type": "path",
+                "description": "The Fixflo id of the property"
+              },
+              {
+                "name": "serviceProgrammeId",
+                "value": "",
+                "type": "path",
+                "description": "The Fixflo id of the service programme"
+              },
+              {
+                "name": "serviceEventId",
+                "value": "",
+                "type": "path",
+                "description": "The Fixflo id of the service event"
+              }
+            ]
+          },
+          "docs": "CORS preflight support for this endpoint."
+        },
+        {
+          "info": {
+            "name": "Complete Service Event",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Property/:propertyId/ServiceProgramme/:serviceProgramme/ServiceEvent/Complete",
+            "params": [
+              {
+                "name": "propertyId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "serviceProgramme",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Complete Service Event"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Team",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Team",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Team",
+            "params": [
+              {
+                "name": "Id",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get team"
+        },
+        {
+          "info": {
+            "name": "Team",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Team",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Save team"
+        },
+        {
+          "info": {
+            "name": "Teams",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Teams",
+            "params": [
+              {
+                "name": "pg",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get teams"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Tenant",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Tenant",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Tenant",
+            "params": [
+              {
+                "name": "Id",
+                "value": "",
+                "type": "query",
+                "description": "Tenant id"
+              },
+              {
+                "name": "EmailAddress",
+                "value": "",
+                "type": "query",
+                "description": "Email address"
+              },
+              {
+                "name": "ExternalRef",
+                "value": "",
+                "type": "query",
+                "description": "External reference"
+              }
+            ]
+          },
+          "docs": "Get tenant"
+        },
+        {
+          "info": {
+            "name": "Tenant",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Tenant",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Save tenant"
+        },
+        {
+          "info": {
+            "name": "Tenant / brand",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Tenant/:id/Brand",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the tenants brand"
+        },
+        {
+          "info": {
+            "name": "Tenants",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Tenants",
+            "params": [
+              {
+                "name": "Keyword",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pg",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "UpdatedSince",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get tenants"
+        },
+        {
+          "info": {
+            "name": "get-Tenant-Id-Properties",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Tenant/:Id/Properties",
+            "params": [
+              {
+                "name": "Id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "get-Tenant-Id-Property-PropertyId",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Tenant/:Id/Property/:PropertyId",
+            "params": [
+              {
+                "name": "Id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "PropertyId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "delete-Tenant-Id-Property-PropertId",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Tenant/:Id/Property/:PropertyId",
+            "params": [
+              {
+                "name": "Id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "PropertyId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Post Tenant Id Property",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Tenant/:Id/Property",
+            "params": [
+              {
+                "name": "Id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "tenantId",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Post property"
+        },
+        {
+          "info": {
+            "name": "Post Tenant Id Anonymise",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Tenant/:Id/Anonymise",
+            "params": [
+              {
+                "name": "Id",
+                "value": "",
+                "type": "path",
+                "description": "tenant id"
+              },
+              {
+                "name": "tenantId",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Deletes tenant"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Warranty",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Warranty / add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Warranty/Add",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new warranty"
+        },
+        {
+          "info": {
+            "name": "Warranty / save",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Warranty/Save",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Save warranty"
+        },
+        {
+          "info": {
+            "name": "Warranty / delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Warranty/:id/Delete",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes a warranty"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Webhook",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Webhooks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Webhooks"
+          },
+          "docs": "Returns a list of webhooks which are set up for your agency"
+        },
+        {
+          "info": {
+            "name": "Webhooks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Webhook/Activity",
+            "params": [
+              {
+                "name": "Id",
+                "value": "",
+                "type": "query",
+                "description": "The webhook id"
+              },
+              {
+                "name": "FailedOnly",
+                "value": "",
+                "type": "query",
+                "description": "set as true if you want only failed attempts to return"
+              },
+              {
+                "name": "pg",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a paged list (20 per page) of activity from a specific webhook listed in reverse time order"
+        },
+        {
+          "info": {
+            "name": "Webhook / subscribe",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Webhook/Subscribe",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new webhook for the agency"
+        },
+        {
+          "info": {
+            "name": "Webhook / unsubscribe",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Webhook/Unsubscribe",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Unsubscribe webhook"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Contractor networks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Jobber",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Issue/:issueid/jobjobber",
+            "params": [
+              {
+                "name": "issueid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add contractor to a job"
+        },
+        {
+          "info": {
+            "name": "Completion details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Issue/:issueid/jobcompletiondetails",
+            "params": [
+              {
+                "name": "issueid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get completion details"
+        },
+        {
+          "info": {
+            "name": "Completion details",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Issue/:issueid/jobcompletiondetails",
+            "params": [
+              {
+                "name": "issueid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Save job completion details"
+        },
+        {
+          "info": {
+            "name": "Completion document / Add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/issue/:issueid/completiondoc",
+            "params": [
+              {
+                "name": "issueid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add job completion document"
+        },
+        {
+          "info": {
+            "name": "Completion document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/issue/:issueid/completiondoc/:mediaid",
+            "params": [
+              {
+                "name": "issueid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "mediaid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Job completion document"
+        },
+        {
+          "info": {
+            "name": "Completion document / Save",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/issue/:issueid/completiondoc/:mediaid",
+            "params": [
+              {
+                "name": "issueid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "mediaid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Save job completion document"
+        },
+        {
+          "info": {
+            "name": "Completion document",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api-sandbox.fixflo.com/api/v2/issue/:issueid/completiondoc/:mediaid/delete",
+            "params": [
+              {
+                "name": "issueid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "mediaid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Job completion document"
+        },
+        {
+          "info": {
+            "name": "Completion documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/issue/:issueid/completiondocs",
+            "params": [
+              {
+                "name": "issueid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Job completion documents"
+        },
+        {
+          "info": {
+            "name": "Completion certificate document",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Issue/:issueId/completioncertificatedoc",
+            "params": [
+              {
+                "name": "issueId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add job completion certificate document"
+        },
+        {
+          "info": {
+            "name": "Completion certificate document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Issue/:issueId/completioncertificatedoc/:mediaId",
+            "params": [
+              {
+                "name": "issueId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "mediaId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get completion certificate documents attached to a certain Issue, by ID"
+        },
+        {
+          "info": {
+            "name": "Completion certificate document",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Issue/:issueId/completioncertificatedoc/:mediaId/delete",
+            "params": [
+              {
+                "name": "issueId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "mediaId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes certificate document attached to an issue by specific media id"
+        },
+        {
+          "info": {
+            "name": "Invoice details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/issue/:issueid/invoicedetails",
+            "params": [
+              {
+                "name": "issueid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Job Invoice Details"
+        },
+        {
+          "info": {
+            "name": "Invoice details",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/issue/:issueid/invoicedetails",
+            "params": [
+              {
+                "name": "issueid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Invoice details"
+        },
+        {
+          "info": {
+            "name": "Invoice / submit",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/issue/:issueid/submitinvoice",
+            "params": [
+              {
+                "name": "issueid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Invoice"
+        },
+        {
+          "info": {
+            "name": "Quote",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Issue/:issueId/quote",
+            "params": [
+              {
+                "name": "issueId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Adds a quote to the current Agency's attached Issue"
+        },
+        {
+          "info": {
+            "name": "Amend quote",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Issue/:issueId/quote/:quoteId",
+            "params": [
+              {
+                "name": "issueId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "quoteId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Amends a quote on an attached Issue using the quote's ID"
+        },
+        {
+          "info": {
+            "name": "Decline to quote",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Issue/:issueId/declinetoquote",
+            "params": [
+              {
+                "name": "issueId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Declines to quote on current issue attached to agency"
+        },
+        {
+          "info": {
+            "name": "Decline job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Issue/:issueId/declinejob",
+            "params": [
+              {
+                "name": "issueId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Declines job based on current Issue"
+        },
+        {
+          "info": {
+            "name": "Appointment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Issue/:issueId/appointment",
+            "params": [
+              {
+                "name": "issueId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set an appointment for the current job accepted on an issue"
+        },
+        {
+          "info": {
+            "name": "Cancel Appointment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Issue/:issueId/appointment/:appointmentId/cancel",
+            "params": [
+              {
+                "name": "issueId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "appointmentId",
+                "value": "",
+                "type": "path",
+                "description": "Id of the appointment you wish to cancel"
+              }
+            ]
+          },
+          "docs": "Cancel a specified appointment for the current job accepted on an issue"
+        },
+        {
+          "info": {
+            "name": "Create Further Works",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Issue/:issueId/createfurtherworks",
+            "params": [
+              {
+                "name": "issueId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a duplicate linked issue of type 'Further Works'"
+        },
+        {
+          "info": {
+            "name": "Quote for Further Works",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Issue/:issueId/quotefurtherworks",
+            "params": [
+              {
+                "name": "issueId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a duplicate linked issue of type 'Further Works' with a quote attached"
+        },
+        {
+          "info": {
+            "name": "Quote instead",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Issue/:issueId/quoteinstead",
+            "params": [
+              {
+                "name": "issueId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Decline a job instruction and instead send a quote for the work"
+        },
+        {
+          "info": {
+            "name": "Contractor Network Comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Issue/:issueId/contractornetworkcomment",
+            "params": [
+              {
+                "name": "issueId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a comment to a further works issue that was raised by your agency"
+        },
+        {
+          "info": {
+            "name": "Customers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Customers",
+            "params": [
+              {
+                "name": "pg",
+                "value": "",
+                "type": "query",
+                "description": "page"
+              }
+            ]
+          },
+          "docs": "Gets a list of users associated with an agency."
+        },
+        {
+          "info": {
+            "name": "Customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Customer/:Id",
+            "params": [
+              {
+                "name": "Id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Gets a user attached to an agency by the attached agency ID"
+        },
+        {
+          "info": {
+            "name": "Raise Remedial",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/ServiceEvent/CreateRemedial",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a duplicate linked issue of type 'Remedial'"
+        },
+        {
+          "info": {
+            "name": "Issue comments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Issue/:Id/Comments",
+            "params": [
+              {
+                "name": "Id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "Id",
+                "value": "",
+                "type": "query",
+                "description": "IssueId"
+              },
+              {
+                "name": "pg",
+                "value": "",
+                "type": "query",
+                "description": "page number"
+              },
+              {
+                "name": "pgsz",
+                "value": "",
+                "type": "query",
+                "description": "page size"
+              }
+            ]
+          },
+          "docs": "It is recommended that the webhook is used to receive new comments rather than polling this endpoint on a regular basis. "
+        },
+        {
+          "info": {
+            "name": "Issue comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Issue/:issueId/Comment",
+            "params": [
+              {
+                "name": "issueId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Issue comment"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Agency",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Agencies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Agencies",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The page number to return"
+              }
+            ]
+          },
+          "docs": "Get list of agencies. The agency endpoints are only available on request to support."
+        },
+        {
+          "info": {
+            "name": "Agency",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Agency/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get an agency"
+        },
+        {
+          "info": {
+            "name": "Agency / add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Agency",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add an agency"
+        },
+        {
+          "info": {
+            "name": "Setup Agency Integration Templates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Agency/:id/SetupIntegrationTemplates",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Agency Id"
+              }
+            ]
+          },
+          "docs": "Setup Integration templates for existing Agency with given Id"
+        },
+        {
+          "info": {
+            "name": "Get Agency Settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Agency/Settings"
+          },
+          "docs": "Get Agency Settings"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Asset",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Assets",
+            "params": [
+              {
+                "name": "AssetId",
+                "value": "",
+                "type": "query",
+                "description": "The Fixflo unique identifier for the asset"
+              },
+              {
+                "name": "AssetRef",
+                "value": "",
+                "type": "query",
+                "description": "The reference on the tag or label of the asset"
+              },
+              {
+                "name": "ExternalAssetRef",
+                "value": "",
+                "type": "query",
+                "description": "The reference of the asset in an external system"
+              },
+              {
+                "name": "Name",
+                "value": "",
+                "type": "query",
+                "description": "The name of the asset"
+              },
+              {
+                "name": "ExternalBlockRef",
+                "value": "",
+                "type": "query",
+                "description": "The reference for the block of the asset in an external system"
+              },
+              {
+                "name": "ExternalPropertyRef",
+                "value": "",
+                "type": "query",
+                "description": "The reference for the property of the asset in an external system"
+              },
+              {
+                "name": "UpdatedBefore",
+                "value": "",
+                "type": "query",
+                "description": "Used to only return assets updated before this date"
+              },
+              {
+                "name": "UpdatedSince",
+                "value": "",
+                "type": "query",
+                "description": "Used to only return assets updated after this date"
+              }
+            ]
+          },
+          "docs": "Search for assets using the criteria provided in the query string."
+        },
+        {
+          "info": {
+            "name": "Create asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Asset",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Endpoint used for creating a new asset"
+        },
+        {
+          "info": {
+            "name": "Get asset by id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Asset/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "The Fixflo asset id"
+              }
+            ]
+          },
+          "docs": "Retrieve an asset by Id"
+        },
+        {
+          "info": {
+            "name": "Update asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Asset/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing asset"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Media",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Media Search",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Medias/PropertyCertificate",
+            "params": [
+              {
+                "name": "PropertyId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ExternalPropertyRef",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "BlockId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ExternalBlockRef",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ServiceProgrammeDefId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Created.To",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Created.From",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Media Search"
+        },
+        {
+          "info": {
+            "name": "Your GET endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Media/PropertyCertificate/:Id",
+            "params": [
+              {
+                "name": "Id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Your GET endpoint"
+        },
+        {
+          "info": {
+            "name": "post-Media-PropertyCertificate-Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Media/PropertyCertificate/:Id",
+            "params": [
+              {
+                "name": "Id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This can be used to update:\nDocumentExpiryDate\nDocumentStartDate\nShortDescription"
+        },
+        {
+          "info": {
+            "name": "Media download",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-sandbox.fixflo.com/api/v2/Media/:Id/Download",
+            "params": [
+              {
+                "name": "Id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "This will allow you to download the file as a stream"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
