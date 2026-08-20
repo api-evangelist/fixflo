@@ -17,6 +17,17 @@ description: Fixflo (a trading name of Tactile Limited, London, United Kingdom, 
   own per-tenant subdomain. Read the contract freely; sign an agreement to use it.
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/fixflo.png
 tags:
+- Real-Estate
+- United Kingdom
+- Property Management
+- PropTech
+- Repairs and Maintenance
+- Block Management
+- Lettings
+- Rentals
+- Commercial Real Estate
+- Contractors
+tags_raw:
 - Real Estate
 - United Kingdom
 - Property Management
@@ -47,6 +58,32 @@ apis:
   humanURL: https://api-docs.fixflo.com/
   baseURL: https://api-sandbox.fixflo.com/api/v2
   tags:
+  - Agents
+  - Agency
+  - Asset
+  - Block
+  - Cost code
+  - Brand
+  - Contractor
+  - Estate
+  - FaultTree
+  - Issue
+  - Issue draft
+  - Landlord
+  - Leaseholder
+  - Property
+  - Service programme definition
+  - Team
+  - Tenant
+  - Warranty
+  - Webhook
+  - Contractor Networks
+  - Customers
+  - Service Event
+  - Service Programme
+  - Service Agreement
+  - CustomFieldConfiguration
+  tags_raw:
   - Agent
   - Agency
   - Asset
