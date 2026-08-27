@@ -42,76 +42,16 @@ created: '2026-07-26'
 modified: '2026-07-26'
 specificationVersion: '0.23'
 apis:
-- aid: fixflo:fixflo-api-v2
-  name: Fixflo API v2
-  description: The Fixflo v2 REST API, described by a publicly downloadable OpenAPI 3.0 document on the
-    Fixflo Stoplight developer portal. It exposes the repairs and maintenance domain — issues and issue
-    drafts, properties, blocks and estates, agencies, agents, brands and teams, landlords, leaseholders,
-    tenants and customers, contractors and contractor networks, assets and warranties, cost codes, service
-    programmes, service agreements and service events, jobs, custom field configuration and webhook subscriptions.
-    Authentication is a bearer token issued inside a Fixflo account (documented as OAuth2-aligned but
-    deliberately not a full OAuth2 implementation), and a separate OpenID Connect discovery document is
-    served anonymously at api.fixflo.com. Production calls are made against the customer's own subdomain
-    (https://[subdomain].fixflo.com/api/v2); the published server is the shared sandbox. Rate limiting
-    is documented as not below 500 requests per minute, returning HTTP 429. Use of the API requires the
-    signed Fixflo Application Developer and API Licence Agreement.
+- aid: fixflo:fixflo-agency-api
+  name: Fixflo Agency API
+  description: The Agency API from Fixflo — 5 operation(s) for agency.
   humanURL: https://api-docs.fixflo.com/
   baseURL: https://api-sandbox.fixflo.com/api/v2
   tags:
-  - Agents
   - Agency
-  - Asset
-  - Block
-  - Cost code
-  - Brand
-  - Contractor
-  - Estate
-  - FaultTree
-  - Issue
-  - Issue draft
-  - Landlord
-  - Leaseholder
-  - Property
-  - Service programme definition
-  - Team
-  - Tenant
-  - Warranty
-  - Webhook
-  - Contractor Networks
-  - Customers
-  - Service Event
-  - Service Programme
-  - Service Agreement
-  - CustomFieldConfiguration
-  tags_raw:
-  - Agent
-  - Agency
-  - Asset
-  - Block
-  - Cost code
-  - Brand
-  - Contractor
-  - Estate
-  - FaultTree
-  - Issue
-  - Issue draft
-  - Landlord
-  - Leaseholder
-  - Property
-  - Service programme definition
-  - Team
-  - Tenant
-  - Warranty
-  - Webhook
-  - Contractor networks
-  - Customer
-  - Service Event
-  - Service Programme
-  - Service Agreement
-  - CustomFieldConfiguration
   properties:
   - type: OpenAPI
-    url: openapi/fixflo-api-v2-openapi.yml
+    url: openapi/fixflo-agency-api-openapi.yml
   - type: Documentation
     url: https://api-docs.fixflo.com/
   - type: APIReference
@@ -126,8 +66,6 @@ apis:
     url: https://api.fixflo.com/.well-known/openid-configuration
   - type: JWKS
     url: https://api.fixflo.com/.well-known/jwks
-  - type: Overlay
-    url: overlays/fixflo-api-v2-overlay.yaml
   - type: Conventions
     url: conventions/fixflo-conventions.yml
   - type: Idempotency
@@ -147,9 +85,1116 @@ apis:
   - type: SDK
     url: https://www.nuget.org/packages/Fixflo.WebApi.Client.V2/
   - type: TermsOfService
-    url: https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+    url: >-
+      https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
   - type: Support
-    url: https://help.fixflo.com/support/solutions/articles/61000295569-api-faqs-commonly-asked-questions-when-creating-an-integration
+    url: >-
+      https://help.fixflo.com/support/solutions/articles/61000295569-api-faqs-commonly-asked-questions-when-creating-an-integration
+- aid: fixflo:fixflo-agent-api
+  name: Fixflo Agent API
+  description: The Agent API from Fixflo — 3 operation(s) for agent.
+  humanURL: https://api-docs.fixflo.com/
+  baseURL: https://api-sandbox.fixflo.com/api/v2
+  tags:
+  - Agent
+  properties:
+  - type: OpenAPI
+    url: openapi/fixflo-agent-api-openapi.yml
+  - type: Documentation
+    url: https://api-docs.fixflo.com/
+  - type: APIReference
+    url: https://api-docs.fixflo.com/5aaf5f6f6bc52-fixflo
+  - type: GettingStarted
+    url: https://api-docs.fixflo.com/72b66de24898e-welcome-to-fixflo
+  - type: Webhooks
+    url: https://api-docs.fixflo.com/5cc9374300b99-webhooks
+  - type: Authentication
+    url: authentication/fixflo-authentication.yml
+  - type: OpenIDConnectDiscovery
+    url: https://api.fixflo.com/.well-known/openid-configuration
+  - type: JWKS
+    url: https://api.fixflo.com/.well-known/jwks
+  - type: Conventions
+    url: conventions/fixflo-conventions.yml
+  - type: Idempotency
+    url: conventions/fixflo-conventions.yml
+  - type: ErrorCatalog
+    url: errors/fixflo-problem-types.yml
+  - type: DataModel
+    url: data-model/fixflo-data-model.yml
+  - type: Sandbox
+    url: sandbox/fixflo-sandbox.yml
+  - type: RateLimits
+    url: rate-limits/fixflo-rate-limits.yml
+  - type: Postman
+    url: https://www.postman.com/fixflo/fixflo-public/collection/glxckcp/fixflo-docs
+  - type: PostmanCollection
+    url: https://www.postman.com/fixflo/fixflo-public/collection/glxckcp/fixflo-docs
+  - type: SDK
+    url: https://www.nuget.org/packages/Fixflo.WebApi.Client.V2/
+  - type: TermsOfService
+    url: >-
+      https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+  - type: Support
+    url: >-
+      https://help.fixflo.com/support/solutions/articles/61000295569-api-faqs-commonly-asked-questions-when-creating-an-integration
+- aid: fixflo:fixflo-asset-api
+  name: Fixflo Asset API
+  description: The Asset API from Fixflo — 3 operation(s) for asset.
+  humanURL: https://api-docs.fixflo.com/
+  baseURL: https://api-sandbox.fixflo.com/api/v2
+  tags:
+  - Asset
+  properties:
+  - type: OpenAPI
+    url: openapi/fixflo-asset-api-openapi.yml
+  - type: Documentation
+    url: https://api-docs.fixflo.com/
+  - type: APIReference
+    url: https://api-docs.fixflo.com/5aaf5f6f6bc52-fixflo
+  - type: GettingStarted
+    url: https://api-docs.fixflo.com/72b66de24898e-welcome-to-fixflo
+  - type: Webhooks
+    url: https://api-docs.fixflo.com/5cc9374300b99-webhooks
+  - type: Authentication
+    url: authentication/fixflo-authentication.yml
+  - type: OpenIDConnectDiscovery
+    url: https://api.fixflo.com/.well-known/openid-configuration
+  - type: JWKS
+    url: https://api.fixflo.com/.well-known/jwks
+  - type: Conventions
+    url: conventions/fixflo-conventions.yml
+  - type: Idempotency
+    url: conventions/fixflo-conventions.yml
+  - type: ErrorCatalog
+    url: errors/fixflo-problem-types.yml
+  - type: DataModel
+    url: data-model/fixflo-data-model.yml
+  - type: Sandbox
+    url: sandbox/fixflo-sandbox.yml
+  - type: RateLimits
+    url: rate-limits/fixflo-rate-limits.yml
+  - type: Postman
+    url: https://www.postman.com/fixflo/fixflo-public/collection/glxckcp/fixflo-docs
+  - type: PostmanCollection
+    url: https://www.postman.com/fixflo/fixflo-public/collection/glxckcp/fixflo-docs
+  - type: SDK
+    url: https://www.nuget.org/packages/Fixflo.WebApi.Client.V2/
+  - type: TermsOfService
+    url: >-
+      https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+  - type: Support
+    url: >-
+      https://help.fixflo.com/support/solutions/articles/61000295569-api-faqs-commonly-asked-questions-when-creating-an-integration
+- aid: fixflo:fixflo-block-api
+  name: Fixflo Block API
+  description: The Block API from Fixflo — 4 operation(s) for block.
+  humanURL: https://api-docs.fixflo.com/
+  baseURL: https://api-sandbox.fixflo.com/api/v2
+  tags:
+  - Block
+  properties:
+  - type: OpenAPI
+    url: openapi/fixflo-block-api-openapi.yml
+  - type: Documentation
+    url: https://api-docs.fixflo.com/
+  - type: APIReference
+    url: https://api-docs.fixflo.com/5aaf5f6f6bc52-fixflo
+  - type: GettingStarted
+    url: https://api-docs.fixflo.com/72b66de24898e-welcome-to-fixflo
+  - type: Webhooks
+    url: https://api-docs.fixflo.com/5cc9374300b99-webhooks
+  - type: Authentication
+    url: authentication/fixflo-authentication.yml
+  - type: OpenIDConnectDiscovery
+    url: https://api.fixflo.com/.well-known/openid-configuration
+  - type: JWKS
+    url: https://api.fixflo.com/.well-known/jwks
+  - type: Conventions
+    url: conventions/fixflo-conventions.yml
+  - type: Idempotency
+    url: conventions/fixflo-conventions.yml
+  - type: ErrorCatalog
+    url: errors/fixflo-problem-types.yml
+  - type: DataModel
+    url: data-model/fixflo-data-model.yml
+  - type: Sandbox
+    url: sandbox/fixflo-sandbox.yml
+  - type: RateLimits
+    url: rate-limits/fixflo-rate-limits.yml
+  - type: Postman
+    url: https://www.postman.com/fixflo/fixflo-public/collection/glxckcp/fixflo-docs
+  - type: PostmanCollection
+    url: https://www.postman.com/fixflo/fixflo-public/collection/glxckcp/fixflo-docs
+  - type: SDK
+    url: https://www.nuget.org/packages/Fixflo.WebApi.Client.V2/
+  - type: TermsOfService
+    url: >-
+      https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+  - type: Support
+    url: >-
+      https://help.fixflo.com/support/solutions/articles/61000295569-api-faqs-commonly-asked-questions-when-creating-an-integration
+- aid: fixflo:fixflo-brand-api
+  name: Fixflo Brand API
+  description: The Brand API from Fixflo — 2 operation(s) for brand.
+  humanURL: https://api-docs.fixflo.com/
+  baseURL: https://api-sandbox.fixflo.com/api/v2
+  tags:
+  - Brand
+  properties:
+  - type: OpenAPI
+    url: openapi/fixflo-brand-api-openapi.yml
+  - type: Documentation
+    url: https://api-docs.fixflo.com/
+  - type: APIReference
+    url: https://api-docs.fixflo.com/5aaf5f6f6bc52-fixflo
+  - type: GettingStarted
+    url: https://api-docs.fixflo.com/72b66de24898e-welcome-to-fixflo
+  - type: Webhooks
+    url: https://api-docs.fixflo.com/5cc9374300b99-webhooks
+  - type: Authentication
+    url: authentication/fixflo-authentication.yml
+  - type: OpenIDConnectDiscovery
+    url: https://api.fixflo.com/.well-known/openid-configuration
+  - type: JWKS
+    url: https://api.fixflo.com/.well-known/jwks
+  - type: Conventions
+    url: conventions/fixflo-conventions.yml
+  - type: Idempotency
+    url: conventions/fixflo-conventions.yml
+  - type: ErrorCatalog
+    url: errors/fixflo-problem-types.yml
+  - type: DataModel
+    url: data-model/fixflo-data-model.yml
+  - type: Sandbox
+    url: sandbox/fixflo-sandbox.yml
+  - type: RateLimits
+    url: rate-limits/fixflo-rate-limits.yml
+  - type: Postman
+    url: https://www.postman.com/fixflo/fixflo-public/collection/glxckcp/fixflo-docs
+  - type: PostmanCollection
+    url: https://www.postman.com/fixflo/fixflo-public/collection/glxckcp/fixflo-docs
+  - type: SDK
+    url: https://www.nuget.org/packages/Fixflo.WebApi.Client.V2/
+  - type: TermsOfService
+    url: >-
+      https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+  - type: Support
+    url: >-
+      https://help.fixflo.com/support/solutions/articles/61000295569-api-faqs-commonly-asked-questions-when-creating-an-integration
+- aid: fixflo:fixflo-contractor-api
+  name: Fixflo Contractor API
+  description: The Contractor API from Fixflo — 5 operation(s) for contractor.
+  humanURL: https://api-docs.fixflo.com/
+  baseURL: https://api-sandbox.fixflo.com/api/v2
+  tags:
+  - Contractor
+  properties:
+  - type: OpenAPI
+    url: openapi/fixflo-contractor-api-openapi.yml
+  - type: Documentation
+    url: https://api-docs.fixflo.com/
+  - type: APIReference
+    url: https://api-docs.fixflo.com/5aaf5f6f6bc52-fixflo
+  - type: GettingStarted
+    url: https://api-docs.fixflo.com/72b66de24898e-welcome-to-fixflo
+  - type: Webhooks
+    url: https://api-docs.fixflo.com/5cc9374300b99-webhooks
+  - type: Authentication
+    url: authentication/fixflo-authentication.yml
+  - type: OpenIDConnectDiscovery
+    url: https://api.fixflo.com/.well-known/openid-configuration
+  - type: JWKS
+    url: https://api.fixflo.com/.well-known/jwks
+  - type: Conventions
+    url: conventions/fixflo-conventions.yml
+  - type: Idempotency
+    url: conventions/fixflo-conventions.yml
+  - type: ErrorCatalog
+    url: errors/fixflo-problem-types.yml
+  - type: DataModel
+    url: data-model/fixflo-data-model.yml
+  - type: Sandbox
+    url: sandbox/fixflo-sandbox.yml
+  - type: RateLimits
+    url: rate-limits/fixflo-rate-limits.yml
+  - type: Postman
+    url: https://www.postman.com/fixflo/fixflo-public/collection/glxckcp/fixflo-docs
+  - type: PostmanCollection
+    url: https://www.postman.com/fixflo/fixflo-public/collection/glxckcp/fixflo-docs
+  - type: SDK
+    url: https://www.nuget.org/packages/Fixflo.WebApi.Client.V2/
+  - type: TermsOfService
+    url: >-
+      https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+  - type: Support
+    url: >-
+      https://help.fixflo.com/support/solutions/articles/61000295569-api-faqs-commonly-asked-questions-when-creating-an-integration
+- aid: fixflo:fixflo-contractor-networks-api
+  name: Fixflo Contractor networks API
+  description: The Contractor networks API from Fixflo — 27 operation(s) for contractor networks.
+  humanURL: https://api-docs.fixflo.com/
+  baseURL: https://api-sandbox.fixflo.com/api/v2
+  tags:
+  - Contractor networks
+  properties:
+  - type: OpenAPI
+    url: openapi/fixflo-contractor-networks-api-openapi.yml
+  - type: Documentation
+    url: https://api-docs.fixflo.com/
+  - type: APIReference
+    url: https://api-docs.fixflo.com/5aaf5f6f6bc52-fixflo
+  - type: GettingStarted
+    url: https://api-docs.fixflo.com/72b66de24898e-welcome-to-fixflo
+  - type: Webhooks
+    url: https://api-docs.fixflo.com/5cc9374300b99-webhooks
+  - type: Authentication
+    url: authentication/fixflo-authentication.yml
+  - type: OpenIDConnectDiscovery
+    url: https://api.fixflo.com/.well-known/openid-configuration
+  - type: JWKS
+    url: https://api.fixflo.com/.well-known/jwks
+  - type: Conventions
+    url: conventions/fixflo-conventions.yml
+  - type: Idempotency
+    url: conventions/fixflo-conventions.yml
+  - type: ErrorCatalog
+    url: errors/fixflo-problem-types.yml
+  - type: DataModel
+    url: data-model/fixflo-data-model.yml
+  - type: Sandbox
+    url: sandbox/fixflo-sandbox.yml
+  - type: RateLimits
+    url: rate-limits/fixflo-rate-limits.yml
+  - type: Postman
+    url: https://www.postman.com/fixflo/fixflo-public/collection/glxckcp/fixflo-docs
+  - type: PostmanCollection
+    url: https://www.postman.com/fixflo/fixflo-public/collection/glxckcp/fixflo-docs
+  - type: SDK
+    url: https://www.nuget.org/packages/Fixflo.WebApi.Client.V2/
+  - type: TermsOfService
+    url: >-
+      https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+  - type: Support
+    url: >-
+      https://help.fixflo.com/support/solutions/articles/61000295569-api-faqs-commonly-asked-questions-when-creating-an-integration
+- aid: fixflo:fixflo-cost-code-api
+  name: Fixflo Cost code API
+  description: The Cost code API from Fixflo — 2 operation(s) for cost code.
+  humanURL: https://api-docs.fixflo.com/
+  baseURL: https://api-sandbox.fixflo.com/api/v2
+  tags:
+  - Cost code
+  properties:
+  - type: OpenAPI
+    url: openapi/fixflo-cost-code-api-openapi.yml
+  - type: Documentation
+    url: https://api-docs.fixflo.com/
+  - type: APIReference
+    url: https://api-docs.fixflo.com/5aaf5f6f6bc52-fixflo
+  - type: GettingStarted
+    url: https://api-docs.fixflo.com/72b66de24898e-welcome-to-fixflo
+  - type: Webhooks
+    url: https://api-docs.fixflo.com/5cc9374300b99-webhooks
+  - type: Authentication
+    url: authentication/fixflo-authentication.yml
+  - type: OpenIDConnectDiscovery
+    url: https://api.fixflo.com/.well-known/openid-configuration
+  - type: JWKS
+    url: https://api.fixflo.com/.well-known/jwks
+  - type: Conventions
+    url: conventions/fixflo-conventions.yml
+  - type: Idempotency
+    url: conventions/fixflo-conventions.yml
+  - type: ErrorCatalog
+    url: errors/fixflo-problem-types.yml
+  - type: DataModel
+    url: data-model/fixflo-data-model.yml
+  - type: Sandbox
+    url: sandbox/fixflo-sandbox.yml
+  - type: RateLimits
+    url: rate-limits/fixflo-rate-limits.yml
+  - type: Postman
+    url: https://www.postman.com/fixflo/fixflo-public/collection/glxckcp/fixflo-docs
+  - type: PostmanCollection
+    url: https://www.postman.com/fixflo/fixflo-public/collection/glxckcp/fixflo-docs
+  - type: SDK
+    url: https://www.nuget.org/packages/Fixflo.WebApi.Client.V2/
+  - type: TermsOfService
+    url: >-
+      https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+  - type: Support
+    url: >-
+      https://help.fixflo.com/support/solutions/articles/61000295569-api-faqs-commonly-asked-questions-when-creating-an-integration
+- aid: fixflo:fixflo-estate-api
+  name: Fixflo Estate API
+  description: The Estate API from Fixflo — 3 operation(s) for estate.
+  humanURL: https://api-docs.fixflo.com/
+  baseURL: https://api-sandbox.fixflo.com/api/v2
+  tags:
+  - Estate
+  properties:
+  - type: OpenAPI
+    url: openapi/fixflo-estate-api-openapi.yml
+  - type: Documentation
+    url: https://api-docs.fixflo.com/
+  - type: APIReference
+    url: https://api-docs.fixflo.com/5aaf5f6f6bc52-fixflo
+  - type: GettingStarted
+    url: https://api-docs.fixflo.com/72b66de24898e-welcome-to-fixflo
+  - type: Webhooks
+    url: https://api-docs.fixflo.com/5cc9374300b99-webhooks
+  - type: Authentication
+    url: authentication/fixflo-authentication.yml
+  - type: OpenIDConnectDiscovery
+    url: https://api.fixflo.com/.well-known/openid-configuration
+  - type: JWKS
+    url: https://api.fixflo.com/.well-known/jwks
+  - type: Conventions
+    url: conventions/fixflo-conventions.yml
+  - type: Idempotency
+    url: conventions/fixflo-conventions.yml
+  - type: ErrorCatalog
+    url: errors/fixflo-problem-types.yml
+  - type: DataModel
+    url: data-model/fixflo-data-model.yml
+  - type: Sandbox
+    url: sandbox/fixflo-sandbox.yml
+  - type: RateLimits
+    url: rate-limits/fixflo-rate-limits.yml
+  - type: Postman
+    url: https://www.postman.com/fixflo/fixflo-public/collection/glxckcp/fixflo-docs
+  - type: PostmanCollection
+    url: https://www.postman.com/fixflo/fixflo-public/collection/glxckcp/fixflo-docs
+  - type: SDK
+    url: https://www.nuget.org/packages/Fixflo.WebApi.Client.V2/
+  - type: TermsOfService
+    url: >-
+      https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+  - type: Support
+    url: >-
+      https://help.fixflo.com/support/solutions/articles/61000295569-api-faqs-commonly-asked-questions-when-creating-an-integration
+- aid: fixflo:fixflo-faulttree-api
+  name: Fixflo Fault Tree API
+  description: The FaultTree API from Fixflo — 1 operation(s) for faulttree.
+  humanURL: https://api-docs.fixflo.com/
+  baseURL: https://api-sandbox.fixflo.com/api/v2
+  tags:
+  - FaultTree
+  properties:
+  - type: OpenAPI
+    url: openapi/fixflo-faulttree-api-openapi.yml
+  - type: Documentation
+    url: https://api-docs.fixflo.com/
+  - type: APIReference
+    url: https://api-docs.fixflo.com/5aaf5f6f6bc52-fixflo
+  - type: GettingStarted
+    url: https://api-docs.fixflo.com/72b66de24898e-welcome-to-fixflo
+  - type: Webhooks
+    url: https://api-docs.fixflo.com/5cc9374300b99-webhooks
+  - type: Authentication
+    url: authentication/fixflo-authentication.yml
+  - type: OpenIDConnectDiscovery
+    url: https://api.fixflo.com/.well-known/openid-configuration
+  - type: JWKS
+    url: https://api.fixflo.com/.well-known/jwks
+  - type: Conventions
+    url: conventions/fixflo-conventions.yml
+  - type: Idempotency
+    url: conventions/fixflo-conventions.yml
+  - type: ErrorCatalog
+    url: errors/fixflo-problem-types.yml
+  - type: DataModel
+    url: data-model/fixflo-data-model.yml
+  - type: Sandbox
+    url: sandbox/fixflo-sandbox.yml
+  - type: RateLimits
+    url: rate-limits/fixflo-rate-limits.yml
+  - type: Postman
+    url: https://www.postman.com/fixflo/fixflo-public/collection/glxckcp/fixflo-docs
+  - type: PostmanCollection
+    url: https://www.postman.com/fixflo/fixflo-public/collection/glxckcp/fixflo-docs
+  - type: SDK
+    url: https://www.nuget.org/packages/Fixflo.WebApi.Client.V2/
+  - type: TermsOfService
+    url: >-
+      https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+  - type: Support
+    url: >-
+      https://help.fixflo.com/support/solutions/articles/61000295569-api-faqs-commonly-asked-questions-when-creating-an-integration
+- aid: fixflo:fixflo-issue-api
+  name: Fixflo Issue API
+  description: The Issue API from Fixflo — 11 operation(s) for issue.
+  humanURL: https://api-docs.fixflo.com/
+  baseURL: https://api-sandbox.fixflo.com/api/v2
+  tags:
+  - Issue
+  properties:
+  - type: OpenAPI
+    url: openapi/fixflo-issue-api-openapi.yml
+  - type: Documentation
+    url: https://api-docs.fixflo.com/
+  - type: APIReference
+    url: https://api-docs.fixflo.com/5aaf5f6f6bc52-fixflo
+  - type: GettingStarted
+    url: https://api-docs.fixflo.com/72b66de24898e-welcome-to-fixflo
+  - type: Webhooks
+    url: https://api-docs.fixflo.com/5cc9374300b99-webhooks
+  - type: Authentication
+    url: authentication/fixflo-authentication.yml
+  - type: OpenIDConnectDiscovery
+    url: https://api.fixflo.com/.well-known/openid-configuration
+  - type: JWKS
+    url: https://api.fixflo.com/.well-known/jwks
+  - type: Conventions
+    url: conventions/fixflo-conventions.yml
+  - type: Idempotency
+    url: conventions/fixflo-conventions.yml
+  - type: ErrorCatalog
+    url: errors/fixflo-problem-types.yml
+  - type: DataModel
+    url: data-model/fixflo-data-model.yml
+  - type: Sandbox
+    url: sandbox/fixflo-sandbox.yml
+  - type: RateLimits
+    url: rate-limits/fixflo-rate-limits.yml
+  - type: Postman
+    url: https://www.postman.com/fixflo/fixflo-public/collection/glxckcp/fixflo-docs
+  - type: PostmanCollection
+    url: https://www.postman.com/fixflo/fixflo-public/collection/glxckcp/fixflo-docs
+  - type: SDK
+    url: https://www.nuget.org/packages/Fixflo.WebApi.Client.V2/
+  - type: TermsOfService
+    url: >-
+      https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+  - type: Support
+    url: >-
+      https://help.fixflo.com/support/solutions/articles/61000295569-api-faqs-commonly-asked-questions-when-creating-an-integration
+- aid: fixflo:fixflo-issue-draft-api
+  name: Fixflo Issue draft API
+  description: The Issue draft API from Fixflo — 7 operation(s) for issue draft.
+  humanURL: https://api-docs.fixflo.com/
+  baseURL: https://api-sandbox.fixflo.com/api/v2
+  tags:
+  - Issue draft
+  properties:
+  - type: OpenAPI
+    url: openapi/fixflo-issue-draft-api-openapi.yml
+  - type: Documentation
+    url: https://api-docs.fixflo.com/
+  - type: APIReference
+    url: https://api-docs.fixflo.com/5aaf5f6f6bc52-fixflo
+  - type: GettingStarted
+    url: https://api-docs.fixflo.com/72b66de24898e-welcome-to-fixflo
+  - type: Webhooks
+    url: https://api-docs.fixflo.com/5cc9374300b99-webhooks
+  - type: Authentication
+    url: authentication/fixflo-authentication.yml
+  - type: OpenIDConnectDiscovery
+    url: https://api.fixflo.com/.well-known/openid-configuration
+  - type: JWKS
+    url: https://api.fixflo.com/.well-known/jwks
+  - type: Conventions
+    url: conventions/fixflo-conventions.yml
+  - type: Idempotency
+    url: conventions/fixflo-conventions.yml
+  - type: ErrorCatalog
+    url: errors/fixflo-problem-types.yml
+  - type: DataModel
+    url: data-model/fixflo-data-model.yml
+  - type: Sandbox
+    url: sandbox/fixflo-sandbox.yml
+  - type: RateLimits
+    url: rate-limits/fixflo-rate-limits.yml
+  - type: Postman
+    url: https://www.postman.com/fixflo/fixflo-public/collection/glxckcp/fixflo-docs
+  - type: PostmanCollection
+    url: https://www.postman.com/fixflo/fixflo-public/collection/glxckcp/fixflo-docs
+  - type: SDK
+    url: https://www.nuget.org/packages/Fixflo.WebApi.Client.V2/
+  - type: TermsOfService
+    url: >-
+      https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+  - type: Support
+    url: >-
+      https://help.fixflo.com/support/solutions/articles/61000295569-api-faqs-commonly-asked-questions-when-creating-an-integration
+- aid: fixflo:fixflo-job-api
+  name: Fixflo Job API
+  description: The Job API from Fixflo — 1 operation(s) for job.
+  humanURL: https://api-docs.fixflo.com/
+  baseURL: https://api-sandbox.fixflo.com/api/v2
+  tags:
+  - Job
+  properties:
+  - type: OpenAPI
+    url: openapi/fixflo-job-api-openapi.yml
+  - type: Documentation
+    url: https://api-docs.fixflo.com/
+  - type: APIReference
+    url: https://api-docs.fixflo.com/5aaf5f6f6bc52-fixflo
+  - type: GettingStarted
+    url: https://api-docs.fixflo.com/72b66de24898e-welcome-to-fixflo
+  - type: Webhooks
+    url: https://api-docs.fixflo.com/5cc9374300b99-webhooks
+  - type: Authentication
+    url: authentication/fixflo-authentication.yml
+  - type: OpenIDConnectDiscovery
+    url: https://api.fixflo.com/.well-known/openid-configuration
+  - type: JWKS
+    url: https://api.fixflo.com/.well-known/jwks
+  - type: Conventions
+    url: conventions/fixflo-conventions.yml
+  - type: Idempotency
+    url: conventions/fixflo-conventions.yml
+  - type: ErrorCatalog
+    url: errors/fixflo-problem-types.yml
+  - type: DataModel
+    url: data-model/fixflo-data-model.yml
+  - type: Sandbox
+    url: sandbox/fixflo-sandbox.yml
+  - type: RateLimits
+    url: rate-limits/fixflo-rate-limits.yml
+  - type: Postman
+    url: https://www.postman.com/fixflo/fixflo-public/collection/glxckcp/fixflo-docs
+  - type: PostmanCollection
+    url: https://www.postman.com/fixflo/fixflo-public/collection/glxckcp/fixflo-docs
+  - type: SDK
+    url: https://www.nuget.org/packages/Fixflo.WebApi.Client.V2/
+  - type: TermsOfService
+    url: >-
+      https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+  - type: Support
+    url: >-
+      https://help.fixflo.com/support/solutions/articles/61000295569-api-faqs-commonly-asked-questions-when-creating-an-integration
+- aid: fixflo:fixflo-landlord-api
+  name: Fixflo Landlord API
+  description: The Landlord API from Fixflo — 8 operation(s) for landlord.
+  humanURL: https://api-docs.fixflo.com/
+  baseURL: https://api-sandbox.fixflo.com/api/v2
+  tags:
+  - Landlord
+  properties:
+  - type: OpenAPI
+    url: openapi/fixflo-landlord-api-openapi.yml
+  - type: Documentation
+    url: https://api-docs.fixflo.com/
+  - type: APIReference
+    url: https://api-docs.fixflo.com/5aaf5f6f6bc52-fixflo
+  - type: GettingStarted
+    url: https://api-docs.fixflo.com/72b66de24898e-welcome-to-fixflo
+  - type: Webhooks
+    url: https://api-docs.fixflo.com/5cc9374300b99-webhooks
+  - type: Authentication
+    url: authentication/fixflo-authentication.yml
+  - type: OpenIDConnectDiscovery
+    url: https://api.fixflo.com/.well-known/openid-configuration
+  - type: JWKS
+    url: https://api.fixflo.com/.well-known/jwks
+  - type: Conventions
+    url: conventions/fixflo-conventions.yml
+  - type: Idempotency
+    url: conventions/fixflo-conventions.yml
+  - type: ErrorCatalog
+    url: errors/fixflo-problem-types.yml
+  - type: DataModel
+    url: data-model/fixflo-data-model.yml
+  - type: Sandbox
+    url: sandbox/fixflo-sandbox.yml
+  - type: RateLimits
+    url: rate-limits/fixflo-rate-limits.yml
+  - type: Postman
+    url: https://www.postman.com/fixflo/fixflo-public/collection/glxckcp/fixflo-docs
+  - type: PostmanCollection
+    url: https://www.postman.com/fixflo/fixflo-public/collection/glxckcp/fixflo-docs
+  - type: SDK
+    url: https://www.nuget.org/packages/Fixflo.WebApi.Client.V2/
+  - type: TermsOfService
+    url: >-
+      https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+  - type: Support
+    url: >-
+      https://help.fixflo.com/support/solutions/articles/61000295569-api-faqs-commonly-asked-questions-when-creating-an-integration
+- aid: fixflo:fixflo-leaseholder-api
+  name: Fixflo Leaseholder API
+  description: The Leaseholder API from Fixflo — 9 operation(s) for leaseholder.
+  humanURL: https://api-docs.fixflo.com/
+  baseURL: https://api-sandbox.fixflo.com/api/v2
+  tags:
+  - Leaseholder
+  properties:
+  - type: OpenAPI
+    url: openapi/fixflo-leaseholder-api-openapi.yml
+  - type: Documentation
+    url: https://api-docs.fixflo.com/
+  - type: APIReference
+    url: https://api-docs.fixflo.com/5aaf5f6f6bc52-fixflo
+  - type: GettingStarted
+    url: https://api-docs.fixflo.com/72b66de24898e-welcome-to-fixflo
+  - type: Webhooks
+    url: https://api-docs.fixflo.com/5cc9374300b99-webhooks
+  - type: Authentication
+    url: authentication/fixflo-authentication.yml
+  - type: OpenIDConnectDiscovery
+    url: https://api.fixflo.com/.well-known/openid-configuration
+  - type: JWKS
+    url: https://api.fixflo.com/.well-known/jwks
+  - type: Conventions
+    url: conventions/fixflo-conventions.yml
+  - type: Idempotency
+    url: conventions/fixflo-conventions.yml
+  - type: ErrorCatalog
+    url: errors/fixflo-problem-types.yml
+  - type: DataModel
+    url: data-model/fixflo-data-model.yml
+  - type: Sandbox
+    url: sandbox/fixflo-sandbox.yml
+  - type: RateLimits
+    url: rate-limits/fixflo-rate-limits.yml
+  - type: Postman
+    url: https://www.postman.com/fixflo/fixflo-public/collection/glxckcp/fixflo-docs
+  - type: PostmanCollection
+    url: https://www.postman.com/fixflo/fixflo-public/collection/glxckcp/fixflo-docs
+  - type: SDK
+    url: https://www.nuget.org/packages/Fixflo.WebApi.Client.V2/
+  - type: TermsOfService
+    url: >-
+      https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+  - type: Support
+    url: >-
+      https://help.fixflo.com/support/solutions/articles/61000295569-api-faqs-commonly-asked-questions-when-creating-an-integration
+- aid: fixflo:fixflo-media-api
+  name: Fixflo Media API
+  description: The Media API from Fixflo — 3 operation(s) for media.
+  humanURL: https://api-docs.fixflo.com/
+  baseURL: https://api-sandbox.fixflo.com/api/v2
+  tags:
+  - Media
+  properties:
+  - type: OpenAPI
+    url: openapi/fixflo-media-api-openapi.yml
+  - type: Documentation
+    url: https://api-docs.fixflo.com/
+  - type: APIReference
+    url: https://api-docs.fixflo.com/5aaf5f6f6bc52-fixflo
+  - type: GettingStarted
+    url: https://api-docs.fixflo.com/72b66de24898e-welcome-to-fixflo
+  - type: Webhooks
+    url: https://api-docs.fixflo.com/5cc9374300b99-webhooks
+  - type: Authentication
+    url: authentication/fixflo-authentication.yml
+  - type: OpenIDConnectDiscovery
+    url: https://api.fixflo.com/.well-known/openid-configuration
+  - type: JWKS
+    url: https://api.fixflo.com/.well-known/jwks
+  - type: Conventions
+    url: conventions/fixflo-conventions.yml
+  - type: Idempotency
+    url: conventions/fixflo-conventions.yml
+  - type: ErrorCatalog
+    url: errors/fixflo-problem-types.yml
+  - type: DataModel
+    url: data-model/fixflo-data-model.yml
+  - type: Sandbox
+    url: sandbox/fixflo-sandbox.yml
+  - type: RateLimits
+    url: rate-limits/fixflo-rate-limits.yml
+  - type: Postman
+    url: https://www.postman.com/fixflo/fixflo-public/collection/glxckcp/fixflo-docs
+  - type: PostmanCollection
+    url: https://www.postman.com/fixflo/fixflo-public/collection/glxckcp/fixflo-docs
+  - type: SDK
+    url: https://www.nuget.org/packages/Fixflo.WebApi.Client.V2/
+  - type: TermsOfService
+    url: >-
+      https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+  - type: Support
+    url: >-
+      https://help.fixflo.com/support/solutions/articles/61000295569-api-faqs-commonly-asked-questions-when-creating-an-integration
+- aid: fixflo:fixflo-property-api
+  name: Fixflo Property API
+  description: The Property API from Fixflo — 15 operation(s) for property.
+  humanURL: https://api-docs.fixflo.com/
+  baseURL: https://api-sandbox.fixflo.com/api/v2
+  tags:
+  - Property
+  properties:
+  - type: OpenAPI
+    url: openapi/fixflo-property-api-openapi.yml
+  - type: Documentation
+    url: https://api-docs.fixflo.com/
+  - type: APIReference
+    url: https://api-docs.fixflo.com/5aaf5f6f6bc52-fixflo
+  - type: GettingStarted
+    url: https://api-docs.fixflo.com/72b66de24898e-welcome-to-fixflo
+  - type: Webhooks
+    url: https://api-docs.fixflo.com/5cc9374300b99-webhooks
+  - type: Authentication
+    url: authentication/fixflo-authentication.yml
+  - type: OpenIDConnectDiscovery
+    url: https://api.fixflo.com/.well-known/openid-configuration
+  - type: JWKS
+    url: https://api.fixflo.com/.well-known/jwks
+  - type: Conventions
+    url: conventions/fixflo-conventions.yml
+  - type: Idempotency
+    url: conventions/fixflo-conventions.yml
+  - type: ErrorCatalog
+    url: errors/fixflo-problem-types.yml
+  - type: DataModel
+    url: data-model/fixflo-data-model.yml
+  - type: Sandbox
+    url: sandbox/fixflo-sandbox.yml
+  - type: RateLimits
+    url: rate-limits/fixflo-rate-limits.yml
+  - type: Postman
+    url: https://www.postman.com/fixflo/fixflo-public/collection/glxckcp/fixflo-docs
+  - type: PostmanCollection
+    url: https://www.postman.com/fixflo/fixflo-public/collection/glxckcp/fixflo-docs
+  - type: SDK
+    url: https://www.nuget.org/packages/Fixflo.WebApi.Client.V2/
+  - type: TermsOfService
+    url: >-
+      https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+  - type: Support
+    url: >-
+      https://help.fixflo.com/support/solutions/articles/61000295569-api-faqs-commonly-asked-questions-when-creating-an-integration
+- aid: fixflo:fixflo-service-event-api
+  name: Fixflo Service Event API
+  description: The Service Event API from Fixflo — 7 operation(s) for service event.
+  humanURL: https://api-docs.fixflo.com/
+  baseURL: https://api-sandbox.fixflo.com/api/v2
+  tags:
+  - Service Event
+  properties:
+  - type: OpenAPI
+    url: openapi/fixflo-service-event-api-openapi.yml
+  - type: Documentation
+    url: https://api-docs.fixflo.com/
+  - type: APIReference
+    url: https://api-docs.fixflo.com/5aaf5f6f6bc52-fixflo
+  - type: GettingStarted
+    url: https://api-docs.fixflo.com/72b66de24898e-welcome-to-fixflo
+  - type: Webhooks
+    url: https://api-docs.fixflo.com/5cc9374300b99-webhooks
+  - type: Authentication
+    url: authentication/fixflo-authentication.yml
+  - type: OpenIDConnectDiscovery
+    url: https://api.fixflo.com/.well-known/openid-configuration
+  - type: JWKS
+    url: https://api.fixflo.com/.well-known/jwks
+  - type: Conventions
+    url: conventions/fixflo-conventions.yml
+  - type: Idempotency
+    url: conventions/fixflo-conventions.yml
+  - type: ErrorCatalog
+    url: errors/fixflo-problem-types.yml
+  - type: DataModel
+    url: data-model/fixflo-data-model.yml
+  - type: Sandbox
+    url: sandbox/fixflo-sandbox.yml
+  - type: RateLimits
+    url: rate-limits/fixflo-rate-limits.yml
+  - type: Postman
+    url: https://www.postman.com/fixflo/fixflo-public/collection/glxckcp/fixflo-docs
+  - type: PostmanCollection
+    url: https://www.postman.com/fixflo/fixflo-public/collection/glxckcp/fixflo-docs
+  - type: SDK
+    url: https://www.nuget.org/packages/Fixflo.WebApi.Client.V2/
+  - type: TermsOfService
+    url: >-
+      https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+  - type: Support
+    url: >-
+      https://help.fixflo.com/support/solutions/articles/61000295569-api-faqs-commonly-asked-questions-when-creating-an-integration
+- aid: fixflo:fixflo-service-programme-api
+  name: Fixflo Service Programme API
+  description: The Service Programme API from Fixflo — 4 operation(s) for service programme.
+  humanURL: https://api-docs.fixflo.com/
+  baseURL: https://api-sandbox.fixflo.com/api/v2
+  tags:
+  - Service Programme
+  properties:
+  - type: OpenAPI
+    url: openapi/fixflo-service-programme-api-openapi.yml
+  - type: Documentation
+    url: https://api-docs.fixflo.com/
+  - type: APIReference
+    url: https://api-docs.fixflo.com/5aaf5f6f6bc52-fixflo
+  - type: GettingStarted
+    url: https://api-docs.fixflo.com/72b66de24898e-welcome-to-fixflo
+  - type: Webhooks
+    url: https://api-docs.fixflo.com/5cc9374300b99-webhooks
+  - type: Authentication
+    url: authentication/fixflo-authentication.yml
+  - type: OpenIDConnectDiscovery
+    url: https://api.fixflo.com/.well-known/openid-configuration
+  - type: JWKS
+    url: https://api.fixflo.com/.well-known/jwks
+  - type: Conventions
+    url: conventions/fixflo-conventions.yml
+  - type: Idempotency
+    url: conventions/fixflo-conventions.yml
+  - type: ErrorCatalog
+    url: errors/fixflo-problem-types.yml
+  - type: DataModel
+    url: data-model/fixflo-data-model.yml
+  - type: Sandbox
+    url: sandbox/fixflo-sandbox.yml
+  - type: RateLimits
+    url: rate-limits/fixflo-rate-limits.yml
+  - type: Postman
+    url: https://www.postman.com/fixflo/fixflo-public/collection/glxckcp/fixflo-docs
+  - type: PostmanCollection
+    url: https://www.postman.com/fixflo/fixflo-public/collection/glxckcp/fixflo-docs
+  - type: SDK
+    url: https://www.nuget.org/packages/Fixflo.WebApi.Client.V2/
+  - type: TermsOfService
+    url: >-
+      https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+  - type: Support
+    url: >-
+      https://help.fixflo.com/support/solutions/articles/61000295569-api-faqs-commonly-asked-questions-when-creating-an-integration
+- aid: fixflo:fixflo-service-programme-definition-api
+  name: Fixflo Service programme definition API
+  description: >-
+    The Service programme definition API from Fixflo — 2 operation(s) for service programme definition.
+  humanURL: https://api-docs.fixflo.com/
+  baseURL: https://api-sandbox.fixflo.com/api/v2
+  tags:
+  - Service programme definition
+  properties:
+  - type: OpenAPI
+    url: openapi/fixflo-service-programme-definition-api-openapi.yml
+  - type: Documentation
+    url: https://api-docs.fixflo.com/
+  - type: APIReference
+    url: https://api-docs.fixflo.com/5aaf5f6f6bc52-fixflo
+  - type: GettingStarted
+    url: https://api-docs.fixflo.com/72b66de24898e-welcome-to-fixflo
+  - type: Webhooks
+    url: https://api-docs.fixflo.com/5cc9374300b99-webhooks
+  - type: Authentication
+    url: authentication/fixflo-authentication.yml
+  - type: OpenIDConnectDiscovery
+    url: https://api.fixflo.com/.well-known/openid-configuration
+  - type: JWKS
+    url: https://api.fixflo.com/.well-known/jwks
+  - type: Conventions
+    url: conventions/fixflo-conventions.yml
+  - type: Idempotency
+    url: conventions/fixflo-conventions.yml
+  - type: ErrorCatalog
+    url: errors/fixflo-problem-types.yml
+  - type: DataModel
+    url: data-model/fixflo-data-model.yml
+  - type: Sandbox
+    url: sandbox/fixflo-sandbox.yml
+  - type: RateLimits
+    url: rate-limits/fixflo-rate-limits.yml
+  - type: Postman
+    url: https://www.postman.com/fixflo/fixflo-public/collection/glxckcp/fixflo-docs
+  - type: PostmanCollection
+    url: https://www.postman.com/fixflo/fixflo-public/collection/glxckcp/fixflo-docs
+  - type: SDK
+    url: https://www.nuget.org/packages/Fixflo.WebApi.Client.V2/
+  - type: TermsOfService
+    url: >-
+      https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+  - type: Support
+    url: >-
+      https://help.fixflo.com/support/solutions/articles/61000295569-api-faqs-commonly-asked-questions-when-creating-an-integration
+- aid: fixflo:fixflo-team-api
+  name: Fixflo Team API
+  description: The Team API from Fixflo — 2 operation(s) for team.
+  humanURL: https://api-docs.fixflo.com/
+  baseURL: https://api-sandbox.fixflo.com/api/v2
+  tags:
+  - Team
+  properties:
+  - type: OpenAPI
+    url: openapi/fixflo-team-api-openapi.yml
+  - type: Documentation
+    url: https://api-docs.fixflo.com/
+  - type: APIReference
+    url: https://api-docs.fixflo.com/5aaf5f6f6bc52-fixflo
+  - type: GettingStarted
+    url: https://api-docs.fixflo.com/72b66de24898e-welcome-to-fixflo
+  - type: Webhooks
+    url: https://api-docs.fixflo.com/5cc9374300b99-webhooks
+  - type: Authentication
+    url: authentication/fixflo-authentication.yml
+  - type: OpenIDConnectDiscovery
+    url: https://api.fixflo.com/.well-known/openid-configuration
+  - type: JWKS
+    url: https://api.fixflo.com/.well-known/jwks
+  - type: Conventions
+    url: conventions/fixflo-conventions.yml
+  - type: Idempotency
+    url: conventions/fixflo-conventions.yml
+  - type: ErrorCatalog
+    url: errors/fixflo-problem-types.yml
+  - type: DataModel
+    url: data-model/fixflo-data-model.yml
+  - type: Sandbox
+    url: sandbox/fixflo-sandbox.yml
+  - type: RateLimits
+    url: rate-limits/fixflo-rate-limits.yml
+  - type: Postman
+    url: https://www.postman.com/fixflo/fixflo-public/collection/glxckcp/fixflo-docs
+  - type: PostmanCollection
+    url: https://www.postman.com/fixflo/fixflo-public/collection/glxckcp/fixflo-docs
+  - type: SDK
+    url: https://www.nuget.org/packages/Fixflo.WebApi.Client.V2/
+  - type: TermsOfService
+    url: >-
+      https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+  - type: Support
+    url: >-
+      https://help.fixflo.com/support/solutions/articles/61000295569-api-faqs-commonly-asked-questions-when-creating-an-integration
+- aid: fixflo:fixflo-tenant-api
+  name: Fixflo Tenant API
+  description: The Tenant API from Fixflo — 7 operation(s) for tenant.
+  humanURL: https://api-docs.fixflo.com/
+  baseURL: https://api-sandbox.fixflo.com/api/v2
+  tags:
+  - Tenant
+  properties:
+  - type: OpenAPI
+    url: openapi/fixflo-tenant-api-openapi.yml
+  - type: Documentation
+    url: https://api-docs.fixflo.com/
+  - type: APIReference
+    url: https://api-docs.fixflo.com/5aaf5f6f6bc52-fixflo
+  - type: GettingStarted
+    url: https://api-docs.fixflo.com/72b66de24898e-welcome-to-fixflo
+  - type: Webhooks
+    url: https://api-docs.fixflo.com/5cc9374300b99-webhooks
+  - type: Authentication
+    url: authentication/fixflo-authentication.yml
+  - type: OpenIDConnectDiscovery
+    url: https://api.fixflo.com/.well-known/openid-configuration
+  - type: JWKS
+    url: https://api.fixflo.com/.well-known/jwks
+  - type: Conventions
+    url: conventions/fixflo-conventions.yml
+  - type: Idempotency
+    url: conventions/fixflo-conventions.yml
+  - type: ErrorCatalog
+    url: errors/fixflo-problem-types.yml
+  - type: DataModel
+    url: data-model/fixflo-data-model.yml
+  - type: Sandbox
+    url: sandbox/fixflo-sandbox.yml
+  - type: RateLimits
+    url: rate-limits/fixflo-rate-limits.yml
+  - type: Postman
+    url: https://www.postman.com/fixflo/fixflo-public/collection/glxckcp/fixflo-docs
+  - type: PostmanCollection
+    url: https://www.postman.com/fixflo/fixflo-public/collection/glxckcp/fixflo-docs
+  - type: SDK
+    url: https://www.nuget.org/packages/Fixflo.WebApi.Client.V2/
+  - type: TermsOfService
+    url: >-
+      https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+  - type: Support
+    url: >-
+      https://help.fixflo.com/support/solutions/articles/61000295569-api-faqs-commonly-asked-questions-when-creating-an-integration
+- aid: fixflo:fixflo-warranty-api
+  name: Fixflo Warranty API
+  description: The Warranty API from Fixflo — 3 operation(s) for warranty.
+  humanURL: https://api-docs.fixflo.com/
+  baseURL: https://api-sandbox.fixflo.com/api/v2
+  tags:
+  - Warranty
+  properties:
+  - type: OpenAPI
+    url: openapi/fixflo-warranty-api-openapi.yml
+  - type: Documentation
+    url: https://api-docs.fixflo.com/
+  - type: APIReference
+    url: https://api-docs.fixflo.com/5aaf5f6f6bc52-fixflo
+  - type: GettingStarted
+    url: https://api-docs.fixflo.com/72b66de24898e-welcome-to-fixflo
+  - type: Webhooks
+    url: https://api-docs.fixflo.com/5cc9374300b99-webhooks
+  - type: Authentication
+    url: authentication/fixflo-authentication.yml
+  - type: OpenIDConnectDiscovery
+    url: https://api.fixflo.com/.well-known/openid-configuration
+  - type: JWKS
+    url: https://api.fixflo.com/.well-known/jwks
+  - type: Conventions
+    url: conventions/fixflo-conventions.yml
+  - type: Idempotency
+    url: conventions/fixflo-conventions.yml
+  - type: ErrorCatalog
+    url: errors/fixflo-problem-types.yml
+  - type: DataModel
+    url: data-model/fixflo-data-model.yml
+  - type: Sandbox
+    url: sandbox/fixflo-sandbox.yml
+  - type: RateLimits
+    url: rate-limits/fixflo-rate-limits.yml
+  - type: Postman
+    url: https://www.postman.com/fixflo/fixflo-public/collection/glxckcp/fixflo-docs
+  - type: PostmanCollection
+    url: https://www.postman.com/fixflo/fixflo-public/collection/glxckcp/fixflo-docs
+  - type: SDK
+    url: https://www.nuget.org/packages/Fixflo.WebApi.Client.V2/
+  - type: TermsOfService
+    url: >-
+      https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+  - type: Support
+    url: >-
+      https://help.fixflo.com/support/solutions/articles/61000295569-api-faqs-commonly-asked-questions-when-creating-an-integration
+- aid: fixflo:fixflo-webhook-api
+  name: Fixflo Webhook API
+  description: The Webhook API from Fixflo — 4 operation(s) for webhook.
+  humanURL: https://api-docs.fixflo.com/
+  baseURL: https://api-sandbox.fixflo.com/api/v2
+  tags:
+  - Webhook
+  properties:
+  - type: OpenAPI
+    url: openapi/fixflo-webhook-api-openapi.yml
+  - type: Documentation
+    url: https://api-docs.fixflo.com/
+  - type: APIReference
+    url: https://api-docs.fixflo.com/5aaf5f6f6bc52-fixflo
+  - type: GettingStarted
+    url: https://api-docs.fixflo.com/72b66de24898e-welcome-to-fixflo
+  - type: Webhooks
+    url: https://api-docs.fixflo.com/5cc9374300b99-webhooks
+  - type: Authentication
+    url: authentication/fixflo-authentication.yml
+  - type: OpenIDConnectDiscovery
+    url: https://api.fixflo.com/.well-known/openid-configuration
+  - type: JWKS
+    url: https://api.fixflo.com/.well-known/jwks
+  - type: Conventions
+    url: conventions/fixflo-conventions.yml
+  - type: Idempotency
+    url: conventions/fixflo-conventions.yml
+  - type: ErrorCatalog
+    url: errors/fixflo-problem-types.yml
+  - type: DataModel
+    url: data-model/fixflo-data-model.yml
+  - type: Sandbox
+    url: sandbox/fixflo-sandbox.yml
+  - type: RateLimits
+    url: rate-limits/fixflo-rate-limits.yml
+  - type: Postman
+    url: https://www.postman.com/fixflo/fixflo-public/collection/glxckcp/fixflo-docs
+  - type: PostmanCollection
+    url: https://www.postman.com/fixflo/fixflo-public/collection/glxckcp/fixflo-docs
+  - type: SDK
+    url: https://www.nuget.org/packages/Fixflo.WebApi.Client.V2/
+  - type: TermsOfService
+    url: >-
+      https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+  - type: Support
+    url: >-
+      https://help.fixflo.com/support/solutions/articles/61000295569-api-faqs-commonly-asked-questions-when-creating-an-integration
 common:
 - type: DomainSecurity
   url: security/fixflo-domain-security.yml
