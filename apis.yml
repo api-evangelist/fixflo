@@ -1208,6 +1208,9 @@ apis:
     url: >-
       https://help.fixflo.com/support/solutions/articles/61000295569-api-faqs-commonly-asked-questions-when-creating-an-integration
 common:
+- type: CapabilityMap
+  url: capabilities/fixflo-capability-edges.yml
+  name: Fixflo Business Capability Map
 - type: DomainSecurity
   url: security/fixflo-domain-security.yml
 - type: AgenticAccess

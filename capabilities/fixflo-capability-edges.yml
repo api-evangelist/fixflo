@@ -1,0 +1,96 @@
+slug: fixflo
+provider: Fixflo
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Real Estate
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 8
+edges:
+- tag: Issue
+  spec_file: fixflo-issue-api-openapi.yml
+  capability_id: BC-4940.20
+  capability_id_l1: BC-4940
+  capability_name: Property Maintenance & Work Order Management
+  confidence: 0.85
+  evidence: GET /Issues/JobAwarded  Issue / job awarded; GET /Issues/JobCompleted  Issue / job completed;
+    GET /Issue/{issueId}/quotes
+  reason: Repair issue lifecycle from report through quote, job award, completion and closure — the core
+    reactive property maintenance and work-order capability.
+- tag: Contractor
+  spec_file: fixflo-contractor-api-openapi.yml
+  capability_id: BC-4940.30
+  capability_id_l1: BC-4940
+  capability_name: Property Vendor & Service Contract Management
+  confidence: 0.8
+  evidence: POST /Contractor; GET /Contractor/Services  Contractor / services; schemas ContractorCertification,
+    ContractorService, InvoiceDetails
+  reason: Onboarding and management of property-level service contractors with services, certifications
+    and invoicing details — property vendor and service contract management.
+- tag: Service Event
+  spec_file: fixflo-service-event-api-openapi.yml
+  capability_id: BC-4940.20
+  capability_id_l1: BC-4940
+  capability_name: Property Maintenance & Work Order Management
+  confidence: 0.8
+  evidence: POST /Property/{propertyId}/ServiceProgramme/{serviceProgrammeId}/ServiceEvent  'Create Service
+    Event'; 'Complete Service Event'; schemas Contractor, InvoiceDetails, ServiceEventComplete
+  reason: Scheduled service/maintenance visits raised against a property's service programme, assigned
+    to contractors and completed with line items — planned and reactive property maintenance executed
+    as jobs.
+- tag: Service Programme
+  spec_file: fixflo-service-programme-api-openapi.yml
+  capability_id: BC-4940.20
+  capability_id_l1: BC-4940
+  capability_name: Property Maintenance & Work Order Management
+  confidence: 0.78
+  evidence: GET /Property/{propertyId}/ServiceProgrammes  'Service programmes by Property'; schemas ServiceProgramme,
+    ContractorService, ServiceEvent
+  reason: Recurring service programmes attached to properties that generate service events performed by
+    contractors — preventive/statutory property maintenance scheduling.
+- tag: Contractor networks
+  spec_file: fixflo-contractor-networks-api-openapi.yml
+  capability_id: BC-4940.20
+  capability_id_l1: BC-4940
+  capability_name: Property Maintenance & Work Order Management
+  confidence: 0.75
+  evidence: POST /Issue/{issueid}/jobjobber  Jobber; GET /Issue/{issueid}/jobcompletiondetails  Completion
+    details; GET /issue/{issueid}/invoicedetails  Invoice details
+  reason: 'Contractor-side execution of repair jobs against issues: job assignment, completion details,
+    completion/certificate documents and invoices — the reactive maintenance work-order cycle.'
+- tag: Job
+  spec_file: fixflo-job-api-openapi.yml
+  capability_id: BC-4940.20
+  capability_id_l1: BC-4940
+  capability_name: Property Maintenance & Work Order Management
+  confidence: 0.75
+  evidence: GET /Job/{id}  Job; schemas Job, JobQuoteApproval, Contractor, LineItem, InvoiceDetails
+  reason: Retrieval of a maintenance job with its contractor, quote approval and invoice line items —
+    the executed repair work order.
+- tag: Property
+  spec_file: fixflo-property-api-openapi.yml
+  capability_id: BC-4940
+  capability_id_l1: BC-4940
+  capability_name: Property Management Operations
+  confidence: 0.72
+  evidence: GET /Property/{Id}/Issues 'Property / issues'; GET /Property/{Id}/Tenants 'Property / tenants';
+    GET /Property/{PropertyId}/LandlordProperties
+  reason: Property master records with reported repair issues, tenants, landlord links, warranties and
+    contractors — the core object of landlord/property-manager operations. Spans several sub-capabilities
+    (work orders, tenant services), so L1 only.
+- tag: Issue draft
+  spec_file: fixflo-issue-draft-api-openapi.yml
+  capability_id: BC-4940.20
+  capability_id_l1: BC-4940
+  capability_name: Property Maintenance & Work Order Management
+  confidence: 0.7
+  evidence: POST /IssueDraft/Commit  Commits an IssueDraft; GET /IssueDraft/{Id}/Assets  Issue draft assets;
+    POST /IssueDraftMedia
+  reason: Draft capture of a repair report with photos and affected assets before commitment to a live
+    issue — intake stage of the maintenance work-order process.
