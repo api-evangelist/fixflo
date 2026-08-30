@@ -108,6 +108,8 @@ apis:
   humanURL: https://api-docs.fixflo.com/
   baseURL: https://api-sandbox.fixflo.com/api/v2
   tags:
+  - Agents
+  tags_raw:
   - Agent
   properties:
   - type: OpenAPI
@@ -348,6 +350,8 @@ apis:
   humanURL: https://api-docs.fixflo.com/
   baseURL: https://api-sandbox.fixflo.com/api/v2
   tags:
+  - Contractor Networks
+  tags_raw:
   - Contractor networks
   properties:
   - type: OpenAPI
