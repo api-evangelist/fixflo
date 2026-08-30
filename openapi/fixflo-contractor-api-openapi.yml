@@ -1,0 +1,398 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Fixflo Contractor API
+  description: Fixflo api docs
+  termsOfService: https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+  contact:
+    email: support@fixflo.com
+    name: Support
+  license:
+    url: https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+    name: Fixflo API licence agreement
+servers:
+- url: https://api-sandbox.fixflo.com/api/v2
+  description: live sandbox
+- url: https://plus.dev.fixflo.com/api/v2
+  description: dev
+security:
+- Bearer: []
+tags:
+- name: Contractor
+paths:
+  /Contractor/{id}:
+    parameters:
+    - schema:
+        type: string
+      name: id
+      in: path
+      required: true
+    get:
+      summary: Contractor
+      description: Gets contractor
+      tags:
+      - Contractor
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Contractor'
+      operationId: get-contractor
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Contractor'
+        description: ''
+      parameters:
+      - schema:
+          type: string
+        in: query
+        name: EmailAddress
+      - schema:
+          type: string
+        in: query
+        name: ExternalRef
+      x-stoplight:
+        id: jqwhlysfjxgmj
+  /Contractor:
+    parameters: []
+    post:
+      summary: Contractor
+      tags:
+      - Contractor
+      operationId: post-Contractor
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/Envelope'
+                - type: object
+                  properties:
+                    Entity:
+                      $ref: '#/components/schemas/Contractor'
+      description: "Creates or updates a contractor. \n\nIf the Id of the contractor object is null or empty an attempt to create a new record will be attempted.  \n\nIf the Id of the contractor object is not null or empty it must match an exiting contractor."
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Contractor'
+      x-stoplight:
+        id: ijxek19eh99pr
+  /Contractor/{Id}/Brand:
+    parameters:
+    - schema:
+        type: string
+      name: Id
+      in: path
+      required: true
+    post:
+      summary: Contractor brand
+      tags:
+      - Contractor
+      operationId: post-Contractor-Id-Brand
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+              - $ref: '#/components/schemas/Envelope'
+              - type: object
+                properties:
+                  Entity:
+                    $ref: '#/components/schemas/Brand'
+      description: 'This endpoint sets the contractor brand. '
+  /Contractors:
+    parameters: []
+    get:
+      summary: Contractors
+      description: Find contractors
+      tags:
+      - Contractor
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/PrevNextPager'
+                - type: object
+                  properties:
+                    Items:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/Contractor'
+      operationId: get-contractors
+      parameters:
+      - schema:
+          type: string
+        in: query
+        name: UpdatedSince
+        description: Filters on items that have been updated since this date time. (UTC date/time)
+      - schema:
+          type: string
+        in: query
+        name: Keyword
+        description: Keyword to search with
+      - schema:
+          type: integer
+        in: query
+        name: Pg
+        description: Page number to return
+  /Contractor/Services:
+    parameters: []
+    get:
+      summary: Contractor / services
+      tags:
+      - Contractor
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ContractorService'
+      operationId: get-contractor-services
+      description: Get the list of contractor services. There are no paramters for this request
+components:
+  schemas:
+    ContractorService:
+      title: ContractorService
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique id of service. When updating a contractor to have new services this is the only field that is required
+        Name:
+          type: string
+          description: 'This is the standard name of the service. This is what is shown within the Fixflo system
+
+            '
+        NameAndSynonyms:
+          type: array
+          description: This is a list of other terms the service may be referred as, to help with mapping.
+          items:
+            type: string
+    PrevNextPager:
+      type: object
+      properties:
+        TotalItems:
+          type: integer
+          x-stoplight:
+            id: qbm018n4fbivf
+          description: The total number of items
+        TotalPages:
+          type: integer
+          x-stoplight:
+            id: 8d0f4tjvn3d91
+          description: 'The total number of pages
+
+            '
+        Items:
+          x-stoplight:
+            id: x8n82kadpvt9w
+          type: array
+          items:
+            x-stoplight:
+              id: yp4jiel1kmn2j
+            type: object
+        NextURL:
+          type: string
+          x-stoplight:
+            id: tcm929q75tirz
+          description: The URL of the next page of results
+        PreviousURL:
+          type: string
+          x-stoplight:
+            id: 3hruq0fcrc5sz
+          description: 'The URL of the previous page of results
+
+            '
+    Contractor:
+      title: Contractor
+      type: object
+      properties:
+        Id:
+          type: string
+          description: Unique id of contractor
+        ExternalRef:
+          type: string
+          description: 'This field is designed to be used to reference the contractor in other systems. If set this value must be unique for contractors
+
+            '
+        CompanyName:
+          type: string
+          description: 'Optional company name.
+
+            '
+        Title:
+          type: string
+          description: 'Title of contractor (eg Mr, Mrs, etc)
+
+            '
+        FirstName:
+          type: string
+        Surname:
+          type: string
+        DisplayName:
+          type: string
+          description: 'This value is used for addressing the contractor. For example Dear [DisplayName]
+
+            '
+        EmailAddress:
+          type: string
+          description: 'EmailAddress is also used as a login. This value must be unique for contractors.
+
+            '
+        ContactNumber:
+          type: string
+        ContactNumberAlt:
+          type: string
+        IsDeleted:
+          type: boolean
+        Address:
+          $ref: '#/components/schemas/Address'
+        InvoiceDetails:
+          $ref: '#/components/schemas/InvoiceDetails'
+        Services:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContractorService'
+        Certifications:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContractorCertification'
+        Brand:
+          $ref: '#/components/schemas/Brand'
+        UpdateDate:
+          format: date-time
+          type: string
+          description: Updated date/time (UTC).
+    LineItem:
+      title: LineItem
+      type: object
+      description: 'This is an object in use only for contractor networks for providing invoice details
+
+        '
+      properties:
+        LineType:
+          type: integer
+          description: 0 = labour, 1 = materials, 2 = other. This is reflected in an enum in the nuget package
+          enum:
+          - 0
+          - 1
+          - 2
+        Description:
+          type: string
+        Quantity:
+          type: number
+        UnitPrice:
+          type: number
+        Net:
+          type: number
+        Tax:
+          type: number
+        Total:
+          type: number
+    Envelope:
+      title: Envelope
+      type: object
+      description: This object is used to carry/return responses following post operations.
+      properties:
+        HttpStatusCode:
+          type: integer
+        HttpStatusCodeDesc:
+          type: string
+        Errors:
+          type: array
+          items:
+            type: string
+        Messages:
+          type: array
+          items:
+            type: string
+    InvoiceDetails:
+      title: InvoiceDetails
+      type: object
+      description: This object is for use by contractor networks for submitting invoice details
+      properties:
+        InvoiceDate:
+          format: date-time
+          type: string
+          description: The invoice date is expressed as a date.
+        DueDate:
+          format: date-time
+          type: string
+          description: The due date is expressed as a date.
+        InvoiceNumber:
+          type: string
+        LineItems:
+          type: array
+          items:
+            $ref: '#/components/schemas/LineItem'
+    Address:
+      title: Address
+      type: object
+      properties:
+        AddressLine1:
+          type: string
+        AddressLine2:
+          type: string
+        Town:
+          type: string
+        County:
+          type: string
+        PostCode:
+          type: string
+        Country:
+          type: string
+          description: If set this should be a two letter ISO code. If the information supplied does not match an ISO code it will default to blank
+    Brand:
+      title: Brand
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Unique GUID of brand.
+        Name:
+          type: string
+          description: Brand name
+    ContractorCertification:
+      title: ContractorCertification
+      type: object
+      description: ''
+      properties:
+        id:
+          type: number
+          description: This is a legacy field, 0 will be returned in all cases
+        Name:
+          type: string
+          description: This is the name of the required certificate. Certificate names are set up on a per agency basis; a contractor may have 0 to many certificates, but must not have more than one certificate of the same name
+        Expiry:
+          format: date-time
+          title: DateTime
+          type: string
+          description: When the contractor's certification will expire
+  securitySchemes:
+    Bearer:
+      type: http
+      scheme: bearer
+      description: ''
+x-internal: false

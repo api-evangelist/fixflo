@@ -1,0 +1,222 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Fixflo Service programme definition API
+  description: Fixflo api docs
+  termsOfService: https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+  contact:
+    email: support@fixflo.com
+    name: Support
+  license:
+    url: https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+    name: Fixflo API licence agreement
+servers:
+- url: https://api-sandbox.fixflo.com/api/v2
+  description: live sandbox
+- url: https://plus.dev.fixflo.com/api/v2
+  description: dev
+security:
+- Bearer: []
+tags:
+- name: Service programme definition
+paths:
+  /ServiceProgrammeDef:
+    get:
+      summary: Service programme definition
+      tags:
+      - Service programme definition
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceProgrammeDef'
+      operationId: get-serviceprogrammedef
+      parameters:
+      - schema:
+          type: string
+        in: query
+        name: Id
+      description: Get service programme definition
+    post:
+      summary: Service programme definition
+      tags:
+      - Service programme definition
+      operationId: post-serviceprogrammedef
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/Envelope'
+                - type: object
+                  properties:
+                    Entity:
+                      $ref: '#/components/schemas/ServiceProgrammeDef'
+      description: If Id is not set the record will be added, the record corresponding to the Id will be updated. If Id is set and a record cannot be found a 404 error will be returned.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ServiceProgrammeDef'
+  /ServiceProgrammeDefs:
+    parameters: []
+    get:
+      summary: Service programme definition
+      tags:
+      - Service programme definition
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/PrevNextPager'
+                - type: object
+                  properties:
+                    Items:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/ServiceProgrammeDef'
+      operationId: get-serviceprogrammedefs?pg=-pg-&keyword=-keyword-&IsDisabled=-isDisabled
+      parameters:
+      - schema:
+          type: integer
+        in: query
+        name: pg
+      - schema:
+          type: string
+        in: query
+        name: keyword
+      - schema:
+          type: boolean
+        in: query
+        name: isDisabled
+      description: Get service programme definitions
+components:
+  schemas:
+    PrevNextPager:
+      type: object
+      properties:
+        TotalItems:
+          type: integer
+          x-stoplight:
+            id: qbm018n4fbivf
+          description: The total number of items
+        TotalPages:
+          type: integer
+          x-stoplight:
+            id: 8d0f4tjvn3d91
+          description: 'The total number of pages
+
+            '
+        Items:
+          x-stoplight:
+            id: x8n82kadpvt9w
+          type: array
+          items:
+            x-stoplight:
+              id: yp4jiel1kmn2j
+            type: object
+        NextURL:
+          type: string
+          x-stoplight:
+            id: tcm929q75tirz
+          description: The URL of the next page of results
+        PreviousURL:
+          type: string
+          x-stoplight:
+            id: 3hruq0fcrc5sz
+          description: 'The URL of the previous page of results
+
+            '
+    ServiceProgrammeDef:
+      title: ServiceProgrammeDef
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        EventType:
+          type: string
+          readOnly: true
+        Class:
+          type: string
+          readOnly: true
+        Category:
+          type: string
+          readOnly: true
+        Description:
+          type: string
+          readOnly: true
+        IsStatutory:
+          type: boolean
+          readOnly: true
+        CostCode:
+          type: string
+          readOnly: true
+        InstructionNotes:
+          type: string
+          readOnly: true
+        InstructionDateOffsetPeriod:
+          type: integer
+          description: '0 = days, 1 = weeks, 2 = months
+
+            '
+          enum:
+          - 0
+          - 1
+          - 2
+          readOnly: true
+        InstructionDateOffsetType:
+          type: integer
+          readOnly: true
+        ServiceFrequency:
+          type: integer
+          readOnly: true
+        ServiceFrequencyType:
+          type: integer
+          readOnly: true
+          description: '0 = months, 1 = years, 2 = weeks
+
+            '
+          enum:
+          - 0
+          - 1
+          - 2
+        IsDisabled:
+          type: boolean
+          readOnly: true
+        IsPropertyDefinition:
+          type: boolean
+          readOnly: true
+          description: 'not used for posts.
+
+            '
+    Envelope:
+      title: Envelope
+      type: object
+      description: This object is used to carry/return responses following post operations.
+      properties:
+        HttpStatusCode:
+          type: integer
+        HttpStatusCodeDesc:
+          type: string
+        Errors:
+          type: array
+          items:
+            type: string
+        Messages:
+          type: array
+          items:
+            type: string
+  securitySchemes:
+    Bearer:
+      type: http
+      scheme: bearer
+      description: ''
+x-internal: false

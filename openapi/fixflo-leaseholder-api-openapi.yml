@@ -1,0 +1,584 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Fixflo Leaseholder API
+  description: Fixflo api docs
+  termsOfService: https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+  contact:
+    email: support@fixflo.com
+    name: Support
+  license:
+    url: https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+    name: Fixflo API licence agreement
+servers:
+- url: https://api-sandbox.fixflo.com/api/v2
+  description: live sandbox
+- url: https://plus.dev.fixflo.com/api/v2
+  description: dev
+security:
+- Bearer: []
+tags:
+- name: Leaseholder
+paths:
+  /LeaseholderPropertyJoin/Delete:
+    parameters: []
+    post:
+      summary: Leaseholder property external/ delete
+      description: Deletes a LeaseholderProperty object. Meaning the explicit relationship bewtween the leaseholder and the property is removed
+      tags:
+      - Leaseholder
+      operationId: post-LeaseholderPropertyJoin-Delete
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/Envelope'
+                - type: object
+                  properties:
+                    Entity:
+                      $ref: '#/components/schemas/LeaseholderPropertyJoin'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LeaseholderPropertyJoin'
+  /LeaseholderPropertyJoin:
+    parameters: []
+    get:
+      summary: Leaseholder property external
+      description: Gets a specific leaseholder property. The LeaseholderPropertyId or ExternalPropertyRef and ExtrernalLeaseholderRef or  LeaseholderId and PropertyId must be supplied
+      tags:
+      - Leaseholder
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LeaseholderPropertyJoin'
+      operationId: get-LeaseholderpropertyJoin
+      parameters:
+      - schema:
+          type: integer
+        in: query
+        name: LeaseholderPropertyId
+      - schema:
+          type: string
+        in: query
+        name: ExtrernalLeaseholderref
+      - schema:
+          type: integer
+        in: query
+        name: LeaseholderId
+      - schema:
+          type: string
+        in: query
+        name: ExternalPropertyRef
+      - schema:
+          type: integer
+        in: query
+        name: PropertyId
+    post:
+      summary: Leaseholder property external
+      operationId: post-LeaseholderPropertyJoin
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/Envelope'
+                - type: object
+                  properties:
+                    Entity:
+                      $ref: '#/components/schemas/LeaseholderPropertyJoin'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LeaseholderPropertyJoin'
+      tags:
+      - Leaseholder
+      description: Adds a LeaseholderProperty object. Meaning the explicit relationship bewtween the leaseholder and the property is added using external refs
+  /LeaseholderPropertyJoin/Search:
+    parameters: []
+    get:
+      summary: Leaseholder property search
+      description: 'Gets a list of leaseholders for a specified property. '
+      tags:
+      - Leaseholder
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                x-examples:
+                  Example 1:
+                    PreviousURL: null
+                    NextURL: null
+                    Items:
+                    - Id: 593
+                      ExternalLeaseholderRef: 001-001-001B
+                      ExternalPropertyRef: 001-001-001
+                      IsOccupier: false
+                    TotalPages: 1
+                    TotalItems: 1
+                properties:
+                  PreviousURL: {}
+                  NextURL: {}
+                  Items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        Id:
+                          type: integer
+                        ExternalLeaseholderRef:
+                          type: string
+                        ExternalPropertyRef:
+                          type: string
+                        IsOccupier:
+                          type: boolean
+                  TotalPages:
+                    type: integer
+                  TotalItems:
+                    type: integer
+                  ? ''
+                  : type: string
+        '404':
+          description: No leaseholder properties found using the given Property Id
+      operationId: get-leaseholderpropertyjoin-search
+      parameters:
+      - schema:
+          type: integer
+        in: query
+        name: PropertyId
+  /Leaseholder/{id}/Brand:
+    parameters:
+    - schema:
+        type: string
+      name: id
+      in: path
+      required: true
+    get:
+      summary: Leaseholder / brand
+      description: Gets the brand applied to the leasholder
+      tags:
+      - Leaseholder
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Brand'
+      operationId: get-leaseholder-brand
+    post:
+      summary: Leaseholder / brand
+      description: Updates the brand applied to the leaseholder
+      tags:
+      - Leaseholder
+      operationId: post-Leaseholder-id-Brand
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/Envelope'
+                - type: object
+                  properties:
+                    Entity:
+                      $ref: '#/components/schemas/Brand'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Brand'
+  /Leaseholder:
+    parameters: []
+    get:
+      summary: Leaseholder
+      tags:
+      - Leaseholder
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Leaseholder'
+      operationId: get-leaseholder
+      parameters:
+      - schema:
+          type: string
+        in: query
+        name: LeaseholderId
+        description: Leaseholder id
+      - schema:
+          type: string
+        in: query
+        name: EmailAddress
+        description: Leaseholder email address
+      - schema:
+          type: string
+        in: query
+        name: ExternalLeaseholderRef
+        description: Leaseholder external ref
+      description: Get leaseholder
+    post:
+      description: Get leaseholder
+      summary: Leaseholder / save
+      tags:
+      - Leaseholder
+      operationId: post-Leaseholder
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/Envelope'
+                - type: object
+                  properties:
+                    Entity:
+                      $ref: '#/components/schemas/Leaseholder'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Leaseholder'
+  /Leaseholders:
+    parameters: []
+    get:
+      description: Get leaseholders
+      summary: Leaseholders
+      tags:
+      - Leaseholder
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/PrevNextPager'
+                - type: object
+                  properties:
+                    Items:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/Leaseholder'
+      operationId: get-leaseholders
+      parameters:
+      - schema:
+          type: string
+        in: query
+        name: Keyword
+      - schema:
+          type: string
+          format: date-time
+        in: query
+        name: updatedSince
+      - schema:
+          type: integer
+        in: query
+        name: pg
+  /LeaseholderProperty:
+    get:
+      summary: Leaseholder property
+      tags:
+      - Leaseholder
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LeaseholderProperty'
+      operationId: get-leaseholderproperty
+      parameters:
+      - schema:
+          type: string
+        in: query
+        name: LeaseholderPropertyId
+      - schema:
+          type: string
+        in: query
+        name: LeaseholderId
+      - schema:
+          type: string
+        in: query
+        name: PropertyId
+      description: Either a LeaseholderPropertyId OR a LeaseholderId and PropertyId must be supplied.
+  /Leaseholder/{LeaseholderId}/LeaseholderProperties:
+    parameters:
+    - schema:
+        type: string
+      name: LeaseholderId
+      in: path
+      required: true
+      description: Leaseholder id
+    get:
+      description: Get leaseholders properties
+      summary: Leaseholder / leaseholder properties
+      tags:
+      - Leaseholder
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/PrevNextPager'
+                - type: object
+                  properties:
+                    Items:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/LeaseholderProperty'
+      operationId: get-leaseholder-leaseholderproperties
+      parameters:
+      - schema:
+          type: integer
+        in: query
+        name: pg
+  /LeaseholderProperty/Delete:
+    parameters: []
+    post:
+      summary: Leaseholder property / delete
+      description: Deletes a LeaseholderProperty relationship
+      tags:
+      - Leaseholder
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/Envelope'
+                - type: object
+                  properties:
+                    Entity:
+                      $ref: '#/components/schemas/Leaseholder'
+      operationId: get-leaseholderproperty-delete
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LeaseholderProperty'
+components:
+  schemas:
+    LeaseholderProperty:
+      title: LeaseholderProperty
+      type: object
+      properties:
+        Id:
+          type: string
+          description: 'Id of LeaseholderProperty record
+
+            '
+        LeaseholderId:
+          type: string
+          description: 'Id of the leaseholder
+
+            '
+        PropertyId:
+          type: string
+          description: 'Id of the PropertyId
+
+            '
+        DateFrom:
+          format: date-time
+          type: string
+          description: IGNORED
+        DateTo:
+          format: date-time
+          type: string
+          description: IGNORED
+        Address:
+          $ref: '#/components/schemas/Address'
+        BlockId:
+          type: integer
+          description: 'Id of the block for the property.
+
+            '
+        ExternalBlockRef:
+          type: string
+          description: 'External Reference of the block. NB. if both of the block fields are set then they must refer to the same block, otherwise an error will be returned.
+
+            '
+        UpdateDate:
+          format: date-time
+          type: string
+          description: Updated date/time (UTC).
+        IsOccupier:
+          type: boolean
+          description: 'whether the leaseholder resides at this property. A leaseholder can only reside at one property, with the latest one set taking precedence
+
+            '
+    PrevNextPager:
+      type: object
+      properties:
+        TotalItems:
+          type: integer
+          x-stoplight:
+            id: qbm018n4fbivf
+          description: The total number of items
+        TotalPages:
+          type: integer
+          x-stoplight:
+            id: 8d0f4tjvn3d91
+          description: 'The total number of pages
+
+            '
+        Items:
+          x-stoplight:
+            id: x8n82kadpvt9w
+          type: array
+          items:
+            x-stoplight:
+              id: yp4jiel1kmn2j
+            type: object
+        NextURL:
+          type: string
+          x-stoplight:
+            id: tcm929q75tirz
+          description: The URL of the next page of results
+        PreviousURL:
+          type: string
+          x-stoplight:
+            id: 3hruq0fcrc5sz
+          description: 'The URL of the previous page of results
+
+            '
+    LeaseholderPropertyJoin:
+      title: LeaseholderPropertyJoin
+      type: object
+      properties:
+        Id:
+          type: integer
+          description: 'Unique id of leaseholder property record
+
+            '
+        ExternalLandlordRef:
+          type: string
+          description: 'The external leaseholder ref of the property
+
+            '
+        ExternalPropertyRef:
+          type: integer
+          description: "The external property ref of the property       \n"
+    Envelope:
+      title: Envelope
+      type: object
+      description: This object is used to carry/return responses following post operations.
+      properties:
+        HttpStatusCode:
+          type: integer
+        HttpStatusCodeDesc:
+          type: string
+        Errors:
+          type: array
+          items:
+            type: string
+        Messages:
+          type: array
+          items:
+            type: string
+    Leaseholder:
+      title: Leaseholder
+      type: object
+      x-examples: {}
+      properties:
+        Id:
+          type: string
+          description: 'Unique id of leaseholder
+
+            '
+        ExternalLeaseholderReference:
+          type: string
+          description: 'This field is designed to be used to reference the leaseholder in other system. If set this value must be unique for leaseholders
+
+            '
+        CompanyName:
+          type: string
+          description: 'Optional company name
+
+            '
+        Title:
+          type: string
+          description: 'Title of leaseholder (eg Mr, Mrs etc)
+
+            '
+        FirstName:
+          type: string
+        Surname:
+          type: string
+        EmailAddress:
+          type: string
+          description: 'EmailAddress is also used as a login if for the leaseholder. This value must be unique
+
+            '
+        ContactNumber:
+          type: string
+        ContactNumberAlt:
+          type: string
+        DisplayName:
+          type: string
+        EmailCC:
+          type: string
+        IsDeleted:
+          type: boolean
+        UpdateDate:
+          format: date-time
+          type: string
+          description: Updated date/time (UTC).
+        Brand:
+          $ref: '#/components/schemas/Brand'
+        Address:
+          $ref: '#/components/schemas/Address'
+    Address:
+      title: Address
+      type: object
+      properties:
+        AddressLine1:
+          type: string
+        AddressLine2:
+          type: string
+        Town:
+          type: string
+        County:
+          type: string
+        PostCode:
+          type: string
+        Country:
+          type: string
+          description: If set this should be a two letter ISO code. If the information supplied does not match an ISO code it will default to blank
+    Brand:
+      title: Brand
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Unique GUID of brand.
+        Name:
+          type: string
+          description: Brand name
+  securitySchemes:
+    Bearer:
+      type: http
+      scheme: bearer
+      description: ''
+x-internal: false

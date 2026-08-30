@@ -1,0 +1,300 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Fixflo Webhook API
+  description: Fixflo api docs
+  termsOfService: https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+  contact:
+    email: support@fixflo.com
+    name: Support
+  license:
+    url: https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+    name: Fixflo API licence agreement
+servers:
+- url: https://api-sandbox.fixflo.com/api/v2
+  description: live sandbox
+- url: https://plus.dev.fixflo.com/api/v2
+  description: dev
+security:
+- Bearer: []
+tags:
+- name: Webhook
+paths:
+  /Webhooks:
+    get:
+      summary: Webhooks
+      tags:
+      - Webhook
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Webhook'
+              examples: {}
+            application/xml:
+              schema:
+                type: object
+                properties: {}
+            multipart/form-data:
+              schema:
+                type: object
+                properties: {}
+      operationId: get-webhooks
+      description: Returns a list of webhooks which are set up for your agency
+      parameters: []
+  /Webhook/Activity:
+    parameters: []
+    get:
+      summary: Webhooks
+      tags:
+      - Webhook
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  allOf:
+                  - $ref: '#/components/schemas/PrevNextPager'
+                  - type: object
+                    properties:
+                      Items:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/WebhookDeliveryItem'
+              examples:
+                example-1:
+                  value:
+                  - PreviousURL: string
+                    NextURL: string
+                    TotalItems: 0
+                    TotalPages: 0
+                    Items:
+                    - id: string
+                      WebHookUrl: string
+                      SendTime: '2019-08-24T14:15:22Z'
+                      Failed: string
+                      FailureMessage: string
+                      ResponseStatus: string
+                      RequestBody: string
+                      ResponseBody: string
+      operationId: get-webhook-activity
+      description: Returns a paged list (20 per page) of activity from a specific webhook listed in reverse time order
+      parameters:
+      - schema:
+          type: string
+        in: query
+        name: Id
+        description: The webhook id
+      - schema:
+          type: boolean
+        in: query
+        name: FailedOnly
+        description: set as true if you want only failed attempts to return
+      - schema:
+          type: integer
+        in: query
+        name: pg
+  /Webhook/Subscribe:
+    post:
+      summary: Webhook / subscribe
+      tags:
+      - Webhook
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+      operationId: get-webhook-subscribe
+      description: Create a new webhook for the agency
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                TargetUrl:
+                  type: string
+                  description: the full url of the webhook including querystring
+                  format: uri
+                Event:
+                  type: string
+                  description: null for all events
+                  enum:
+                  - Property changed
+                  - Property added
+                  - Property deactivated
+                  - Issue state change
+                  - Issue add
+                  - Job invoice updated
+                  - Issue closed
+                Events:
+                  type: array
+                  description: empty for all events
+                  items:
+                    type: string
+                    enum:
+                    - Property changed
+                    - Property added
+                    - Property deactivated
+                    - Issue state change
+                    - Issue add
+                    - Job invoice updated
+                    - Issue closed
+                Secret:
+                  type: string
+                  minLength: 16
+                  maxLength: 64
+                RemoveBody:
+                  type: boolean
+                HttpMethod:
+                  type: string
+                  description: POST, PATCH, PUT
+                  enum:
+                  - POST
+                  - PUT
+                  - PUSH
+                EntityType:
+                  type: string
+                  description: Property or Issue
+                  enum:
+                  - Issue
+                  - Property
+          application/xml:
+            schema:
+              type: object
+              properties: {}
+        description: ''
+  /Webhook/Unsubscribe:
+    delete:
+      summary: Webhook / unsubscribe
+      tags:
+      - Webhook
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+      operationId: get-webhook-unsubscribe
+      parameters:
+      - schema:
+          type: string
+        in: query
+        name: id
+      description: Unsubscribe webhook
+components:
+  schemas:
+    WebhookDeliveryItem:
+      title: WebhookDeliveryItem
+      type: object
+      properties:
+        id:
+          type: string
+          description: 'Unique id of webhook
+
+            '
+        WebHookUrl:
+          type: string
+          description: 'The url of the webhook
+
+            '
+        SendTime:
+          format: date-time
+          type: string
+          description: 'the time the webhook was sent
+
+            '
+        Failed:
+          type: string
+          description: 'did the webhook send fail
+
+            '
+        FailureMessage:
+          type: string
+          description: 'a message which describes the reason for failure
+
+            '
+        ResponseStatus:
+          type: string
+          description: 'the http response status received from the webhook end point
+
+            '
+        RequestBody:
+          type: string
+          description: 'the content of the request body
+
+            '
+        ResponseBody:
+          type: string
+          description: 'the content of the response body
+
+            '
+    PrevNextPager:
+      type: object
+      properties:
+        TotalItems:
+          type: integer
+          x-stoplight:
+            id: qbm018n4fbivf
+          description: The total number of items
+        TotalPages:
+          type: integer
+          x-stoplight:
+            id: 8d0f4tjvn3d91
+          description: 'The total number of pages
+
+            '
+        Items:
+          x-stoplight:
+            id: x8n82kadpvt9w
+          type: array
+          items:
+            x-stoplight:
+              id: yp4jiel1kmn2j
+            type: object
+        NextURL:
+          type: string
+          x-stoplight:
+            id: tcm929q75tirz
+          description: The URL of the next page of results
+        PreviousURL:
+          type: string
+          x-stoplight:
+            id: 3hruq0fcrc5sz
+          description: 'The URL of the previous page of results
+
+            '
+    Webhook:
+      title: Webhook
+      type: object
+      properties:
+        id:
+          type: string
+          description: 'Unique id of webhook
+
+            '
+        Url:
+          type: string
+          description: 'The url of the webhook
+
+            '
+  securitySchemes:
+    Bearer:
+      type: http
+      scheme: bearer
+      description: ''
+x-internal: false

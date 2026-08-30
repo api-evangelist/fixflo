@@ -1,0 +1,509 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Fixflo Issue draft API
+  description: Fixflo api docs
+  termsOfService: https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+  contact:
+    email: support@fixflo.com
+    name: Support
+  license:
+    url: https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+    name: Fixflo API licence agreement
+servers:
+- url: https://api-sandbox.fixflo.com/api/v2
+  description: live sandbox
+- url: https://plus.dev.fixflo.com/api/v2
+  description: dev
+security:
+- Bearer: []
+tags:
+- name: Issue draft
+paths:
+  /IssueDraft/Commit:
+    post:
+      summary: Commits an IssueDraft
+      description: Converts an IssueDraft object to a live, newly reported issue
+      tags:
+      - Issue draft
+      operationId: post-IssueDraft-Commit
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/Envelope'
+                - type: object
+                  properties:
+                    Entity:
+                      $ref: '#/components/schemas/IssueDraft'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IssueDraft'
+  /IssueDraft:
+    parameters: []
+    get:
+      summary: Issue draft
+      description: Get issue draft
+      tags:
+      - Issue draft
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IssueDraft'
+      operationId: get-issuedraft
+      parameters:
+      - schema:
+          type: string
+        in: query
+        name: Id
+        description: Unique id of IssueDraft. Guid
+    post:
+      summary: Issue draft
+      description: Create/update issue draft
+      tags:
+      - Issue draft
+      operationId: post-IssueDraft
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/Envelope'
+                - type: object
+                  properties:
+                    Entity:
+                      $ref: '#/components/schemas/IssueDraft'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IssueDraft'
+  /IssueDraft/{id}/IssueDraftMedia:
+    parameters:
+    - schema:
+        type: string
+      name: id
+      in: path
+      required: true
+    get:
+      summary: Issue draft / issue draft media
+      description: Get issue draft mnedia
+      tags:
+      - Issue draft
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/PrevNextPager'
+                - type: object
+                  properties:
+                    Items:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/IssueDraftMedia'
+      operationId: get-issuedraftmedia
+      parameters:
+      - schema:
+          type: integer
+        in: query
+        name: pg
+        description: page
+  /IssueDraft/Delete:
+    post:
+      summary: Issue draft
+      description: Deletes an IssueDraft object
+      tags:
+      - Issue draft
+      operationId: post-IssueDraft-Delete
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IssueDraft'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IssueDraft'
+  /IssueDraftMedia:
+    parameters: []
+    get:
+      summary: Issue draft media
+      description: Gets an IssueDraftMedia object
+      tags:
+      - Issue draft
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IssueDraftMedia'
+      operationId: get-issuedraftmedia-Id
+    post:
+      summary: Issue draft media
+      description: "Posts an IssueDraftMedia object. \nIf the id in the body of the request is left empty a new IsseDraftMedia will be created. If a valid id is supplied in the body of the request the API will attempt to update the IssueDraftMedia to which the id belongs."
+      tags:
+      - Issue draft
+      operationId: post-IssueDraftMedia-Id
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/Envelope'
+                - type: object
+                  properties:
+                    Entity:
+                      $ref: '#/components/schemas/IssueDraftMedia'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IssueDraftMedia'
+  /IssueDraft/{Id}/Assets:
+    parameters:
+    - schema:
+        type: string
+      name: Id
+      in: path
+      required: true
+      description: Unique id of the IssueDraft. Guid.
+    get:
+      summary: Issue draft assets
+      description: Gets a page of assets associated with an issue Draft
+      tags:
+      - Issue draft
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/PrevNextPager'
+                - type: object
+                  properties:
+                    items:
+                      $ref: '#/components/schemas/IssueDraftAsset'
+      operationId: get-issuedraft-asset-Id
+      x-internal: false
+      parameters:
+      - schema:
+          type: string
+        in: query
+        name: pg
+        description: Page
+    post:
+      summary: Issue draft assets
+      description: Adds an asset to an IssueDraft
+      tags:
+      - Issue draft
+      operationId: post-issuedraft-asset-Id
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/Envelope'
+                - type: object
+                  properties:
+                    Entity:
+                      $ref: '#/components/schemas/IssueDraftAsset'
+                  required:
+                  - Entity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IssueDraftAsset'
+      x-internal: false
+  /IssueDraftMedia/{Id}/Download:
+    parameters:
+    - schema:
+        type: string
+      name: Id
+      in: path
+      required: true
+    get:
+      summary: Issue draft media
+      tags:
+      - Issue draft
+      responses:
+        '200':
+          description: OK
+      operationId: get-issuedraftmedia-Id-download
+      description: binary data of content type defined by IssueDraftMedia.ContentType
+components:
+  schemas:
+    IssueDraftAsset:
+      title: IssueDraftAsset
+      type: object
+      description: Represents a pending link between a Fixflo asset and an issue. When the issuedraft is published any issueDraftAssets will be converted to IssueAssets and linked to the raised issue.
+      x-internal: false
+      properties:
+        Id:
+          type: string
+          description: The Id of the IssueDraftAsset entry
+        AssetId:
+          type: string
+          description: The Id of the Asset that will be associated with the issue when published
+        ExternalReference:
+          type: string
+          description: The external refence of the Asset that will be associated with the issue when published
+      x-examples:
+        example-1:
+          Id: string
+          AssetId: string
+          ExternalReference: string
+      x-extension-1: null
+    IssueDraftMedia:
+      title: IssueDraftMedia
+      type: object
+      description: 'This DTO is used in conjunction with Fixflo.WebApi.V2.DTO.IssueDraftMedia to support the uploading of media (documents and images)
+
+        '
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Unique GUID of IssueDraftMedia.
+        IssueDraftId:
+          type: string
+          format: uuid
+          description: Unique GUID of IssueDraft.
+        Url:
+          type: string
+          description: 'The url of the object for download. This value is readonly
+
+            '
+        "ContentType\t":
+          type: string
+          description: 'The content and mime type of the document eg. example image/png. On POST, if the content type is left blank the content type will be derived from the ShortDesc field. For example where:
+
+
+            * ContentType = null and a ShortDesc = "picture1.png" a content type of image/png will be derived
+
+            * ContentType = "image/png" and a ShortDesc= "picture1" a content type of image/png will be derived
+
+            * ContentType = "" and a ShortDesc = "picture1" will result in an error
+
+            * ContentType = "xxxxx" and a ShortDesc = "picture1" will result in an error as the content type is not recognised.'
+        ShortDesc:
+          type: string
+          description: 'A short description of the document (eg file name)
+
+            '
+        EncodedByteData:
+          type: string
+          description: 'Used for POST only. This data represents the binary document encoded to base-64
+
+            '
+    IssueDraft:
+      title: IssueDraft
+      type: object
+      description: 'This DTO provides support for the creation and update of draft issues. A use case might be where a 3rd party system creates new issues on behalf of an agency. In such a case, a new IssueDraft object is created, documents (such as pictures) are added then the IssueDraft is committed to a live issue.
+
+
+        If a combination of Address, PropertyId and ExternalPropertyRef is used they must refer to the same property, otherwise the create/update will fail with an error.'
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Unique GUID of IssueDraft.
+        Updated:
+          format: date-time
+          type: string
+          description: Updated date/time (UTC).
+        IssueTitle:
+          type: string
+          description: 'Title of the issue. If not specified this will default to an appropriate value based on the Fault id and.or the fault notes.
+
+            '
+        FaultId:
+          type: string
+          description: 'This is a the unique id of the type of fault. If left as zero this will default to the fault "Planned maintenance (Other)". Other supported fault ids are listed [here](13741f28addb7-fault-ids)
+
+            '
+        FaultPriority:
+          type: integer
+          description: 'Overrides the default issue priority for the given fault ID. Integer from 0 (emergency) to 5 (Non-urgent).
+
+            '
+        FaultNotes:
+          type: string
+          description: 'A description of the fault. This is required.
+
+            '
+        IssueDraftMedia:
+          type: object
+          description: 'DEPRECATED - This field is still returned but never populated. Please use the endpoint here to get IssueDraftMedia
+
+            '
+        Title:
+          type: string
+          description: 'The tenant/occupiers title. Typically, Mr, Mrs, Ms etc
+
+            '
+        FirstName:
+          type: string
+          description: 'The tenant/occupiers first name
+
+            '
+        Surname:
+          type: string
+          description: 'The tenant/occupiers surname (aka family name)
+
+            '
+        EmailAddress:
+          type: string
+          description: 'The email address of the occupier
+
+            '
+        ContactNumber:
+          type: string
+          description: 'The contact phone number of the occupier
+
+            '
+        ContactNumberAlt:
+          type: string
+          description: 'Alternate contact phone number of the occupier
+
+            '
+        Address:
+          $ref: '#/components/schemas/Address'
+        PropertyId:
+          type: integer
+          description: 'PropertyId of the reporting property, if known. Can be used instead of the address to identify the location of the issue (This value will always be 0 on GET requests)
+
+            '
+        BlockId:
+          type: integer
+          description: 'BlockId of the reporting block, if known.
+
+            '
+        PresenceRequired:
+          description: 'Whether the occupier has indicated that they wish to be present when works are carried out
+
+            '
+          type: boolean
+        VulnerableOccupier:
+          type: boolean
+          description: 'Whether the occupier considers at least one of the occupiers to be vulnerable
+
+            '
+        ExternalPropertyRef:
+          type: string
+          description: 'External Reference of the reporting property, if known. Can be used instead of the address to identify the location of the issue (This value will always be null on GET requests)
+
+            '
+        ExternalBlockRef:
+          type: integer
+          description: 'External Reference of the reporting block, if known.
+
+            '
+        IssueLocationType:
+          type: string
+          enum:
+          - Private
+          - Communal
+          description: 'The location type of the issue, whether it is happing in a private or communal space.
+
+
+            Coming in release 148.'
+      required:
+      - FaultId
+    PrevNextPager:
+      type: object
+      properties:
+        TotalItems:
+          type: integer
+          x-stoplight:
+            id: qbm018n4fbivf
+          description: The total number of items
+        TotalPages:
+          type: integer
+          x-stoplight:
+            id: 8d0f4tjvn3d91
+          description: 'The total number of pages
+
+            '
+        Items:
+          x-stoplight:
+            id: x8n82kadpvt9w
+          type: array
+          items:
+            x-stoplight:
+              id: yp4jiel1kmn2j
+            type: object
+        NextURL:
+          type: string
+          x-stoplight:
+            id: tcm929q75tirz
+          description: The URL of the next page of results
+        PreviousURL:
+          type: string
+          x-stoplight:
+            id: 3hruq0fcrc5sz
+          description: 'The URL of the previous page of results
+
+            '
+    Envelope:
+      title: Envelope
+      type: object
+      description: This object is used to carry/return responses following post operations.
+      properties:
+        HttpStatusCode:
+          type: integer
+        HttpStatusCodeDesc:
+          type: string
+        Errors:
+          type: array
+          items:
+            type: string
+        Messages:
+          type: array
+          items:
+            type: string
+    Address:
+      title: Address
+      type: object
+      properties:
+        AddressLine1:
+          type: string
+        AddressLine2:
+          type: string
+        Town:
+          type: string
+        County:
+          type: string
+        PostCode:
+          type: string
+        Country:
+          type: string
+          description: If set this should be a two letter ISO code. If the information supplied does not match an ISO code it will default to blank
+  securitySchemes:
+    Bearer:
+      type: http
+      scheme: bearer
+      description: ''
+x-internal: false

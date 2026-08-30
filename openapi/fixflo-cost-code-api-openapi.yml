@@ -1,0 +1,221 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Fixflo Cost code API
+  description: Fixflo api docs
+  termsOfService: https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+  contact:
+    email: support@fixflo.com
+    name: Support
+  license:
+    url: https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+    name: Fixflo API licence agreement
+servers:
+- url: https://api-sandbox.fixflo.com/api/v2
+  description: live sandbox
+- url: https://plus.dev.fixflo.com/api/v2
+  description: dev
+security:
+- Bearer: []
+tags:
+- name: Cost code
+paths:
+  /CostCode:
+    parameters: []
+    get:
+      summary: Cost code
+      description: Get cost code
+      tags:
+      - Cost code
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CostCode'
+      operationId: get-costcode
+      parameters:
+      - schema:
+          type: string
+        in: query
+        name: CostCode
+      - schema:
+          type: string
+        in: query
+        name: BlockId
+      - schema:
+          type: string
+        in: query
+        name: ExternalBlockRef
+    post:
+      description: Create/update cost code
+      tags:
+      - Cost code
+      operationId: post-CostCode
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/Envelope'
+                - type: object
+                  properties:
+                    Entity:
+                      $ref: '#/components/schemas/CostCode'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CostCode'
+      summary: Cost code
+  /CostCodes:
+    parameters: []
+    get:
+      summary: Cost codes
+      description: Finds cost codes
+      tags:
+      - Cost code
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/PrevNextPager'
+                - type: object
+                  properties:
+                    Items:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/CostCode'
+      operationId: get-costcodes
+      parameters:
+      - schema:
+          type: number
+        in: query
+        name: BlockId
+        description: block Id
+      - schema:
+          type: string
+        in: query
+        name: ExternalBlockRef
+        description: external block ref
+      - schema:
+          type: boolean
+        in: query
+        name: isDeleted
+        description: is deleted
+      - schema:
+          type: integer
+        in: query
+        name: pg
+        description: pg
+      - schema:
+          type: string
+        in: query
+        name: Keyword
+        description: keyword
+      - schema:
+          type: number
+        in: query
+        name: EstateId
+        description: estate id
+      - schema:
+          type: string
+        in: query
+        name: ExternalEstateRef
+        description: external estate ref
+components:
+  schemas:
+    PrevNextPager:
+      type: object
+      properties:
+        TotalItems:
+          type: integer
+          x-stoplight:
+            id: qbm018n4fbivf
+          description: The total number of items
+        TotalPages:
+          type: integer
+          x-stoplight:
+            id: 8d0f4tjvn3d91
+          description: 'The total number of pages
+
+            '
+        Items:
+          x-stoplight:
+            id: x8n82kadpvt9w
+          type: array
+          items:
+            x-stoplight:
+              id: yp4jiel1kmn2j
+            type: object
+        NextURL:
+          type: string
+          x-stoplight:
+            id: tcm929q75tirz
+          description: The URL of the next page of results
+        PreviousURL:
+          type: string
+          x-stoplight:
+            id: 3hruq0fcrc5sz
+          description: 'The URL of the previous page of results
+
+            '
+    CostCode:
+      title: CostCode
+      type: object
+      properties:
+        BlockId:
+          type: number
+          description: 'Unique id of the block the cost code is assigned to
+
+            '
+        ExternalBlockRef:
+          type: string
+          description: 'External reference for the block the cost code is assigned to
+
+            '
+        IsDeleted:
+          type: boolean
+        CostCode:
+          type: string
+          description: 'the value that will be sent in the costcode field on the issue when this is attached to the issue in fixflo
+
+            '
+        Description:
+          type: string
+          description: 'Human readable description of the cost code
+
+            '
+        EstateId:
+          type: integer
+        ExternalEstateRef:
+          type: string
+    Envelope:
+      title: Envelope
+      type: object
+      description: This object is used to carry/return responses following post operations.
+      properties:
+        HttpStatusCode:
+          type: integer
+        HttpStatusCodeDesc:
+          type: string
+        Errors:
+          type: array
+          items:
+            type: string
+        Messages:
+          type: array
+          items:
+            type: string
+  securitySchemes:
+    Bearer:
+      type: http
+      scheme: bearer
+      description: ''
+x-internal: false

@@ -1,0 +1,1318 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Fixflo Property API
+  description: Fixflo api docs
+  termsOfService: https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+  contact:
+    email: support@fixflo.com
+    name: Support
+  license:
+    url: https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+    name: Fixflo API licence agreement
+servers:
+- url: https://api-sandbox.fixflo.com/api/v2
+  description: live sandbox
+- url: https://plus.dev.fixflo.com/api/v2
+  description: dev
+security:
+- Bearer: []
+tags:
+- name: Property
+paths:
+  /Property/{Id}/Addresses:
+    parameters:
+    - schema:
+        type: string
+      name: Id
+      in: path
+      required: true
+    get:
+      description: Get property addresses
+      summary: Property / addresses
+      tags:
+      - Property
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/PrevNextPager'
+                - type: object
+                  properties:
+                    Items:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/PropertyAddress'
+      operationId: get-property-id-addresses
+      parameters:
+      - schema:
+          type: integer
+        in: query
+        name: pg
+  /Property:
+    parameters: []
+    get:
+      summary: Property
+      tags:
+      - Property
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Property'
+      operationId: get-property
+      parameters:
+      - schema:
+          type: string
+        in: query
+        name: Id
+        description: Unique Fixflo id of property
+      - schema:
+          type: string
+        in: query
+        name: ExternalPropertyRef
+        description: External property ref
+      description: Either Id or ExternalPropertyRef must be supplied. (A property is synonymous with a unit)
+    post:
+      summary: Property / save
+      tags:
+      - Property
+      operationId: post-property
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/Envelope'
+                - type: object
+                  properties:
+                    Entity:
+                      $ref: '#/components/schemas/Property'
+      description: 'Update or create a property.
+
+
+        If the PropertyId has a value > 0 and the property entity exists the property will be updated. If the ExternalPropertyRef value is set this value must be unique for the given agency. If the PropertyId has a value = 0 an attempt to create a new property will be made. If the property address already exists a new property will NOT be created and the existing property with the matching address will be returned. This endpoint does not update the address of an existing property. If you wish to update the address on a property please use [UpdatePropertyAddress](#endpoints-update-property-address'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Property'
+  /Property/{Id}/Issues:
+    parameters:
+    - schema:
+        type: string
+      name: Id
+      in: path
+      required: true
+      description: Property id
+    get:
+      summary: Property / issues
+      tags:
+      - Property
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/PrevNextPager'
+                - type: object
+                  properties:
+                    Items:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/IssueSummary'
+      operationId: get-property-Id-issues
+      description: Get property issues
+      parameters:
+      - schema:
+          type: integer
+        in: query
+        name: pg
+        description: The page number to return
+      - schema:
+          type: string
+        in: query
+        name: TenantId
+        description: Used to filter the issues to only those raised by the tenant matching the provided Id
+      - schema:
+          type: string
+        in: query
+        name: TenantEmail
+        description: Used to filter the issues to only those raised by the tenant matching the provided email
+  /Property/Issues:
+    parameters: []
+    get:
+      summary: Property / issues
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/PrevNextPager'
+                - type: object
+                  properties:
+                    Items:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/IssueSummary'
+      operationId: get-property-Issues?externalPropertyRef=-ExternalPropertyRef
+      description: Get issues at a property by external property ref
+      parameters:
+      - schema:
+          type: string
+        in: query
+        name: ExternalPropertyRef
+        required: true
+      - schema:
+          type: integer
+        in: query
+        name: TenantId
+        description: Used to filter the issues to only those raised by the tenant matching the provided Id
+      - schema:
+          type: string
+        in: query
+        name: TenantEmail
+        description: Used to filter the issues to only those raised by the tenant matching the provided email
+      - schema:
+          type: string
+        in: query
+        name: pg
+        description: The page number to return
+      tags:
+      - Property
+  /Property/{Id}/Tags:
+    parameters:
+    - schema:
+        type: string
+      name: Id
+      in: path
+      required: true
+      description: Id of the Property
+    get:
+      summary: Property / tags
+      tags:
+      - Property
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tag'
+      operationId: get-Property-Id-Tags
+      description: Returns tags associated with given property id
+    post:
+      summary: Property / tags
+      tags:
+      - Property
+      operationId: post-property-Id-Tags
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/Envelope'
+                - type: object
+                  properties:
+                    Entity:
+                      $ref: '#/components/schemas/Tag'
+      description: Will replace all tags at the given property with the new given tags
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+  /Property/{Id}/Notes:
+    parameters:
+    - schema:
+        type: string
+      name: Id
+      in: path
+      required: true
+    get:
+      summary: Property / notes
+      tags:
+      - Property
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                x-examples:
+                  Example 1:
+                    NoteContent: Sample Notes
+                    HtmlBtnId: btn-entitynote-Property-82875
+                    EntityNoteGuid: 0fda9566-f810-42df-be87-68df735511a1
+                    EntityId: '82875'
+                    AgencyId: AG84322
+                    EntityNoteType: 5
+                    HasEntityNote: true
+                properties:
+                  NoteContent:
+                    type: string
+                  HtmlBtnId:
+                    type: string
+                  EntityNoteGuid:
+                    type: string
+                  EntityId:
+                    type: string
+                  AgencyId:
+                    type: string
+                  EntityNoteType:
+                    type: integer
+                  HasEntityNote:
+                    type: boolean
+              examples:
+                example-1:
+                  value:
+                    NoteContent: string
+                    HtmlBtnId: string
+                    EntityNoteGuid: string
+                    EntityId: string
+                    AgencyId: string
+                    EntityNoteType: 0
+                    HasEntityNote: true
+        '404':
+          description: Property not found
+          content:
+            application/json:
+              schema:
+                type: string
+      operationId: get-Property-Id-Notes
+      description: Returns notes associated with given property id
+    post:
+      summary: Property / notes
+      tags:
+      - Property
+      operationId: post-property-Id-Notes
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                x-examples:
+                  Example 1:
+                    NoteContent: Sample notes
+                    HtmlBtnId: btn-entitynote-Property-82875
+                    EntityNoteGuid: 5fd4196a-b0ba-4825-b9fd-977055b9b2c5
+                    EntityId: '82875'
+                    AgencyId: AG84322
+                    EntityNoteType: 5
+                    HasEntityNote: true
+                properties:
+                  NoteContent:
+                    type: string
+                  HtmlBtnId:
+                    type: string
+                  EntityNoteGuid:
+                    type: string
+                  EntityId:
+                    type: string
+                  AgencyId:
+                    type: string
+                  EntityNoteType:
+                    type: integer
+                  HasEntityNote:
+                    type: boolean
+        '404':
+          description: Property not found
+          content:
+            application/json:
+              schema:
+                type: string
+        '409':
+          description: Property already has notes so will not be overwritten
+          content:
+            application/json:
+              schema:
+                type: string
+      description: Will add notes to the property associated with given property id
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+        description: Notes to be added
+    delete:
+      summary: Property / notes
+      operationId: delete-Property-PropertyId-Notes
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Property not found
+          content:
+            application/json:
+              schema:
+                type: string
+      description: Will delete notes associated with given property id
+      tags:
+      - Property
+  /Property/{Id}/Tenants:
+    parameters:
+    - schema:
+        type: string
+      name: Id
+      in: path
+      required: true
+    get:
+      summary: Property / tenants
+      tags:
+      - Property
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Tenant'
+      operationId: get-property-id-tenants
+      description: Get property tenants
+  /Property/{PropertyId}/LandlordProperties:
+    parameters:
+    - schema:
+        type: string
+      name: PropertyId
+      in: path
+      required: true
+    get:
+      summary: Property / landlord properties
+      tags:
+      - Property
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/PrevNextPager'
+                - type: object
+                  properties:
+                    Items:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/LandlordProperty'
+      operationId: get-property-propertyId-landlordproperties
+      description: Get landlords properties
+      parameters:
+      - schema:
+          type: integer
+        in: query
+        name: pg
+  /PropertyAddress/{Id}:
+    parameters:
+    - schema:
+        type: string
+      name: Id
+      in: path
+      required: true
+    get:
+      summary: Property address
+      tags:
+      - Property
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PropertyAddress'
+      operationId: get-propertyaddress-Id
+      description: Get property address
+  /PropertyAddress/Merge:
+    post:
+      summary: Property address / merge
+      tags:
+      - Property
+      operationId: post-propertyaddress-merge
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/Envelope'
+                - type: object
+                  properties:
+                    Entity:
+                      $ref: '#/components/schemas/PropertyAddress'
+      description: Merge a property address into a property. In other words an existing property address is added to an existing property.
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PropertyAddress'
+  /PropertyAddress/Split:
+    post:
+      summary: Property address / split
+      tags:
+      - Property
+      operationId: post-propertyaddress-split
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/Envelope'
+                - type: object
+                  properties:
+                    Entity:
+                      $ref: '#/components/schemas/PropertyAddress'
+            application/xml:
+              schema:
+                type: object
+                properties: {}
+      description: 'Splits out an existing property address from a property.
+
+        '
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PropertyAddress'
+        description: PropertyAddress propreties however only PropertyAddressId is used
+  /PropertyAddress/Search:
+    parameters: []
+    get:
+      summary: Property address / search
+      tags:
+      - Property
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/PrevNextPager'
+                - type: object
+                  properties:
+                    Items:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/PropertyAddress'
+      operationId: get-propertyaddress-search
+      description: Search property addresses
+      parameters:
+      - schema:
+          type: string
+        in: query
+        name: Keyword
+      - schema:
+          type: string
+        in: query
+        name: ExternalPropertyRef
+      - schema:
+          type: string
+        in: query
+        name: KeyReference
+        description: Key reference
+      - schema:
+          type: string
+        in: query
+        name: HasExternalPropertyRef
+      - schema:
+          type: string
+          format: date-time
+        in: query
+        name: UpdatedSince
+        description: "\tFilters on items that have been updated since this date time. (UTC date/time)"
+  /Property/UpdateAddress:
+    post:
+      summary: Property / update address
+      tags:
+      - Property
+      operationId: post-Property-UpdateAddress
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/Envelope'
+                - type: object
+                  properties:
+                    Entity:
+                      $ref: '#/components/schemas/Property'
+      description: 'Updates the primary address of a property. This call takes the Id or ExternalPropertyRef of an existing property and sets the primary address of the property to the new data. The previous address will be maintained as an alt address.
+
+
+        As a process this call creates a new property with the new address, merges the new property to the existing property then sets the new address to be the primary address.'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Property'
+  /Property/Search:
+    parameters: []
+    get:
+      description: Search for properties
+      summary: Property / search
+      tags:
+      - Property
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/PrevNextPager'
+                - type: object
+                  properties:
+                    Items:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/Property'
+      operationId: get-Property-Search
+      parameters:
+      - schema:
+          type: string
+        in: query
+        name: Keyword
+      - schema:
+          type: string
+        in: query
+        name: ExternalPropertyRef
+      - schema:
+          type: boolean
+        in: query
+        name: HasExternalPropertyRef
+      - schema:
+          type: string
+        in: query
+        name: KeyReference
+      - schema:
+          type: string
+        in: query
+        name: IncludeAlternates
+      - schema:
+          type: string
+        in: query
+        name: IsDeleted
+      - schema:
+          type: integer
+        in: query
+        name: pg
+        description: page number
+      - schema:
+          type: integer
+        in: query
+        name: pgsz
+        description: page size
+      - schema:
+          type: integer
+        in: query
+        name: BlockId
+  /Property/{propertyId}/ServiceProgramme/{serviceProgrammeId}/ServiceEvent:
+    parameters:
+    - schema:
+        type: string
+      name: propertyId
+      in: path
+      required: true
+    - schema:
+        type: string
+      name: serviceProgrammeId
+      in: path
+      required: true
+    post:
+      summary: 'Create Service Event '
+      tags:
+      - Property
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceEvent'
+      operationId: post-Property-propertyId-ServiceProgramme-serviceProgrammeId-ServiceEvent
+      x-stoplight:
+        id: s5ocd5sy0d2ru
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ServiceEvent'
+      parameters:
+      - schema:
+          type: string
+        in: query
+        name: serviceProgrammeId
+components:
+  schemas:
+    Tag:
+      title: Tag
+      type: object
+      properties:
+        Name:
+          type: string
+      x-examples:
+        example-1:
+          Name: Tag1
+    ServiceEvent:
+      title: ServiceEvent
+      type: object
+      properties:
+        Id:
+          type: string
+        Reference:
+          type: string
+        BlockId:
+          type: integer
+        ExternalBlockRef:
+          type: string
+        PropertyAddressId:
+          type: integer
+        PropertyId:
+          type: integer
+        ExternalPropertyRef:
+          type: string
+        ServiceProgrammeDef:
+          $ref: '#/components/schemas/ServiceProgrammeDef'
+        ServiceProgrammeId:
+          type: string
+        UpdateDate:
+          type: string
+          format: date-time
+        Status:
+          type: integer
+          enum:
+          - 1
+          - 2
+          - 4
+          - 8
+          - 16
+          - 32
+          - 64
+          - 128
+          description: "Pending = 1,\nInProgress = 2, \nAwaitingReview = 4,\nRemedialsRaised = 8,\nComplete = 16, \nCompletedRemedialsRaised = 32,\nAwaitingApproval = 64,\nInstructionRequested = 128"
+        InstructionDateOffsetPeriod:
+          type: integer
+        InstructionDateOffsetType:
+          type: integer
+          enum:
+          - 0
+          - 1
+          - 2
+          description: 0 = Days, 1 = Weeks, 2 = Months
+        DueDate:
+          type: string
+          format: date-time
+        InstructionDate:
+          type: string
+          format: date-time
+        InstructionNotes:
+          type: string
+        RequiresReview:
+          type: boolean
+        Contractor:
+          $ref: '#/components/schemas/Contractor'
+        AssignedAgent:
+          $ref: '#/components/schemas/AssignedAgent'
+        Reviewer:
+          $ref: '#/components/schemas/AssignedAgent'
+        Reviewed:
+          type: string
+          format: date-time
+        Completed:
+          type: string
+          format: date-time
+    Property:
+      title: Property
+      type: object
+      properties:
+        id:
+          type: number
+          description: 'Unique id of property
+
+            '
+        BlockId:
+          type: number
+          description: 'Unique id of the block that the property is in. Can be 0 signifying no block.
+
+            '
+        ExternalPropertyRef:
+          type: string
+          description: 'The ExternalPropertyRef is used for referencing the property in systems external to Fixflo. If set, this field value MUST be unique for the relevant agency.
+
+            '
+        PropertyAddressId:
+          type: string
+          description: 'The property address id of the canonical address of this property
+
+            '
+        Address:
+          $ref: '#/components/schemas/Address'
+        UpdateDate:
+          format: date-time
+          type: string
+          description: 'Updated date/time (UTC)
+
+            '
+        KeyReference:
+          type: string
+          description: 'A free-text field referencing the physical keys of the related property
+
+            '
+        IsNotManaged:
+          type: boolean
+        IsDeleted:
+          type: boolean
+          description: 'Read/writable - archives the property
+
+            '
+        ArchiveStatus:
+          type: string
+          enum:
+          - Active
+          - Deactivated
+          - Offboarding
+          readOnly: true
+        AssignedAgent:
+          $ref: '#/components/schemas/AssignedAgent'
+        AssignedTeam:
+          $ref: '#/components/schemas/Team'
+        PropertyManager:
+          $ref: '#/components/schemas/AssignedAgent'
+        Warranties:
+          type: array
+          items:
+            $ref: '#/components/schemas/Warranty'
+    Tenant:
+      title: Tenant
+      type: object
+      properties:
+        id:
+          type: string
+        ExternalRef:
+          type: string
+          description: 'This field is designed to be used to reference the tenant in other system. If set this value must be unique for tenants
+
+            '
+        ExternalPropertyRef:
+          type: string
+          description: 'This field is designed to be used to reference the tenants property using the external property ref
+
+            '
+        Title:
+          type: string
+          description: 'Title of the tenant (eg Mr, Mrs, etc)
+
+            '
+        FirstName:
+          type: string
+        Surname:
+          type: string
+        CompanyName:
+          type: string
+        Address:
+          $ref: '#/components/schemas/Address'
+        EmailAddress:
+          type: string
+          description: 'EmailAddress is also used as a login. This value must be unique for tenants.
+
+            '
+        ContactNumber:
+          type: string
+        ContactNumberAlt:
+          type: string
+        DisplayName:
+          type: string
+        IsDeleted:
+          type: boolean
+        Brand:
+          $ref: '#/components/schemas/Brand'
+        UpdateDate:
+          format: date-time
+          type: string
+          description: 'Updated date/time (UTC)
+
+            '
+    Envelope:
+      title: Envelope
+      type: object
+      description: This object is used to carry/return responses following post operations.
+      properties:
+        HttpStatusCode:
+          type: integer
+        HttpStatusCodeDesc:
+          type: string
+        Errors:
+          type: array
+          items:
+            type: string
+        Messages:
+          type: array
+          items:
+            type: string
+    LandlordProperty:
+      title: LandlordProperty
+      type: object
+      properties:
+        Id:
+          type: integer
+          description: 'Unique id of landlord property record
+
+            '
+        LandlordId:
+          type: string
+          description: 'The LandlordId of the property
+
+            '
+        PropertyId:
+          type: integer
+          description: 'The PropertyId of the property
+
+            '
+        DateFrom:
+          format: date-time
+          type: string
+          description: IGNORED
+        DateTo:
+          format: date-time
+          type: string
+          description: IGNORED
+        IsPrimaryLandlord:
+          type: boolean
+          description: IGNORED
+        Address:
+          $ref: '#/components/schemas/Address'
+    InvoiceDetails:
+      title: InvoiceDetails
+      type: object
+      description: This object is for use by contractor networks for submitting invoice details
+      properties:
+        InvoiceDate:
+          format: date-time
+          type: string
+          description: The invoice date is expressed as a date.
+        DueDate:
+          format: date-time
+          type: string
+          description: The due date is expressed as a date.
+        InvoiceNumber:
+          type: string
+        LineItems:
+          type: array
+          items:
+            $ref: '#/components/schemas/LineItem'
+    ServiceProgrammeDef:
+      title: ServiceProgrammeDef
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        EventType:
+          type: string
+          readOnly: true
+        Class:
+          type: string
+          readOnly: true
+        Category:
+          type: string
+          readOnly: true
+        Description:
+          type: string
+          readOnly: true
+        IsStatutory:
+          type: boolean
+          readOnly: true
+        CostCode:
+          type: string
+          readOnly: true
+        InstructionNotes:
+          type: string
+          readOnly: true
+        InstructionDateOffsetPeriod:
+          type: integer
+          description: '0 = days, 1 = weeks, 2 = months
+
+            '
+          enum:
+          - 0
+          - 1
+          - 2
+          readOnly: true
+        InstructionDateOffsetType:
+          type: integer
+          readOnly: true
+        ServiceFrequency:
+          type: integer
+          readOnly: true
+        ServiceFrequencyType:
+          type: integer
+          readOnly: true
+          description: '0 = months, 1 = years, 2 = weeks
+
+            '
+          enum:
+          - 0
+          - 1
+          - 2
+        IsDisabled:
+          type: boolean
+          readOnly: true
+        IsPropertyDefinition:
+          type: boolean
+          readOnly: true
+          description: 'not used for posts.
+
+            '
+    IssueSummary:
+      title: IssueSummary
+      type: object
+      description: This DTO (data transfer object) provides summary information of issues.
+      properties:
+        id:
+          type: string
+          description: 'Unique Id of issue
+
+            '
+        IssueId:
+          type: string
+          description: 'Exists for backward compatibility. Expect this field to deprecated in v3
+
+            '
+        StatusId:
+          description: 'Integer value of the issue status
+
+            '
+          type: number
+        Status:
+          type: string
+          description: 'String value of the issue status
+
+            '
+        StatusChanged:
+          type: string
+          format: date-time
+          description: StatusChanged date/time (UTC).
+        Created:
+          type: string
+          format: date-time
+          description: Created date/time (UTC).
+        IssueTitle:
+          type: string
+          description: 'The title of the issue
+
+            '
+        Address:
+          $ref: '#/components/schemas/Address'
+    AssignedAgent:
+      title: AssignedAgent
+      type: object
+      properties:
+        Id:
+          type: integer
+          format: int64
+        ExternalRef:
+          type: string
+        EmailAddress:
+          type: string
+        DisplayName:
+          type: string
+        ContactNo:
+          type: string
+        IsDeleted:
+          type: boolean
+        Brand:
+          $ref: '#/components/schemas/Brand'
+        UpdateDate:
+          type: string
+          format: date-time
+          description: Updated date/time (UTC).
+    PrevNextPager:
+      type: object
+      properties:
+        TotalItems:
+          type: integer
+          x-stoplight:
+            id: qbm018n4fbivf
+          description: The total number of items
+        TotalPages:
+          type: integer
+          x-stoplight:
+            id: 8d0f4tjvn3d91
+          description: 'The total number of pages
+
+            '
+        Items:
+          x-stoplight:
+            id: x8n82kadpvt9w
+          type: array
+          items:
+            x-stoplight:
+              id: yp4jiel1kmn2j
+            type: object
+        NextURL:
+          type: string
+          x-stoplight:
+            id: tcm929q75tirz
+          description: The URL of the next page of results
+        PreviousURL:
+          type: string
+          x-stoplight:
+            id: 3hruq0fcrc5sz
+          description: 'The URL of the previous page of results
+
+            '
+    LineItem:
+      title: LineItem
+      type: object
+      description: 'This is an object in use only for contractor networks for providing invoice details
+
+        '
+      properties:
+        LineType:
+          type: integer
+          description: 0 = labour, 1 = materials, 2 = other. This is reflected in an enum in the nuget package
+          enum:
+          - 0
+          - 1
+          - 2
+        Description:
+          type: string
+        Quantity:
+          type: number
+        UnitPrice:
+          type: number
+        Net:
+          type: number
+        Tax:
+          type: number
+        Total:
+          type: number
+    Team:
+      title: Team
+      type: object
+      properties:
+        id:
+          type: string
+        Name:
+          type: string
+        IsDeleted:
+          type: boolean
+    Warranty:
+      title: Warranty
+      type: object
+      properties:
+        id:
+          type: string
+        StartDate:
+          format: date-time
+          type: string
+          description: 'The warranty start date
+
+            '
+        EndDate:
+          format: date-time
+          type: string
+          description: 'The warranty end date
+
+            '
+        ExternalContractorRef:
+          type: string
+          description: 'The external reference for the contractor assigned to the warranty
+
+            '
+        AssignedContractorCaption:
+          type: string
+          description: 'A name caption for the contractor assigned to the warranty
+
+            '
+        PropertyExternalRef:
+          type: string
+          description: 'The external reference for the property which the warranty applies to
+
+            '
+        BlockExternalRef:
+          type: string
+          description: 'The external reference for the block which the warranty applies to
+
+            '
+    Address:
+      title: Address
+      type: object
+      properties:
+        AddressLine1:
+          type: string
+        AddressLine2:
+          type: string
+        Town:
+          type: string
+        County:
+          type: string
+        PostCode:
+          type: string
+        Country:
+          type: string
+          description: If set this should be a two letter ISO code. If the information supplied does not match an ISO code it will default to blank
+    ContractorCertification:
+      title: ContractorCertification
+      type: object
+      description: ''
+      properties:
+        id:
+          type: number
+          description: This is a legacy field, 0 will be returned in all cases
+        Name:
+          type: string
+          description: This is the name of the required certificate. Certificate names are set up on a per agency basis; a contractor may have 0 to many certificates, but must not have more than one certificate of the same name
+        Expiry:
+          format: date-time
+          title: DateTime
+          type: string
+          description: When the contractor's certification will expire
+    ContractorService:
+      title: ContractorService
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique id of service. When updating a contractor to have new services this is the only field that is required
+        Name:
+          type: string
+          description: 'This is the standard name of the service. This is what is shown within the Fixflo system
+
+            '
+        NameAndSynonyms:
+          type: array
+          description: This is a list of other terms the service may be referred as, to help with mapping.
+          items:
+            type: string
+    Contractor:
+      title: Contractor
+      type: object
+      properties:
+        Id:
+          type: string
+          description: Unique id of contractor
+        ExternalRef:
+          type: string
+          description: 'This field is designed to be used to reference the contractor in other systems. If set this value must be unique for contractors
+
+            '
+        CompanyName:
+          type: string
+          description: 'Optional company name.
+
+            '
+        Title:
+          type: string
+          description: 'Title of contractor (eg Mr, Mrs, etc)
+
+            '
+        FirstName:
+          type: string
+        Surname:
+          type: string
+        DisplayName:
+          type: string
+          description: 'This value is used for addressing the contractor. For example Dear [DisplayName]
+
+            '
+        EmailAddress:
+          type: string
+          description: 'EmailAddress is also used as a login. This value must be unique for contractors.
+
+            '
+        ContactNumber:
+          type: string
+        ContactNumberAlt:
+          type: string
+        IsDeleted:
+          type: boolean
+        Address:
+          $ref: '#/components/schemas/Address'
+        InvoiceDetails:
+          $ref: '#/components/schemas/InvoiceDetails'
+        Services:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContractorService'
+        Certifications:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContractorCertification'
+        Brand:
+          $ref: '#/components/schemas/Brand'
+        UpdateDate:
+          format: date-time
+          type: string
+          description: Updated date/time (UTC).
+    PropertyAddress:
+      title: PropertyAddress
+      type: object
+      description: 'This object is used to hold propery address information. It contains both address and property data.
+
+        '
+      properties:
+        id:
+          description: 'Unique Id of the property address
+
+            '
+          type: integer
+        PropertyId:
+          description: 'Related Id of the property
+
+            '
+          type: integer
+        ExternalPropertyRef:
+          type: string
+          description: 'Optional, unique customer supplied property reference
+
+            '
+        KeyReference:
+          type: string
+          description: 'A free-text field referencing the physical keys of the related property
+
+            '
+        Address:
+          $ref: '#/components/schemas/Address'
+    Brand:
+      title: Brand
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Unique GUID of brand.
+        Name:
+          type: string
+          description: Brand name
+  securitySchemes:
+    Bearer:
+      type: http
+      scheme: bearer
+      description: ''
+x-internal: false

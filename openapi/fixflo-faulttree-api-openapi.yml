@@ -1,0 +1,110 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Fixflo Fault Tree API
+  description: Fixflo api docs
+  termsOfService: https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+  contact:
+    email: support@fixflo.com
+    name: Support
+  license:
+    url: https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+    name: Fixflo API licence agreement
+servers:
+- url: https://api-sandbox.fixflo.com/api/v2
+  description: live sandbox
+- url: https://plus.dev.fixflo.com/api/v2
+  description: dev
+security:
+- Bearer: []
+tags:
+- name: FaultTree
+paths:
+  /FaultTree/Walk/{id}:
+    parameters:
+    - schema:
+        type: integer
+      name: id
+      in: path
+      required: true
+    get:
+      summary: Fault tree walk
+      tags:
+      - FaultTree
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FaultTreeBranch'
+      operationId: get-faulttree-walk
+      description: Fault tree branches or leaves
+components:
+  schemas:
+    FaultTreeBranch:
+      title: FaultTreeBranch
+      type: object
+      properties:
+        Fault:
+          $ref: '#/components/schemas/FaultTreeNode'
+        Children:
+          type: array
+          items:
+            $ref: '#/components/schemas/FaultTreeNode'
+      x-internal: false
+      x-examples:
+        example-1:
+          Fault:
+            FaultId: 0
+            FaultTitle: string
+            ParentFaultId: 0
+            FaultLevelTypeId: string
+            Depth: 0
+            Image: string
+            Warning: string
+          Children:
+          - FaultId: 0
+            FaultTitle: string
+            ParentFaultId: 0
+            FaultLevelTypeId: string
+            Depth: 0
+            Image: string
+            Warning: string
+    FaultTreeNode:
+      description: Fault tree branch or leaf
+      type: object
+      x-examples: {}
+      title: ''
+      x-internal: false
+      properties:
+        FaultId:
+          type: integer
+        FaultTitle:
+          type: string
+        ParentFaultId:
+          type: integer
+        FaultLevelTypeId:
+          type: string
+        Depth:
+          type: integer
+        Image:
+          type: string
+          description: 'Path to image
+
+            '
+        Warning:
+          type: string
+          description: Fault warning seen in pop up messaage
+      required:
+      - FaultId
+      - FaultTitle
+      - ParentFaultId
+      - FaultLevelTypeId
+      - Depth
+  securitySchemes:
+    Bearer:
+      type: http
+      scheme: bearer
+      description: ''
+x-internal: false

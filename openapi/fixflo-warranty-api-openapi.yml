@@ -1,0 +1,159 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Fixflo Warranty API
+  description: Fixflo api docs
+  termsOfService: https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+  contact:
+    email: support@fixflo.com
+    name: Support
+  license:
+    url: https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+    name: Fixflo API licence agreement
+servers:
+- url: https://api-sandbox.fixflo.com/api/v2
+  description: live sandbox
+- url: https://plus.dev.fixflo.com/api/v2
+  description: dev
+security:
+- Bearer: []
+tags:
+- name: Warranty
+paths:
+  /Warranty/Add:
+    post:
+      summary: Warranty / add
+      tags:
+      - Warranty
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/Envelope'
+                - type: object
+                  properties:
+                    Entity:
+                      $ref: '#/components/schemas/Warranty'
+      operationId: post-warranty-add
+      description: Creates a new warranty
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Warranty'
+  /Warranty/Save:
+    parameters: []
+    post:
+      description: Save warranty
+      summary: Warranty / save
+      tags:
+      - Warranty
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/Envelope'
+                - type: object
+                  properties:
+                    Entity:
+                      $ref: '#/components/schemas/Warranty'
+      operationId: post-warranty-save
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Warranty'
+  /Warranty/{id}/Delete:
+    parameters:
+    - schema:
+        type: string
+      name: id
+      in: path
+      required: true
+    post:
+      summary: Warranty / delete
+      tags:
+      - Warranty
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/Envelope'
+                - type: object
+                  properties:
+                    Entity:
+                      $ref: '#/components/schemas/Warranty'
+      operationId: post-warranty-id-delete
+      description: Deletes a warranty
+components:
+  schemas:
+    Warranty:
+      title: Warranty
+      type: object
+      properties:
+        id:
+          type: string
+        StartDate:
+          format: date-time
+          type: string
+          description: 'The warranty start date
+
+            '
+        EndDate:
+          format: date-time
+          type: string
+          description: 'The warranty end date
+
+            '
+        ExternalContractorRef:
+          type: string
+          description: 'The external reference for the contractor assigned to the warranty
+
+            '
+        AssignedContractorCaption:
+          type: string
+          description: 'A name caption for the contractor assigned to the warranty
+
+            '
+        PropertyExternalRef:
+          type: string
+          description: 'The external reference for the property which the warranty applies to
+
+            '
+        BlockExternalRef:
+          type: string
+          description: 'The external reference for the block which the warranty applies to
+
+            '
+    Envelope:
+      title: Envelope
+      type: object
+      description: This object is used to carry/return responses following post operations.
+      properties:
+        HttpStatusCode:
+          type: integer
+        HttpStatusCodeDesc:
+          type: string
+        Errors:
+          type: array
+          items:
+            type: string
+        Messages:
+          type: array
+          items:
+            type: string
+  securitySchemes:
+    Bearer:
+      type: http
+      scheme: bearer
+      description: ''
+x-internal: false

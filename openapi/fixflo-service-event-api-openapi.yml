@@ -1,0 +1,763 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Fixflo Service Event API
+  description: Fixflo api docs
+  termsOfService: https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+  contact:
+    email: support@fixflo.com
+    name: Support
+  license:
+    url: https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+    name: Fixflo API licence agreement
+servers:
+- url: https://api-sandbox.fixflo.com/api/v2
+  description: live sandbox
+- url: https://plus.dev.fixflo.com/api/v2
+  description: dev
+security:
+- Bearer: []
+tags:
+- name: Service Event
+paths:
+  /ServiceEvent/{id}:
+    parameters:
+    - schema:
+        type: string
+      name: id
+      in: path
+      required: true
+      description: The id of the Service Event
+    get:
+      summary: Service event by Id
+      tags:
+      - Service Event
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceEvent'
+      operationId: get-ServiceEvent
+      parameters: []
+      description: Get service event
+      x-internal: false
+  /ServiceEvents:
+    get:
+      summary: Service events by Agency
+      tags:
+      - Service Event
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/PrevNextPager'
+                - type: object
+                  properties:
+                    Items:
+                      $ref: '#/components/schemas/ServiceEvent'
+      operationId: get-ServiceEvents
+      description: Get agency service events
+      parameters:
+      - schema:
+          type: string
+        in: query
+        name: pg
+        description: The page number to return
+      - schema:
+          type: integer
+        in: query
+        name: propertyId
+        description: Filters service events by the property Id of the property associated with them
+      - schema:
+          type: string
+        in: query
+        name: externalPropertyRef
+        description: Filters service events by the external property ref of the property associated with them
+      - schema:
+          type: integer
+        in: query
+        name: blockId
+        description: Filters service events by the block Id of the block associated with them
+      - schema:
+          type: string
+        in: query
+        name: externalBlockRef
+        description: Filters service events by the external block ref of the block associated with them
+      - schema:
+          type: string
+        in: query
+        name: serviceProgrammeDefId
+        description: Filters service events by their associated service programme def
+      - schema:
+          type: string
+        in: query
+        name: serviceProgrammeId
+        description: Filters service events by their associated service programme
+      - schema:
+          type: string
+        in: query
+        name: dueDateSince
+        description: Filters service events that are due after the specified date time. (UTC date/time)
+      - schema:
+          type: string
+        in: query
+        name: dueDateBefore
+        description: Filters service events that are due before the specified date time. (UTC date/time)
+      - schema:
+          type: string
+        in: query
+        name: instructionDateSince
+        description: Filters service events that are due for instruction after the specified date time. (UTC date/time)
+      - schema:
+          type: string
+        in: query
+        name: instructionDateBefore
+        description: Filters service events that are due for instruction before the specified date time. (UTC date/time)
+      - schema:
+          type: string
+        in: query
+        name: updateDateSince
+        description: Filters service events that have been updated since the specified date time. (UTC date/time)
+      - schema:
+          type: string
+        in: query
+        name: updateDateBefore
+        description: Filters service events that have been updated before the specified date time. (UTC date/time)
+      - schema:
+          type: string
+        in: query
+        name: completedDateSince
+        description: Filters service events that have been completed since the specified date time. (UTC date/time)
+      - schema:
+          type: string
+        in: query
+        name: completedDateBefore
+        description: Filters service events that have been completed before the specified date time. (UTC date/time)
+      x-internal: false
+  /ServiceEvent/{id}/Medias:
+    parameters:
+    - schema:
+        type: string
+      name: id
+      in: path
+      required: true
+      description: The id of the Service Event
+    get:
+      summary: Service event media
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/PrevNextPager'
+                - type: object
+                  properties:
+                    items:
+                      $ref: '#/components/schemas/Media'
+      operationId: get-ServiceEvent-Media
+      parameters:
+      - schema:
+          type: string
+        in: query
+        name: pg
+        description: The page number to return
+      description: Get all Media associated with a Service Event
+      x-internal: false
+      tags:
+      - Service Event
+  /Property/{propertyId}/ServiceProgramme/{serviceProgrammeId}/ServiceEvent:
+    parameters:
+    - schema:
+        type: string
+      name: propertyId
+      in: path
+      required: true
+    - schema:
+        type: string
+      name: serviceProgrammeId
+      in: path
+      required: true
+    post:
+      summary: 'Create Service Event '
+      tags:
+      - Service Event
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceEvent'
+      operationId: post-Property-propertyId-ServiceProgramme-serviceProgrammeId-ServiceEvent
+      x-stoplight:
+        id: s5ocd5sy0d2ru
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ServiceEvent'
+      parameters:
+      - schema:
+          type: string
+        in: query
+        name: serviceProgrammeId
+  /Property/{propertyId}/ServiceProgramme/{serviceProgrammeId}/ServiceEvents:
+    parameters:
+    - schema:
+        type: string
+      name: propertyId
+      in: path
+      required: true
+    - schema:
+        type: string
+      name: serviceProgrammeId
+      in: path
+      required: true
+    get:
+      summary: Get Service Events by service programme id
+      tags:
+      - Service Event
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PrevNextPager'
+      operationId: get-Property-propertyId-ServiceProgramme-serviceProgrammeId-ServiceEvents
+      x-stoplight:
+        id: qg7j4r4u44o0e
+  /Property/{propertyId}/ServiceProgramme/{serviceProgrammeId}/ServiceEvent/{serviceEventId}:
+    parameters:
+    - schema:
+        type: string
+      name: propertyId
+      in: path
+      required: true
+      description: The Fixflo id of the property
+    - schema:
+        type: string
+      name: serviceProgrammeId
+      in: path
+      required: true
+      description: The Fixflo id of the service programme
+    - schema:
+        type: string
+      name: serviceEventId
+      in: path
+      required: true
+      description: The Fixflo id of the service event
+    get:
+      summary: Get Service Event By Property and Service Programme
+      description: Gets a single service event by property, service programme and service event id.
+      tags:
+      - Service Event
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceEvent'
+      operationId: get-Property-propertyId-ServiceProgramme-serviceProgrammeId-ServiceEvent-serviceEventId
+      x-stoplight:
+        id: ytapfznmv7vic
+    post:
+      summary: Update Service Event
+      description: Updates the service event identified by property, service programme and service event id.
+      tags:
+      - Service Event
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceEvent'
+      operationId: post-Property-propertyId-ServiceProgramme-serviceProgrammeId-ServiceEvent-serviceEventId
+      x-stoplight:
+        id: irivcypc9ckao
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ServiceEvent'
+    options:
+      summary: Your OPTIONS endpoint
+      description: CORS preflight support for this endpoint.
+      tags:
+      - Service Event
+      responses:
+        '200':
+          description: OK
+      operationId: options-Property-propertyId-ServiceProgramme-serviceProgrammeId-ServiceEvent-serviceEventId
+      x-stoplight:
+        id: wogh6ae2g0yn4
+  /Property/{propertyId}/ServiceProgramme/{serviceProgramme}/ServiceEvent/Complete:
+    parameters:
+    - schema:
+        type: string
+      name: propertyId
+      in: path
+      required: true
+    - schema:
+        type: string
+      name: serviceProgramme
+      in: path
+      required: true
+    post:
+      summary: Complete Service Event
+      tags:
+      - Service Event
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceEventComplete'
+      operationId: post-Property-propertyId-ServiceProgramme-serviceProgramme-ServiceEvent-Complete
+      x-stoplight:
+        id: maox05hgvxegw
+components:
+  schemas:
+    ServiceProgrammeDef:
+      title: ServiceProgrammeDef
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        EventType:
+          type: string
+          readOnly: true
+        Class:
+          type: string
+          readOnly: true
+        Category:
+          type: string
+          readOnly: true
+        Description:
+          type: string
+          readOnly: true
+        IsStatutory:
+          type: boolean
+          readOnly: true
+        CostCode:
+          type: string
+          readOnly: true
+        InstructionNotes:
+          type: string
+          readOnly: true
+        InstructionDateOffsetPeriod:
+          type: integer
+          description: '0 = days, 1 = weeks, 2 = months
+
+            '
+          enum:
+          - 0
+          - 1
+          - 2
+          readOnly: true
+        InstructionDateOffsetType:
+          type: integer
+          readOnly: true
+        ServiceFrequency:
+          type: integer
+          readOnly: true
+        ServiceFrequencyType:
+          type: integer
+          readOnly: true
+          description: '0 = months, 1 = years, 2 = weeks
+
+            '
+          enum:
+          - 0
+          - 1
+          - 2
+        IsDisabled:
+          type: boolean
+          readOnly: true
+        IsPropertyDefinition:
+          type: boolean
+          readOnly: true
+          description: 'not used for posts.
+
+            '
+    ContractorService:
+      title: ContractorService
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique id of service. When updating a contractor to have new services this is the only field that is required
+        Name:
+          type: string
+          description: 'This is the standard name of the service. This is what is shown within the Fixflo system
+
+            '
+        NameAndSynonyms:
+          type: array
+          description: This is a list of other terms the service may be referred as, to help with mapping.
+          items:
+            type: string
+    ServiceEvent:
+      title: ServiceEvent
+      type: object
+      properties:
+        Id:
+          type: string
+        Reference:
+          type: string
+        BlockId:
+          type: integer
+        ExternalBlockRef:
+          type: string
+        PropertyAddressId:
+          type: integer
+        PropertyId:
+          type: integer
+        ExternalPropertyRef:
+          type: string
+        ServiceProgrammeDef:
+          $ref: '#/components/schemas/ServiceProgrammeDef'
+        ServiceProgrammeId:
+          type: string
+        UpdateDate:
+          type: string
+          format: date-time
+        Status:
+          type: integer
+          enum:
+          - 1
+          - 2
+          - 4
+          - 8
+          - 16
+          - 32
+          - 64
+          - 128
+          description: "Pending = 1,\nInProgress = 2, \nAwaitingReview = 4,\nRemedialsRaised = 8,\nComplete = 16, \nCompletedRemedialsRaised = 32,\nAwaitingApproval = 64,\nInstructionRequested = 128"
+        InstructionDateOffsetPeriod:
+          type: integer
+        InstructionDateOffsetType:
+          type: integer
+          enum:
+          - 0
+          - 1
+          - 2
+          description: 0 = Days, 1 = Weeks, 2 = Months
+        DueDate:
+          type: string
+          format: date-time
+        InstructionDate:
+          type: string
+          format: date-time
+        InstructionNotes:
+          type: string
+        RequiresReview:
+          type: boolean
+        Contractor:
+          $ref: '#/components/schemas/Contractor'
+        AssignedAgent:
+          $ref: '#/components/schemas/AssignedAgent'
+        Reviewer:
+          $ref: '#/components/schemas/AssignedAgent'
+        Reviewed:
+          type: string
+          format: date-time
+        Completed:
+          type: string
+          format: date-time
+    AssignedAgent:
+      title: AssignedAgent
+      type: object
+      properties:
+        Id:
+          type: integer
+          format: int64
+        ExternalRef:
+          type: string
+        EmailAddress:
+          type: string
+        DisplayName:
+          type: string
+        ContactNo:
+          type: string
+        IsDeleted:
+          type: boolean
+        Brand:
+          $ref: '#/components/schemas/Brand'
+        UpdateDate:
+          type: string
+          format: date-time
+          description: Updated date/time (UTC).
+    Media:
+      title: Media
+      type: object
+      description: Please see note on [downloading binary data](docs/Downloading-binary-data.md).
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Unique GUID of Media.
+          readOnly: true
+        URL:
+          type: string
+          readOnly: true
+        ContentType:
+          type: string
+          description: 'The content and mime type of the document eg. example image/png. On POST, if the content type is left blank the content type will be derived from the ShortDesc field. For example where:
+
+            * ContentType = null and a ShortDesc = "picture1.png" a content type of image/png will be derived
+
+            * ContentType = "image/png" and a ShortDesc= "picture1" a content type of image/png will be derived
+
+            * ContentType = "" and a ShortDesc = "picture1" will result in an error
+
+            * ContentType = "xxxxx" and a ShortDesc = "picture1" will result in an error as the content type is not recognised.'
+        MediaType:
+          type: string
+          readOnly: true
+        MediaTypeDescription:
+          type: string
+        ShortDescription:
+          type: string
+          description: 'For POST this is required and should be the filename with extension e.g. "file.pdf"
+
+            '
+        AddedByUserTypeId:
+          type: string
+          description: 'Id of the user that uploaded the file
+
+            '
+          readOnly: true
+        EncodedByteData:
+          type: string
+          description: 'Used for POST only. This data represents the binary document encoded to base-64
+
+            '
+        ServiceProgrammeDef:
+          $ref: '#/components/schemas/ServiceProgrammeDef'
+          x-stoplight:
+            id: r3wrv8s4lrh41
+          readOnly: true
+        DocumentStartDate:
+          type: string
+          x-stoplight:
+            id: 62jrrkrk0brff
+          format: date-time
+          readOnly: true
+        DocumentExpiryDate:
+          type: string
+          x-stoplight:
+            id: tmdafqhw3cn9l
+          format: date-time
+          readOnly: true
+    PrevNextPager:
+      type: object
+      properties:
+        TotalItems:
+          type: integer
+          x-stoplight:
+            id: qbm018n4fbivf
+          description: The total number of items
+        TotalPages:
+          type: integer
+          x-stoplight:
+            id: 8d0f4tjvn3d91
+          description: 'The total number of pages
+
+            '
+        Items:
+          x-stoplight:
+            id: x8n82kadpvt9w
+          type: array
+          items:
+            x-stoplight:
+              id: yp4jiel1kmn2j
+            type: object
+        NextURL:
+          type: string
+          x-stoplight:
+            id: tcm929q75tirz
+          description: The URL of the next page of results
+        PreviousURL:
+          type: string
+          x-stoplight:
+            id: 3hruq0fcrc5sz
+          description: 'The URL of the previous page of results
+
+            '
+    Contractor:
+      title: Contractor
+      type: object
+      properties:
+        Id:
+          type: string
+          description: Unique id of contractor
+        ExternalRef:
+          type: string
+          description: 'This field is designed to be used to reference the contractor in other systems. If set this value must be unique for contractors
+
+            '
+        CompanyName:
+          type: string
+          description: 'Optional company name.
+
+            '
+        Title:
+          type: string
+          description: 'Title of contractor (eg Mr, Mrs, etc)
+
+            '
+        FirstName:
+          type: string
+        Surname:
+          type: string
+        DisplayName:
+          type: string
+          description: 'This value is used for addressing the contractor. For example Dear [DisplayName]
+
+            '
+        EmailAddress:
+          type: string
+          description: 'EmailAddress is also used as a login. This value must be unique for contractors.
+
+            '
+        ContactNumber:
+          type: string
+        ContactNumberAlt:
+          type: string
+        IsDeleted:
+          type: boolean
+        Address:
+          $ref: '#/components/schemas/Address'
+        InvoiceDetails:
+          $ref: '#/components/schemas/InvoiceDetails'
+        Services:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContractorService'
+        Certifications:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContractorCertification'
+        Brand:
+          $ref: '#/components/schemas/Brand'
+        UpdateDate:
+          format: date-time
+          type: string
+          description: Updated date/time (UTC).
+    ServiceEventComplete:
+      title: ServiceEventComplete
+      type: object
+      properties:
+        CertificateStartDate:
+          type: string
+          format: date-time
+        certificateExpiryDate:
+          type: string
+          format: date-time
+    LineItem:
+      title: LineItem
+      type: object
+      description: 'This is an object in use only for contractor networks for providing invoice details
+
+        '
+      properties:
+        LineType:
+          type: integer
+          description: 0 = labour, 1 = materials, 2 = other. This is reflected in an enum in the nuget package
+          enum:
+          - 0
+          - 1
+          - 2
+        Description:
+          type: string
+        Quantity:
+          type: number
+        UnitPrice:
+          type: number
+        Net:
+          type: number
+        Tax:
+          type: number
+        Total:
+          type: number
+    InvoiceDetails:
+      title: InvoiceDetails
+      type: object
+      description: This object is for use by contractor networks for submitting invoice details
+      properties:
+        InvoiceDate:
+          format: date-time
+          type: string
+          description: The invoice date is expressed as a date.
+        DueDate:
+          format: date-time
+          type: string
+          description: The due date is expressed as a date.
+        InvoiceNumber:
+          type: string
+        LineItems:
+          type: array
+          items:
+            $ref: '#/components/schemas/LineItem'
+    Address:
+      title: Address
+      type: object
+      properties:
+        AddressLine1:
+          type: string
+        AddressLine2:
+          type: string
+        Town:
+          type: string
+        County:
+          type: string
+        PostCode:
+          type: string
+        Country:
+          type: string
+          description: If set this should be a two letter ISO code. If the information supplied does not match an ISO code it will default to blank
+    Brand:
+      title: Brand
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Unique GUID of brand.
+        Name:
+          type: string
+          description: Brand name
+    ContractorCertification:
+      title: ContractorCertification
+      type: object
+      description: ''
+      properties:
+        id:
+          type: number
+          description: This is a legacy field, 0 will be returned in all cases
+        Name:
+          type: string
+          description: This is the name of the required certificate. Certificate names are set up on a per agency basis; a contractor may have 0 to many certificates, but must not have more than one certificate of the same name
+        Expiry:
+          format: date-time
+          title: DateTime
+          type: string
+          description: When the contractor's certification will expire
+  securitySchemes:
+    Bearer:
+      type: http
+      scheme: bearer
+      description: ''
+x-internal: false

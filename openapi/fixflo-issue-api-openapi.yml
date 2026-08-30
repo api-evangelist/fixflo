@@ -1,0 +1,1312 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Fixflo Issue API
+  description: Fixflo api docs
+  termsOfService: https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+  contact:
+    email: support@fixflo.com
+    name: Support
+  license:
+    url: https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+    name: Fixflo API licence agreement
+servers:
+- url: https://api-sandbox.fixflo.com/api/v2
+  description: live sandbox
+- url: https://plus.dev.fixflo.com/api/v2
+  description: dev
+security:
+- Bearer: []
+tags:
+- name: Issue
+paths:
+  /Issue/{Id}:
+    parameters:
+    - schema:
+        type: string
+      name: Id
+      in: path
+      required: true
+    get:
+      summary: Issue
+      description: Get issue details
+      tags:
+      - Issue
+      operationId: get-Issue
+      responses:
+        '200':
+          description: OK
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Issue'
+  /Issue/:
+    parameters: []
+    post:
+      summary: Issue
+      tags:
+      - Issue
+      operationId: post-Issue
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/Envelope'
+                - type: object
+                  properties:
+                    Entity:
+                      $ref: '#/components/schemas/Issue'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Issue'
+      description: 'Currently this endpoint is only used for updating the AssignedAgent on an issue. Use null to unassign the issue. if the user cannot be found an error will be returned. GET https://[custom domain].fixflo.com/api/v2/Issue
+
+        '
+  /Issue/{Id}/ExternalRef:
+    parameters:
+    - schema:
+        type: string
+      name: Id
+      in: path
+      required: true
+      description: Id associated with required Issue
+    post:
+      summary: Issue / externalref
+      tags:
+      - Issue
+      operationId: post-Issue-externalref
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/Envelope'
+                - type: object
+                  properties:
+                    Entity:
+                      $ref: '#/components/schemas/Issue'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+      description: 'This endpoint is used to POST an external ref to an Issue associated with given Issue Id.
+
+        External Ref must be unique per agency.
+
+        Will overwrite current value if one exists.
+
+        '
+  /Issues:
+    parameters: []
+    get:
+      summary: Issues
+      tags:
+      - Issue
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/PrevNextPager'
+                - type: object
+                  properties:
+                    Items:
+                      type: array
+                      x-stoplight:
+                        id: 6z38z7awmy6ua
+                      items:
+                        type: string
+      operationId: get-issues
+      description: 'Find pages of issues. Optionally date periods may be selected. The issues are returned in created date/time order. For use cases see (downloading and importing issues)[#Downloading-and-importing-issues]
+
+
+        The GET url for each issue is returned rather than the whole issue object'
+      parameters:
+      - schema:
+          type: string
+        in: query
+        name: CreatedSince
+        description: Filters issues that have been created since the specified date time.(UTC date/time)
+      - schema:
+          type: string
+        in: query
+        name: CreatedBefore
+        description: Filters issues that have been created before the specified date time.(UTC date/time)
+      - schema:
+          type: string
+        in: query
+        name: Status
+        description: Filters on the issue status. Click here to see accepted values. If using the nuget package this is an enum.
+      - schema:
+          type: string
+        in: query
+        name: HasExternalPropertyRef
+        description: Filters issues that are tied to properties that have an external reference
+      - schema:
+          type: string
+          format: date-time
+        in: query
+        name: ClosedSince
+        description: Filters issues that have been closed since the specified date time.(UTC date/time)
+      - schema:
+          type: string
+          format: date-time
+        in: query
+        name: ClosedBefore
+        description: Filters issues that have been closed before the specified date time.(UTC date/time)
+      - schema:
+          type: string
+          format: date-time
+        in: query
+        name: JobCreatedSince
+        description: Filters issues that have had a job created since the specified date time.(UTC date/time)
+      - schema:
+          type: string
+          format: date-time
+        in: query
+        name: JobCreatedBefore
+        description: Filters issues that have had a job created before the specified date time.(UTC date/time)
+      - schema:
+          type: string
+          format: date-time
+        in: query
+        name: UpdatedSince
+        description: Filters issues that have had a status change since the specified date time.(UTC date/time)
+      - schema:
+          type: string
+          format: date-time
+        in: query
+        name: UpdatedBefore
+        description: Filters issues that have had a status change before the specified date time.(UTC date/time)
+      - schema:
+          type: integer
+        in: query
+        name: page
+        description: The page number to return
+  /Issue/{Id}/Report:
+    parameters:
+    - schema:
+        type: string
+      name: Id
+      in: path
+      required: true
+      description: Issue id
+    get:
+      summary: Issue / report
+      tags:
+      - Issue
+      responses:
+        '200':
+          description: OK
+          headers: {}
+      operationId: get-issue-id-report
+      description: Downloads issue report as PDF document. Please see note on downloading binary data.
+  /Issues/JobAwarded:
+    parameters: []
+    get:
+      summary: Issue / job awarded
+      tags:
+      - Issue
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/PrevNextPager'
+                - type: object
+                  properties:
+                    Items:
+                      type: array
+                      items:
+                        type: string
+      operationId: get-issues-jobawarded
+      description: Endpoint for listing issues with a status of JobAwarded.
+      parameters:
+      - schema:
+          type: string
+        in: query
+        name: Page
+        description: Page
+  /Issues/JobCompleted:
+    parameters: []
+    get:
+      summary: Issue / job completed
+      tags:
+      - Issue
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/PrevNextPager'
+                - type: object
+                  properties:
+                    Items:
+                      type: array
+                      items:
+                        type: string
+      operationId: get-issues-jobcompleted
+      description: 'Endpoint for listing issues with a status of JobCompleted.
+
+        '
+      parameters:
+      - schema:
+          type: string
+        in: query
+        name: Page
+        description: Page
+  /Issues/Closed:
+    parameters: []
+    get:
+      summary: Issues / closed
+      tags:
+      - Issue
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/PrevNextPager'
+                - type: object
+                  properties:
+                    Items:
+                      type: array
+                      items:
+                        type: string
+      operationId: get-issues-closed
+      description: Endpoint for listing issues with a status of Closed.
+  /Issue/{issueId}/quotes:
+    parameters:
+    - schema:
+        type: string
+      name: issueId
+      in: path
+      required: true
+    get:
+      summary: Issue / quotes
+      tags:
+      - Issue
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Quote'
+      operationId: get-Issue-issueId-quotes
+      x-internal: false
+      description: Gets all quotes attached to an Issue on an Agency
+  /Issue/{Id}/Tags:
+    parameters:
+    - schema:
+        type: string
+      name: Id
+      in: path
+      required: true
+      description: Id of Issue
+    get:
+      summary: Issue / tags
+      tags:
+      - Issue
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TagsAdded'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TagsAdded'
+      operationId: get-Issue-Id-Tags
+      description: Returns tags associated with given issue id
+      x-stoplight:
+        id: 7r3e31p2hqfq9
+  /Issues/Merge:
+    post:
+      summary: Merge Issues
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IssueMergeResponse'
+      operationId: Merge
+      x-stoplight:
+        id: 2f8v7bo0gq0nj
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IssueMergeRequest'
+      description: This request will close the primary and related issues and create a new "merged issue" that links to all of htem
+      tags:
+      - Issue
+components:
+  schemas:
+    JobQuoteApproval:
+      title: JobQuoteApproval
+      x-stoplight:
+        id: 95aa6169dc73e
+      type: object
+      properties:
+        ApprovalNameTyped:
+          type: string
+        Approved:
+          type: boolean
+        ApprovedDate:
+          format: date-time
+          type: string
+        QuoteAmount:
+          type: number
+        RequestedDate:
+          format: date-time
+          type: string
+        QuoteId:
+          type: string
+        PriceAgencyReceivableGross:
+          type: number
+        PriceAgencyReceivableNet:
+          type: number
+        PriceAgencyReceivableTax:
+          type: number
+    Envelope:
+      title: Envelope
+      type: object
+      description: This object is used to carry/return responses following post operations.
+      properties:
+        HttpStatusCode:
+          type: integer
+        HttpStatusCodeDesc:
+          type: string
+        Errors:
+          type: array
+          items:
+            type: string
+        Messages:
+          type: array
+          items:
+            type: string
+    FaultTree:
+      title: FaultTree
+      type: object
+      properties:
+        FaultId:
+          type: integer
+          description: 'Unique Id of the Fault
+
+            '
+        FaultTreeParent0:
+          type: integer
+          description: 'Id of the 1st parent of the Fault (can be null)
+
+            '
+        FaultTreeParent1:
+          type: integer
+          description: 'Id of the 2nd parent of the Fault (can be null)
+
+            '
+    InvoiceDetails:
+      title: InvoiceDetails
+      type: object
+      description: This object is for use by contractor networks for submitting invoice details
+      properties:
+        InvoiceDate:
+          format: date-time
+          type: string
+          description: The invoice date is expressed as a date.
+        DueDate:
+          format: date-time
+          type: string
+          description: The due date is expressed as a date.
+        InvoiceNumber:
+          type: string
+        LineItems:
+          type: array
+          items:
+            $ref: '#/components/schemas/LineItem'
+    Block:
+      type: object
+      properties:
+        Id:
+          type: integer
+        ExternalBlockReference:
+          type: string
+        Name:
+          type: string
+        Address:
+          $ref: '#/components/schemas/Address'
+        IsStandAlone:
+          type: boolean
+        KeyReference:
+          type: string
+        ManagementStartDate:
+          type: string
+          format: date-time
+          description: Management end date.
+        ManagementEndDate:
+          type: string
+          format: date-time
+          description: Management end date.
+        EstateId:
+          type: integer
+        ExternalEstateRef:
+          type: string
+        LandlordId:
+          type: string
+        ExternalLandlordRef:
+          type: string
+        PropertyManager:
+          $ref: '#/components/schemas/AssignedAgent'
+        AssignedAgent:
+          $ref: '#/components/schemas/AssignedAgent'
+        IsDeleted:
+          type: boolean
+        Created:
+          type: string
+          format: date-time
+          description: Created date/time (UTC).
+        UpdateDate:
+          type: string
+          format: date-time
+          description: Updated date/time (UTC).
+        Warranties:
+          type: array
+          description: List of warranties which apply to the block
+          items:
+            $ref: '#/components/schemas/Warranty'
+    ServiceProgrammeDef:
+      title: ServiceProgrammeDef
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        EventType:
+          type: string
+          readOnly: true
+        Class:
+          type: string
+          readOnly: true
+        Category:
+          type: string
+          readOnly: true
+        Description:
+          type: string
+          readOnly: true
+        IsStatutory:
+          type: boolean
+          readOnly: true
+        CostCode:
+          type: string
+          readOnly: true
+        InstructionNotes:
+          type: string
+          readOnly: true
+        InstructionDateOffsetPeriod:
+          type: integer
+          description: '0 = days, 1 = weeks, 2 = months
+
+            '
+          enum:
+          - 0
+          - 1
+          - 2
+          readOnly: true
+        InstructionDateOffsetType:
+          type: integer
+          readOnly: true
+        ServiceFrequency:
+          type: integer
+          readOnly: true
+        ServiceFrequencyType:
+          type: integer
+          readOnly: true
+          description: '0 = months, 1 = years, 2 = weeks
+
+            '
+          enum:
+          - 0
+          - 1
+          - 2
+        IsDisabled:
+          type: boolean
+          readOnly: true
+        IsPropertyDefinition:
+          type: boolean
+          readOnly: true
+          description: 'not used for posts.
+
+            '
+    AssignedAgent:
+      title: AssignedAgent
+      type: object
+      properties:
+        Id:
+          type: integer
+          format: int64
+        ExternalRef:
+          type: string
+        EmailAddress:
+          type: string
+        DisplayName:
+          type: string
+        ContactNo:
+          type: string
+        IsDeleted:
+          type: boolean
+        Brand:
+          $ref: '#/components/schemas/Brand'
+        UpdateDate:
+          type: string
+          format: date-time
+          description: Updated date/time (UTC).
+    PrevNextPager:
+      type: object
+      properties:
+        TotalItems:
+          type: integer
+          x-stoplight:
+            id: qbm018n4fbivf
+          description: The total number of items
+        TotalPages:
+          type: integer
+          x-stoplight:
+            id: 8d0f4tjvn3d91
+          description: 'The total number of pages
+
+            '
+        Items:
+          x-stoplight:
+            id: x8n82kadpvt9w
+          type: array
+          items:
+            x-stoplight:
+              id: yp4jiel1kmn2j
+            type: object
+        NextURL:
+          type: string
+          x-stoplight:
+            id: tcm929q75tirz
+          description: The URL of the next page of results
+        PreviousURL:
+          type: string
+          x-stoplight:
+            id: 3hruq0fcrc5sz
+          description: 'The URL of the previous page of results
+
+            '
+    IssueMergeResponse:
+      title: IssueMergeResponse
+      x-stoplight:
+        id: kh5879i1wno64
+      type: object
+      x-examples:
+        Example 2:
+          MergedIssueId: IS123456
+          Success: false
+          InvalidIssues:
+          - IssueId: IS123456
+            Reason: You cannot merge an issue into itself.
+      properties:
+        MergedIssueId:
+          type: string
+          x-stoplight:
+            id: 6b9mxfp4epw70
+        Success:
+          type: boolean
+          x-stoplight:
+            id: 3ryhs450h7y8y
+        InvalidIssues:
+          type: array
+          x-stoplight:
+            id: zl5qxrphbtzj1
+          items:
+            x-stoplight:
+              id: ibo7gyvp8hsrh
+            type: object
+            properties:
+              IssueId:
+                type: string
+                x-stoplight:
+                  id: i2mw8y87mfi9z
+              Reason:
+                type: string
+                x-stoplight:
+                  id: 4loikfbvgslpg
+    LineItem:
+      title: LineItem
+      type: object
+      description: 'This is an object in use only for contractor networks for providing invoice details
+
+        '
+      properties:
+        LineType:
+          type: integer
+          description: 0 = labour, 1 = materials, 2 = other. This is reflected in an enum in the nuget package
+          enum:
+          - 0
+          - 1
+          - 2
+        Description:
+          type: string
+        Quantity:
+          type: number
+        UnitPrice:
+          type: number
+        Net:
+          type: number
+        Tax:
+          type: number
+        Total:
+          type: number
+    Issue:
+      title: Issue
+      type: object
+      properties:
+        Id:
+          type: string
+          maxLength: 20
+          description: 'Unique Id of issue
+
+            '
+        TenantId:
+          type: string
+          description: 'Unique tenant id (internal, Fixflo)
+
+            '
+        ExternalRefTenancyAgreement:
+          type: string
+          description: 'This optional value is entered by the tenant on issue submission. This value represents the tenancy agreement number as stored by a system external for Fixflo. It may be useful in matching new issue reports with existing tenancies
+
+            '
+        Title:
+          type: string
+          description: 'Title of issue (do not confuse with tenant title). This title may be edited in Fixflo plus
+
+            '
+        FaultTitle:
+          type: string
+          description: 'Title of fault. This is text title of the fault. This is initially derived from the fault category. Fixflo plus users may edit this value
+
+            '
+        FaultCategory:
+          type: string
+          description: 'This is the canonical description of the fault. It is readonly. The value is derived from the selected fault (icons) and sub categories
+
+            '
+        AdditionalDetails:
+          type: array
+          description: 'Some issue faults request additional detail. For example, if there is problem with an appliance the make and model of the appliance will be asked for. These additional questions and responses are returned in the field AdditionalDetails as a AdditionalDetail []
+
+            '
+          items:
+            $ref: '#/components/schemas/AdditionalDetail'
+        FaultNotes:
+          type: string
+          description: 'User input fault notes
+
+            '
+        FaultPriority:
+          type: string
+          description: 'Fault priority, integer range 0 to 5 where 0 - Emergency, 1 - Urgent (high), 2 - Urgent (high), 3 - Non-urgent (high), 4 - Non-urgent (med), 5 - Non-urgent (low)
+
+            '
+        Salutation:
+          type: string
+          description: 'Tenant title (Mr, Mrs, Ms, etc)
+
+            '
+        Firstname:
+          type: string
+        Surname:
+          type: string
+        EmailAddress:
+          type: string
+          description: 'Tenant email address
+
+            '
+        Address:
+          $ref: '#/components/schemas/Address'
+        Media:
+          $ref: '#/components/schemas/Media'
+        TenantNotes:
+          type: string
+          description: 'Further input notes
+
+            '
+        StatusChanged:
+          type: string
+          format: date-time
+          description: StatusChanged date/time (UTC). Read-only.
+        Status:
+          type: string
+          description: 'Issue status. Values are: Reported, QuotesRequested, QuotesAwaitingReview, QuotesReviewed, JobAwarded, AwaitingJobCompletion, JobCompleted, Closed. Available as an enum in the nuget-package
+
+            '
+        Created:
+          type: string
+          format: date-time
+          description: Created date/time (UTC).
+        TenantPresenceRequested:
+          type: string
+          description: 'Has the tenant requested to be present
+
+            '
+        TenantAcceptComplete:
+          type: string
+          description: 'Have the issue submission terms and conditions been accepted
+
+            '
+        TermsAccepted:
+          type: string
+        CallbackId:
+          type: string
+          description: 'see Plugin Example for description and use case
+
+            '
+        Property:
+          type: string
+          description: 'The Property to which the issue relates. Please note in some scenarios this field will return a null value - these should be handled appropriately
+
+            '
+        Block:
+          $ref: '#/components/schemas/Block'
+        Job:
+          $ref: '#/components/schemas/Job'
+        FaultTree:
+          $ref: '#/components/schemas/FaultTree'
+        WorksAuthorisationLimit:
+          type: number
+          description: 'If a contractor is instructed, without having previously supplied a quote, this is maximum allowed cost of works. This value may be overridden manually on a per issue basis but by default will be derived from the agency, landlord or block as appropriate
+
+            '
+        BlockName:
+          type: string
+          description: 'The block name supplied when the issue is reported
+
+            '
+        AssignedAgent:
+          $ref: '#/components/schemas/AssignedAgent'
+        Quotes:
+          type: array
+          description: Lists of quotes
+          items:
+            $ref: '#/components/schemas/Quote'
+        AttendenceDate:
+          format: date-time
+          type: string
+          description: This is expressed as a local date.
+        QuoteEndTime:
+          format: date-time
+          type: string
+          description: This is expressed as a local date.
+        IsPlannedMaintenance:
+          type: boolean
+        ServiceEventId:
+          type: string
+        CostCode:
+          type: string
+          description: 'An optional cost code to tie up with accounting.
+
+            '
+        IsCommunal:
+          description: 'Signifies whether the issue is tied to a communal area in a block or a private area in a property/unit
+
+            '
+          type: boolean
+        IsEmergency:
+          description: 'Signifies whether the issue has been raised as an emergency
+
+            '
+          type: boolean
+        IssueType:
+          type: string
+          x-stoplight:
+            id: to723ogafcxot
+          description: 'The Type of the Issue, will be one of:
+
+            Reactive
+
+            GeneralEnquiry
+
+            Planned
+
+            Remedial'
+        CloseReason:
+          type: string
+          x-stoplight:
+            id: 51hwf48dec2k9
+        CloseReasonDescription:
+          type: string
+          x-stoplight:
+            id: jbn4aq2c3xsq8
+    Warranty:
+      title: Warranty
+      type: object
+      properties:
+        id:
+          type: string
+        StartDate:
+          format: date-time
+          type: string
+          description: 'The warranty start date
+
+            '
+        EndDate:
+          format: date-time
+          type: string
+          description: 'The warranty end date
+
+            '
+        ExternalContractorRef:
+          type: string
+          description: 'The external reference for the contractor assigned to the warranty
+
+            '
+        AssignedContractorCaption:
+          type: string
+          description: 'A name caption for the contractor assigned to the warranty
+
+            '
+        PropertyExternalRef:
+          type: string
+          description: 'The external reference for the property which the warranty applies to
+
+            '
+        BlockExternalRef:
+          type: string
+          description: 'The external reference for the block which the warranty applies to
+
+            '
+    Quote:
+      title: Quote
+      type: object
+      properties:
+        id:
+          type: string
+        Status:
+          type: string
+        Contractor:
+          $ref: '#/components/schemas/Contractor'
+        PriceAgencyPayableGross:
+          type: string
+        PriceAgencyPayableNet:
+          type: string
+        PriceAgencyPayableTax:
+          type: string
+        PriceAgencyReceivableGross:
+          type: string
+        PriceAgencyReceivableNet:
+          type: string
+        PriceAgencyReceivableTax:
+          type: string
+        SubmittedDate:
+          format: date-time
+          type: string
+          description: 'can be null
+
+            '
+        ExpiryDate:
+          format: date-time
+          type: string
+          description: 'can be null
+
+            '
+        Media:
+          type: array
+          description: 'List of media (pictures or other documents) attached to the quote. Please see note on downloading binary data.
+
+            '
+          items:
+            $ref: '#/components/schemas/Media'
+        LineItems:
+          x-stoplight:
+            id: n47jfx2i4s81g
+          type: array
+          items:
+            $ref: '#/components/schemas/LineItem'
+    Address:
+      title: Address
+      type: object
+      properties:
+        AddressLine1:
+          type: string
+        AddressLine2:
+          type: string
+        Town:
+          type: string
+        County:
+          type: string
+        PostCode:
+          type: string
+        Country:
+          type: string
+          description: If set this should be a two letter ISO code. If the information supplied does not match an ISO code it will default to blank
+    ContractorCertification:
+      title: ContractorCertification
+      type: object
+      description: ''
+      properties:
+        id:
+          type: number
+          description: This is a legacy field, 0 will be returned in all cases
+        Name:
+          type: string
+          description: This is the name of the required certificate. Certificate names are set up on a per agency basis; a contractor may have 0 to many certificates, but must not have more than one certificate of the same name
+        Expiry:
+          format: date-time
+          title: DateTime
+          type: string
+          description: When the contractor's certification will expire
+    IssueMergeRequest:
+      title: IssueMergeRequest
+      x-stoplight:
+        id: phq9dvhns1g0v
+      type: object
+      required:
+      - PrimaryIssueId
+      - IssueTitle
+      - IssuesIdsToMerge
+      properties:
+        PrimaryIssueId:
+          type: string
+          x-stoplight:
+            id: h3zzvzfhb26b0
+        IssueTitle:
+          type: string
+          x-stoplight:
+            id: gx5ayrokb166q
+        IssuesIdsToMerge:
+          type: array
+          x-stoplight:
+            id: xmp7cs5vknfeq
+          items:
+            x-stoplight:
+              id: yxut41xkk8mc8
+            type: string
+      x-examples:
+        Example 1:
+          PrimaryIssueId: IS12345
+          IssueTitle: My merged issue
+          IssuesIdsToMerge:
+          - IS11111
+          - IS22222
+    ContractorService:
+      title: ContractorService
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique id of service. When updating a contractor to have new services this is the only field that is required
+        Name:
+          type: string
+          description: 'This is the standard name of the service. This is what is shown within the Fixflo system
+
+            '
+        NameAndSynonyms:
+          type: array
+          description: This is a list of other terms the service may be referred as, to help with mapping.
+          items:
+            type: string
+    Media:
+      title: Media
+      type: object
+      description: Please see note on [downloading binary data](docs/Downloading-binary-data.md).
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Unique GUID of Media.
+          readOnly: true
+        URL:
+          type: string
+          readOnly: true
+        ContentType:
+          type: string
+          description: 'The content and mime type of the document eg. example image/png. On POST, if the content type is left blank the content type will be derived from the ShortDesc field. For example where:
+
+            * ContentType = null and a ShortDesc = "picture1.png" a content type of image/png will be derived
+
+            * ContentType = "image/png" and a ShortDesc= "picture1" a content type of image/png will be derived
+
+            * ContentType = "" and a ShortDesc = "picture1" will result in an error
+
+            * ContentType = "xxxxx" and a ShortDesc = "picture1" will result in an error as the content type is not recognised.'
+        MediaType:
+          type: string
+          readOnly: true
+        MediaTypeDescription:
+          type: string
+        ShortDescription:
+          type: string
+          description: 'For POST this is required and should be the filename with extension e.g. "file.pdf"
+
+            '
+        AddedByUserTypeId:
+          type: string
+          description: 'Id of the user that uploaded the file
+
+            '
+          readOnly: true
+        EncodedByteData:
+          type: string
+          description: 'Used for POST only. This data represents the binary document encoded to base-64
+
+            '
+        ServiceProgrammeDef:
+          $ref: '#/components/schemas/ServiceProgrammeDef'
+          x-stoplight:
+            id: r3wrv8s4lrh41
+          readOnly: true
+        DocumentStartDate:
+          type: string
+          x-stoplight:
+            id: 62jrrkrk0brff
+          format: date-time
+          readOnly: true
+        DocumentExpiryDate:
+          type: string
+          x-stoplight:
+            id: tmdafqhw3cn9l
+          format: date-time
+          readOnly: true
+    Contractor:
+      title: Contractor
+      type: object
+      properties:
+        Id:
+          type: string
+          description: Unique id of contractor
+        ExternalRef:
+          type: string
+          description: 'This field is designed to be used to reference the contractor in other systems. If set this value must be unique for contractors
+
+            '
+        CompanyName:
+          type: string
+          description: 'Optional company name.
+
+            '
+        Title:
+          type: string
+          description: 'Title of contractor (eg Mr, Mrs, etc)
+
+            '
+        FirstName:
+          type: string
+        Surname:
+          type: string
+        DisplayName:
+          type: string
+          description: 'This value is used for addressing the contractor. For example Dear [DisplayName]
+
+            '
+        EmailAddress:
+          type: string
+          description: 'EmailAddress is also used as a login. This value must be unique for contractors.
+
+            '
+        ContactNumber:
+          type: string
+        ContactNumberAlt:
+          type: string
+        IsDeleted:
+          type: boolean
+        Address:
+          $ref: '#/components/schemas/Address'
+        InvoiceDetails:
+          $ref: '#/components/schemas/InvoiceDetails'
+        Services:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContractorService'
+        Certifications:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContractorCertification'
+        Brand:
+          $ref: '#/components/schemas/Brand'
+        UpdateDate:
+          format: date-time
+          type: string
+          description: Updated date/time (UTC).
+    TagAdded:
+      title: TagAdded
+      type: object
+      properties:
+        Name:
+          type: string
+        Added:
+          type: string
+      x-examples:
+        example-1:
+          Name: Tag1
+          Added: 2025-01-30-0333
+    TagsAdded:
+      title: TagsAdded
+      type: object
+      properties:
+        Tags:
+          $ref: '#/components/schemas/TagAdded'
+    AdditionalDetail:
+      title: AdditionalDetail
+      type: object
+      description: Some issue faults request additional detail. For example, if there is problem with an appliance the make and model of the appliance will be asked for. These additional questions and responses are returned as list of AdditionalDetail objects
+      properties:
+        Label:
+          type: string
+          description: The question/prompt offered to the reporting user
+        Value:
+          type: string
+          description: The answer
+    Job:
+      title: Job
+      type: object
+      properties:
+        id:
+          type: string
+        IssueId:
+          type: string
+        TenantNotes:
+          type: string
+        JobberNotes:
+          type: string
+        StartDate:
+          type: string
+          format: date-time
+          description: The start date is expressed as a local date.
+        ExternalRefJob:
+          type: string
+          description: 'This field is used to provide a reference to a works order number in another system. In other words, this field should contain a the job purchase order number (aka works order reference)
+
+            '
+        PriceAgencyPayableGross:
+          type: number
+          description: 'This is the gross amount the agency is required to pay the contractor for completion of works
+
+            '
+        PriceAgencyPayableNet:
+          type: number
+          description: 'This is the amount, net of sales taxes, the agency is required to pay the contractor for completion of works
+
+            '
+        PriceAgencyPayableTax:
+          type: number
+          description: 'Should equal PriceAgencyPayableGross - PriceAgencyPayableNet
+
+            '
+        PriceAgencyReceivableGross:
+          type: number
+          description: 'This is the amount the agency should receive from the landlord for completion of works. It will typically be the same as PriceAgencyPayableGross but might include a management charge
+
+            '
+        PriceAgencyReceivableNet:
+          type: number
+          description: 'This is the amount, net of sales taxes, the agency should receive from the landlord for completion of works
+
+            '
+        PriceAgencyReceivableTax:
+          type: number
+          description: Should equal PriceAgencyReceivableGross - PriceAgencyReceivableTax
+        JobInvoiceNumber:
+          type: string
+          description: This the invoice number as supplied by the contractor. If an invoice is uploaded by the contractor it will default to the file name if the field is blank.
+        QuotedPriceAgencyPayableGross:
+          type: number
+          description: 'If a job resulted from the contractor submitting a quote, this is the gross amount the agency agreed to pay the contractor for completion of works
+
+            '
+        QuotedPriceAgencyPayableNet:
+          type: number
+          description: 'If a job resulted from the contractor submitting a quote, this is the amount, net of sales taxes, the agency agreed to pay to pay the contractor for completion of works
+
+            '
+        QuotedPriceAgencyPayableTax:
+          type: number
+          description: 'Should equal QuotedPriceAgencyPayableGross - QuotedPriceAgencyPayableNet
+
+            '
+        QuotedPriceAgencyReceivableGross:
+          type: number
+          description: 'If a job resulted from the contractor submitting a quote, this is the gross amount the landlord agreed to pay the agency for completion of works
+
+            '
+        QuotedPriceAgencyReceivableNet:
+          type: number
+          description: 'If a job resulted from the contractor submitting a quote, this is the amount, net of sales taxes, the landlord agreed to pay the agency for completion of works
+
+            '
+        QuotedPriceAgencyReceivableTax:
+          type: number
+          description: 'Should equal QuotedPriceAgencyReceivableGross - QuotedPriceAgencyReceivableNet
+
+            '
+        AppointmentDescription:
+          type: string
+          description: 'One of: Any, At, Before, After, Between
+
+            '
+        AppointmentRange:
+          type: string
+        CreatedDate:
+          format: date-time
+          type: string
+          description: Created date/time (UTC).
+        JobCompleted:
+          type: string
+          format: date-time
+          description: Job completed date.
+        JobDuration:
+          type: string
+          description: 'A description of how long the job took
+
+            '
+        TenantAcceptedStartDate:
+          type: boolean
+        JobberAgreedWithTenantStartDate:
+          type: boolean
+        LandlordApproval:
+          $ref: '#/components/schemas/JobQuoteApproval'
+        InsurerApproval:
+          $ref: '#/components/schemas/JobQuoteApproval'
+        Contractor:
+          $ref: '#/components/schemas/Contractor'
+    Brand:
+      title: Brand
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Unique GUID of brand.
+        Name:
+          type: string
+          description: Brand name
+  securitySchemes:
+    Bearer:
+      type: http
+      scheme: bearer
+      description: ''
+x-internal: false

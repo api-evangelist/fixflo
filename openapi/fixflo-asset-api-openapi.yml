@@ -1,0 +1,422 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Fixflo Asset API
+  description: Fixflo api docs
+  termsOfService: https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+  contact:
+    email: support@fixflo.com
+    name: Support
+  license:
+    url: https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+    name: Fixflo API licence agreement
+servers:
+- url: https://api-sandbox.fixflo.com/api/v2
+  description: live sandbox
+- url: https://plus.dev.fixflo.com/api/v2
+  description: dev
+security:
+- Bearer: []
+tags:
+- name: Asset
+paths:
+  /Assets:
+    get:
+      summary: Search assets
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/PrevNextPager'
+                - type: object
+                  properties:
+                    Assets:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/Asset_Read'
+      operationId: get-Assets
+      parameters:
+      - schema:
+          type: string
+        in: query
+        name: AssetId
+        description: The Fixflo unique identifier for the asset
+      - schema:
+          type: string
+        in: query
+        name: AssetRef
+        description: The reference on the tag or label of the asset
+      - schema:
+          type: string
+        in: query
+        name: ExternalAssetRef
+        description: The reference of the asset in an external system
+      - schema:
+          type: string
+        in: query
+        name: Name
+        description: The name of the asset
+      - schema:
+          type: string
+        in: query
+        name: ExternalBlockRef
+        description: The reference for the block of the asset in an external system
+      - schema:
+          type: string
+        in: query
+        name: ExternalPropertyRef
+        description: The reference for the property of the asset in an external system
+      - schema:
+          type: string
+          format: date-time
+        in: query
+        name: UpdatedBefore
+        allowEmptyValue: true
+        description: Used to only return assets updated before this date
+      - schema:
+          type: string
+          format: date-time
+        in: query
+        name: UpdatedSince
+        allowEmptyValue: true
+        description: Used to only return assets updated after this date
+      x-internal: false
+      description: Search for assets using the criteria provided in the query string.
+      tags:
+      - Asset
+  /Asset:
+    parameters: []
+    post:
+      summary: Create asset
+      operationId: post-Asset
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/Envelope'
+                - type: object
+                  properties:
+                    Asset:
+                      $ref: '#/components/schemas/Asset_Read'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/Envelope'
+                - type: object
+                  properties:
+                    Asset:
+                      $ref: '#/components/schemas/Asset_Read'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Asset_Read'
+      description: Endpoint used for creating a new asset
+      x-internal: false
+      tags:
+      - Asset
+  /Asset/{id}:
+    parameters:
+    - schema:
+        type: string
+      name: id
+      in: path
+      required: true
+    get:
+      summary: Get asset by id
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - properties:
+                    Asset:
+                      $ref: '#/components/schemas/Asset_Read'
+                type: object
+      operationId: get-Asset-id
+      x-internal: false
+      parameters:
+      - schema:
+          type: string
+        in: query
+        name: id
+        description: The Fixflo asset id
+      description: Retrieve an asset by Id
+      tags:
+      - Asset
+    put:
+      summary: Update asset
+      operationId: put-Asset-id
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/Envelope'
+                - type: object
+                  properties:
+                    Asset:
+                      $ref: '#/components/schemas/Asset_Read'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Asset_Write'
+      x-internal: false
+      description: Update an existing asset
+      tags:
+      - Asset
+components:
+  schemas:
+    Asset_Write:
+      title: Asset
+      x-stoplight:
+        id: m6crcrt6kkr0i
+      type: object
+      x-internal: false
+      properties:
+        Id:
+          type: string
+          readOnly: true
+        AssetRef:
+          type: string
+          description: 'This should be the reference on the tag or label of the asset and must be unique if set
+
+            '
+        ExternalAssetRef:
+          type: string
+          description: 'This should be the reference of the asset in an external system - it can be the same as the asset reference and must be unique if set
+
+            '
+        Name:
+          type: string
+        Updated:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: 'Last time asset was updated
+
+            '
+          readOnly: true
+        Description:
+          type: string
+        Location:
+          type: string
+          description: The location of the asset within the block or property.
+        Subcontracted:
+          type:
+          - boolean
+          - 'null'
+          description: Whether the asset has been subcontracted
+        Manufacturer:
+          type: string
+          description: The manufacturer of the asset
+        Model number:
+          type: string
+          description: The model number of the asset
+        Serial number:
+          type: string
+          description: The serial number of the asset
+        Quantity:
+          type: string
+          description: The quantity of assets
+        InstallationDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: The date of installation for the asset
+        InstallationCost:
+          type: number
+          format: float
+          description: The cost of installation for the asset
+        Warranty:
+          $ref: '#/components/schemas/Warranty_Asset'
+    Asset_Read:
+      title: Asset
+      x-stoplight:
+        id: 6fd4kadtd41zf
+      type: object
+      x-internal: false
+      properties:
+        Id:
+          type: string
+          description: The Fixflo id for the asset
+          readOnly: true
+        AssetRef:
+          type: string
+          description: 'This should be the reference on the tag or label of the asset and must be unique if set
+
+            '
+        ExternalAssetRef:
+          type: string
+          description: 'This should be the reference of the asset in an external system - it can be the same as the asset reference and must be unique if set
+
+            '
+        Name:
+          type: string
+        ExternalPropertyRef:
+          type: string
+          description: The reference for the property containing the asset in an external system, cannot be changed once set. Must be set unless ExternalBlockRefProvided provided.
+        ExternalBlockRef:
+          type: string
+          description: The reference for the block containing the asset in an external system, cannot be changed once set. Must be set unless the ExternalPropertyRef is provided.
+        Updated:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: 'Last time asset was updated
+
+            '
+          readOnly: true
+        Description:
+          type: string
+        Location:
+          type: string
+          description: The location of the asset within the block or property.
+        Subcontracted:
+          type:
+          - boolean
+          - 'null'
+          description: Whether the asset has been subcontracted
+        Manufacturer:
+          type: string
+          description: The Manufacturer of the asset
+        Model number:
+          type: string
+          description: The model number of the asset
+        Serial number:
+          type: string
+          description: The serial number of the asset
+        Quantity:
+          type: string
+          description: The quantity of assets
+        InstallationDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: The date of installation for the asset
+        InstallationCost:
+          type: number
+          format: float
+          description: The cost of installation for the asset
+        Warranty:
+          $ref: '#/components/schemas/Warranty_Asset'
+      required:
+      - Name
+      - ExternalPropertyRef
+      - ExternalBlockRef
+      - Description
+    PrevNextPager:
+      type: object
+      properties:
+        TotalItems:
+          type: integer
+          x-stoplight:
+            id: qbm018n4fbivf
+          description: The total number of items
+        TotalPages:
+          type: integer
+          x-stoplight:
+            id: 8d0f4tjvn3d91
+          description: 'The total number of pages
+
+            '
+        Items:
+          x-stoplight:
+            id: x8n82kadpvt9w
+          type: array
+          items:
+            x-stoplight:
+              id: yp4jiel1kmn2j
+            type: object
+        NextURL:
+          type: string
+          x-stoplight:
+            id: tcm929q75tirz
+          description: The URL of the next page of results
+        PreviousURL:
+          type: string
+          x-stoplight:
+            id: 3hruq0fcrc5sz
+          description: 'The URL of the previous page of results
+
+            '
+    Envelope:
+      title: Envelope
+      type: object
+      description: This object is used to carry/return responses following post operations.
+      properties:
+        HttpStatusCode:
+          type: integer
+        HttpStatusCodeDesc:
+          type: string
+        Errors:
+          type: array
+          items:
+            type: string
+        Messages:
+          type: array
+          items:
+            type: string
+    Warranty_Asset:
+      title: Warranty
+      type: object
+      x-stoplight:
+        id: 3258d0e2956b2
+      x-internal: false
+      properties:
+        id:
+          type: string
+          readOnly: true
+        StartDate:
+          format: date-time
+          type: string
+          description: 'The warranty start date
+
+            '
+        EndDate:
+          format: date-time
+          type: string
+          description: 'The warranty end date
+
+            '
+        ExternalContractorRef:
+          type: string
+          description: 'The external reference for the contractor assigned to the warranty
+
+            '
+        AssignedContractorCaption:
+          type: string
+          description: 'A name caption for the contractor assigned to the warranty
+
+            '
+          readOnly: true
+  securitySchemes:
+    Bearer:
+      type: http
+      scheme: bearer
+      description: ''
+x-internal: false

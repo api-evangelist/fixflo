@@ -1,0 +1,249 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Fixflo Agency API
+  description: Fixflo api docs
+  termsOfService: https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+  contact:
+    email: support@fixflo.com
+    name: Support
+  license:
+    url: https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+    name: Fixflo API licence agreement
+servers:
+- url: https://api-sandbox.fixflo.com/api/v2
+  description: live sandbox
+- url: https://plus.dev.fixflo.com/api/v2
+  description: dev
+security:
+- Bearer: []
+tags:
+- name: Agency
+paths:
+  /Agencies:
+    get:
+      summary: Agencies
+      description: Get list of agencies. The agency endpoints are only available on request to support.
+      tags:
+      - Agency
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/PrevNextPager'
+                - type: object
+                  properties:
+                    Items:
+                      type: array
+                      items:
+                        type: string
+      operationId: get-Agencies
+      parameters:
+      - schema:
+          type: integer
+        in: query
+        name: page
+        description: The page number to return
+  /Agency/{id}:
+    parameters:
+    - schema:
+        type: string
+      name: id
+      in: path
+      required: true
+    get:
+      summary: Agency
+      tags:
+      - Agency
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Agency'
+      operationId: get-Agency
+      description: Get an agency
+  /Agency:
+    post:
+      summary: Agency / add
+      operationId: post-Agency
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/Envelope'
+                - type: object
+                  properties:
+                    Entity:
+                      $ref: '#/components/schemas/Agency'
+      description: Add an agency
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Agency'
+      tags:
+      - Agency
+  /Agency/{id}/SetupIntegrationTemplates:
+    parameters:
+    - schema:
+        type: string
+      name: id
+      in: path
+      required: true
+      description: Agency Id
+    get:
+      summary: Setup Agency Integration Templates
+      operationId: SetupAgencyIntegrationTemplates
+      responses:
+        '204':
+          description: No Content
+      description: Setup Integration templates for existing Agency with given Id
+      tags:
+      - Agency
+  /Agency/Settings:
+    get:
+      summary: Get Agency Settings
+      tags:
+      - Agency
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AgencySettings'
+      operationId: get-Agency-Settings
+      x-internal: false
+components:
+  schemas:
+    PrevNextPager:
+      type: object
+      properties:
+        TotalItems:
+          type: integer
+          x-stoplight:
+            id: qbm018n4fbivf
+          description: The total number of items
+        TotalPages:
+          type: integer
+          x-stoplight:
+            id: 8d0f4tjvn3d91
+          description: 'The total number of pages
+
+            '
+        Items:
+          x-stoplight:
+            id: x8n82kadpvt9w
+          type: array
+          items:
+            x-stoplight:
+              id: yp4jiel1kmn2j
+            type: object
+        NextURL:
+          type: string
+          x-stoplight:
+            id: tcm929q75tirz
+          description: The URL of the next page of results
+        PreviousURL:
+          type: string
+          x-stoplight:
+            id: 3hruq0fcrc5sz
+          description: 'The URL of the previous page of results
+
+            '
+    Agency:
+      title: Agency
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique Id of agency.
+        AgencyName:
+          type: string
+          description: Friendly name of agency. Must be unique
+        CustomDomain:
+          type: string
+          description: "\tCustom domain that will be used by the agency to access Fixflo. This value must be unique and must end with the relevant domain name eg. .fixflo.com, .test.fixflo.com"
+        EmailAddress:
+          type: string
+          description: This is the central email address that will be used to send issue reports to. For create operations a user agent with this email address will also be created
+        Password:
+          type: string
+          description: This value will be null for all GET operations
+        IsDeleted:
+          type: boolean
+          description: Whether the agency is deleted or not. Agencies which are marked as deleted are subject to purging (ie having the data removed) at any time
+        Created:
+          type: string
+          format: date-time
+          description: Created date/time (UTC)
+        FeatureType:
+          format: date-time
+          type: integer
+          description: "\t0 - Fixflo (default), 1 - Fixflo Plus"
+        IssueTreeRoot:
+          format: date-time
+          type: integer
+          description: "\t0 - Property management (default), 1 - Block management"
+        SiteBaseUrl:
+          format: date-time
+          type: string
+          description: Base url for an agency. This property is read-only always.
+        DefaultTimeZoneId:
+          format: date-time
+          type: string
+          description: "g\tDefault time zone id for agency. All date/time data is stored as UTC and all date/time data is presented with the API as UTC. However, date/time data is presented to end-users in local time, converted from UTC using the default timezone. "
+        Locale:
+          format: date-time
+          type: string
+          description: "\tThe agency locale. The agency locale determines the presentation of data in respect of currency symbols, date/time formats, decimal formats and so forth."
+    AgencySettings:
+      title: AgencySettings
+      x-stoplight:
+        id: c0780e23b7d69
+      type: object
+      properties:
+        AgencyName:
+          type: string
+          x-stoplight:
+            id: e5hu8qnab7j3x
+          description: The name of the agency
+        WorkflowType:
+          type: string
+          description: "None/Basic means properties are not managed in Fixflo. Only the agent and team data is stored. Issues can be reported but not progressed through the workflow. \n\nFull means properties are managed in Fixflo. All property and people data is stored in Fixflo, and issues can be progressed to Landlords/leaseholders and contractors accordingly with full Fixflo workflow functionality."
+          x-stoplight:
+            id: v14stuq6mb3ag
+          enum:
+          - Basic
+          - Full
+    Envelope:
+      title: Envelope
+      type: object
+      description: This object is used to carry/return responses following post operations.
+      properties:
+        HttpStatusCode:
+          type: integer
+        HttpStatusCodeDesc:
+          type: string
+        Errors:
+          type: array
+          items:
+            type: string
+        Messages:
+          type: array
+          items:
+            type: string
+  securitySchemes:
+    Bearer:
+      type: http
+      scheme: bearer
+      description: ''
+x-internal: false

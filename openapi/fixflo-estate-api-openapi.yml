@@ -1,0 +1,258 @@
+openapi: 3.2.0
+info:
+  version: '2.0'
+  title: Fixflo Estate API
+  description: Fixflo api docs
+  termsOfService: https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+  contact:
+    email: support@fixflo.com
+    name: Support
+  license:
+    url: https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf
+    name: Fixflo API licence agreement
+servers:
+- url: https://api-sandbox.fixflo.com/api/v2
+  description: live sandbox
+- url: https://plus.dev.fixflo.com/api/v2
+  description: dev
+security:
+- Bearer: []
+tags:
+- name: Estate
+paths:
+  /Estate/{id}:
+    parameters:
+    - schema:
+        type: string
+      name: id
+      in: path
+      required: true
+    get:
+      summary: Estate
+      tags:
+      - Estate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Estate'
+      operationId: get-estate
+      parameters:
+      - schema:
+          type: string
+        in: query
+        name: ExternalEstateRef
+      description: Gets an estate by id or external reference (your ref)
+  /Estate:
+    post:
+      summary: Estate
+      tags:
+      - Estate
+      operationId: post-estate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/Envelope'
+                - type: object
+                  properties:
+                    Entity:
+                      $ref: '#/components/schemas/Estate'
+              examples:
+                example-1:
+                  value:
+                    HttpStatusCode: 0
+                    HttpStatusCodeDesc: string
+                    Errors:
+                    - string
+                    Messages:
+                    - string
+                    Entity:
+                      id: 0
+                      Name: string
+                      ExternalEstateRef: string
+                      AssignedAgent:
+                        Id: 0
+                        ExternalRef: string
+                        EmailAddress: string
+                        DisplayName: string
+                        ContactNo: string
+                        IsDeleted: true
+                        Brand:
+                          Id: 38a5a5bb-dc30-49a2-b175-1de0d1488c43
+                          Name: string
+                        UpdateDate: '2019-08-24T14:15:22Z'
+                      IsDeleted: true
+                      UpdateDate: '2019-08-24T14:15:22Z'
+      description: Create or update an estate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Estate'
+        description: ''
+  /Estates:
+    parameters: []
+    get:
+      summary: Estates
+      tags:
+      - Estate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/PrevNextPager'
+                - type: object
+                  properties:
+                    Items:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/Estate'
+      operationId: get-estates
+      parameters:
+      - schema:
+          type: string
+        in: query
+        name: Keyword
+        description: Keyword to search with
+      - schema:
+          type: string
+          format: date-time
+        in: query
+        name: UpdatedSince
+        description: Filters on items that have been updated since this date time. (UTC date/time)
+      - schema:
+          type: integer
+        in: query
+        name: Pg
+        description: pg
+      description: Find estates by keyword or other parameters
+components:
+  schemas:
+    PrevNextPager:
+      type: object
+      properties:
+        TotalItems:
+          type: integer
+          x-stoplight:
+            id: qbm018n4fbivf
+          description: The total number of items
+        TotalPages:
+          type: integer
+          x-stoplight:
+            id: 8d0f4tjvn3d91
+          description: 'The total number of pages
+
+            '
+        Items:
+          x-stoplight:
+            id: x8n82kadpvt9w
+          type: array
+          items:
+            x-stoplight:
+              id: yp4jiel1kmn2j
+            type: object
+        NextURL:
+          type: string
+          x-stoplight:
+            id: tcm929q75tirz
+          description: The URL of the next page of results
+        PreviousURL:
+          type: string
+          x-stoplight:
+            id: 3hruq0fcrc5sz
+          description: 'The URL of the previous page of results
+
+            '
+    AssignedAgent:
+      title: AssignedAgent
+      type: object
+      properties:
+        Id:
+          type: integer
+          format: int64
+        ExternalRef:
+          type: string
+        EmailAddress:
+          type: string
+        DisplayName:
+          type: string
+        ContactNo:
+          type: string
+        IsDeleted:
+          type: boolean
+        Brand:
+          $ref: '#/components/schemas/Brand'
+        UpdateDate:
+          type: string
+          format: date-time
+          description: Updated date/time (UTC).
+    Envelope:
+      title: Envelope
+      type: object
+      description: This object is used to carry/return responses following post operations.
+      properties:
+        HttpStatusCode:
+          type: integer
+        HttpStatusCodeDesc:
+          type: string
+        Errors:
+          type: array
+          items:
+            type: string
+        Messages:
+          type: array
+          items:
+            type: string
+    Estate:
+      title: Estate
+      type: object
+      properties:
+        id:
+          type: integer
+          description: 'Unique Id of the Estate
+
+            '
+        Name:
+          type: string
+        ExternalEstateRef:
+          type: string
+          description: 'This field is designed to be used as the reference of the estate in the other (your) system. If set, this value must be unique for estates.
+
+            '
+        AssignedAgent:
+          $ref: '#/components/schemas/AssignedAgent'
+        IsDeleted:
+          type: boolean
+          description: 'Read/writable - archives the estate
+
+            '
+        UpdateDate:
+          format: date-time
+          type: string
+          description: Updated date/time (UTC).
+    Brand:
+      title: Brand
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Unique GUID of brand.
+        Name:
+          type: string
+          description: Brand name
+  securitySchemes:
+    Bearer:
+      type: http
+      scheme: bearer
+      description: ''
+x-internal: false
