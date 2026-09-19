@@ -270,6 +270,8 @@ apis:
   humanURL: https://api-docs.fixflo.com/
   baseURL: https://api-sandbox.fixflo.com/api/v2
   tags:
+  - Brands
+  tags_raw:
   - Brand
   properties:
   - type: OpenAPI
@@ -704,6 +706,8 @@ apis:
   humanURL: https://api-docs.fixflo.com/
   baseURL: https://api-sandbox.fixflo.com/api/v2
   tags:
+  - Landlords
+  tags_raw:
   - Landlord
   properties:
   - type: OpenAPI
@@ -1089,6 +1093,8 @@ apis:
   humanURL: https://api-docs.fixflo.com/
   baseURL: https://api-sandbox.fixflo.com/api/v2
   tags:
+  - Tenants
+  tags_raw:
   - Tenant
   properties:
   - type: OpenAPI
