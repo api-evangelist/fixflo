@@ -159,6 +159,42 @@ components:
           description: 'The URL of the previous page of results
 
             '
+    AgencySettings:
+      title: AgencySettings
+      x-stoplight:
+        id: c0780e23b7d69
+      type: object
+      properties:
+        AgencyName:
+          type: string
+          x-stoplight:
+            id: e5hu8qnab7j3x
+          description: The name of the agency
+        WorkflowType:
+          type: string
+          description: "None/Basic means properties are not managed in Fixflo. Only the agent and team data is stored. Issues can be reported but not progressed through the workflow. \n\nFull means properties are managed in Fixflo. All property and people data is stored in Fixflo, and issues can be progressed to Landlords/leaseholders and contractors accordingly with full Fixflo workflow functionality."
+          x-stoplight:
+            id: v14stuq6mb3ag
+          enum:
+          - Basic
+          - Full
+    Envelope:
+      title: Envelope
+      type: object
+      description: This object is used to carry/return responses following post operations.
+      properties:
+        HttpStatusCode:
+          type: integer
+        HttpStatusCodeDesc:
+          type: string
+        Errors:
+          type: array
+          items:
+            type: string
+        Messages:
+          type: array
+          items:
+            type: string
     Agency:
       title: Agency
       type: object
@@ -205,42 +241,6 @@ components:
           format: date-time
           type: string
           description: "\tThe agency locale. The agency locale determines the presentation of data in respect of currency symbols, date/time formats, decimal formats and so forth."
-    AgencySettings:
-      title: AgencySettings
-      x-stoplight:
-        id: c0780e23b7d69
-      type: object
-      properties:
-        AgencyName:
-          type: string
-          x-stoplight:
-            id: e5hu8qnab7j3x
-          description: The name of the agency
-        WorkflowType:
-          type: string
-          description: "None/Basic means properties are not managed in Fixflo. Only the agent and team data is stored. Issues can be reported but not progressed through the workflow. \n\nFull means properties are managed in Fixflo. All property and people data is stored in Fixflo, and issues can be progressed to Landlords/leaseholders and contractors accordingly with full Fixflo workflow functionality."
-          x-stoplight:
-            id: v14stuq6mb3ag
-          enum:
-          - Basic
-          - Full
-    Envelope:
-      title: Envelope
-      type: object
-      description: This object is used to carry/return responses following post operations.
-      properties:
-        HttpStatusCode:
-          type: integer
-        HttpStatusCodeDesc:
-          type: string
-        Errors:
-          type: array
-          items:
-            type: string
-        Messages:
-          type: array
-          items:
-            type: string
   securitySchemes:
     Bearer:
       type: http

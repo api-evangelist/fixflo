@@ -187,71 +187,23 @@ paths:
       - Asset
 components:
   schemas:
-    Asset_Write:
-      title: Asset
-      x-stoplight:
-        id: m6crcrt6kkr0i
+    Envelope:
+      title: Envelope
       type: object
-      x-internal: false
+      description: This object is used to carry/return responses following post operations.
       properties:
-        Id:
+        HttpStatusCode:
+          type: integer
+        HttpStatusCodeDesc:
           type: string
-          readOnly: true
-        AssetRef:
-          type: string
-          description: 'This should be the reference on the tag or label of the asset and must be unique if set
-
-            '
-        ExternalAssetRef:
-          type: string
-          description: 'This should be the reference of the asset in an external system - it can be the same as the asset reference and must be unique if set
-
-            '
-        Name:
-          type: string
-        Updated:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          description: 'Last time asset was updated
-
-            '
-          readOnly: true
-        Description:
-          type: string
-        Location:
-          type: string
-          description: The location of the asset within the block or property.
-        Subcontracted:
-          type:
-          - boolean
-          - 'null'
-          description: Whether the asset has been subcontracted
-        Manufacturer:
-          type: string
-          description: The manufacturer of the asset
-        Model number:
-          type: string
-          description: The model number of the asset
-        Serial number:
-          type: string
-          description: The serial number of the asset
-        Quantity:
-          type: string
-          description: The quantity of assets
-        InstallationDate:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          description: The date of installation for the asset
-        InstallationCost:
-          type: number
-          format: float
-          description: The cost of installation for the asset
-        Warranty:
-          $ref: '#/components/schemas/Warranty_Asset'
+        Errors:
+          type: array
+          items:
+            type: string
+        Messages:
+          type: array
+          items:
+            type: string
     Asset_Read:
       title: Asset
       x-stoplight:
@@ -329,6 +281,104 @@ components:
       - ExternalPropertyRef
       - ExternalBlockRef
       - Description
+    Warranty_Asset:
+      title: Warranty
+      type: object
+      x-stoplight:
+        id: 3258d0e2956b2
+      x-internal: false
+      properties:
+        id:
+          type: string
+          readOnly: true
+        StartDate:
+          format: date-time
+          type: string
+          description: 'The warranty start date
+
+            '
+        EndDate:
+          format: date-time
+          type: string
+          description: 'The warranty end date
+
+            '
+        ExternalContractorRef:
+          type: string
+          description: 'The external reference for the contractor assigned to the warranty
+
+            '
+        AssignedContractorCaption:
+          type: string
+          description: 'A name caption for the contractor assigned to the warranty
+
+            '
+          readOnly: true
+    Asset_Write:
+      title: Asset
+      x-stoplight:
+        id: m6crcrt6kkr0i
+      type: object
+      x-internal: false
+      properties:
+        Id:
+          type: string
+          readOnly: true
+        AssetRef:
+          type: string
+          description: 'This should be the reference on the tag or label of the asset and must be unique if set
+
+            '
+        ExternalAssetRef:
+          type: string
+          description: 'This should be the reference of the asset in an external system - it can be the same as the asset reference and must be unique if set
+
+            '
+        Name:
+          type: string
+        Updated:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: 'Last time asset was updated
+
+            '
+          readOnly: true
+        Description:
+          type: string
+        Location:
+          type: string
+          description: The location of the asset within the block or property.
+        Subcontracted:
+          type:
+          - boolean
+          - 'null'
+          description: Whether the asset has been subcontracted
+        Manufacturer:
+          type: string
+          description: The manufacturer of the asset
+        Model number:
+          type: string
+          description: The model number of the asset
+        Serial number:
+          type: string
+          description: The serial number of the asset
+        Quantity:
+          type: string
+          description: The quantity of assets
+        InstallationDate:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: The date of installation for the asset
+        InstallationCost:
+          type: number
+          format: float
+          description: The cost of installation for the asset
+        Warranty:
+          $ref: '#/components/schemas/Warranty_Asset'
     PrevNextPager:
       type: object
       properties:
@@ -364,56 +414,6 @@ components:
           description: 'The URL of the previous page of results
 
             '
-    Envelope:
-      title: Envelope
-      type: object
-      description: This object is used to carry/return responses following post operations.
-      properties:
-        HttpStatusCode:
-          type: integer
-        HttpStatusCodeDesc:
-          type: string
-        Errors:
-          type: array
-          items:
-            type: string
-        Messages:
-          type: array
-          items:
-            type: string
-    Warranty_Asset:
-      title: Warranty
-      type: object
-      x-stoplight:
-        id: 3258d0e2956b2
-      x-internal: false
-      properties:
-        id:
-          type: string
-          readOnly: true
-        StartDate:
-          format: date-time
-          type: string
-          description: 'The warranty start date
-
-            '
-        EndDate:
-          format: date-time
-          type: string
-          description: 'The warranty end date
-
-            '
-        ExternalContractorRef:
-          type: string
-          description: 'The external reference for the contractor assigned to the warranty
-
-            '
-        AssignedContractorCaption:
-          type: string
-          description: 'A name caption for the contractor assigned to the warranty
-
-            '
-          readOnly: true
   securitySchemes:
     Bearer:
       type: http

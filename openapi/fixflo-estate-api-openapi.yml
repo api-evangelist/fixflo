@@ -137,6 +137,84 @@ paths:
       description: Find estates by keyword or other parameters
 components:
   schemas:
+    Envelope:
+      title: Envelope
+      type: object
+      description: This object is used to carry/return responses following post operations.
+      properties:
+        HttpStatusCode:
+          type: integer
+        HttpStatusCodeDesc:
+          type: string
+        Errors:
+          type: array
+          items:
+            type: string
+        Messages:
+          type: array
+          items:
+            type: string
+    AssignedAgent:
+      title: AssignedAgent
+      type: object
+      properties:
+        Id:
+          type: integer
+          format: int64
+        ExternalRef:
+          type: string
+        EmailAddress:
+          type: string
+        DisplayName:
+          type: string
+        ContactNo:
+          type: string
+        IsDeleted:
+          type: boolean
+        Brand:
+          $ref: '#/components/schemas/Brand'
+        UpdateDate:
+          type: string
+          format: date-time
+          description: Updated date/time (UTC).
+    Brand:
+      title: Brand
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Unique GUID of brand.
+        Name:
+          type: string
+          description: Brand name
+    Estate:
+      title: Estate
+      type: object
+      properties:
+        id:
+          type: integer
+          description: 'Unique Id of the Estate
+
+            '
+        Name:
+          type: string
+        ExternalEstateRef:
+          type: string
+          description: 'This field is designed to be used as the reference of the estate in the other (your) system. If set, this value must be unique for estates.
+
+            '
+        AssignedAgent:
+          $ref: '#/components/schemas/AssignedAgent'
+        IsDeleted:
+          type: boolean
+          description: 'Read/writable - archives the estate
+
+            '
+        UpdateDate:
+          format: date-time
+          type: string
+          description: Updated date/time (UTC).
     PrevNextPager:
       type: object
       properties:
@@ -172,84 +250,6 @@ components:
           description: 'The URL of the previous page of results
 
             '
-    AssignedAgent:
-      title: AssignedAgent
-      type: object
-      properties:
-        Id:
-          type: integer
-          format: int64
-        ExternalRef:
-          type: string
-        EmailAddress:
-          type: string
-        DisplayName:
-          type: string
-        ContactNo:
-          type: string
-        IsDeleted:
-          type: boolean
-        Brand:
-          $ref: '#/components/schemas/Brand'
-        UpdateDate:
-          type: string
-          format: date-time
-          description: Updated date/time (UTC).
-    Envelope:
-      title: Envelope
-      type: object
-      description: This object is used to carry/return responses following post operations.
-      properties:
-        HttpStatusCode:
-          type: integer
-        HttpStatusCodeDesc:
-          type: string
-        Errors:
-          type: array
-          items:
-            type: string
-        Messages:
-          type: array
-          items:
-            type: string
-    Estate:
-      title: Estate
-      type: object
-      properties:
-        id:
-          type: integer
-          description: 'Unique Id of the Estate
-
-            '
-        Name:
-          type: string
-        ExternalEstateRef:
-          type: string
-          description: 'This field is designed to be used as the reference of the estate in the other (your) system. If set, this value must be unique for estates.
-
-            '
-        AssignedAgent:
-          $ref: '#/components/schemas/AssignedAgent'
-        IsDeleted:
-          type: boolean
-          description: 'Read/writable - archives the estate
-
-            '
-        UpdateDate:
-          format: date-time
-          type: string
-          description: Updated date/time (UTC).
-    Brand:
-      title: Brand
-      type: object
-      properties:
-        Id:
-          type: string
-          format: uuid
-          description: Unique GUID of brand.
-        Name:
-          type: string
-          description: Brand name
   securitySchemes:
     Bearer:
       type: http

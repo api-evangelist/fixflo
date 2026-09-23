@@ -99,41 +99,6 @@ paths:
       description: Get service programme definitions
 components:
   schemas:
-    PrevNextPager:
-      type: object
-      properties:
-        TotalItems:
-          type: integer
-          x-stoplight:
-            id: qbm018n4fbivf
-          description: The total number of items
-        TotalPages:
-          type: integer
-          x-stoplight:
-            id: 8d0f4tjvn3d91
-          description: 'The total number of pages
-
-            '
-        Items:
-          x-stoplight:
-            id: x8n82kadpvt9w
-          type: array
-          items:
-            x-stoplight:
-              id: yp4jiel1kmn2j
-            type: object
-        NextURL:
-          type: string
-          x-stoplight:
-            id: tcm929q75tirz
-          description: The URL of the next page of results
-        PreviousURL:
-          type: string
-          x-stoplight:
-            id: 3hruq0fcrc5sz
-          description: 'The URL of the previous page of results
-
-            '
     ServiceProgrammeDef:
       title: ServiceProgrammeDef
       type: object
@@ -195,6 +160,41 @@ components:
           type: boolean
           readOnly: true
           description: 'not used for posts.
+
+            '
+    PrevNextPager:
+      type: object
+      properties:
+        TotalItems:
+          type: integer
+          x-stoplight:
+            id: qbm018n4fbivf
+          description: The total number of items
+        TotalPages:
+          type: integer
+          x-stoplight:
+            id: 8d0f4tjvn3d91
+          description: 'The total number of pages
+
+            '
+        Items:
+          x-stoplight:
+            id: x8n82kadpvt9w
+          type: array
+          items:
+            x-stoplight:
+              id: yp4jiel1kmn2j
+            type: object
+        NextURL:
+          type: string
+          x-stoplight:
+            id: tcm929q75tirz
+          description: The URL of the next page of results
+        PreviousURL:
+          type: string
+          x-stoplight:
+            id: 3hruq0fcrc5sz
+          description: 'The URL of the previous page of results
 
             '
     Envelope:

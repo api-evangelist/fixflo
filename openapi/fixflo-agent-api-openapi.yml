@@ -166,6 +166,17 @@ paths:
       x-internal: false
 components:
   schemas:
+    Brand:
+      title: Brand
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Unique GUID of brand.
+        Name:
+          type: string
+          description: Brand name
     PrevNextPager:
       type: object
       properties:
@@ -201,6 +212,23 @@ components:
           description: 'The URL of the previous page of results
 
             '
+    Envelope:
+      title: Envelope
+      type: object
+      description: This object is used to carry/return responses following post operations.
+      properties:
+        HttpStatusCode:
+          type: integer
+        HttpStatusCodeDesc:
+          type: string
+        Errors:
+          type: array
+          items:
+            type: string
+        Messages:
+          type: array
+          items:
+            type: string
     AssignedAgent:
       title: AssignedAgent
       type: object
@@ -224,34 +252,6 @@ components:
           type: string
           format: date-time
           description: Updated date/time (UTC).
-    Brand:
-      title: Brand
-      type: object
-      properties:
-        Id:
-          type: string
-          format: uuid
-          description: Unique GUID of brand.
-        Name:
-          type: string
-          description: Brand name
-    Envelope:
-      title: Envelope
-      type: object
-      description: This object is used to carry/return responses following post operations.
-      properties:
-        HttpStatusCode:
-          type: integer
-        HttpStatusCodeDesc:
-          type: string
-        Errors:
-          type: array
-          items:
-            type: string
-        Messages:
-          type: array
-          items:
-            type: string
   securitySchemes:
     Bearer:
       type: http

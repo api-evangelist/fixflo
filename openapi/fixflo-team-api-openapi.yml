@@ -92,6 +92,16 @@ paths:
         name: pg
 components:
   schemas:
+    Team:
+      title: Team
+      type: object
+      properties:
+        id:
+          type: string
+        Name:
+          type: string
+        IsDeleted:
+          type: boolean
     PrevNextPager:
       type: object
       properties:
@@ -127,16 +137,6 @@ components:
           description: 'The URL of the previous page of results
 
             '
-    Team:
-      title: Team
-      type: object
-      properties:
-        id:
-          type: string
-        Name:
-          type: string
-        IsDeleted:
-          type: boolean
     Envelope:
       title: Envelope
       type: object

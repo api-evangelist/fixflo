@@ -198,51 +198,6 @@ paths:
       description: Unsubscribe webhook
 components:
   schemas:
-    WebhookDeliveryItem:
-      title: WebhookDeliveryItem
-      type: object
-      properties:
-        id:
-          type: string
-          description: 'Unique id of webhook
-
-            '
-        WebHookUrl:
-          type: string
-          description: 'The url of the webhook
-
-            '
-        SendTime:
-          format: date-time
-          type: string
-          description: 'the time the webhook was sent
-
-            '
-        Failed:
-          type: string
-          description: 'did the webhook send fail
-
-            '
-        FailureMessage:
-          type: string
-          description: 'a message which describes the reason for failure
-
-            '
-        ResponseStatus:
-          type: string
-          description: 'the http response status received from the webhook end point
-
-            '
-        RequestBody:
-          type: string
-          description: 'the content of the request body
-
-            '
-        ResponseBody:
-          type: string
-          description: 'the content of the response body
-
-            '
     PrevNextPager:
       type: object
       properties:
@@ -290,6 +245,51 @@ components:
         Url:
           type: string
           description: 'The url of the webhook
+
+            '
+    WebhookDeliveryItem:
+      title: WebhookDeliveryItem
+      type: object
+      properties:
+        id:
+          type: string
+          description: 'Unique id of webhook
+
+            '
+        WebHookUrl:
+          type: string
+          description: 'The url of the webhook
+
+            '
+        SendTime:
+          format: date-time
+          type: string
+          description: 'the time the webhook was sent
+
+            '
+        Failed:
+          type: string
+          description: 'did the webhook send fail
+
+            '
+        FailureMessage:
+          type: string
+          description: 'a message which describes the reason for failure
+
+            '
+        ResponseStatus:
+          type: string
+          description: 'the http response status received from the webhook end point
+
+            '
+        RequestBody:
+          type: string
+          description: 'the content of the request body
+
+            '
+        ResponseBody:
+          type: string
+          description: 'the content of the response body
 
             '
   securitySchemes:
