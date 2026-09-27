@@ -341,6 +341,73 @@ components:
           type: array
           items:
             type: string
+    PrevNextPager:
+      type: object
+      properties:
+        TotalItems:
+          type: integer
+          x-stoplight:
+            id: qbm018n4fbivf
+          description: The total number of items
+        TotalPages:
+          type: integer
+          x-stoplight:
+            id: 8d0f4tjvn3d91
+          description: 'The total number of pages
+
+            '
+        Items:
+          x-stoplight:
+            id: x8n82kadpvt9w
+          type: array
+          items:
+            x-stoplight:
+              id: yp4jiel1kmn2j
+            type: object
+        NextURL:
+          type: string
+          x-stoplight:
+            id: tcm929q75tirz
+          description: The URL of the next page of results
+        PreviousURL:
+          type: string
+          x-stoplight:
+            id: 3hruq0fcrc5sz
+          description: 'The URL of the previous page of results
+
+            '
+    LandlordProperty:
+      title: LandlordProperty
+      type: object
+      properties:
+        Id:
+          type: integer
+          description: 'Unique id of landlord property record
+
+            '
+        LandlordId:
+          type: string
+          description: 'The LandlordId of the property
+
+            '
+        PropertyId:
+          type: integer
+          description: 'The PropertyId of the property
+
+            '
+        DateFrom:
+          format: date-time
+          type: string
+          description: IGNORED
+        DateTo:
+          format: date-time
+          type: string
+          description: IGNORED
+        IsPrimaryLandlord:
+          type: boolean
+          description: IGNORED
+        Address:
+          $ref: '#/components/schemas/Address'
     AssignedAgent:
       title: AssignedAgent
       type: object
@@ -383,38 +450,6 @@ components:
           description: "The external property ref of the property       \n"
         IsPrimaryLandlord:
           type: boolean
-    LandlordProperty:
-      title: LandlordProperty
-      type: object
-      properties:
-        Id:
-          type: integer
-          description: 'Unique id of landlord property record
-
-            '
-        LandlordId:
-          type: string
-          description: 'The LandlordId of the property
-
-            '
-        PropertyId:
-          type: integer
-          description: 'The PropertyId of the property
-
-            '
-        DateFrom:
-          format: date-time
-          type: string
-          description: IGNORED
-        DateTo:
-          format: date-time
-          type: string
-          description: IGNORED
-        IsPrimaryLandlord:
-          type: boolean
-          description: IGNORED
-        Address:
-          $ref: '#/components/schemas/Address'
     Brand:
       title: Brand
       type: object
@@ -499,41 +534,6 @@ components:
         Country:
           type: string
           description: If set this should be a two letter ISO code. If the information supplied does not match an ISO code it will default to blank
-    PrevNextPager:
-      type: object
-      properties:
-        TotalItems:
-          type: integer
-          x-stoplight:
-            id: qbm018n4fbivf
-          description: The total number of items
-        TotalPages:
-          type: integer
-          x-stoplight:
-            id: 8d0f4tjvn3d91
-          description: 'The total number of pages
-
-            '
-        Items:
-          x-stoplight:
-            id: x8n82kadpvt9w
-          type: array
-          items:
-            x-stoplight:
-              id: yp4jiel1kmn2j
-            type: object
-        NextURL:
-          type: string
-          x-stoplight:
-            id: tcm929q75tirz
-          description: The URL of the next page of results
-        PreviousURL:
-          type: string
-          x-stoplight:
-            id: 3hruq0fcrc5sz
-          description: 'The URL of the previous page of results
-
-            '
   securitySchemes:
     Bearer:
       type: http

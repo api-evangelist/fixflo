@@ -92,16 +92,23 @@ paths:
         name: pg
 components:
   schemas:
-    Team:
-      title: Team
+    Envelope:
+      title: Envelope
       type: object
+      description: This object is used to carry/return responses following post operations.
       properties:
-        id:
+        HttpStatusCode:
+          type: integer
+        HttpStatusCodeDesc:
           type: string
-        Name:
-          type: string
-        IsDeleted:
-          type: boolean
+        Errors:
+          type: array
+          items:
+            type: string
+        Messages:
+          type: array
+          items:
+            type: string
     PrevNextPager:
       type: object
       properties:
@@ -137,23 +144,16 @@ components:
           description: 'The URL of the previous page of results
 
             '
-    Envelope:
-      title: Envelope
+    Team:
+      title: Team
       type: object
-      description: This object is used to carry/return responses following post operations.
       properties:
-        HttpStatusCode:
-          type: integer
-        HttpStatusCodeDesc:
+        id:
           type: string
-        Errors:
-          type: array
-          items:
-            type: string
-        Messages:
-          type: array
-          items:
-            type: string
+        Name:
+          type: string
+        IsDeleted:
+          type: boolean
   securitySchemes:
     Bearer:
       type: http

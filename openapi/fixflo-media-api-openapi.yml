@@ -148,6 +148,23 @@ paths:
       description: This will allow you to download the file as a stream
 components:
   schemas:
+    Envelope:
+      title: Envelope
+      type: object
+      description: This object is used to carry/return responses following post operations.
+      properties:
+        HttpStatusCode:
+          type: integer
+        HttpStatusCodeDesc:
+          type: string
+        Errors:
+          type: array
+          items:
+            type: string
+        Messages:
+          type: array
+          items:
+            type: string
     ServiceProgrammeDef:
       title: ServiceProgrammeDef
       type: object
@@ -308,23 +325,6 @@ components:
             id: tmdafqhw3cn9l
           format: date-time
           readOnly: true
-    Envelope:
-      title: Envelope
-      type: object
-      description: This object is used to carry/return responses following post operations.
-      properties:
-        HttpStatusCode:
-          type: integer
-        HttpStatusCodeDesc:
-          type: string
-        Errors:
-          type: array
-          items:
-            type: string
-        Messages:
-          type: array
-          items:
-            type: string
   securitySchemes:
     Bearer:
       type: http

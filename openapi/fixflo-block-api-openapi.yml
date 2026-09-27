@@ -212,95 +212,6 @@ paths:
         id: rn646ghb7nite
 components:
   schemas:
-    Warranty:
-      title: Warranty
-      type: object
-      properties:
-        id:
-          type: string
-        StartDate:
-          format: date-time
-          type: string
-          description: 'The warranty start date
-
-            '
-        EndDate:
-          format: date-time
-          type: string
-          description: 'The warranty end date
-
-            '
-        ExternalContractorRef:
-          type: string
-          description: 'The external reference for the contractor assigned to the warranty
-
-            '
-        AssignedContractorCaption:
-          type: string
-          description: 'A name caption for the contractor assigned to the warranty
-
-            '
-        PropertyExternalRef:
-          type: string
-          description: 'The external reference for the property which the warranty applies to
-
-            '
-        BlockExternalRef:
-          type: string
-          description: 'The external reference for the block which the warranty applies to
-
-            '
-    Envelope:
-      title: Envelope
-      type: object
-      description: This object is used to carry/return responses following post operations.
-      properties:
-        HttpStatusCode:
-          type: integer
-        HttpStatusCodeDesc:
-          type: string
-        Errors:
-          type: array
-          items:
-            type: string
-        Messages:
-          type: array
-          items:
-            type: string
-    AssignedAgent:
-      title: AssignedAgent
-      type: object
-      properties:
-        Id:
-          type: integer
-          format: int64
-        ExternalRef:
-          type: string
-        EmailAddress:
-          type: string
-        DisplayName:
-          type: string
-        ContactNo:
-          type: string
-        IsDeleted:
-          type: boolean
-        Brand:
-          $ref: '#/components/schemas/Brand'
-        UpdateDate:
-          type: string
-          format: date-time
-          description: Updated date/time (UTC).
-    Brand:
-      title: Brand
-      type: object
-      properties:
-        Id:
-          type: string
-          format: uuid
-          description: Unique GUID of brand.
-        Name:
-          type: string
-          description: Brand name
     Block:
       type: object
       properties:
@@ -351,23 +262,23 @@ components:
           description: List of warranties which apply to the block
           items:
             $ref: '#/components/schemas/Warranty'
-    Address:
-      title: Address
+    Envelope:
+      title: Envelope
       type: object
+      description: This object is used to carry/return responses following post operations.
       properties:
-        AddressLine1:
+        HttpStatusCode:
+          type: integer
+        HttpStatusCodeDesc:
           type: string
-        AddressLine2:
-          type: string
-        Town:
-          type: string
-        County:
-          type: string
-        PostCode:
-          type: string
-        Country:
-          type: string
-          description: If set this should be a two letter ISO code. If the information supplied does not match an ISO code it will default to blank
+        Errors:
+          type: array
+          items:
+            type: string
+        Messages:
+          type: array
+          items:
+            type: string
     PrevNextPager:
       type: object
       properties:
@@ -403,6 +314,78 @@ components:
           description: 'The URL of the previous page of results
 
             '
+    AssignedAgent:
+      title: AssignedAgent
+      type: object
+      properties:
+        Id:
+          type: integer
+          format: int64
+        ExternalRef:
+          type: string
+        EmailAddress:
+          type: string
+        DisplayName:
+          type: string
+        ContactNo:
+          type: string
+        IsDeleted:
+          type: boolean
+        Brand:
+          $ref: '#/components/schemas/Brand'
+        UpdateDate:
+          type: string
+          format: date-time
+          description: Updated date/time (UTC).
+    Brand:
+      title: Brand
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Unique GUID of brand.
+        Name:
+          type: string
+          description: Brand name
+    Warranty:
+      title: Warranty
+      type: object
+      properties:
+        id:
+          type: string
+        StartDate:
+          format: date-time
+          type: string
+          description: 'The warranty start date
+
+            '
+        EndDate:
+          format: date-time
+          type: string
+          description: 'The warranty end date
+
+            '
+        ExternalContractorRef:
+          type: string
+          description: 'The external reference for the contractor assigned to the warranty
+
+            '
+        AssignedContractorCaption:
+          type: string
+          description: 'A name caption for the contractor assigned to the warranty
+
+            '
+        PropertyExternalRef:
+          type: string
+          description: 'The external reference for the property which the warranty applies to
+
+            '
+        BlockExternalRef:
+          type: string
+          description: 'The external reference for the block which the warranty applies to
+
+            '
     Tag:
       title: Tag
       type: object
@@ -412,6 +395,23 @@ components:
       x-examples:
         example-1:
           Name: Tag1
+    Address:
+      title: Address
+      type: object
+      properties:
+        AddressLine1:
+          type: string
+        AddressLine2:
+          type: string
+        Town:
+          type: string
+        County:
+          type: string
+        PostCode:
+          type: string
+        Country:
+          type: string
+          description: If set this should be a two letter ISO code. If the information supplied does not match an ISO code it will default to blank
   securitySchemes:
     Bearer:
       type: http

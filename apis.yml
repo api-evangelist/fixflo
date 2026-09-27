@@ -45,7 +45,7 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/fixflo.png
 tags:
-- Real-Estate
+- Real Estate
 - United Kingdom
 - Property Management
 - PropTech
@@ -66,6 +66,7 @@ tags_raw:
 - Rentals
 - Commercial Real Estate
 - Contractors
+- Real-Estate
 created: '2026-07-26'
 modified: '2026-07-26'
 specificationVersion: '0.23'

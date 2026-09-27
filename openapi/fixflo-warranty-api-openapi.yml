@@ -96,6 +96,23 @@ paths:
       description: Deletes a warranty
 components:
   schemas:
+    Envelope:
+      title: Envelope
+      type: object
+      description: This object is used to carry/return responses following post operations.
+      properties:
+        HttpStatusCode:
+          type: integer
+        HttpStatusCodeDesc:
+          type: string
+        Errors:
+          type: array
+          items:
+            type: string
+        Messages:
+          type: array
+          items:
+            type: string
     Warranty:
       title: Warranty
       type: object
@@ -134,23 +151,6 @@ components:
           description: 'The external reference for the block which the warranty applies to
 
             '
-    Envelope:
-      title: Envelope
-      type: object
-      description: This object is used to carry/return responses following post operations.
-      properties:
-        HttpStatusCode:
-          type: integer
-        HttpStatusCodeDesc:
-          type: string
-        Errors:
-          type: array
-          items:
-            type: string
-        Messages:
-          type: array
-          items:
-            type: string
   securitySchemes:
     Bearer:
       type: http
