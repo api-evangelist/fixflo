@@ -154,6 +154,29 @@ components:
           type: array
           items:
             type: string
+    AssignedAgent:
+      title: AssignedAgent
+      type: object
+      properties:
+        Id:
+          type: integer
+          format: int64
+        ExternalRef:
+          type: string
+        EmailAddress:
+          type: string
+        DisplayName:
+          type: string
+        ContactNo:
+          type: string
+        IsDeleted:
+          type: boolean
+        Brand:
+          $ref: '#/components/schemas/Brand'
+        UpdateDate:
+          type: string
+          format: date-time
+          description: Updated date/time (UTC).
     PrevNextPager:
       type: object
       properties:
@@ -189,40 +212,6 @@ components:
           description: 'The URL of the previous page of results
 
             '
-    AssignedAgent:
-      title: AssignedAgent
-      type: object
-      properties:
-        Id:
-          type: integer
-          format: int64
-        ExternalRef:
-          type: string
-        EmailAddress:
-          type: string
-        DisplayName:
-          type: string
-        ContactNo:
-          type: string
-        IsDeleted:
-          type: boolean
-        Brand:
-          $ref: '#/components/schemas/Brand'
-        UpdateDate:
-          type: string
-          format: date-time
-          description: Updated date/time (UTC).
-    Brand:
-      title: Brand
-      type: object
-      properties:
-        Id:
-          type: string
-          format: uuid
-          description: Unique GUID of brand.
-        Name:
-          type: string
-          description: Brand name
     Estate:
       title: Estate
       type: object
@@ -250,6 +239,17 @@ components:
           format: date-time
           type: string
           description: Updated date/time (UTC).
+    Brand:
+      title: Brand
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Unique GUID of brand.
+        Name:
+          type: string
+          description: Brand name
   securitySchemes:
     Bearer:
       type: http

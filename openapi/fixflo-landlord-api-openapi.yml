@@ -324,58 +324,6 @@ paths:
               $ref: '#/components/schemas/LandlordPropertyJoin'
 components:
   schemas:
-    Envelope:
-      title: Envelope
-      type: object
-      description: This object is used to carry/return responses following post operations.
-      properties:
-        HttpStatusCode:
-          type: integer
-        HttpStatusCodeDesc:
-          type: string
-        Errors:
-          type: array
-          items:
-            type: string
-        Messages:
-          type: array
-          items:
-            type: string
-    PrevNextPager:
-      type: object
-      properties:
-        TotalItems:
-          type: integer
-          x-stoplight:
-            id: qbm018n4fbivf
-          description: The total number of items
-        TotalPages:
-          type: integer
-          x-stoplight:
-            id: 8d0f4tjvn3d91
-          description: 'The total number of pages
-
-            '
-        Items:
-          x-stoplight:
-            id: x8n82kadpvt9w
-          type: array
-          items:
-            x-stoplight:
-              id: yp4jiel1kmn2j
-            type: object
-        NextURL:
-          type: string
-          x-stoplight:
-            id: tcm929q75tirz
-          description: The URL of the next page of results
-        PreviousURL:
-          type: string
-          x-stoplight:
-            id: 3hruq0fcrc5sz
-          description: 'The URL of the previous page of results
-
-            '
     LandlordProperty:
       title: LandlordProperty
       type: object
@@ -408,6 +356,40 @@ components:
           description: IGNORED
         Address:
           $ref: '#/components/schemas/Address'
+    Address:
+      title: Address
+      type: object
+      properties:
+        AddressLine1:
+          type: string
+        AddressLine2:
+          type: string
+        Town:
+          type: string
+        County:
+          type: string
+        PostCode:
+          type: string
+        Country:
+          type: string
+          description: If set this should be a two letter ISO code. If the information supplied does not match an ISO code it will default to blank
+    Envelope:
+      title: Envelope
+      type: object
+      description: This object is used to carry/return responses following post operations.
+      properties:
+        HttpStatusCode:
+          type: integer
+        HttpStatusCodeDesc:
+          type: string
+        Errors:
+          type: array
+          items:
+            type: string
+        Messages:
+          type: array
+          items:
+            type: string
     AssignedAgent:
       title: AssignedAgent
       type: object
@@ -450,17 +432,6 @@ components:
           description: "The external property ref of the property       \n"
         IsPrimaryLandlord:
           type: boolean
-    Brand:
-      title: Brand
-      type: object
-      properties:
-        Id:
-          type: string
-          format: uuid
-          description: Unique GUID of brand.
-        Name:
-          type: string
-          description: Brand name
     Landlord:
       title: Landlord
       type: object
@@ -517,23 +488,52 @@ components:
           $ref: '#/components/schemas/AssignedAgent'
         "Address\t":
           $ref: '#/components/schemas/Address'
-    Address:
-      title: Address
+    PrevNextPager:
       type: object
       properties:
-        AddressLine1:
+        TotalItems:
+          type: integer
+          x-stoplight:
+            id: qbm018n4fbivf
+          description: The total number of items
+        TotalPages:
+          type: integer
+          x-stoplight:
+            id: 8d0f4tjvn3d91
+          description: 'The total number of pages
+
+            '
+        Items:
+          x-stoplight:
+            id: x8n82kadpvt9w
+          type: array
+          items:
+            x-stoplight:
+              id: yp4jiel1kmn2j
+            type: object
+        NextURL:
           type: string
-        AddressLine2:
+          x-stoplight:
+            id: tcm929q75tirz
+          description: The URL of the next page of results
+        PreviousURL:
           type: string
-        Town:
+          x-stoplight:
+            id: 3hruq0fcrc5sz
+          description: 'The URL of the previous page of results
+
+            '
+    Brand:
+      title: Brand
+      type: object
+      properties:
+        Id:
           type: string
-        County:
+          format: uuid
+          description: Unique GUID of brand.
+        Name:
           type: string
-        PostCode:
-          type: string
-        Country:
-          type: string
-          description: If set this should be a two letter ISO code. If the information supplied does not match an ISO code it will default to blank
+          description: Brand name
   securitySchemes:
     Bearer:
       type: http
