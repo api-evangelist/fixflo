@@ -186,55 +186,67 @@ paths:
         name: serviceProgrammeId
 components:
   schemas:
-    ContractorCertification:
-      title: ContractorCertification
+    ServiceProgrammeDef:
+      title: ServiceProgrammeDef
       type: object
-      description: ''
       properties:
         id:
-          type: number
-          description: This is a legacy field, 0 will be returned in all cases
-        Name:
           type: string
-          description: This is the name of the required certificate. Certificate names are set up on a per agency basis; a contractor may have 0 to many certificates, but must not have more than one certificate of the same name
-        Expiry:
-          format: date-time
-          title: DateTime
+          readOnly: true
+        EventType:
           type: string
-          description: When the contractor's certification will expire
-    PrevNextPager:
-      type: object
-      properties:
-        TotalItems:
+          readOnly: true
+        Class:
+          type: string
+          readOnly: true
+        Category:
+          type: string
+          readOnly: true
+        Description:
+          type: string
+          readOnly: true
+        IsStatutory:
+          type: boolean
+          readOnly: true
+        CostCode:
+          type: string
+          readOnly: true
+        InstructionNotes:
+          type: string
+          readOnly: true
+        InstructionDateOffsetPeriod:
           type: integer
-          x-stoplight:
-            id: qbm018n4fbivf
-          description: The total number of items
-        TotalPages:
-          type: integer
-          x-stoplight:
-            id: 8d0f4tjvn3d91
-          description: 'The total number of pages
+          description: '0 = days, 1 = weeks, 2 = months
 
             '
-        Items:
-          x-stoplight:
-            id: x8n82kadpvt9w
-          type: array
-          items:
-            x-stoplight:
-              id: yp4jiel1kmn2j
-            type: object
-        NextURL:
-          type: string
-          x-stoplight:
-            id: tcm929q75tirz
-          description: The URL of the next page of results
-        PreviousURL:
-          type: string
-          x-stoplight:
-            id: 3hruq0fcrc5sz
-          description: 'The URL of the previous page of results
+          enum:
+          - 0
+          - 1
+          - 2
+          readOnly: true
+        InstructionDateOffsetType:
+          type: integer
+          readOnly: true
+        ServiceFrequency:
+          type: integer
+          readOnly: true
+        ServiceFrequencyType:
+          type: integer
+          readOnly: true
+          description: '0 = months, 1 = years, 2 = weeks
+
+            '
+          enum:
+          - 0
+          - 1
+          - 2
+        IsDisabled:
+          type: boolean
+          readOnly: true
+        IsPropertyDefinition:
+          type: boolean
+          readOnly: true
+          description: 'not used for posts.
 
             '
     ContractorService:
@@ -254,23 +266,33 @@ components:
           description: This is a list of other terms the service may be referred as, to help with mapping.
           items:
             type: string
-    Address:
-      title: Address
+    ContractorCertification:
+      title: ContractorCertification
+      type: object
+      description: ''
+      properties:
+        id:
+          type: number
+          description: This is a legacy field, 0 will be returned in all cases
+        Name:
+          type: string
+          description: This is the name of the required certificate. Certificate names are set up on a per agency basis; a contractor may have 0 to many certificates, but must not have more than one certificate of the same name
+        Expiry:
+          format: date-time
+          title: DateTime
+          type: string
+          description: When the contractor's certification will expire
+    Brand:
+      title: Brand
       type: object
       properties:
-        AddressLine1:
+        Id:
           type: string
-        AddressLine2:
+          format: uuid
+          description: Unique GUID of brand.
+        Name:
           type: string
-        Town:
-          type: string
-        County:
-          type: string
-        PostCode:
-          type: string
-        Country:
-          type: string
-          description: If set this should be a two letter ISO code. If the information supplied does not match an ISO code it will default to blank
+          description: Brand name
     Contractor:
       title: Contractor
       type: object
@@ -331,87 +353,6 @@ components:
           format: date-time
           type: string
           description: Updated date/time (UTC).
-    AssignedAgent:
-      title: AssignedAgent
-      type: object
-      properties:
-        Id:
-          type: integer
-          format: int64
-        ExternalRef:
-          type: string
-        EmailAddress:
-          type: string
-        DisplayName:
-          type: string
-        ContactNo:
-          type: string
-        IsDeleted:
-          type: boolean
-        Brand:
-          $ref: '#/components/schemas/Brand'
-        UpdateDate:
-          type: string
-          format: date-time
-          description: Updated date/time (UTC).
-    InvoiceDetails:
-      title: InvoiceDetails
-      type: object
-      description: This object is for use by contractor networks for submitting invoice details
-      properties:
-        InvoiceDate:
-          format: date-time
-          type: string
-          description: The invoice date is expressed as a date.
-        DueDate:
-          format: date-time
-          type: string
-          description: The due date is expressed as a date.
-        InvoiceNumber:
-          type: string
-        LineItems:
-          type: array
-          items:
-            $ref: '#/components/schemas/LineItem'
-    ServiceProgramme:
-      title: ServiceProgramme
-      type: object
-      properties:
-        Id:
-          type: string
-        BlockId:
-          type: integer
-        ExternalBlockRef:
-          type: string
-        PropertyAddressId:
-          type: integer
-        PropertyId:
-          type: integer
-        ExternalPropertyRef:
-          type: string
-        ServiceProgrammeDef:
-          $ref: '#/components/schemas/ServiceProgrammeDef'
-        UpdateDate:
-          type: string
-        ProgrammeName:
-          type: string
-        ServiceFrequency:
-          type: integer
-        ServiceFrequencyType:
-          type: integer
-          enum:
-          - 0
-          - 1
-          - 2
-          description: '0 = Months, 1 = Years, 2 = Weeks '
-        IsCompliant:
-          type: boolean
-        IsStatutory:
-          type: boolean
-        MostRecentServiceEvent:
-          $ref: '#/components/schemas/ServiceEvent'
-        MostRecentCompliantServiceEvent:
-          $ref: '#/components/schemas/ServiceEvent'
     ServiceEvent:
       title: ServiceEvent
       type: object
@@ -480,69 +421,116 @@ components:
         Completed:
           type: string
           format: date-time
-    ServiceProgrammeDef:
-      title: ServiceProgrammeDef
+    ServiceProgramme:
+      title: ServiceProgramme
       type: object
       properties:
-        id:
+        Id:
           type: string
-          readOnly: true
-        EventType:
-          type: string
-          readOnly: true
-        Class:
-          type: string
-          readOnly: true
-        Category:
-          type: string
-          readOnly: true
-        Description:
-          type: string
-          readOnly: true
-        IsStatutory:
-          type: boolean
-          readOnly: true
-        CostCode:
-          type: string
-          readOnly: true
-        InstructionNotes:
-          type: string
-          readOnly: true
-        InstructionDateOffsetPeriod:
+        BlockId:
           type: integer
-          description: '0 = days, 1 = weeks, 2 = months
-
-            '
-          enum:
-          - 0
-          - 1
-          - 2
-          readOnly: true
-        InstructionDateOffsetType:
+        ExternalBlockRef:
+          type: string
+        PropertyAddressId:
           type: integer
-          readOnly: true
+        PropertyId:
+          type: integer
+        ExternalPropertyRef:
+          type: string
+        ServiceProgrammeDef:
+          $ref: '#/components/schemas/ServiceProgrammeDef'
+        UpdateDate:
+          type: string
+        ProgrammeName:
+          type: string
         ServiceFrequency:
           type: integer
-          readOnly: true
         ServiceFrequencyType:
           type: integer
-          readOnly: true
-          description: '0 = months, 1 = years, 2 = weeks
-
-            '
           enum:
           - 0
           - 1
           - 2
-        IsDisabled:
+          description: '0 = Months, 1 = Years, 2 = Weeks '
+        IsCompliant:
           type: boolean
-          readOnly: true
-        IsPropertyDefinition:
+        IsStatutory:
           type: boolean
-          readOnly: true
-          description: 'not used for posts.
+        MostRecentServiceEvent:
+          $ref: '#/components/schemas/ServiceEvent'
+        MostRecentCompliantServiceEvent:
+          $ref: '#/components/schemas/ServiceEvent'
+    Address:
+      title: Address
+      type: object
+      properties:
+        AddressLine1:
+          type: string
+        AddressLine2:
+          type: string
+        Town:
+          type: string
+        County:
+          type: string
+        PostCode:
+          type: string
+        Country:
+          type: string
+          description: If set this should be a two letter ISO code. If the information supplied does not match an ISO code it will default to blank
+    PrevNextPager:
+      type: object
+      properties:
+        TotalItems:
+          type: integer
+          x-stoplight:
+            id: qbm018n4fbivf
+          description: The total number of items
+        TotalPages:
+          type: integer
+          x-stoplight:
+            id: 8d0f4tjvn3d91
+          description: 'The total number of pages
 
             '
+        Items:
+          x-stoplight:
+            id: x8n82kadpvt9w
+          type: array
+          items:
+            x-stoplight:
+              id: yp4jiel1kmn2j
+            type: object
+        NextURL:
+          type: string
+          x-stoplight:
+            id: tcm929q75tirz
+          description: The URL of the next page of results
+        PreviousURL:
+          type: string
+          x-stoplight:
+            id: 3hruq0fcrc5sz
+          description: 'The URL of the previous page of results
+
+            '
+    InvoiceDetails:
+      title: InvoiceDetails
+      type: object
+      description: This object is for use by contractor networks for submitting invoice details
+      properties:
+        InvoiceDate:
+          format: date-time
+          type: string
+          description: The invoice date is expressed as a date.
+        DueDate:
+          format: date-time
+          type: string
+          description: The due date is expressed as a date.
+        InvoiceNumber:
+          type: string
+        LineItems:
+          type: array
+          items:
+            $ref: '#/components/schemas/LineItem'
     LineItem:
       title: LineItem
       type: object
@@ -569,17 +557,29 @@ components:
           type: number
         Total:
           type: number
-    Brand:
-      title: Brand
+    AssignedAgent:
+      title: AssignedAgent
       type: object
       properties:
         Id:
+          type: integer
+          format: int64
+        ExternalRef:
           type: string
-          format: uuid
-          description: Unique GUID of brand.
-        Name:
+        EmailAddress:
           type: string
-          description: Brand name
+        DisplayName:
+          type: string
+        ContactNo:
+          type: string
+        IsDeleted:
+          type: boolean
+        Brand:
+          $ref: '#/components/schemas/Brand'
+        UpdateDate:
+          type: string
+          format: date-time
+          description: Updated date/time (UTC).
   securitySchemes:
     Bearer:
       type: http

@@ -178,22 +178,42 @@ paths:
       description: Get the list of contractor services. There are no paramters for this request
 components:
   schemas:
-    ContractorCertification:
-      title: ContractorCertification
+    Envelope:
+      title: Envelope
       type: object
-      description: ''
+      description: This object is used to carry/return responses following post operations.
       properties:
-        id:
-          type: number
-          description: This is a legacy field, 0 will be returned in all cases
-        Name:
+        HttpStatusCode:
+          type: integer
+        HttpStatusCodeDesc:
           type: string
-          description: This is the name of the required certificate. Certificate names are set up on a per agency basis; a contractor may have 0 to many certificates, but must not have more than one certificate of the same name
-        Expiry:
+        Errors:
+          type: array
+          items:
+            type: string
+        Messages:
+          type: array
+          items:
+            type: string
+    InvoiceDetails:
+      title: InvoiceDetails
+      type: object
+      description: This object is for use by contractor networks for submitting invoice details
+      properties:
+        InvoiceDate:
           format: date-time
-          title: DateTime
           type: string
-          description: When the contractor's certification will expire
+          description: The invoice date is expressed as a date.
+        DueDate:
+          format: date-time
+          type: string
+          description: The due date is expressed as a date.
+        InvoiceNumber:
+          type: string
+        LineItems:
+          type: array
+          items:
+            $ref: '#/components/schemas/LineItem'
     ContractorService:
       title: ContractorService
       type: object
@@ -211,23 +231,22 @@ components:
           description: This is a list of other terms the service may be referred as, to help with mapping.
           items:
             type: string
-    Address:
-      title: Address
+    ContractorCertification:
+      title: ContractorCertification
       type: object
+      description: ''
       properties:
-        AddressLine1:
+        id:
+          type: number
+          description: This is a legacy field, 0 will be returned in all cases
+        Name:
           type: string
-        AddressLine2:
+          description: This is the name of the required certificate. Certificate names are set up on a per agency basis; a contractor may have 0 to many certificates, but must not have more than one certificate of the same name
+        Expiry:
+          format: date-time
+          title: DateTime
           type: string
-        Town:
-          type: string
-        County:
-          type: string
-        PostCode:
-          type: string
-        Country:
-          type: string
-          description: If set this should be a two letter ISO code. If the information supplied does not match an ISO code it will default to blank
+          description: When the contractor's certification will expire
     Contractor:
       title: Contractor
       type: object
@@ -288,42 +307,34 @@ components:
           format: date-time
           type: string
           description: Updated date/time (UTC).
-    Envelope:
-      title: Envelope
+    Brand:
+      title: Brand
       type: object
-      description: This object is used to carry/return responses following post operations.
       properties:
-        HttpStatusCode:
-          type: integer
-        HttpStatusCodeDesc:
+        Id:
           type: string
-        Errors:
-          type: array
-          items:
-            type: string
-        Messages:
-          type: array
-          items:
-            type: string
-    InvoiceDetails:
-      title: InvoiceDetails
+          format: uuid
+          description: Unique GUID of brand.
+        Name:
+          type: string
+          description: Brand name
+    Address:
+      title: Address
       type: object
-      description: This object is for use by contractor networks for submitting invoice details
       properties:
-        InvoiceDate:
-          format: date-time
+        AddressLine1:
           type: string
-          description: The invoice date is expressed as a date.
-        DueDate:
-          format: date-time
+        AddressLine2:
           type: string
-          description: The due date is expressed as a date.
-        InvoiceNumber:
+        Town:
           type: string
-        LineItems:
-          type: array
-          items:
-            $ref: '#/components/schemas/LineItem'
+        County:
+          type: string
+        PostCode:
+          type: string
+        Country:
+          type: string
+          description: If set this should be a two letter ISO code. If the information supplied does not match an ISO code it will default to blank
     PrevNextPager:
       type: object
       properties:
@@ -385,17 +396,6 @@ components:
           type: number
         Total:
           type: number
-    Brand:
-      title: Brand
-      type: object
-      properties:
-        Id:
-          type: string
-          format: uuid
-          description: Unique GUID of brand.
-        Name:
-          type: string
-          description: Brand name
   securitySchemes:
     Bearer:
       type: http

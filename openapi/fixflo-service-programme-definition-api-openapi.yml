@@ -134,23 +134,6 @@ components:
           description: 'The URL of the previous page of results
 
             '
-    Envelope:
-      title: Envelope
-      type: object
-      description: This object is used to carry/return responses following post operations.
-      properties:
-        HttpStatusCode:
-          type: integer
-        HttpStatusCodeDesc:
-          type: string
-        Errors:
-          type: array
-          items:
-            type: string
-        Messages:
-          type: array
-          items:
-            type: string
     ServiceProgrammeDef:
       title: ServiceProgrammeDef
       type: object
@@ -214,6 +197,23 @@ components:
           description: 'not used for posts.
 
             '
+    Envelope:
+      title: Envelope
+      type: object
+      description: This object is used to carry/return responses following post operations.
+      properties:
+        HttpStatusCode:
+          type: integer
+        HttpStatusCodeDesc:
+          type: string
+        Errors:
+          type: array
+          items:
+            type: string
+        Messages:
+          type: array
+          items:
+            type: string
   securitySchemes:
     Bearer:
       type: http

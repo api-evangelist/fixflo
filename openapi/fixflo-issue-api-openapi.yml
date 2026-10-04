@@ -359,175 +359,6 @@ paths:
       - Issue
 components:
   schemas:
-    TagAdded:
-      title: TagAdded
-      type: object
-      properties:
-        Name:
-          type: string
-        Added:
-          type: string
-      x-examples:
-        example-1:
-          Name: Tag1
-          Added: 2025-01-30-0333
-    JobQuoteApproval:
-      title: JobQuoteApproval
-      x-stoplight:
-        id: 95aa6169dc73e
-      type: object
-      properties:
-        ApprovalNameTyped:
-          type: string
-        Approved:
-          type: boolean
-        ApprovedDate:
-          format: date-time
-          type: string
-        QuoteAmount:
-          type: number
-        RequestedDate:
-          format: date-time
-          type: string
-        QuoteId:
-          type: string
-        PriceAgencyReceivableGross:
-          type: number
-        PriceAgencyReceivableNet:
-          type: number
-        PriceAgencyReceivableTax:
-          type: number
-    FaultTree:
-      title: FaultTree
-      type: object
-      properties:
-        FaultId:
-          type: integer
-          description: 'Unique Id of the Fault
-
-            '
-        FaultTreeParent0:
-          type: integer
-          description: 'Id of the 1st parent of the Fault (can be null)
-
-            '
-        FaultTreeParent1:
-          type: integer
-          description: 'Id of the 2nd parent of the Fault (can be null)
-
-            '
-    Job:
-      title: Job
-      type: object
-      properties:
-        id:
-          type: string
-        IssueId:
-          type: string
-        TenantNotes:
-          type: string
-        JobberNotes:
-          type: string
-        StartDate:
-          type: string
-          format: date-time
-          description: The start date is expressed as a local date.
-        ExternalRefJob:
-          type: string
-          description: 'This field is used to provide a reference to a works order number in another system. In other words, this field should contain a the job purchase order number (aka works order reference)
-
-            '
-        PriceAgencyPayableGross:
-          type: number
-          description: 'This is the gross amount the agency is required to pay the contractor for completion of works
-
-            '
-        PriceAgencyPayableNet:
-          type: number
-          description: 'This is the amount, net of sales taxes, the agency is required to pay the contractor for completion of works
-
-            '
-        PriceAgencyPayableTax:
-          type: number
-          description: 'Should equal PriceAgencyPayableGross - PriceAgencyPayableNet
-
-            '
-        PriceAgencyReceivableGross:
-          type: number
-          description: 'This is the amount the agency should receive from the landlord for completion of works. It will typically be the same as PriceAgencyPayableGross but might include a management charge
-
-            '
-        PriceAgencyReceivableNet:
-          type: number
-          description: 'This is the amount, net of sales taxes, the agency should receive from the landlord for completion of works
-
-            '
-        PriceAgencyReceivableTax:
-          type: number
-          description: Should equal PriceAgencyReceivableGross - PriceAgencyReceivableTax
-        JobInvoiceNumber:
-          type: string
-          description: This the invoice number as supplied by the contractor. If an invoice is uploaded by the contractor it will default to the file name if the field is blank.
-        QuotedPriceAgencyPayableGross:
-          type: number
-          description: 'If a job resulted from the contractor submitting a quote, this is the gross amount the agency agreed to pay the contractor for completion of works
-
-            '
-        QuotedPriceAgencyPayableNet:
-          type: number
-          description: 'If a job resulted from the contractor submitting a quote, this is the amount, net of sales taxes, the agency agreed to pay to pay the contractor for completion of works
-
-            '
-        QuotedPriceAgencyPayableTax:
-          type: number
-          description: 'Should equal QuotedPriceAgencyPayableGross - QuotedPriceAgencyPayableNet
-
-            '
-        QuotedPriceAgencyReceivableGross:
-          type: number
-          description: 'If a job resulted from the contractor submitting a quote, this is the gross amount the landlord agreed to pay the agency for completion of works
-
-            '
-        QuotedPriceAgencyReceivableNet:
-          type: number
-          description: 'If a job resulted from the contractor submitting a quote, this is the amount, net of sales taxes, the landlord agreed to pay the agency for completion of works
-
-            '
-        QuotedPriceAgencyReceivableTax:
-          type: number
-          description: 'Should equal QuotedPriceAgencyReceivableGross - QuotedPriceAgencyReceivableNet
-
-            '
-        AppointmentDescription:
-          type: string
-          description: 'One of: Any, At, Before, After, Between
-
-            '
-        AppointmentRange:
-          type: string
-        CreatedDate:
-          format: date-time
-          type: string
-          description: Created date/time (UTC).
-        JobCompleted:
-          type: string
-          format: date-time
-          description: Job completed date.
-        JobDuration:
-          type: string
-          description: 'A description of how long the job took
-
-            '
-        TenantAcceptedStartDate:
-          type: boolean
-        JobberAgreedWithTenantStartDate:
-          type: boolean
-        LandlordApproval:
-          $ref: '#/components/schemas/JobQuoteApproval'
-        InsurerApproval:
-          $ref: '#/components/schemas/JobQuoteApproval'
-        Contractor:
-          $ref: '#/components/schemas/Contractor'
     Warranty:
       title: Warranty
       type: object
@@ -577,6 +408,261 @@ components:
         Value:
           type: string
           description: The answer
+    TagsAdded:
+      title: TagsAdded
+      type: object
+      properties:
+        Tags:
+          $ref: '#/components/schemas/TagAdded'
+    AssignedAgent:
+      title: AssignedAgent
+      type: object
+      properties:
+        Id:
+          type: integer
+          format: int64
+        ExternalRef:
+          type: string
+        EmailAddress:
+          type: string
+        DisplayName:
+          type: string
+        ContactNo:
+          type: string
+        IsDeleted:
+          type: boolean
+        Brand:
+          $ref: '#/components/schemas/Brand'
+        UpdateDate:
+          type: string
+          format: date-time
+          description: Updated date/time (UTC).
+    JobQuoteApproval:
+      title: JobQuoteApproval
+      x-stoplight:
+        id: 95aa6169dc73e
+      type: object
+      properties:
+        ApprovalNameTyped:
+          type: string
+        Approved:
+          type: boolean
+        ApprovedDate:
+          format: date-time
+          type: string
+        QuoteAmount:
+          type: number
+        RequestedDate:
+          format: date-time
+          type: string
+        QuoteId:
+          type: string
+        PriceAgencyReceivableGross:
+          type: number
+        PriceAgencyReceivableNet:
+          type: number
+        PriceAgencyReceivableTax:
+          type: number
+    Envelope:
+      title: Envelope
+      type: object
+      description: This object is used to carry/return responses following post operations.
+      properties:
+        HttpStatusCode:
+          type: integer
+        HttpStatusCodeDesc:
+          type: string
+        Errors:
+          type: array
+          items:
+            type: string
+        Messages:
+          type: array
+          items:
+            type: string
+    Brand:
+      title: Brand
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Unique GUID of brand.
+        Name:
+          type: string
+          description: Brand name
+    TagAdded:
+      title: TagAdded
+      type: object
+      properties:
+        Name:
+          type: string
+        Added:
+          type: string
+      x-examples:
+        example-1:
+          Name: Tag1
+          Added: 2025-01-30-0333
+    PrevNextPager:
+      type: object
+      properties:
+        TotalItems:
+          type: integer
+          x-stoplight:
+            id: qbm018n4fbivf
+          description: The total number of items
+        TotalPages:
+          type: integer
+          x-stoplight:
+            id: 8d0f4tjvn3d91
+          description: 'The total number of pages
+
+            '
+        Items:
+          x-stoplight:
+            id: x8n82kadpvt9w
+          type: array
+          items:
+            x-stoplight:
+              id: yp4jiel1kmn2j
+            type: object
+        NextURL:
+          type: string
+          x-stoplight:
+            id: tcm929q75tirz
+          description: The URL of the next page of results
+        PreviousURL:
+          type: string
+          x-stoplight:
+            id: 3hruq0fcrc5sz
+          description: 'The URL of the previous page of results
+
+            '
+    Media:
+      title: Media
+      type: object
+      description: Please see note on [downloading binary data](docs/Downloading-binary-data.md).
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Unique GUID of Media.
+          readOnly: true
+        URL:
+          type: string
+          readOnly: true
+        ContentType:
+          type: string
+          description: 'The content and mime type of the document eg. example image/png. On POST, if the content type is left blank the content type will be derived from the ShortDesc field. For example where:
+
+            * ContentType = null and a ShortDesc = "picture1.png" a content type of image/png will be derived
+
+            * ContentType = "image/png" and a ShortDesc= "picture1" a content type of image/png will be derived
+
+            * ContentType = "" and a ShortDesc = "picture1" will result in an error
+
+            * ContentType = "xxxxx" and a ShortDesc = "picture1" will result in an error as the content type is not recognised.'
+        MediaType:
+          type: string
+          readOnly: true
+        MediaTypeDescription:
+          type: string
+        ShortDescription:
+          type: string
+          description: 'For POST this is required and should be the filename with extension e.g. "file.pdf"
+
+            '
+        AddedByUserTypeId:
+          type: string
+          description: 'Id of the user that uploaded the file
+
+            '
+          readOnly: true
+        EncodedByteData:
+          type: string
+          description: 'Used for POST only. This data represents the binary document encoded to base-64
+
+            '
+        ServiceProgrammeDef:
+          $ref: '#/components/schemas/ServiceProgrammeDef'
+          x-stoplight:
+            id: r3wrv8s4lrh41
+          readOnly: true
+        DocumentStartDate:
+          type: string
+          x-stoplight:
+            id: 62jrrkrk0brff
+          format: date-time
+          readOnly: true
+        DocumentExpiryDate:
+          type: string
+          x-stoplight:
+            id: tmdafqhw3cn9l
+          format: date-time
+          readOnly: true
+    ServiceProgrammeDef:
+      title: ServiceProgrammeDef
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        EventType:
+          type: string
+          readOnly: true
+        Class:
+          type: string
+          readOnly: true
+        Category:
+          type: string
+          readOnly: true
+        Description:
+          type: string
+          readOnly: true
+        IsStatutory:
+          type: boolean
+          readOnly: true
+        CostCode:
+          type: string
+          readOnly: true
+        InstructionNotes:
+          type: string
+          readOnly: true
+        InstructionDateOffsetPeriod:
+          type: integer
+          description: '0 = days, 1 = weeks, 2 = months
+
+            '
+          enum:
+          - 0
+          - 1
+          - 2
+          readOnly: true
+        InstructionDateOffsetType:
+          type: integer
+          readOnly: true
+        ServiceFrequency:
+          type: integer
+          readOnly: true
+        ServiceFrequencyType:
+          type: integer
+          readOnly: true
+          description: '0 = months, 1 = years, 2 = weeks
+
+            '
+          enum:
+          - 0
+          - 1
+          - 2
+        IsDisabled:
+          type: boolean
+          readOnly: true
+        IsPropertyDefinition:
+          type: boolean
+          readOnly: true
+          description: 'not used for posts.
+
+            '
     Quote:
       title: Quote
       type: object
@@ -621,6 +707,240 @@ components:
         LineItems:
           x-stoplight:
             id: n47jfx2i4s81g
+          type: array
+          items:
+            $ref: '#/components/schemas/LineItem'
+    IssueMergeResponse:
+      title: IssueMergeResponse
+      x-stoplight:
+        id: kh5879i1wno64
+      type: object
+      x-examples:
+        Example 2:
+          MergedIssueId: IS123456
+          Success: false
+          InvalidIssues:
+          - IssueId: IS123456
+            Reason: You cannot merge an issue into itself.
+      properties:
+        MergedIssueId:
+          type: string
+          x-stoplight:
+            id: 6b9mxfp4epw70
+        Success:
+          type: boolean
+          x-stoplight:
+            id: 3ryhs450h7y8y
+        InvalidIssues:
+          type: array
+          x-stoplight:
+            id: zl5qxrphbtzj1
+          items:
+            x-stoplight:
+              id: ibo7gyvp8hsrh
+            type: object
+            properties:
+              IssueId:
+                type: string
+                x-stoplight:
+                  id: i2mw8y87mfi9z
+              Reason:
+                type: string
+                x-stoplight:
+                  id: 4loikfbvgslpg
+    Block:
+      type: object
+      properties:
+        Id:
+          type: integer
+        ExternalBlockReference:
+          type: string
+        Name:
+          type: string
+        Address:
+          $ref: '#/components/schemas/Address'
+        IsStandAlone:
+          type: boolean
+        KeyReference:
+          type: string
+        ManagementStartDate:
+          type: string
+          format: date-time
+          description: Management end date.
+        ManagementEndDate:
+          type: string
+          format: date-time
+          description: Management end date.
+        EstateId:
+          type: integer
+        ExternalEstateRef:
+          type: string
+        LandlordId:
+          type: string
+        ExternalLandlordRef:
+          type: string
+        PropertyManager:
+          $ref: '#/components/schemas/AssignedAgent'
+        AssignedAgent:
+          $ref: '#/components/schemas/AssignedAgent'
+        IsDeleted:
+          type: boolean
+        Created:
+          type: string
+          format: date-time
+          description: Created date/time (UTC).
+        UpdateDate:
+          type: string
+          format: date-time
+          description: Updated date/time (UTC).
+        Warranties:
+          type: array
+          description: List of warranties which apply to the block
+          items:
+            $ref: '#/components/schemas/Warranty'
+    ContractorService:
+      title: ContractorService
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique id of service. When updating a contractor to have new services this is the only field that is required
+        Name:
+          type: string
+          description: 'This is the standard name of the service. This is what is shown within the Fixflo system
+
+            '
+        NameAndSynonyms:
+          type: array
+          description: This is a list of other terms the service may be referred as, to help with mapping.
+          items:
+            type: string
+    Contractor:
+      title: Contractor
+      type: object
+      properties:
+        Id:
+          type: string
+          description: Unique id of contractor
+        ExternalRef:
+          type: string
+          description: 'This field is designed to be used to reference the contractor in other systems. If set this value must be unique for contractors
+
+            '
+        CompanyName:
+          type: string
+          description: 'Optional company name.
+
+            '
+        Title:
+          type: string
+          description: 'Title of contractor (eg Mr, Mrs, etc)
+
+            '
+        FirstName:
+          type: string
+        Surname:
+          type: string
+        DisplayName:
+          type: string
+          description: 'This value is used for addressing the contractor. For example Dear [DisplayName]
+
+            '
+        EmailAddress:
+          type: string
+          description: 'EmailAddress is also used as a login. This value must be unique for contractors.
+
+            '
+        ContactNumber:
+          type: string
+        ContactNumberAlt:
+          type: string
+        IsDeleted:
+          type: boolean
+        Address:
+          $ref: '#/components/schemas/Address'
+        InvoiceDetails:
+          $ref: '#/components/schemas/InvoiceDetails'
+        Services:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContractorService'
+        Certifications:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContractorCertification'
+        Brand:
+          $ref: '#/components/schemas/Brand'
+        UpdateDate:
+          format: date-time
+          type: string
+          description: Updated date/time (UTC).
+    Address:
+      title: Address
+      type: object
+      properties:
+        AddressLine1:
+          type: string
+        AddressLine2:
+          type: string
+        Town:
+          type: string
+        County:
+          type: string
+        PostCode:
+          type: string
+        Country:
+          type: string
+          description: If set this should be a two letter ISO code. If the information supplied does not match an ISO code it will default to blank
+    IssueMergeRequest:
+      title: IssueMergeRequest
+      x-stoplight:
+        id: phq9dvhns1g0v
+      type: object
+      required:
+      - PrimaryIssueId
+      - IssueTitle
+      - IssuesIdsToMerge
+      properties:
+        PrimaryIssueId:
+          type: string
+          x-stoplight:
+            id: h3zzvzfhb26b0
+        IssueTitle:
+          type: string
+          x-stoplight:
+            id: gx5ayrokb166q
+        IssuesIdsToMerge:
+          type: array
+          x-stoplight:
+            id: xmp7cs5vknfeq
+          items:
+            x-stoplight:
+              id: yxut41xkk8mc8
+            type: string
+      x-examples:
+        Example 1:
+          PrimaryIssueId: IS12345
+          IssueTitle: My merged issue
+          IssuesIdsToMerge:
+          - IS11111
+          - IS22222
+    InvoiceDetails:
+      title: InvoiceDetails
+      type: object
+      description: This object is for use by contractor networks for submitting invoice details
+      properties:
+        InvoiceDate:
+          format: date-time
+          type: string
+          description: The invoice date is expressed as a date.
+        DueDate:
+          format: date-time
+          type: string
+          description: The due date is expressed as a date.
+        InvoiceNumber:
+          type: string
+        LineItems:
           type: array
           items:
             $ref: '#/components/schemas/LineItem'
@@ -805,372 +1125,118 @@ components:
           type: string
           x-stoplight:
             id: jbn4aq2c3xsq8
-    PrevNextPager:
+    Job:
+      title: Job
       type: object
       properties:
-        TotalItems:
-          type: integer
-          x-stoplight:
-            id: qbm018n4fbivf
-          description: The total number of items
-        TotalPages:
-          type: integer
-          x-stoplight:
-            id: 8d0f4tjvn3d91
-          description: 'The total number of pages
+        id:
+          type: string
+        IssueId:
+          type: string
+        TenantNotes:
+          type: string
+        JobberNotes:
+          type: string
+        StartDate:
+          type: string
+          format: date-time
+          description: The start date is expressed as a local date.
+        ExternalRefJob:
+          type: string
+          description: 'This field is used to provide a reference to a works order number in another system. In other words, this field should contain a the job purchase order number (aka works order reference)
 
             '
-        Items:
-          x-stoplight:
-            id: x8n82kadpvt9w
-          type: array
-          items:
-            x-stoplight:
-              id: yp4jiel1kmn2j
-            type: object
-        NextURL:
-          type: string
-          x-stoplight:
-            id: tcm929q75tirz
-          description: The URL of the next page of results
-        PreviousURL:
-          type: string
-          x-stoplight:
-            id: 3hruq0fcrc5sz
-          description: 'The URL of the previous page of results
+        PriceAgencyPayableGross:
+          type: number
+          description: 'This is the gross amount the agency is required to pay the contractor for completion of works
 
             '
-    Block:
-      type: object
-      properties:
-        Id:
-          type: integer
-        ExternalBlockReference:
+        PriceAgencyPayableNet:
+          type: number
+          description: 'This is the amount, net of sales taxes, the agency is required to pay the contractor for completion of works
+
+            '
+        PriceAgencyPayableTax:
+          type: number
+          description: 'Should equal PriceAgencyPayableGross - PriceAgencyPayableNet
+
+            '
+        PriceAgencyReceivableGross:
+          type: number
+          description: 'This is the amount the agency should receive from the landlord for completion of works. It will typically be the same as PriceAgencyPayableGross but might include a management charge
+
+            '
+        PriceAgencyReceivableNet:
+          type: number
+          description: 'This is the amount, net of sales taxes, the agency should receive from the landlord for completion of works
+
+            '
+        PriceAgencyReceivableTax:
+          type: number
+          description: Should equal PriceAgencyReceivableGross - PriceAgencyReceivableTax
+        JobInvoiceNumber:
           type: string
-        Name:
+          description: This the invoice number as supplied by the contractor. If an invoice is uploaded by the contractor it will default to the file name if the field is blank.
+        QuotedPriceAgencyPayableGross:
+          type: number
+          description: 'If a job resulted from the contractor submitting a quote, this is the gross amount the agency agreed to pay the contractor for completion of works
+
+            '
+        QuotedPriceAgencyPayableNet:
+          type: number
+          description: 'If a job resulted from the contractor submitting a quote, this is the amount, net of sales taxes, the agency agreed to pay to pay the contractor for completion of works
+
+            '
+        QuotedPriceAgencyPayableTax:
+          type: number
+          description: 'Should equal QuotedPriceAgencyPayableGross - QuotedPriceAgencyPayableNet
+
+            '
+        QuotedPriceAgencyReceivableGross:
+          type: number
+          description: 'If a job resulted from the contractor submitting a quote, this is the gross amount the landlord agreed to pay the agency for completion of works
+
+            '
+        QuotedPriceAgencyReceivableNet:
+          type: number
+          description: 'If a job resulted from the contractor submitting a quote, this is the amount, net of sales taxes, the landlord agreed to pay the agency for completion of works
+
+            '
+        QuotedPriceAgencyReceivableTax:
+          type: number
+          description: 'Should equal QuotedPriceAgencyReceivableGross - QuotedPriceAgencyReceivableNet
+
+            '
+        AppointmentDescription:
           type: string
-        Address:
-          $ref: '#/components/schemas/Address'
-        IsStandAlone:
-          type: boolean
-        KeyReference:
+          description: 'One of: Any, At, Before, After, Between
+
+            '
+        AppointmentRange:
           type: string
-        ManagementStartDate:
-          type: string
+        CreatedDate:
           format: date-time
-          description: Management end date.
-        ManagementEndDate:
           type: string
-          format: date-time
-          description: Management end date.
-        EstateId:
-          type: integer
-        ExternalEstateRef:
-          type: string
-        LandlordId:
-          type: string
-        ExternalLandlordRef:
-          type: string
-        PropertyManager:
-          $ref: '#/components/schemas/AssignedAgent'
-        AssignedAgent:
-          $ref: '#/components/schemas/AssignedAgent'
-        IsDeleted:
-          type: boolean
-        Created:
-          type: string
-          format: date-time
           description: Created date/time (UTC).
-        UpdateDate:
+        JobCompleted:
           type: string
           format: date-time
-          description: Updated date/time (UTC).
-        Warranties:
-          type: array
-          description: List of warranties which apply to the block
-          items:
-            $ref: '#/components/schemas/Warranty'
-    ContractorService:
-      title: ContractorService
-      type: object
-      properties:
-        id:
-          type: integer
-          description: Unique id of service. When updating a contractor to have new services this is the only field that is required
-        Name:
+          description: Job completed date.
+        JobDuration:
           type: string
-          description: 'This is the standard name of the service. This is what is shown within the Fixflo system
+          description: 'A description of how long the job took
 
             '
-        NameAndSynonyms:
-          type: array
-          description: This is a list of other terms the service may be referred as, to help with mapping.
-          items:
-            type: string
-    Address:
-      title: Address
-      type: object
-      properties:
-        AddressLine1:
-          type: string
-        AddressLine2:
-          type: string
-        Town:
-          type: string
-        County:
-          type: string
-        PostCode:
-          type: string
-        Country:
-          type: string
-          description: If set this should be a two letter ISO code. If the information supplied does not match an ISO code it will default to blank
-    IssueMergeResponse:
-      title: IssueMergeResponse
-      x-stoplight:
-        id: kh5879i1wno64
-      type: object
-      x-examples:
-        Example 2:
-          MergedIssueId: IS123456
-          Success: false
-          InvalidIssues:
-          - IssueId: IS123456
-            Reason: You cannot merge an issue into itself.
-      properties:
-        MergedIssueId:
-          type: string
-          x-stoplight:
-            id: 6b9mxfp4epw70
-        Success:
+        TenantAcceptedStartDate:
           type: boolean
-          x-stoplight:
-            id: 3ryhs450h7y8y
-        InvalidIssues:
-          type: array
-          x-stoplight:
-            id: zl5qxrphbtzj1
-          items:
-            x-stoplight:
-              id: ibo7gyvp8hsrh
-            type: object
-            properties:
-              IssueId:
-                type: string
-                x-stoplight:
-                  id: i2mw8y87mfi9z
-              Reason:
-                type: string
-                x-stoplight:
-                  id: 4loikfbvgslpg
-    Brand:
-      title: Brand
-      type: object
-      properties:
-        Id:
-          type: string
-          format: uuid
-          description: Unique GUID of brand.
-        Name:
-          type: string
-          description: Brand name
-    Media:
-      title: Media
-      type: object
-      description: Please see note on [downloading binary data](docs/Downloading-binary-data.md).
-      properties:
-        Id:
-          type: string
-          format: uuid
-          description: Unique GUID of Media.
-          readOnly: true
-        URL:
-          type: string
-          readOnly: true
-        ContentType:
-          type: string
-          description: 'The content and mime type of the document eg. example image/png. On POST, if the content type is left blank the content type will be derived from the ShortDesc field. For example where:
-
-            * ContentType = null and a ShortDesc = "picture1.png" a content type of image/png will be derived
-
-            * ContentType = "image/png" and a ShortDesc= "picture1" a content type of image/png will be derived
-
-            * ContentType = "" and a ShortDesc = "picture1" will result in an error
-
-            * ContentType = "xxxxx" and a ShortDesc = "picture1" will result in an error as the content type is not recognised.'
-        MediaType:
-          type: string
-          readOnly: true
-        MediaTypeDescription:
-          type: string
-        ShortDescription:
-          type: string
-          description: 'For POST this is required and should be the filename with extension e.g. "file.pdf"
-
-            '
-        AddedByUserTypeId:
-          type: string
-          description: 'Id of the user that uploaded the file
-
-            '
-          readOnly: true
-        EncodedByteData:
-          type: string
-          description: 'Used for POST only. This data represents the binary document encoded to base-64
-
-            '
-        ServiceProgrammeDef:
-          $ref: '#/components/schemas/ServiceProgrammeDef'
-          x-stoplight:
-            id: r3wrv8s4lrh41
-          readOnly: true
-        DocumentStartDate:
-          type: string
-          x-stoplight:
-            id: 62jrrkrk0brff
-          format: date-time
-          readOnly: true
-        DocumentExpiryDate:
-          type: string
-          x-stoplight:
-            id: tmdafqhw3cn9l
-          format: date-time
-          readOnly: true
-    Envelope:
-      title: Envelope
-      type: object
-      description: This object is used to carry/return responses following post operations.
-      properties:
-        HttpStatusCode:
-          type: integer
-        HttpStatusCodeDesc:
-          type: string
-        Errors:
-          type: array
-          items:
-            type: string
-        Messages:
-          type: array
-          items:
-            type: string
-    AssignedAgent:
-      title: AssignedAgent
-      type: object
-      properties:
-        Id:
-          type: integer
-          format: int64
-        ExternalRef:
-          type: string
-        EmailAddress:
-          type: string
-        DisplayName:
-          type: string
-        ContactNo:
-          type: string
-        IsDeleted:
+        JobberAgreedWithTenantStartDate:
           type: boolean
-        Brand:
-          $ref: '#/components/schemas/Brand'
-        UpdateDate:
-          type: string
-          format: date-time
-          description: Updated date/time (UTC).
-    ServiceProgrammeDef:
-      title: ServiceProgrammeDef
-      type: object
-      properties:
-        id:
-          type: string
-          readOnly: true
-        EventType:
-          type: string
-          readOnly: true
-        Class:
-          type: string
-          readOnly: true
-        Category:
-          type: string
-          readOnly: true
-        Description:
-          type: string
-          readOnly: true
-        IsStatutory:
-          type: boolean
-          readOnly: true
-        CostCode:
-          type: string
-          readOnly: true
-        InstructionNotes:
-          type: string
-          readOnly: true
-        InstructionDateOffsetPeriod:
-          type: integer
-          description: '0 = days, 1 = weeks, 2 = months
-
-            '
-          enum:
-          - 0
-          - 1
-          - 2
-          readOnly: true
-        InstructionDateOffsetType:
-          type: integer
-          readOnly: true
-        ServiceFrequency:
-          type: integer
-          readOnly: true
-        ServiceFrequencyType:
-          type: integer
-          readOnly: true
-          description: '0 = months, 1 = years, 2 = weeks
-
-            '
-          enum:
-          - 0
-          - 1
-          - 2
-        IsDisabled:
-          type: boolean
-          readOnly: true
-        IsPropertyDefinition:
-          type: boolean
-          readOnly: true
-          description: 'not used for posts.
-
-            '
-    IssueMergeRequest:
-      title: IssueMergeRequest
-      x-stoplight:
-        id: phq9dvhns1g0v
-      type: object
-      required:
-      - PrimaryIssueId
-      - IssueTitle
-      - IssuesIdsToMerge
-      properties:
-        PrimaryIssueId:
-          type: string
-          x-stoplight:
-            id: h3zzvzfhb26b0
-        IssueTitle:
-          type: string
-          x-stoplight:
-            id: gx5ayrokb166q
-        IssuesIdsToMerge:
-          type: array
-          x-stoplight:
-            id: xmp7cs5vknfeq
-          items:
-            x-stoplight:
-              id: yxut41xkk8mc8
-            type: string
-      x-examples:
-        Example 1:
-          PrimaryIssueId: IS12345
-          IssueTitle: My merged issue
-          IssuesIdsToMerge:
-          - IS11111
-          - IS22222
+        LandlordApproval:
+          $ref: '#/components/schemas/JobQuoteApproval'
+        InsurerApproval:
+          $ref: '#/components/schemas/JobQuoteApproval'
+        Contractor:
+          $ref: '#/components/schemas/Contractor'
     ContractorCertification:
       title: ContractorCertification
       type: object
@@ -1187,91 +1253,25 @@ components:
           title: DateTime
           type: string
           description: When the contractor's certification will expire
-    TagsAdded:
-      title: TagsAdded
+    FaultTree:
+      title: FaultTree
       type: object
       properties:
-        Tags:
-          $ref: '#/components/schemas/TagAdded'
-    Contractor:
-      title: Contractor
-      type: object
-      properties:
-        Id:
-          type: string
-          description: Unique id of contractor
-        ExternalRef:
-          type: string
-          description: 'This field is designed to be used to reference the contractor in other systems. If set this value must be unique for contractors
+        FaultId:
+          type: integer
+          description: 'Unique Id of the Fault
 
             '
-        CompanyName:
-          type: string
-          description: 'Optional company name.
+        FaultTreeParent0:
+          type: integer
+          description: 'Id of the 1st parent of the Fault (can be null)
 
             '
-        Title:
-          type: string
-          description: 'Title of contractor (eg Mr, Mrs, etc)
+        FaultTreeParent1:
+          type: integer
+          description: 'Id of the 2nd parent of the Fault (can be null)
 
             '
-        FirstName:
-          type: string
-        Surname:
-          type: string
-        DisplayName:
-          type: string
-          description: 'This value is used for addressing the contractor. For example Dear [DisplayName]
-
-            '
-        EmailAddress:
-          type: string
-          description: 'EmailAddress is also used as a login. This value must be unique for contractors.
-
-            '
-        ContactNumber:
-          type: string
-        ContactNumberAlt:
-          type: string
-        IsDeleted:
-          type: boolean
-        Address:
-          $ref: '#/components/schemas/Address'
-        InvoiceDetails:
-          $ref: '#/components/schemas/InvoiceDetails'
-        Services:
-          type: array
-          items:
-            $ref: '#/components/schemas/ContractorService'
-        Certifications:
-          type: array
-          items:
-            $ref: '#/components/schemas/ContractorCertification'
-        Brand:
-          $ref: '#/components/schemas/Brand'
-        UpdateDate:
-          format: date-time
-          type: string
-          description: Updated date/time (UTC).
-    InvoiceDetails:
-      title: InvoiceDetails
-      type: object
-      description: This object is for use by contractor networks for submitting invoice details
-      properties:
-        InvoiceDate:
-          format: date-time
-          type: string
-          description: The invoice date is expressed as a date.
-        DueDate:
-          format: date-time
-          type: string
-          description: The due date is expressed as a date.
-        InvoiceNumber:
-          type: string
-        LineItems:
-          type: array
-          items:
-            $ref: '#/components/schemas/LineItem'
     LineItem:
       title: LineItem
       type: object

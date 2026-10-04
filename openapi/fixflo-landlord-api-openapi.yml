@@ -356,82 +356,6 @@ components:
           description: IGNORED
         Address:
           $ref: '#/components/schemas/Address'
-    Address:
-      title: Address
-      type: object
-      properties:
-        AddressLine1:
-          type: string
-        AddressLine2:
-          type: string
-        Town:
-          type: string
-        County:
-          type: string
-        PostCode:
-          type: string
-        Country:
-          type: string
-          description: If set this should be a two letter ISO code. If the information supplied does not match an ISO code it will default to blank
-    Envelope:
-      title: Envelope
-      type: object
-      description: This object is used to carry/return responses following post operations.
-      properties:
-        HttpStatusCode:
-          type: integer
-        HttpStatusCodeDesc:
-          type: string
-        Errors:
-          type: array
-          items:
-            type: string
-        Messages:
-          type: array
-          items:
-            type: string
-    AssignedAgent:
-      title: AssignedAgent
-      type: object
-      properties:
-        Id:
-          type: integer
-          format: int64
-        ExternalRef:
-          type: string
-        EmailAddress:
-          type: string
-        DisplayName:
-          type: string
-        ContactNo:
-          type: string
-        IsDeleted:
-          type: boolean
-        Brand:
-          $ref: '#/components/schemas/Brand'
-        UpdateDate:
-          type: string
-          format: date-time
-          description: Updated date/time (UTC).
-    LandlordPropertyJoin:
-      title: LandlordPropertyJoin
-      type: object
-      properties:
-        Id:
-          type: integer
-          description: 'Unique id of landlord property record
-
-            '
-        ExternalLandlordRef:
-          type: string
-          description: 'The external landlord ref of the property
-
-            '
-        ExternalPropertyRef:
-          type: string
-          description: "The external property ref of the property       \n"
-        IsPrimaryLandlord:
-          type: boolean
     Landlord:
       title: Landlord
       type: object
@@ -488,6 +412,70 @@ components:
           $ref: '#/components/schemas/AssignedAgent'
         "Address\t":
           $ref: '#/components/schemas/Address'
+    Envelope:
+      title: Envelope
+      type: object
+      description: This object is used to carry/return responses following post operations.
+      properties:
+        HttpStatusCode:
+          type: integer
+        HttpStatusCodeDesc:
+          type: string
+        Errors:
+          type: array
+          items:
+            type: string
+        Messages:
+          type: array
+          items:
+            type: string
+    LandlordPropertyJoin:
+      title: LandlordPropertyJoin
+      type: object
+      properties:
+        Id:
+          type: integer
+          description: 'Unique id of landlord property record
+
+            '
+        ExternalLandlordRef:
+          type: string
+          description: 'The external landlord ref of the property
+
+            '
+        ExternalPropertyRef:
+          type: string
+          description: "The external property ref of the property       \n"
+        IsPrimaryLandlord:
+          type: boolean
+    Brand:
+      title: Brand
+      type: object
+      properties:
+        Id:
+          type: string
+          format: uuid
+          description: Unique GUID of brand.
+        Name:
+          type: string
+          description: Brand name
+    Address:
+      title: Address
+      type: object
+      properties:
+        AddressLine1:
+          type: string
+        AddressLine2:
+          type: string
+        Town:
+          type: string
+        County:
+          type: string
+        PostCode:
+          type: string
+        Country:
+          type: string
+          description: If set this should be a two letter ISO code. If the information supplied does not match an ISO code it will default to blank
     PrevNextPager:
       type: object
       properties:
@@ -523,17 +511,29 @@ components:
           description: 'The URL of the previous page of results
 
             '
-    Brand:
-      title: Brand
+    AssignedAgent:
+      title: AssignedAgent
       type: object
       properties:
         Id:
+          type: integer
+          format: int64
+        ExternalRef:
           type: string
-          format: uuid
-          description: Unique GUID of brand.
-        Name:
+        EmailAddress:
           type: string
-          description: Brand name
+        DisplayName:
+          type: string
+        ContactNo:
+          type: string
+        IsDeleted:
+          type: boolean
+        Brand:
+          $ref: '#/components/schemas/Brand'
+        UpdateDate:
+          type: string
+          format: date-time
+          description: Updated date/time (UTC).
   securitySchemes:
     Bearer:
       type: http

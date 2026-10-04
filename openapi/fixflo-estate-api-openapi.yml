@@ -154,28 +154,43 @@ components:
           type: array
           items:
             type: string
-    AssignedAgent:
-      title: AssignedAgent
+    Brand:
+      title: Brand
       type: object
       properties:
         Id:
+          type: string
+          format: uuid
+          description: Unique GUID of brand.
+        Name:
+          type: string
+          description: Brand name
+    Estate:
+      title: Estate
+      type: object
+      properties:
+        id:
           type: integer
-          format: int64
-        ExternalRef:
+          description: 'Unique Id of the Estate
+
+            '
+        Name:
           type: string
-        EmailAddress:
+        ExternalEstateRef:
           type: string
-        DisplayName:
-          type: string
-        ContactNo:
-          type: string
+          description: 'This field is designed to be used as the reference of the estate in the other (your) system. If set, this value must be unique for estates.
+
+            '
+        AssignedAgent:
+          $ref: '#/components/schemas/AssignedAgent'
         IsDeleted:
           type: boolean
-        Brand:
-          $ref: '#/components/schemas/Brand'
+          description: 'Read/writable - archives the estate
+
+            '
         UpdateDate:
-          type: string
           format: date-time
+          type: string
           description: Updated date/time (UTC).
     PrevNextPager:
       type: object
@@ -212,44 +227,29 @@ components:
           description: 'The URL of the previous page of results
 
             '
-    Estate:
-      title: Estate
-      type: object
-      properties:
-        id:
-          type: integer
-          description: 'Unique Id of the Estate
-
-            '
-        Name:
-          type: string
-        ExternalEstateRef:
-          type: string
-          description: 'This field is designed to be used as the reference of the estate in the other (your) system. If set, this value must be unique for estates.
-
-            '
-        AssignedAgent:
-          $ref: '#/components/schemas/AssignedAgent'
-        IsDeleted:
-          type: boolean
-          description: 'Read/writable - archives the estate
-
-            '
-        UpdateDate:
-          format: date-time
-          type: string
-          description: Updated date/time (UTC).
-    Brand:
-      title: Brand
+    AssignedAgent:
+      title: AssignedAgent
       type: object
       properties:
         Id:
+          type: integer
+          format: int64
+        ExternalRef:
           type: string
-          format: uuid
-          description: Unique GUID of brand.
-        Name:
+        EmailAddress:
           type: string
-          description: Brand name
+        DisplayName:
+          type: string
+        ContactNo:
+          type: string
+        IsDeleted:
+          type: boolean
+        Brand:
+          $ref: '#/components/schemas/Brand'
+        UpdateDate:
+          type: string
+          format: date-time
+          description: Updated date/time (UTC).
   securitySchemes:
     Bearer:
       type: http
