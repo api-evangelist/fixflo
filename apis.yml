@@ -72,7 +72,7 @@ tags_raw:
 - Contractors
 - Real-Estate
 created: '2026-07-26'
-modified: '2026-07-26'
+modified: '2026-10-06'
 specificationVersion: '0.23'
 apis:
 - aid: fixflo:fixflo-agency-api
@@ -1239,6 +1239,8 @@ apis:
     url: >-
       https://help.fixflo.com/support/solutions/articles/61000295569-api-faqs-commonly-asked-questions-when-creating-an-integration
 common:
+- url: https://www.fixflo.com/blog/rss.xml
+  type: BlogRSS
 - type: CapabilityMap
   url: capabilities/fixflo-capability-edges.yml
   name: Fixflo Business Capability Map
