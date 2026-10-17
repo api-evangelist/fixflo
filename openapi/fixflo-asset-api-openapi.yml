@@ -187,23 +187,6 @@ paths:
       - Asset
 components:
   schemas:
-    Envelope:
-      title: Envelope
-      type: object
-      description: This object is used to carry/return responses following post operations.
-      properties:
-        HttpStatusCode:
-          type: integer
-        HttpStatusCodeDesc:
-          type: string
-        Errors:
-          type: array
-          items:
-            type: string
-        Messages:
-          type: array
-          items:
-            type: string
     Asset_Read:
       title: Asset
       x-stoplight:
@@ -281,39 +264,6 @@ components:
       - ExternalPropertyRef
       - ExternalBlockRef
       - Description
-    Warranty_Asset:
-      title: Warranty
-      type: object
-      x-stoplight:
-        id: 3258d0e2956b2
-      x-internal: false
-      properties:
-        id:
-          type: string
-          readOnly: true
-        StartDate:
-          format: date-time
-          type: string
-          description: 'The warranty start date
-
-            '
-        EndDate:
-          format: date-time
-          type: string
-          description: 'The warranty end date
-
-            '
-        ExternalContractorRef:
-          type: string
-          description: 'The external reference for the contractor assigned to the warranty
-
-            '
-        AssignedContractorCaption:
-          type: string
-          description: 'A name caption for the contractor assigned to the warranty
-
-            '
-          readOnly: true
     Asset_Write:
       title: Asset
       x-stoplight:
@@ -379,6 +329,39 @@ components:
           description: The cost of installation for the asset
         Warranty:
           $ref: '#/components/schemas/Warranty_Asset'
+    Warranty_Asset:
+      title: Warranty
+      type: object
+      x-stoplight:
+        id: 3258d0e2956b2
+      x-internal: false
+      properties:
+        id:
+          type: string
+          readOnly: true
+        StartDate:
+          format: date-time
+          type: string
+          description: 'The warranty start date
+
+            '
+        EndDate:
+          format: date-time
+          type: string
+          description: 'The warranty end date
+
+            '
+        ExternalContractorRef:
+          type: string
+          description: 'The external reference for the contractor assigned to the warranty
+
+            '
+        AssignedContractorCaption:
+          type: string
+          description: 'A name caption for the contractor assigned to the warranty
+
+            '
+          readOnly: true
     PrevNextPager:
       type: object
       properties:
@@ -414,6 +397,23 @@ components:
           description: 'The URL of the previous page of results
 
             '
+    Envelope:
+      title: Envelope
+      type: object
+      description: This object is used to carry/return responses following post operations.
+      properties:
+        HttpStatusCode:
+          type: integer
+        HttpStatusCodeDesc:
+          type: string
+        Errors:
+          type: array
+          items:
+            type: string
+        Messages:
+          type: array
+          items:
+            type: string
   securitySchemes:
     Bearer:
       type: http

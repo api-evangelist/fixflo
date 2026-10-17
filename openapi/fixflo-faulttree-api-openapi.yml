@@ -42,35 +42,6 @@ paths:
       description: Fault tree branches or leaves
 components:
   schemas:
-    FaultTreeBranch:
-      title: FaultTreeBranch
-      type: object
-      properties:
-        Fault:
-          $ref: '#/components/schemas/FaultTreeNode'
-        Children:
-          type: array
-          items:
-            $ref: '#/components/schemas/FaultTreeNode'
-      x-internal: false
-      x-examples:
-        example-1:
-          Fault:
-            FaultId: 0
-            FaultTitle: string
-            ParentFaultId: 0
-            FaultLevelTypeId: string
-            Depth: 0
-            Image: string
-            Warning: string
-          Children:
-          - FaultId: 0
-            FaultTitle: string
-            ParentFaultId: 0
-            FaultLevelTypeId: string
-            Depth: 0
-            Image: string
-            Warning: string
     FaultTreeNode:
       description: Fault tree branch or leaf
       type: object
@@ -102,6 +73,35 @@ components:
       - ParentFaultId
       - FaultLevelTypeId
       - Depth
+    FaultTreeBranch:
+      title: FaultTreeBranch
+      type: object
+      properties:
+        Fault:
+          $ref: '#/components/schemas/FaultTreeNode'
+        Children:
+          type: array
+          items:
+            $ref: '#/components/schemas/FaultTreeNode'
+      x-internal: false
+      x-examples:
+        example-1:
+          Fault:
+            FaultId: 0
+            FaultTitle: string
+            ParentFaultId: 0
+            FaultLevelTypeId: string
+            Depth: 0
+            Image: string
+            Warning: string
+          Children:
+          - FaultId: 0
+            FaultTitle: string
+            ParentFaultId: 0
+            FaultLevelTypeId: string
+            Depth: 0
+            Image: string
+            Warning: string
   securitySchemes:
     Bearer:
       type: http

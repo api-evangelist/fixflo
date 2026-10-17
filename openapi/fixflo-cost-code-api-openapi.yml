@@ -131,36 +131,6 @@ paths:
         description: external estate ref
 components:
   schemas:
-    CostCode:
-      title: CostCode
-      type: object
-      properties:
-        BlockId:
-          type: number
-          description: 'Unique id of the block the cost code is assigned to
-
-            '
-        ExternalBlockRef:
-          type: string
-          description: 'External reference for the block the cost code is assigned to
-
-            '
-        IsDeleted:
-          type: boolean
-        CostCode:
-          type: string
-          description: 'the value that will be sent in the costcode field on the issue when this is attached to the issue in fixflo
-
-            '
-        Description:
-          type: string
-          description: 'Human readable description of the cost code
-
-            '
-        EstateId:
-          type: integer
-        ExternalEstateRef:
-          type: string
     Envelope:
       title: Envelope
       type: object
@@ -213,6 +183,36 @@ components:
           description: 'The URL of the previous page of results
 
             '
+    CostCode:
+      title: CostCode
+      type: object
+      properties:
+        BlockId:
+          type: number
+          description: 'Unique id of the block the cost code is assigned to
+
+            '
+        ExternalBlockRef:
+          type: string
+          description: 'External reference for the block the cost code is assigned to
+
+            '
+        IsDeleted:
+          type: boolean
+        CostCode:
+          type: string
+          description: 'the value that will be sent in the costcode field on the issue when this is attached to the issue in fixflo
+
+            '
+        Description:
+          type: string
+          description: 'Human readable description of the cost code
+
+            '
+        EstateId:
+          type: integer
+        ExternalEstateRef:
+          type: string
   securitySchemes:
     Bearer:
       type: http
