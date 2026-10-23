@@ -1239,6 +1239,8 @@ apis:
     url: >-
       https://help.fixflo.com/support/solutions/articles/61000295569-api-faqs-commonly-asked-questions-when-creating-an-integration
 common:
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/fixflo/overview
 - url: https://www.fixflo.com/blog/rss.xml
   type: BlogRSS
 - type: CapabilityMap
