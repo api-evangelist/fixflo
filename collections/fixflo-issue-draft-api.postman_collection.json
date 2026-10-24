@@ -1,0 +1,1090 @@
+{
+  "info": {
+    "_postman_id": "93727fef-e0e3-4b16-8df3-58272cfd57c5",
+    "name": "Fixflo Issue draft API",
+    "description": "Fixflo api docs\n\nContact Support:\n Name: Support\n Email: support@fixflo.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:55:19.000Z",
+    "updatedAt": "2026-10-22T01:55:20.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-93727fef-e0e3-4b16-8df3-58272cfd57c5"
+  },
+  "item": [
+    {
+      "name": "IssueDraft",
+      "item": [
+        {
+          "name": "Commit",
+          "item": [
+            {
+              "name": "Commits an IssueDraft",
+              "id": "f04a55e7-a1ff-4982-9af0-92284b6bd36c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"FaultId\": \"<string>\",\n  \"id\": \"<uuid>\",\n  \"Updated\": \"<dateTime>\",\n  \"IssueTitle\": \"<string>\",\n  \"FaultPriority\": \"<integer>\",\n  \"FaultNotes\": \"<string>\",\n  \"IssueDraftMedia\": {},\n  \"Title\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"Surname\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"ContactNumber\": \"<string>\",\n  \"ContactNumberAlt\": \"<string>\",\n  \"Address\": {\n    \"AddressLine1\": \"<string>\",\n    \"AddressLine2\": \"<string>\",\n    \"Town\": \"<string>\",\n    \"County\": \"<string>\",\n    \"PostCode\": \"<string>\",\n    \"Country\": \"<string>\"\n  },\n  \"PropertyId\": \"<integer>\",\n  \"BlockId\": \"<integer>\",\n  \"PresenceRequired\": \"<boolean>\",\n  \"VulnerableOccupier\": \"<boolean>\",\n  \"ExternalPropertyRef\": \"<string>\",\n  \"ExternalBlockRef\": \"<integer>\",\n  \"IssueLocationType\": \"Private\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/IssueDraft/Commit",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "IssueDraft",
+                    "Commit"
+                  ]
+                },
+                "description": "Converts an IssueDraft object to a live, newly reported issue"
+              },
+              "response": [
+                {
+                  "id": "0a06adf1-f6a7-4d1b-b188-e2debcf4dd89",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"FaultId\": \"<string>\",\n  \"id\": \"<uuid>\",\n  \"Updated\": \"<dateTime>\",\n  \"IssueTitle\": \"<string>\",\n  \"FaultPriority\": \"<integer>\",\n  \"FaultNotes\": \"<string>\",\n  \"IssueDraftMedia\": {},\n  \"Title\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"Surname\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"ContactNumber\": \"<string>\",\n  \"ContactNumberAlt\": \"<string>\",\n  \"Address\": {\n    \"AddressLine1\": \"<string>\",\n    \"AddressLine2\": \"<string>\",\n    \"Town\": \"<string>\",\n    \"County\": \"<string>\",\n    \"PostCode\": \"<string>\",\n    \"Country\": \"<string>\"\n  },\n  \"PropertyId\": \"<integer>\",\n  \"BlockId\": \"<integer>\",\n  \"PresenceRequired\": \"<boolean>\",\n  \"VulnerableOccupier\": \"<boolean>\",\n  \"ExternalPropertyRef\": \"<string>\",\n  \"ExternalBlockRef\": \"<integer>\",\n  \"IssueLocationType\": \"Private\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/IssueDraft/Commit",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "IssueDraft",
+                        "Commit"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"HttpStatusCode\": \"<integer>\",\n  \"HttpStatusCodeDesc\": \"<string>\",\n  \"Errors\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Entity\": {\n    \"FaultId\": \"<string>\",\n    \"id\": \"<uuid>\",\n    \"Updated\": \"<dateTime>\",\n    \"IssueTitle\": \"<string>\",\n    \"FaultPriority\": \"<integer>\",\n    \"FaultNotes\": \"<string>\",\n    \"IssueDraftMedia\": {},\n    \"Title\": \"<string>\",\n    \"FirstName\": \"<string>\",\n    \"Surname\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"ContactNumber\": \"<string>\",\n    \"ContactNumberAlt\": \"<string>\",\n    \"Address\": {\n      \"AddressLine1\": \"<string>\",\n      \"AddressLine2\": \"<string>\",\n      \"Town\": \"<string>\",\n      \"County\": \"<string>\",\n      \"PostCode\": \"<string>\",\n      \"Country\": \"<string>\"\n    },\n    \"PropertyId\": \"<integer>\",\n    \"BlockId\": \"<integer>\",\n    \"PresenceRequired\": \"<boolean>\",\n    \"VulnerableOccupier\": \"<boolean>\",\n    \"ExternalPropertyRef\": \"<string>\",\n    \"ExternalBlockRef\": \"<integer>\",\n    \"IssueLocationType\": \"Private\"\n  }\n}",
+                  "createdAt": "2026-10-22T01:55:20.000Z",
+                  "updatedAt": "2026-10-22T01:55:20.000Z",
+                  "uid": "35240-0a06adf1-f6a7-4d1b-b188-e2debcf4dd89"
+                }
+              ],
+              "createdAt": "2026-10-22T01:55:20.000Z",
+              "updatedAt": "2026-10-22T01:55:20.000Z",
+              "uid": "35240-f04a55e7-a1ff-4982-9af0-92284b6bd36c"
+            }
+          ],
+          "id": "481b5fd8-b66d-47e1-9958-7b3d84fe7de9",
+          "createdAt": "2026-10-22T01:55:20.000Z",
+          "updatedAt": "2026-10-22T01:55:20.000Z",
+          "uid": "35240-481b5fd8-b66d-47e1-9958-7b3d84fe7de9"
+        },
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "IssueDraftMedia",
+              "item": [
+                {
+                  "name": "Issue draft / issue draft media",
+                  "id": "bb004a03-94d8-4cd6-a628-86e4d298c0f1",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/IssueDraft/:id/IssueDraftMedia?pg=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "IssueDraft",
+                        ":id",
+                        "IssueDraftMedia"
+                      ],
+                      "query": [
+                        {
+                          "description": "page",
+                          "key": "pg",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "5bed6df2-c361-4d25-8d71-9cbc003e14f0",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Get issue draft mnedia"
+                  },
+                  "response": [
+                    {
+                      "id": "0d172605-9f1a-4759-a800-c0f61f529590",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/IssueDraft/:id/IssueDraftMedia?pg=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "IssueDraft",
+                            ":id",
+                            "IssueDraftMedia"
+                          ],
+                          "query": [
+                            {
+                              "description": "page",
+                              "key": "pg",
+                              "value": "<integer>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"TotalItems\": \"<integer>\",\n  \"TotalPages\": \"<integer>\",\n  \"Items\": [\n    {\n      \"id\": \"<uuid>\",\n      \"IssueDraftId\": \"<uuid>\",\n      \"Url\": \"<string>\",\n      \"ContentType\\t\": \"<string>\",\n      \"ShortDesc\": \"<string>\",\n      \"EncodedByteData\": \"<string>\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"IssueDraftId\": \"<uuid>\",\n      \"Url\": \"<string>\",\n      \"ContentType\\t\": \"<string>\",\n      \"ShortDesc\": \"<string>\",\n      \"EncodedByteData\": \"<string>\"\n    }\n  ],\n  \"NextURL\": \"<string>\",\n  \"PreviousURL\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T01:55:20.000Z",
+                      "updatedAt": "2026-10-22T01:55:20.000Z",
+                      "uid": "35240-0d172605-9f1a-4759-a800-c0f61f529590"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:55:20.000Z",
+                  "updatedAt": "2026-10-22T01:55:20.000Z",
+                  "uid": "35240-bb004a03-94d8-4cd6-a628-86e4d298c0f1"
+                }
+              ],
+              "id": "fa641456-f2ce-4571-a4af-21ccb294c50e",
+              "createdAt": "2026-10-22T01:55:20.000Z",
+              "updatedAt": "2026-10-22T01:55:20.000Z",
+              "uid": "35240-fa641456-f2ce-4571-a4af-21ccb294c50e"
+            }
+          ],
+          "id": "037ecf70-4ed8-47c5-9584-0559b6ae887e",
+          "createdAt": "2026-10-22T01:55:20.000Z",
+          "updatedAt": "2026-10-22T01:55:20.000Z",
+          "uid": "35240-037ecf70-4ed8-47c5-9584-0559b6ae887e"
+        },
+        {
+          "name": "Delete",
+          "item": [
+            {
+              "name": "Issue draft",
+              "id": "3ca2191e-8aa3-46c0-8be4-ca8f7fbceb64",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"FaultId\": \"<string>\",\n  \"id\": \"<uuid>\",\n  \"Updated\": \"<dateTime>\",\n  \"IssueTitle\": \"<string>\",\n  \"FaultPriority\": \"<integer>\",\n  \"FaultNotes\": \"<string>\",\n  \"IssueDraftMedia\": {},\n  \"Title\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"Surname\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"ContactNumber\": \"<string>\",\n  \"ContactNumberAlt\": \"<string>\",\n  \"Address\": {\n    \"AddressLine1\": \"<string>\",\n    \"AddressLine2\": \"<string>\",\n    \"Town\": \"<string>\",\n    \"County\": \"<string>\",\n    \"PostCode\": \"<string>\",\n    \"Country\": \"<string>\"\n  },\n  \"PropertyId\": \"<integer>\",\n  \"BlockId\": \"<integer>\",\n  \"PresenceRequired\": \"<boolean>\",\n  \"VulnerableOccupier\": \"<boolean>\",\n  \"ExternalPropertyRef\": \"<string>\",\n  \"ExternalBlockRef\": \"<integer>\",\n  \"IssueLocationType\": \"Private\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/IssueDraft/Delete",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "IssueDraft",
+                    "Delete"
+                  ]
+                },
+                "description": "Deletes an IssueDraft object"
+              },
+              "response": [
+                {
+                  "id": "09293c32-c896-4885-8ded-0481a721fb19",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"FaultId\": \"<string>\",\n  \"id\": \"<uuid>\",\n  \"Updated\": \"<dateTime>\",\n  \"IssueTitle\": \"<string>\",\n  \"FaultPriority\": \"<integer>\",\n  \"FaultNotes\": \"<string>\",\n  \"IssueDraftMedia\": {},\n  \"Title\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"Surname\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"ContactNumber\": \"<string>\",\n  \"ContactNumberAlt\": \"<string>\",\n  \"Address\": {\n    \"AddressLine1\": \"<string>\",\n    \"AddressLine2\": \"<string>\",\n    \"Town\": \"<string>\",\n    \"County\": \"<string>\",\n    \"PostCode\": \"<string>\",\n    \"Country\": \"<string>\"\n  },\n  \"PropertyId\": \"<integer>\",\n  \"BlockId\": \"<integer>\",\n  \"PresenceRequired\": \"<boolean>\",\n  \"VulnerableOccupier\": \"<boolean>\",\n  \"ExternalPropertyRef\": \"<string>\",\n  \"ExternalBlockRef\": \"<integer>\",\n  \"IssueLocationType\": \"Private\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/IssueDraft/Delete",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "IssueDraft",
+                        "Delete"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"FaultId\": \"<string>\",\n  \"id\": \"<uuid>\",\n  \"Updated\": \"<dateTime>\",\n  \"IssueTitle\": \"<string>\",\n  \"FaultPriority\": \"<integer>\",\n  \"FaultNotes\": \"<string>\",\n  \"IssueDraftMedia\": {},\n  \"Title\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"Surname\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"ContactNumber\": \"<string>\",\n  \"ContactNumberAlt\": \"<string>\",\n  \"Address\": {\n    \"AddressLine1\": \"<string>\",\n    \"AddressLine2\": \"<string>\",\n    \"Town\": \"<string>\",\n    \"County\": \"<string>\",\n    \"PostCode\": \"<string>\",\n    \"Country\": \"<string>\"\n  },\n  \"PropertyId\": \"<integer>\",\n  \"BlockId\": \"<integer>\",\n  \"PresenceRequired\": \"<boolean>\",\n  \"VulnerableOccupier\": \"<boolean>\",\n  \"ExternalPropertyRef\": \"<string>\",\n  \"ExternalBlockRef\": \"<integer>\",\n  \"IssueLocationType\": \"Private\"\n}",
+                  "createdAt": "2026-10-22T01:55:20.000Z",
+                  "updatedAt": "2026-10-22T01:55:20.000Z",
+                  "uid": "35240-09293c32-c896-4885-8ded-0481a721fb19"
+                }
+              ],
+              "createdAt": "2026-10-22T01:55:20.000Z",
+              "updatedAt": "2026-10-22T01:55:20.000Z",
+              "uid": "35240-3ca2191e-8aa3-46c0-8be4-ca8f7fbceb64"
+            }
+          ],
+          "id": "9f84ad8e-6304-4197-8e24-c133ec20149a",
+          "createdAt": "2026-10-22T01:55:20.000Z",
+          "updatedAt": "2026-10-22T01:55:20.000Z",
+          "uid": "35240-9f84ad8e-6304-4197-8e24-c133ec20149a"
+        },
+        {
+          "name": "{Id}",
+          "item": [
+            {
+              "name": "Assets",
+              "item": [
+                {
+                  "name": "Issue draft assets",
+                  "id": "efedb787-c134-415b-a7b9-ac65d45755b7",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/IssueDraft/:Id/Assets?pg=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "IssueDraft",
+                        ":Id",
+                        "Assets"
+                      ],
+                      "query": [
+                        {
+                          "description": "Page",
+                          "key": "pg",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "6e86db27-f35a-47e4-8ae4-577f75de4cf9",
+                          "key": "Id",
+                          "value": "<string>",
+                          "description": "(Required) Unique id of the IssueDraft. Guid."
+                        }
+                      ]
+                    },
+                    "description": "Gets a page of assets associated with an issue Draft"
+                  },
+                  "response": [
+                    {
+                      "id": "a80cf1e2-a6eb-4686-9140-c3126aac471a",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/IssueDraft/:Id/Assets?pg=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "IssueDraft",
+                            ":Id",
+                            "Assets"
+                          ],
+                          "query": [
+                            {
+                              "description": "Page",
+                              "key": "pg",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "Id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"TotalItems\": \"<integer>\",\n  \"TotalPages\": \"<integer>\",\n  \"NextURL\": \"<string>\",\n  \"PreviousURL\": \"<string>\",\n  \"items\": {\n    \"Id\": \"<string>\",\n    \"AssetId\": \"<string>\",\n    \"ExternalReference\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-10-22T01:55:20.000Z",
+                      "updatedAt": "2026-10-22T01:55:20.000Z",
+                      "uid": "35240-a80cf1e2-a6eb-4686-9140-c3126aac471a"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:55:20.000Z",
+                  "updatedAt": "2026-10-22T01:55:20.000Z",
+                  "uid": "35240-efedb787-c134-415b-a7b9-ac65d45755b7"
+                },
+                {
+                  "name": "Issue draft assets",
+                  "id": "14ed330a-eef6-4d61-a218-b6fae9497eee",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"Id\": \"<string>\",\n  \"AssetId\": \"<string>\",\n  \"ExternalReference\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/IssueDraft/:Id/Assets",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "IssueDraft",
+                        ":Id",
+                        "Assets"
+                      ],
+                      "variable": [
+                        {
+                          "id": "5890317a-1226-4b37-8801-614953a2bfb1",
+                          "key": "Id",
+                          "value": "<string>",
+                          "description": "(Required) Unique id of the IssueDraft. Guid."
+                        }
+                      ]
+                    },
+                    "description": "Adds an asset to an IssueDraft"
+                  },
+                  "response": [
+                    {
+                      "id": "4bad34ab-d94e-46fc-9f6b-6a3dfd09c922",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"Id\": \"<string>\",\n  \"AssetId\": \"<string>\",\n  \"ExternalReference\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/IssueDraft/:Id/Assets",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "IssueDraft",
+                            ":Id",
+                            "Assets"
+                          ],
+                          "variable": [
+                            {
+                              "key": "Id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Entity\": {\n    \"Id\": \"<string>\",\n    \"AssetId\": \"<string>\",\n    \"ExternalReference\": \"<string>\"\n  },\n  \"HttpStatusCode\": \"<integer>\",\n  \"HttpStatusCodeDesc\": \"<string>\",\n  \"Errors\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Messages\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-10-22T01:55:20.000Z",
+                      "updatedAt": "2026-10-22T01:55:20.000Z",
+                      "uid": "35240-4bad34ab-d94e-46fc-9f6b-6a3dfd09c922"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:55:20.000Z",
+                  "updatedAt": "2026-10-22T01:55:20.000Z",
+                  "uid": "35240-14ed330a-eef6-4d61-a218-b6fae9497eee"
+                }
+              ],
+              "id": "e4404992-bf94-46fb-9f7f-0177d31466a8",
+              "createdAt": "2026-10-22T01:55:20.000Z",
+              "updatedAt": "2026-10-22T01:55:20.000Z",
+              "uid": "35240-e4404992-bf94-46fb-9f7f-0177d31466a8"
+            }
+          ],
+          "id": "7f5eb667-f370-4346-bf73-6ff44f4fc76c",
+          "createdAt": "2026-10-22T01:55:20.000Z",
+          "updatedAt": "2026-10-22T01:55:20.000Z",
+          "uid": "35240-7f5eb667-f370-4346-bf73-6ff44f4fc76c"
+        },
+        {
+          "name": "Issue draft",
+          "id": "4425c227-c0fc-4033-b238-93102ce00f99",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/IssueDraft?Id=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "IssueDraft"
+              ],
+              "query": [
+                {
+                  "description": "Unique id of IssueDraft. Guid",
+                  "key": "Id",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Get issue draft"
+          },
+          "response": [
+            {
+              "id": "c6aa8307-5c9c-4076-8998-5b7b042ca590",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/IssueDraft?Id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "IssueDraft"
+                  ],
+                  "query": [
+                    {
+                      "description": "Unique id of IssueDraft. Guid",
+                      "key": "Id",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"FaultId\": \"<string>\",\n  \"id\": \"<uuid>\",\n  \"Updated\": \"<dateTime>\",\n  \"IssueTitle\": \"<string>\",\n  \"FaultPriority\": \"<integer>\",\n  \"FaultNotes\": \"<string>\",\n  \"IssueDraftMedia\": {},\n  \"Title\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"Surname\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"ContactNumber\": \"<string>\",\n  \"ContactNumberAlt\": \"<string>\",\n  \"Address\": {\n    \"AddressLine1\": \"<string>\",\n    \"AddressLine2\": \"<string>\",\n    \"Town\": \"<string>\",\n    \"County\": \"<string>\",\n    \"PostCode\": \"<string>\",\n    \"Country\": \"<string>\"\n  },\n  \"PropertyId\": \"<integer>\",\n  \"BlockId\": \"<integer>\",\n  \"PresenceRequired\": \"<boolean>\",\n  \"VulnerableOccupier\": \"<boolean>\",\n  \"ExternalPropertyRef\": \"<string>\",\n  \"ExternalBlockRef\": \"<integer>\",\n  \"IssueLocationType\": \"Private\"\n}",
+              "createdAt": "2026-10-22T01:55:20.000Z",
+              "updatedAt": "2026-10-22T01:55:20.000Z",
+              "uid": "35240-c6aa8307-5c9c-4076-8998-5b7b042ca590"
+            }
+          ],
+          "createdAt": "2026-10-22T01:55:20.000Z",
+          "updatedAt": "2026-10-22T01:55:20.000Z",
+          "uid": "35240-4425c227-c0fc-4033-b238-93102ce00f99"
+        },
+        {
+          "name": "Issue draft",
+          "id": "1620bf4f-4691-4eaf-82e4-b0ebbc402f40",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"FaultId\": \"<string>\",\n  \"id\": \"<uuid>\",\n  \"Updated\": \"<dateTime>\",\n  \"IssueTitle\": \"<string>\",\n  \"FaultPriority\": \"<integer>\",\n  \"FaultNotes\": \"<string>\",\n  \"IssueDraftMedia\": {},\n  \"Title\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"Surname\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"ContactNumber\": \"<string>\",\n  \"ContactNumberAlt\": \"<string>\",\n  \"Address\": {\n    \"AddressLine1\": \"<string>\",\n    \"AddressLine2\": \"<string>\",\n    \"Town\": \"<string>\",\n    \"County\": \"<string>\",\n    \"PostCode\": \"<string>\",\n    \"Country\": \"<string>\"\n  },\n  \"PropertyId\": \"<integer>\",\n  \"BlockId\": \"<integer>\",\n  \"PresenceRequired\": \"<boolean>\",\n  \"VulnerableOccupier\": \"<boolean>\",\n  \"ExternalPropertyRef\": \"<string>\",\n  \"ExternalBlockRef\": \"<integer>\",\n  \"IssueLocationType\": \"Private\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/IssueDraft",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "IssueDraft"
+              ]
+            },
+            "description": "Create/update issue draft"
+          },
+          "response": [
+            {
+              "id": "7ca63d6d-d51d-4652-8dc7-4a5a569acaa8",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"FaultId\": \"<string>\",\n  \"id\": \"<uuid>\",\n  \"Updated\": \"<dateTime>\",\n  \"IssueTitle\": \"<string>\",\n  \"FaultPriority\": \"<integer>\",\n  \"FaultNotes\": \"<string>\",\n  \"IssueDraftMedia\": {},\n  \"Title\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"Surname\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"ContactNumber\": \"<string>\",\n  \"ContactNumberAlt\": \"<string>\",\n  \"Address\": {\n    \"AddressLine1\": \"<string>\",\n    \"AddressLine2\": \"<string>\",\n    \"Town\": \"<string>\",\n    \"County\": \"<string>\",\n    \"PostCode\": \"<string>\",\n    \"Country\": \"<string>\"\n  },\n  \"PropertyId\": \"<integer>\",\n  \"BlockId\": \"<integer>\",\n  \"PresenceRequired\": \"<boolean>\",\n  \"VulnerableOccupier\": \"<boolean>\",\n  \"ExternalPropertyRef\": \"<string>\",\n  \"ExternalBlockRef\": \"<integer>\",\n  \"IssueLocationType\": \"Private\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/IssueDraft",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "IssueDraft"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"HttpStatusCode\": \"<integer>\",\n  \"HttpStatusCodeDesc\": \"<string>\",\n  \"Errors\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Entity\": {\n    \"FaultId\": \"<string>\",\n    \"id\": \"<uuid>\",\n    \"Updated\": \"<dateTime>\",\n    \"IssueTitle\": \"<string>\",\n    \"FaultPriority\": \"<integer>\",\n    \"FaultNotes\": \"<string>\",\n    \"IssueDraftMedia\": {},\n    \"Title\": \"<string>\",\n    \"FirstName\": \"<string>\",\n    \"Surname\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"ContactNumber\": \"<string>\",\n    \"ContactNumberAlt\": \"<string>\",\n    \"Address\": {\n      \"AddressLine1\": \"<string>\",\n      \"AddressLine2\": \"<string>\",\n      \"Town\": \"<string>\",\n      \"County\": \"<string>\",\n      \"PostCode\": \"<string>\",\n      \"Country\": \"<string>\"\n    },\n    \"PropertyId\": \"<integer>\",\n    \"BlockId\": \"<integer>\",\n    \"PresenceRequired\": \"<boolean>\",\n    \"VulnerableOccupier\": \"<boolean>\",\n    \"ExternalPropertyRef\": \"<string>\",\n    \"ExternalBlockRef\": \"<integer>\",\n    \"IssueLocationType\": \"Private\"\n  }\n}",
+              "createdAt": "2026-10-22T01:55:20.000Z",
+              "updatedAt": "2026-10-22T01:55:20.000Z",
+              "uid": "35240-7ca63d6d-d51d-4652-8dc7-4a5a569acaa8"
+            }
+          ],
+          "createdAt": "2026-10-22T01:55:20.000Z",
+          "updatedAt": "2026-10-22T01:55:20.000Z",
+          "uid": "35240-1620bf4f-4691-4eaf-82e4-b0ebbc402f40"
+        }
+      ],
+      "id": "3ae49053-780c-4d8d-aac3-e55d4b5f2c77",
+      "createdAt": "2026-10-22T01:55:20.000Z",
+      "updatedAt": "2026-10-22T01:55:20.000Z",
+      "uid": "35240-3ae49053-780c-4d8d-aac3-e55d4b5f2c77"
+    },
+    {
+      "name": "IssueDraftMedia",
+      "item": [
+        {
+          "name": "{Id}",
+          "item": [
+            {
+              "name": "Download",
+              "item": [
+                {
+                  "name": "Issue draft media",
+                  "id": "737e642e-0316-48a5-8e00-d6401341a527",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/IssueDraftMedia/:Id/Download",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "IssueDraftMedia",
+                        ":Id",
+                        "Download"
+                      ],
+                      "variable": [
+                        {
+                          "id": "9d9b13d7-5472-4279-926b-65287f4a4e4c",
+                          "key": "Id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "binary data of content type defined by IssueDraftMedia.ContentType"
+                  },
+                  "response": [
+                    {
+                      "id": "2271605c-43cd-4caa-8a21-2b1d320b3b4e",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/IssueDraftMedia/:Id/Download",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "IssueDraftMedia",
+                            ":Id",
+                            "Download"
+                          ],
+                          "variable": [
+                            {
+                              "key": "Id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T01:55:20.000Z",
+                      "updatedAt": "2026-10-22T01:55:20.000Z",
+                      "uid": "35240-2271605c-43cd-4caa-8a21-2b1d320b3b4e"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:55:20.000Z",
+                  "updatedAt": "2026-10-22T01:55:20.000Z",
+                  "uid": "35240-737e642e-0316-48a5-8e00-d6401341a527"
+                }
+              ],
+              "id": "b5d2394b-579d-40b1-8264-838c3bacbb9a",
+              "createdAt": "2026-10-22T01:55:20.000Z",
+              "updatedAt": "2026-10-22T01:55:20.000Z",
+              "uid": "35240-b5d2394b-579d-40b1-8264-838c3bacbb9a"
+            }
+          ],
+          "id": "236db8b7-c6cd-4850-8a8d-63e7a8309b2c",
+          "createdAt": "2026-10-22T01:55:20.000Z",
+          "updatedAt": "2026-10-22T01:55:20.000Z",
+          "uid": "35240-236db8b7-c6cd-4850-8a8d-63e7a8309b2c"
+        },
+        {
+          "name": "Issue draft media",
+          "id": "458dc06a-1b0b-483b-b19d-16d38747144c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/IssueDraftMedia",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "IssueDraftMedia"
+              ]
+            },
+            "description": "Gets an IssueDraftMedia object"
+          },
+          "response": [
+            {
+              "id": "97820848-79ef-40f6-9961-89c436538c01",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/IssueDraftMedia",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "IssueDraftMedia"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<uuid>\",\n  \"IssueDraftId\": \"<uuid>\",\n  \"Url\": \"<string>\",\n  \"ContentType\\t\": \"<string>\",\n  \"ShortDesc\": \"<string>\",\n  \"EncodedByteData\": \"<string>\"\n}",
+              "createdAt": "2026-10-22T01:55:20.000Z",
+              "updatedAt": "2026-10-22T01:55:20.000Z",
+              "uid": "35240-97820848-79ef-40f6-9961-89c436538c01"
+            }
+          ],
+          "createdAt": "2026-10-22T01:55:20.000Z",
+          "updatedAt": "2026-10-22T01:55:20.000Z",
+          "uid": "35240-458dc06a-1b0b-483b-b19d-16d38747144c"
+        },
+        {
+          "name": "Issue draft media",
+          "id": "93f3f4fc-5364-40cb-b35b-2d2fa79f6f33",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<uuid>\",\n  \"IssueDraftId\": \"<uuid>\",\n  \"Url\": \"<string>\",\n  \"ContentType\\t\": \"<string>\",\n  \"ShortDesc\": \"<string>\",\n  \"EncodedByteData\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/IssueDraftMedia",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "IssueDraftMedia"
+              ]
+            },
+            "description": "Posts an IssueDraftMedia object.\nIf the id in the body of the request is left empty a new IsseDraftMedia will be created. If a valid id is supplied in the body of the request the API will attempt to update the IssueDraftMedia to which the id belongs."
+          },
+          "response": [
+            {
+              "id": "33d2ec00-09fd-4217-a083-e987a880456d",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<uuid>\",\n  \"IssueDraftId\": \"<uuid>\",\n  \"Url\": \"<string>\",\n  \"ContentType\\t\": \"<string>\",\n  \"ShortDesc\": \"<string>\",\n  \"EncodedByteData\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/IssueDraftMedia",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "IssueDraftMedia"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"HttpStatusCode\": \"<integer>\",\n  \"HttpStatusCodeDesc\": \"<string>\",\n  \"Errors\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Entity\": {\n    \"id\": \"<uuid>\",\n    \"IssueDraftId\": \"<uuid>\",\n    \"Url\": \"<string>\",\n    \"ContentType\\t\": \"<string>\",\n    \"ShortDesc\": \"<string>\",\n    \"EncodedByteData\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-10-22T01:55:20.000Z",
+              "updatedAt": "2026-10-22T01:55:20.000Z",
+              "uid": "35240-33d2ec00-09fd-4217-a083-e987a880456d"
+            }
+          ],
+          "createdAt": "2026-10-22T01:55:20.000Z",
+          "updatedAt": "2026-10-22T01:55:20.000Z",
+          "uid": "35240-93f3f4fc-5364-40cb-b35b-2d2fa79f6f33"
+        }
+      ],
+      "id": "204f040f-16d6-4aa0-8999-eea9e3193811",
+      "createdAt": "2026-10-22T01:55:20.000Z",
+      "updatedAt": "2026-10-22T01:55:20.000Z",
+      "uid": "35240-204f040f-16d6-4aa0-8999-eea9e3193811"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api-sandbox.fixflo.com/api/v2"
+    }
+  ]
+}

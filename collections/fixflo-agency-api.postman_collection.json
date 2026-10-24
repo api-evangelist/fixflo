@@ -1,0 +1,501 @@
+{
+  "info": {
+    "_postman_id": "d8a0ed59-3158-473f-a420-b0c0e50d0de4",
+    "name": "Fixflo Agency API",
+    "description": "Fixflo api docs\n\nContact Support:\n Name: Support\n Email: support@fixflo.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:54:01.000Z",
+    "updatedAt": "2026-10-22T01:54:02.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d8a0ed59-3158-473f-a420-b0c0e50d0de4"
+  },
+  "item": [
+    {
+      "name": "Agencies",
+      "item": [
+        {
+          "name": "Agencies",
+          "id": "937de58f-f995-431e-8b0d-576a9ef260ad",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/Agencies?page=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Agencies"
+              ],
+              "query": [
+                {
+                  "description": "The page number to return",
+                  "key": "page",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Get list of agencies. The agency endpoints are only available on request to support."
+          },
+          "response": [
+            {
+              "id": "2ffa12bc-fb1e-4f9a-8682-1c7a998dc43b",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Agencies?page=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Agencies"
+                  ],
+                  "query": [
+                    {
+                      "description": "The page number to return",
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"value\": \"<Error: Could not resolve allOf schema\"\n}",
+              "createdAt": "2026-10-22T01:54:02.000Z",
+              "updatedAt": "2026-10-22T01:54:02.000Z",
+              "uid": "35240-2ffa12bc-fb1e-4f9a-8682-1c7a998dc43b"
+            }
+          ],
+          "createdAt": "2026-10-22T01:54:02.000Z",
+          "updatedAt": "2026-10-22T01:54:02.000Z",
+          "uid": "35240-937de58f-f995-431e-8b0d-576a9ef260ad"
+        }
+      ],
+      "id": "5c3885e1-6b55-4c3c-867e-982db1527bc2",
+      "createdAt": "2026-10-22T01:54:02.000Z",
+      "updatedAt": "2026-10-22T01:54:02.000Z",
+      "uid": "35240-5c3885e1-6b55-4c3c-867e-982db1527bc2"
+    },
+    {
+      "name": "Agency",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "SetupIntegrationTemplates",
+              "item": [
+                {
+                  "name": "Setup Agency Integration Templates",
+                  "id": "b520b463-efa4-4c09-b98e-46192a8b7bb8",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/Agency/:id/SetupIntegrationTemplates",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Agency",
+                        ":id",
+                        "SetupIntegrationTemplates"
+                      ],
+                      "variable": [
+                        {
+                          "id": "041eb2a5-6589-46cc-b76f-4487e54132ef",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) Agency Id"
+                        }
+                      ]
+                    },
+                    "description": "Setup Integration templates for existing Agency with given Id"
+                  },
+                  "response": [
+                    {
+                      "id": "ead8dda9-ddbf-4a9e-a2ce-52f733ee9eef",
+                      "name": "No Content",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Agency/:id/SetupIntegrationTemplates",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Agency",
+                            ":id",
+                            "SetupIntegrationTemplates"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T01:54:02.000Z",
+                      "updatedAt": "2026-10-22T01:54:02.000Z",
+                      "uid": "35240-ead8dda9-ddbf-4a9e-a2ce-52f733ee9eef"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:54:02.000Z",
+                  "updatedAt": "2026-10-22T01:54:02.000Z",
+                  "uid": "35240-b520b463-efa4-4c09-b98e-46192a8b7bb8"
+                }
+              ],
+              "id": "01985d6e-e146-4a86-8ad6-66cf85056e01",
+              "createdAt": "2026-10-22T01:54:02.000Z",
+              "updatedAt": "2026-10-22T01:54:02.000Z",
+              "uid": "35240-01985d6e-e146-4a86-8ad6-66cf85056e01"
+            },
+            {
+              "name": "Agency",
+              "id": "0dde6928-3276-4425-a4d7-86961f6159a6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Agency/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Agency",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "7e11cc6b-f75d-4d9a-ba38-c0dee97671e2",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Get an agency"
+              },
+              "response": [
+                {
+                  "id": "975944b3-c8ae-42b7-aa2d-7851556ab46c",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Agency/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Agency",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"AgencyName\": \"<string>\",\n  \"CustomDomain\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"Password\": \"<string>\",\n  \"IsDeleted\": \"<boolean>\",\n  \"Created\": \"<dateTime>\",\n  \"FeatureType\": \"<integer>\",\n  \"IssueTreeRoot\": \"<integer>\",\n  \"SiteBaseUrl\": \"<dateTime>\",\n  \"DefaultTimeZoneId\": \"<dateTime>\",\n  \"Locale\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-10-22T01:54:02.000Z",
+                  "updatedAt": "2026-10-22T01:54:02.000Z",
+                  "uid": "35240-975944b3-c8ae-42b7-aa2d-7851556ab46c"
+                }
+              ],
+              "createdAt": "2026-10-22T01:54:02.000Z",
+              "updatedAt": "2026-10-22T01:54:02.000Z",
+              "uid": "35240-0dde6928-3276-4425-a4d7-86961f6159a6"
+            }
+          ],
+          "id": "9f6ffd17-be4b-4210-b1f3-346e3ba85e5c",
+          "createdAt": "2026-10-22T01:54:02.000Z",
+          "updatedAt": "2026-10-22T01:54:02.000Z",
+          "uid": "35240-9f6ffd17-be4b-4210-b1f3-346e3ba85e5c"
+        },
+        {
+          "name": "Settings",
+          "item": [
+            {
+              "name": "Get Agency Settings",
+              "id": "b422574b-b395-4c11-a997-481c27c7bf56",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Agency/Settings",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Agency",
+                    "Settings"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "f24538d1-fdc6-487c-a080-e92ae076043b",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Agency/Settings",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Agency",
+                        "Settings"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"AgencyName\": \"<string>\",\n  \"WorkflowType\": \"Basic\"\n}",
+                  "createdAt": "2026-10-22T01:54:02.000Z",
+                  "updatedAt": "2026-10-22T01:54:02.000Z",
+                  "uid": "35240-f24538d1-fdc6-487c-a080-e92ae076043b"
+                }
+              ],
+              "createdAt": "2026-10-22T01:54:02.000Z",
+              "updatedAt": "2026-10-22T01:54:02.000Z",
+              "uid": "35240-b422574b-b395-4c11-a997-481c27c7bf56"
+            }
+          ],
+          "id": "d38e2a6b-346e-4931-a5ec-6ca024879112",
+          "createdAt": "2026-10-22T01:54:02.000Z",
+          "updatedAt": "2026-10-22T01:54:02.000Z",
+          "uid": "35240-d38e2a6b-346e-4931-a5ec-6ca024879112"
+        },
+        {
+          "name": "Agency / add",
+          "id": "8f56d2d1-73a9-4703-a350-b87b29d8f7a7",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"AgencyName\": \"<string>\",\n  \"CustomDomain\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"Password\": \"<string>\",\n  \"IsDeleted\": \"<boolean>\",\n  \"Created\": \"<dateTime>\",\n  \"FeatureType\": \"<integer>\",\n  \"IssueTreeRoot\": \"<integer>\",\n  \"SiteBaseUrl\": \"<dateTime>\",\n  \"DefaultTimeZoneId\": \"<dateTime>\",\n  \"Locale\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/Agency",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Agency"
+              ]
+            },
+            "description": "Add an agency"
+          },
+          "response": [
+            {
+              "id": "6aff616a-807f-41fa-b4cb-025eb748a9ff",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"AgencyName\": \"<string>\",\n  \"CustomDomain\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"Password\": \"<string>\",\n  \"IsDeleted\": \"<boolean>\",\n  \"Created\": \"<dateTime>\",\n  \"FeatureType\": \"<integer>\",\n  \"IssueTreeRoot\": \"<integer>\",\n  \"SiteBaseUrl\": \"<dateTime>\",\n  \"DefaultTimeZoneId\": \"<dateTime>\",\n  \"Locale\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Agency",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Agency"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"HttpStatusCode\": \"<integer>\",\n  \"HttpStatusCodeDesc\": \"<string>\",\n  \"Errors\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Entity\": {\n    \"id\": \"<string>\",\n    \"AgencyName\": \"<string>\",\n    \"CustomDomain\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"Password\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Created\": \"<dateTime>\",\n    \"FeatureType\": \"<integer>\",\n    \"IssueTreeRoot\": \"<integer>\",\n    \"SiteBaseUrl\": \"<dateTime>\",\n    \"DefaultTimeZoneId\": \"<dateTime>\",\n    \"Locale\": \"<dateTime>\"\n  }\n}",
+              "createdAt": "2026-10-22T01:54:02.000Z",
+              "updatedAt": "2026-10-22T01:54:02.000Z",
+              "uid": "35240-6aff616a-807f-41fa-b4cb-025eb748a9ff"
+            }
+          ],
+          "createdAt": "2026-10-22T01:54:02.000Z",
+          "updatedAt": "2026-10-22T01:54:02.000Z",
+          "uid": "35240-8f56d2d1-73a9-4703-a350-b87b29d8f7a7"
+        }
+      ],
+      "id": "106883a3-57be-42fe-ab0d-d0e3294244c4",
+      "createdAt": "2026-10-22T01:54:02.000Z",
+      "updatedAt": "2026-10-22T01:54:02.000Z",
+      "uid": "35240-106883a3-57be-42fe-ab0d-d0e3294244c4"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api-sandbox.fixflo.com/api/v2"
+    }
+  ]
+}

@@ -1,0 +1,620 @@
+{
+  "info": {
+    "_postman_id": "facf41a1-529a-4791-a4be-957956be1cc0",
+    "name": "Fixflo Service Programme API",
+    "description": "Fixflo api docs\n\nContact Support:\n Name: Support\n Email: support@fixflo.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:56:02.000Z",
+    "updatedAt": "2026-10-22T01:56:02.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-facf41a1-529a-4791-a4be-957956be1cc0"
+  },
+  "item": [
+    {
+      "name": "ServiceProgramme",
+      "item": [
+        {
+          "name": "{Id}",
+          "item": [
+            {
+              "name": "Service programme by Id",
+              "id": "34804e40-db74-47d5-be0b-d10d491bf5a3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/ServiceProgramme/:Id?Id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ServiceProgramme",
+                    ":Id"
+                  ],
+                  "query": [
+                    {
+                      "key": "Id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "73fd45bf-f3fc-4422-b8f4-c687be8ea700",
+                      "key": "Id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Get service programme"
+              },
+              "response": [
+                {
+                  "id": "ba3c1692-878f-444b-90f0-36593bd952a8",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/ServiceProgramme/:Id?Id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "ServiceProgramme",
+                        ":Id"
+                      ],
+                      "query": [
+                        {
+                          "key": "Id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "Id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Id\": \"<string>\",\n  \"BlockId\": \"<integer>\",\n  \"ExternalBlockRef\": \"<string>\",\n  \"PropertyAddressId\": \"<integer>\",\n  \"PropertyId\": \"<integer>\",\n  \"ExternalPropertyRef\": \"<string>\",\n  \"ServiceProgrammeDef\": {\n    \"id\": \"<string>\",\n    \"EventType\": \"<string>\",\n    \"Class\": \"<string>\",\n    \"Category\": \"<string>\",\n    \"Description\": \"<string>\",\n    \"IsStatutory\": \"<boolean>\",\n    \"CostCode\": \"<string>\",\n    \"InstructionNotes\": \"<string>\",\n    \"InstructionDateOffsetPeriod\": 1,\n    \"InstructionDateOffsetType\": \"<integer>\",\n    \"ServiceFrequency\": \"<integer>\",\n    \"ServiceFrequencyType\": 2,\n    \"IsDisabled\": \"<boolean>\",\n    \"IsPropertyDefinition\": \"<boolean>\"\n  },\n  \"UpdateDate\": \"<string>\",\n  \"ProgrammeName\": \"<string>\",\n  \"ServiceFrequency\": \"<integer>\",\n  \"ServiceFrequencyType\": 0,\n  \"IsCompliant\": \"<boolean>\",\n  \"IsStatutory\": \"<boolean>\",\n  \"MostRecentServiceEvent\": {\n    \"Id\": \"<string>\",\n    \"Reference\": \"<string>\",\n    \"BlockId\": \"<integer>\",\n    \"ExternalBlockRef\": \"<string>\",\n    \"PropertyAddressId\": \"<integer>\",\n    \"PropertyId\": \"<integer>\",\n    \"ExternalPropertyRef\": \"<string>\",\n    \"ServiceProgrammeDef\": {\n      \"id\": \"<string>\",\n      \"EventType\": \"<string>\",\n      \"Class\": \"<string>\",\n      \"Category\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"IsStatutory\": \"<boolean>\",\n      \"CostCode\": \"<string>\",\n      \"InstructionNotes\": \"<string>\",\n      \"InstructionDateOffsetPeriod\": 0,\n      \"InstructionDateOffsetType\": \"<integer>\",\n      \"ServiceFrequency\": \"<integer>\",\n      \"ServiceFrequencyType\": 2,\n      \"IsDisabled\": \"<boolean>\",\n      \"IsPropertyDefinition\": \"<boolean>\"\n    },\n    \"ServiceProgrammeId\": \"<string>\",\n    \"UpdateDate\": \"<dateTime>\",\n    \"Status\": 16,\n    \"InstructionDateOffsetPeriod\": \"<integer>\",\n    \"InstructionDateOffsetType\": 0,\n    \"DueDate\": \"<dateTime>\",\n    \"InstructionDate\": \"<dateTime>\",\n    \"InstructionNotes\": \"<string>\",\n    \"RequiresReview\": \"<boolean>\",\n    \"Contractor\": {\n      \"Id\": \"<string>\",\n      \"ExternalRef\": \"<string>\",\n      \"CompanyName\": \"<string>\",\n      \"Title\": \"<string>\",\n      \"FirstName\": \"<string>\",\n      \"Surname\": \"<string>\",\n      \"DisplayName\": \"<string>\",\n      \"EmailAddress\": \"<string>\",\n      \"ContactNumber\": \"<string>\",\n      \"ContactNumberAlt\": \"<string>\",\n      \"IsDeleted\": \"<boolean>\",\n      \"Address\": {\n        \"AddressLine1\": \"<string>\",\n        \"AddressLine2\": \"<string>\",\n        \"Town\": \"<string>\",\n        \"County\": \"<string>\",\n        \"PostCode\": \"<string>\",\n        \"Country\": \"<string>\"\n      },\n      \"InvoiceDetails\": {\n        \"InvoiceDate\": \"<dateTime>\",\n        \"DueDate\": \"<dateTime>\",\n        \"InvoiceNumber\": \"<string>\",\n        \"LineItems\": [\n          {\n            \"LineType\": 1,\n            \"Description\": \"<string>\",\n            \"Quantity\": \"<number>\",\n            \"UnitPrice\": \"<number>\",\n            \"Net\": \"<number>\",\n            \"Tax\": \"<number>\",\n            \"Total\": \"<number>\"\n          },\n          {\n            \"LineType\": 0,\n            \"Description\": \"<string>\",\n            \"Quantity\": \"<number>\",\n            \"UnitPrice\": \"<number>\",\n            \"Net\": \"<number>\",\n            \"Tax\": \"<number>\",\n            \"Total\": \"<number>\"\n          }\n        ]\n      },\n      \"Services\": [\n        {\n          \"id\": \"<integer>\",\n          \"Name\": \"<string>\",\n          \"NameAndSynonyms\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"id\": \"<integer>\",\n          \"Name\": \"<string>\",\n          \"NameAndSynonyms\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ],\n      \"Certifications\": [\n        {\n          \"id\": \"<number>\",\n          \"Name\": \"<string>\",\n          \"Expiry\": \"<dateTime>\"\n        },\n        {\n          \"id\": \"<number>\",\n          \"Name\": \"<string>\",\n          \"Expiry\": \"<dateTime>\"\n        }\n      ],\n      \"Brand\": {\n        \"Id\": \"<uuid>\",\n        \"Name\": \"<string>\"\n      },\n      \"UpdateDate\": \"<dateTime>\"\n    },\n    \"AssignedAgent\": {\n      \"Id\": \"<long>\",\n      \"ExternalRef\": \"<string>\",\n      \"EmailAddress\": \"<string>\",\n      \"DisplayName\": \"<string>\",\n      \"ContactNo\": \"<string>\",\n      \"IsDeleted\": \"<boolean>\",\n      \"Brand\": {\n        \"Id\": \"<uuid>\",\n        \"Name\": \"<string>\"\n      },\n      \"UpdateDate\": \"<dateTime>\"\n    },\n    \"Reviewer\": {\n      \"Id\": \"<long>\",\n      \"ExternalRef\": \"<string>\",\n      \"EmailAddress\": \"<string>\",\n      \"DisplayName\": \"<string>\",\n      \"ContactNo\": \"<string>\",\n      \"IsDeleted\": \"<boolean>\",\n      \"Brand\": {\n        \"Id\": \"<uuid>\",\n        \"Name\": \"<string>\"\n      },\n      \"UpdateDate\": \"<dateTime>\"\n    },\n    \"Reviewed\": \"<dateTime>\",\n    \"Completed\": \"<dateTime>\"\n  },\n  \"MostRecentCompliantServiceEvent\": {\n    \"Id\": \"<string>\",\n    \"Reference\": \"<string>\",\n    \"BlockId\": \"<integer>\",\n    \"ExternalBlockRef\": \"<string>\",\n    \"PropertyAddressId\": \"<integer>\",\n    \"PropertyId\": \"<integer>\",\n    \"ExternalPropertyRef\": \"<string>\",\n    \"ServiceProgrammeDef\": {\n      \"id\": \"<string>\",\n      \"EventType\": \"<string>\",\n      \"Class\": \"<string>\",\n      \"Category\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"IsStatutory\": \"<boolean>\",\n      \"CostCode\": \"<string>\",\n      \"InstructionNotes\": \"<string>\",\n      \"InstructionDateOffsetPeriod\": 2,\n      \"InstructionDateOffsetType\": \"<integer>\",\n      \"ServiceFrequency\": \"<integer>\",\n      \"ServiceFrequencyType\": 1,\n      \"IsDisabled\": \"<boolean>\",\n      \"IsPropertyDefinition\": \"<boolean>\"\n    },\n    \"ServiceProgrammeId\": \"<string>\",\n    \"UpdateDate\": \"<dateTime>\",\n    \"Status\": 128,\n    \"InstructionDateOffsetPeriod\": \"<integer>\",\n    \"InstructionDateOffsetType\": 2,\n    \"DueDate\": \"<dateTime>\",\n    \"InstructionDate\": \"<dateTime>\",\n    \"InstructionNotes\": \"<string>\",\n    \"RequiresReview\": \"<boolean>\",\n    \"Contractor\": {\n      \"Id\": \"<string>\",\n      \"ExternalRef\": \"<string>\",\n      \"CompanyName\": \"<string>\",\n      \"Title\": \"<string>\",\n      \"FirstName\": \"<string>\",\n      \"Surname\": \"<string>\",\n      \"DisplayName\": \"<string>\",\n      \"EmailAddress\": \"<string>\",\n      \"ContactNumber\": \"<string>\",\n      \"ContactNumberAlt\": \"<string>\",\n      \"IsDeleted\": \"<boolean>\",\n      \"Address\": {\n        \"AddressLine1\": \"<string>\",\n        \"AddressLine2\": \"<string>\",\n        \"Town\": \"<string>\",\n        \"County\": \"<string>\",\n        \"PostCode\": \"<string>\",\n        \"Country\": \"<string>\"\n      },\n      \"InvoiceDetails\": {\n        \"InvoiceDate\": \"<dateTime>\",\n        \"DueDate\": \"<dateTime>\",\n        \"InvoiceNumber\": \"<string>\",\n        \"LineItems\": [\n          {\n            \"LineType\": 1,\n            \"Description\": \"<string>\",\n            \"Quantity\": \"<number>\",\n            \"UnitPrice\": \"<number>\",\n            \"Net\": \"<number>\",\n            \"Tax\": \"<number>\",\n            \"Total\": \"<number>\"\n          },\n          {\n            \"LineType\": 0,\n            \"Description\": \"<string>\",\n            \"Quantity\": \"<number>\",\n            \"UnitPrice\": \"<number>\",\n            \"Net\": \"<number>\",\n            \"Tax\": \"<number>\",\n            \"Total\": \"<number>\"\n          }\n        ]\n      },\n      \"Services\": [\n        {\n          \"id\": \"<integer>\",\n          \"Name\": \"<string>\",\n          \"NameAndSynonyms\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"id\": \"<integer>\",\n          \"Name\": \"<string>\",\n          \"NameAndSynonyms\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ],\n      \"Certifications\": [\n        {\n          \"id\": \"<number>\",\n          \"Name\": \"<string>\",\n          \"Expiry\": \"<dateTime>\"\n        },\n        {\n          \"id\": \"<number>\",\n          \"Name\": \"<string>\",\n          \"Expiry\": \"<dateTime>\"\n        }\n      ],\n      \"Brand\": {\n        \"Id\": \"<uuid>\",\n        \"Name\": \"<string>\"\n      },\n      \"UpdateDate\": \"<dateTime>\"\n    },\n    \"AssignedAgent\": {\n      \"Id\": \"<long>\",\n      \"ExternalRef\": \"<string>\",\n      \"EmailAddress\": \"<string>\",\n      \"DisplayName\": \"<string>\",\n      \"ContactNo\": \"<string>\",\n      \"IsDeleted\": \"<boolean>\",\n      \"Brand\": {\n        \"Id\": \"<uuid>\",\n        \"Name\": \"<string>\"\n      },\n      \"UpdateDate\": \"<dateTime>\"\n    },\n    \"Reviewer\": {\n      \"Id\": \"<long>\",\n      \"ExternalRef\": \"<string>\",\n      \"EmailAddress\": \"<string>\",\n      \"DisplayName\": \"<string>\",\n      \"ContactNo\": \"<string>\",\n      \"IsDeleted\": \"<boolean>\",\n      \"Brand\": {\n        \"Id\": \"<uuid>\",\n        \"Name\": \"<string>\"\n      },\n      \"UpdateDate\": \"<dateTime>\"\n    },\n    \"Reviewed\": \"<dateTime>\",\n    \"Completed\": \"<dateTime>\"\n  }\n}",
+                  "createdAt": "2026-10-22T01:56:02.000Z",
+                  "updatedAt": "2026-10-22T01:56:02.000Z",
+                  "uid": "35240-ba3c1692-878f-444b-90f0-36593bd952a8"
+                }
+              ],
+              "createdAt": "2026-10-22T01:56:02.000Z",
+              "updatedAt": "2026-10-22T01:56:02.000Z",
+              "uid": "35240-34804e40-db74-47d5-be0b-d10d491bf5a3"
+            }
+          ],
+          "id": "c2bbaabd-bd83-4463-963d-eafde4840e2f",
+          "createdAt": "2026-10-22T01:56:02.000Z",
+          "updatedAt": "2026-10-22T01:56:02.000Z",
+          "uid": "35240-c2bbaabd-bd83-4463-963d-eafde4840e2f"
+        }
+      ],
+      "id": "66691f15-5bf8-48eb-a522-5ed79635eac2",
+      "createdAt": "2026-10-22T01:56:02.000Z",
+      "updatedAt": "2026-10-22T01:56:02.000Z",
+      "uid": "35240-66691f15-5bf8-48eb-a522-5ed79635eac2"
+    },
+    {
+      "name": "ServiceProgrammes",
+      "item": [
+        {
+          "name": "Service programmes by Agency",
+          "id": "ba43e6be-63f7-48f3-8ba6-89a66d5aab4f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/ServiceProgrammes?propertyId=<integer>&blockId=<integer>&serviceProgrammeDefId=<string>&isStatutory=<boolean>&pg=<integer>&externalPropertyRef=<string>&complianceState=<integer>&externalBlockRef=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ServiceProgrammes"
+              ],
+              "query": [
+                {
+                  "key": "propertyId",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "blockId",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "serviceProgrammeDefId",
+                  "value": "<string>"
+                },
+                {
+                  "key": "isStatutory",
+                  "value": "<boolean>"
+                },
+                {
+                  "key": "pg",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "externalPropertyRef",
+                  "value": "<string>"
+                },
+                {
+                  "key": "complianceState",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "externalBlockRef",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Get agency service programmes"
+          },
+          "response": [
+            {
+              "id": "6b14db40-9011-4959-aee9-08726e2302d1",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/ServiceProgrammes?propertyId=<integer>&blockId=<integer>&serviceProgrammeDefId=<string>&isStatutory=<boolean>&pg=<integer>&externalPropertyRef=<string>&complianceState=<integer>&externalBlockRef=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ServiceProgrammes"
+                  ],
+                  "query": [
+                    {
+                      "key": "propertyId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "blockId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "serviceProgrammeDefId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isStatutory",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pg",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "externalPropertyRef",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "complianceState",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "externalBlockRef",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"TotalItems\": \"<integer>\",\n  \"TotalPages\": \"<integer>\",\n  \"Items\": [\n    {\n      \"Id\": \"<string>\",\n      \"BlockId\": \"<integer>\",\n      \"ExternalBlockRef\": \"<string>\",\n      \"PropertyAddressId\": \"<integer>\",\n      \"PropertyId\": \"<integer>\",\n      \"ExternalPropertyRef\": \"<string>\",\n      \"ServiceProgrammeDef\": {\n        \"id\": \"<string>\",\n        \"EventType\": \"<string>\",\n        \"Class\": \"<string>\",\n        \"Category\": \"<string>\",\n        \"Description\": \"<string>\",\n        \"IsStatutory\": \"<boolean>\",\n        \"CostCode\": \"<string>\",\n        \"InstructionNotes\": \"<string>\",\n        \"InstructionDateOffsetPeriod\": 1,\n        \"InstructionDateOffsetType\": \"<integer>\",\n        \"ServiceFrequency\": \"<integer>\",\n        \"ServiceFrequencyType\": 2,\n        \"IsDisabled\": \"<boolean>\",\n        \"IsPropertyDefinition\": \"<boolean>\"\n      },\n      \"UpdateDate\": \"<string>\",\n      \"ProgrammeName\": \"<string>\",\n      \"ServiceFrequency\": \"<integer>\",\n      \"ServiceFrequencyType\": 1,\n      \"IsCompliant\": \"<boolean>\",\n      \"IsStatutory\": \"<boolean>\",\n      \"MostRecentServiceEvent\": {\n        \"Id\": \"<string>\",\n        \"Reference\": \"<string>\",\n        \"BlockId\": \"<integer>\",\n        \"ExternalBlockRef\": \"<string>\",\n        \"PropertyAddressId\": \"<integer>\",\n        \"PropertyId\": \"<integer>\",\n        \"ExternalPropertyRef\": \"<string>\",\n        \"ServiceProgrammeDef\": {\n          \"id\": \"<string>\",\n          \"EventType\": \"<string>\",\n          \"Class\": \"<string>\",\n          \"Category\": \"<string>\",\n          \"Description\": \"<string>\",\n          \"IsStatutory\": \"<boolean>\",\n          \"CostCode\": \"<string>\",\n          \"InstructionNotes\": \"<string>\",\n          \"InstructionDateOffsetPeriod\": 0,\n          \"InstructionDateOffsetType\": \"<integer>\",\n          \"ServiceFrequency\": \"<integer>\",\n          \"ServiceFrequencyType\": 2,\n          \"IsDisabled\": \"<boolean>\",\n          \"IsPropertyDefinition\": \"<boolean>\"\n        },\n        \"ServiceProgrammeId\": \"<string>\",\n        \"UpdateDate\": \"<dateTime>\",\n        \"Status\": 32,\n        \"InstructionDateOffsetPeriod\": \"<integer>\",\n        \"InstructionDateOffsetType\": 2,\n        \"DueDate\": \"<dateTime>\",\n        \"InstructionDate\": \"<dateTime>\",\n        \"InstructionNotes\": \"<string>\",\n        \"RequiresReview\": \"<boolean>\",\n        \"Contractor\": {\n          \"Id\": \"<string>\",\n          \"ExternalRef\": \"<string>\",\n          \"CompanyName\": \"<string>\",\n          \"Title\": \"<string>\",\n          \"FirstName\": \"<string>\",\n          \"Surname\": \"<string>\",\n          \"DisplayName\": \"<string>\",\n          \"EmailAddress\": \"<string>\",\n          \"ContactNumber\": \"<string>\",\n          \"ContactNumberAlt\": \"<string>\",\n          \"IsDeleted\": \"<boolean>\",\n          \"Address\": {\n            \"AddressLine1\": \"<string>\",\n            \"AddressLine2\": \"<string>\",\n            \"Town\": \"<string>\",\n            \"County\": \"<string>\",\n            \"PostCode\": \"<string>\",\n            \"Country\": \"<string>\"\n          },\n          \"InvoiceDetails\": {\n            \"InvoiceDate\": \"<dateTime>\",\n            \"DueDate\": \"<dateTime>\",\n            \"InvoiceNumber\": \"<string>\",\n            \"LineItems\": [\n              {\n                \"LineType\": 2,\n                \"Description\": \"<string>\",\n                \"Quantity\": \"<number>\",\n                \"UnitPrice\": \"<number>\",\n                \"Net\": \"<number>\",\n                \"Tax\": \"<number>\",\n                \"Total\": \"<number>\"\n              },\n              {\n                \"LineType\": 0,\n                \"Description\": \"<string>\",\n                \"Quantity\": \"<number>\",\n                \"UnitPrice\": \"<number>\",\n                \"Net\": \"<number>\",\n                \"Tax\": \"<number>\",\n                \"Total\": \"<number>\"\n              }\n            ]\n          },\n          \"Services\": [\n            {\n              \"id\": \"<integer>\",\n              \"Name\": \"<string>\",\n              \"NameAndSynonyms\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"id\": \"<integer>\",\n              \"Name\": \"<string>\",\n              \"NameAndSynonyms\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ],\n          \"Certifications\": [\n            {\n              \"id\": \"<number>\",\n              \"Name\": \"<string>\",\n              \"Expiry\": \"<dateTime>\"\n            },\n            {\n              \"id\": \"<number>\",\n              \"Name\": \"<string>\",\n              \"Expiry\": \"<dateTime>\"\n            }\n          ],\n          \"Brand\": {\n            \"Id\": \"<uuid>\",\n            \"Name\": \"<string>\"\n          },\n          \"UpdateDate\": \"<dateTime>\"\n        },\n        \"AssignedAgent\": {\n          \"Id\": \"<long>\",\n          \"ExternalRef\": \"<string>\",\n          \"EmailAddress\": \"<string>\",\n          \"DisplayName\": \"<string>\",\n          \"ContactNo\": \"<string>\",\n          \"IsDeleted\": \"<boolean>\",\n          \"Brand\": {\n            \"Id\": \"<uuid>\",\n            \"Name\": \"<string>\"\n          },\n          \"UpdateDate\": \"<dateTime>\"\n        },\n        \"Reviewer\": {\n          \"Id\": \"<long>\",\n          \"ExternalRef\": \"<string>\",\n          \"EmailAddress\": \"<string>\",\n          \"DisplayName\": \"<string>\",\n          \"ContactNo\": \"<string>\",\n          \"IsDeleted\": \"<boolean>\",\n          \"Brand\": {\n            \"Id\": \"<uuid>\",\n            \"Name\": \"<string>\"\n          },\n          \"UpdateDate\": \"<dateTime>\"\n        },\n        \"Reviewed\": \"<dateTime>\",\n        \"Completed\": \"<dateTime>\"\n      },\n      \"MostRecentCompliantServiceEvent\": {\n        \"Id\": \"<string>\",\n        \"Reference\": \"<string>\",\n        \"BlockId\": \"<integer>\",\n        \"ExternalBlockRef\": \"<string>\",\n        \"PropertyAddressId\": \"<integer>\",\n        \"PropertyId\": \"<integer>\",\n        \"ExternalPropertyRef\": \"<string>\",\n        \"ServiceProgrammeDef\": {\n          \"id\": \"<string>\",\n          \"EventType\": \"<string>\",\n          \"Class\": \"<string>\",\n          \"Category\": \"<string>\",\n          \"Description\": \"<string>\",\n          \"IsStatutory\": \"<boolean>\",\n          \"CostCode\": \"<string>\",\n          \"InstructionNotes\": \"<string>\",\n          \"InstructionDateOffsetPeriod\": 2,\n          \"InstructionDateOffsetType\": \"<integer>\",\n          \"ServiceFrequency\": \"<integer>\",\n          \"ServiceFrequencyType\": 2,\n          \"IsDisabled\": \"<boolean>\",\n          \"IsPropertyDefinition\": \"<boolean>\"\n        },\n        \"ServiceProgrammeId\": \"<string>\",\n        \"UpdateDate\": \"<dateTime>\",\n        \"Status\": 16,\n        \"InstructionDateOffsetPeriod\": \"<integer>\",\n        \"InstructionDateOffsetType\": 2,\n        \"DueDate\": \"<dateTime>\",\n        \"InstructionDate\": \"<dateTime>\",\n        \"InstructionNotes\": \"<string>\",\n        \"RequiresReview\": \"<boolean>\",\n        \"Contractor\": {\n          \"Id\": \"<string>\",\n          \"ExternalRef\": \"<string>\",\n          \"CompanyName\": \"<string>\",\n          \"Title\": \"<string>\",\n          \"FirstName\": \"<string>\",\n          \"Surname\": \"<string>\",\n          \"DisplayName\": \"<string>\",\n          \"EmailAddress\": \"<string>\",\n          \"ContactNumber\": \"<string>\",\n          \"ContactNumberAlt\": \"<string>\",\n          \"IsDeleted\": \"<boolean>\",\n          \"Address\": {\n            \"AddressLine1\": \"<string>\",\n            \"AddressLine2\": \"<string>\",\n            \"Town\": \"<string>\",\n            \"County\": \"<string>\",\n            \"PostCode\": \"<string>\",\n            \"Country\": \"<string>\"\n          },\n          \"InvoiceDetails\": {\n            \"InvoiceDate\": \"<dateTime>\",\n            \"DueDate\": \"<dateTime>\",\n            \"InvoiceNumber\": \"<string>\",\n            \"LineItems\": [\n              {\n                \"LineType\": 1,\n                \"Description\": \"<string>\",\n                \"Quantity\": \"<number>\",\n                \"UnitPrice\": \"<number>\",\n                \"Net\": \"<number>\",\n                \"Tax\": \"<number>\",\n                \"Total\": \"<number>\"\n              },\n              {\n                \"LineType\": 2,\n                \"Description\": \"<string>\",\n                \"Quantity\": \"<number>\",\n                \"UnitPrice\": \"<number>\",\n                \"Net\": \"<number>\",\n                \"Tax\": \"<number>\",\n                \"Total\": \"<number>\"\n              }\n            ]\n          },\n          \"Services\": [\n            {\n              \"id\": \"<integer>\",\n              \"Name\": \"<string>\",\n              \"NameAndSynonyms\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"id\": \"<integer>\",\n              \"Name\": \"<string>\",\n              \"NameAndSynonyms\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ],\n          \"Certifications\": [\n            {\n              \"id\": \"<number>\",\n              \"Name\": \"<string>\",\n              \"Expiry\": \"<dateTime>\"\n            },\n            {\n              \"id\": \"<number>\",\n              \"Name\": \"<string>\",\n              \"Expiry\": \"<dateTime>\"\n            }\n          ],\n          \"Brand\": {\n            \"Id\": \"<uuid>\",\n            \"Name\": \"<string>\"\n          },\n          \"UpdateDate\": \"<dateTime>\"\n        },\n        \"AssignedAgent\": {\n          \"Id\": \"<long>\",\n          \"ExternalRef\": \"<string>\",\n          \"EmailAddress\": \"<string>\",\n          \"DisplayName\": \"<string>\",\n          \"ContactNo\": \"<string>\",\n          \"IsDeleted\": \"<boolean>\",\n          \"Brand\": {\n            \"Id\": \"<uuid>\",\n            \"Name\": \"<string>\"\n          },\n          \"UpdateDate\": \"<dateTime>\"\n        },\n        \"Reviewer\": {\n          \"Id\": \"<long>\",\n          \"ExternalRef\": \"<string>\",\n          \"EmailAddress\": \"<string>\",\n          \"DisplayName\": \"<string>\",\n          \"ContactNo\": \"<string>\",\n          \"IsDeleted\": \"<boolean>\",\n          \"Brand\": {\n            \"Id\": \"<uuid>\",\n            \"Name\": \"<string>\"\n          },\n          \"UpdateDate\": \"<dateTime>\"\n        },\n        \"Reviewed\": \"<dateTime>\",\n        \"Completed\": \"<dateTime>\"\n      }\n    },\n    {\n      \"Id\": \"<string>\",\n      \"BlockId\": \"<integer>\",\n      \"ExternalBlockRef\": \"<string>\",\n      \"PropertyAddressId\": \"<integer>\",\n      \"PropertyId\": \"<integer>\",\n      \"ExternalPropertyRef\": \"<string>\",\n      \"ServiceProgrammeDef\": {\n        \"id\": \"<string>\",\n        \"EventType\": \"<string>\",\n        \"Class\": \"<string>\",\n        \"Category\": \"<string>\",\n        \"Description\": \"<string>\",\n        \"IsStatutory\": \"<boolean>\",\n        \"CostCode\": \"<string>\",\n        \"InstructionNotes\": \"<string>\",\n        \"InstructionDateOffsetPeriod\": 2,\n        \"InstructionDateOffsetType\": \"<integer>\",\n        \"ServiceFrequency\": \"<integer>\",\n        \"ServiceFrequencyType\": 2,\n        \"IsDisabled\": \"<boolean>\",\n        \"IsPropertyDefinition\": \"<boolean>\"\n      },\n      \"UpdateDate\": \"<string>\",\n      \"ProgrammeName\": \"<string>\",\n      \"ServiceFrequency\": \"<integer>\",\n      \"ServiceFrequencyType\": 1,\n      \"IsCompliant\": \"<boolean>\",\n      \"IsStatutory\": \"<boolean>\",\n      \"MostRecentServiceEvent\": {\n        \"Id\": \"<string>\",\n        \"Reference\": \"<string>\",\n        \"BlockId\": \"<integer>\",\n        \"ExternalBlockRef\": \"<string>\",\n        \"PropertyAddressId\": \"<integer>\",\n        \"PropertyId\": \"<integer>\",\n        \"ExternalPropertyRef\": \"<string>\",\n        \"ServiceProgrammeDef\": {\n          \"id\": \"<string>\",\n          \"EventType\": \"<string>\",\n          \"Class\": \"<string>\",\n          \"Category\": \"<string>\",\n          \"Description\": \"<string>\",\n          \"IsStatutory\": \"<boolean>\",\n          \"CostCode\": \"<string>\",\n          \"InstructionNotes\": \"<string>\",\n          \"InstructionDateOffsetPeriod\": 1,\n          \"InstructionDateOffsetType\": \"<integer>\",\n          \"ServiceFrequency\": \"<integer>\",\n          \"ServiceFrequencyType\": 0,\n          \"IsDisabled\": \"<boolean>\",\n          \"IsPropertyDefinition\": \"<boolean>\"\n        },\n        \"ServiceProgrammeId\": \"<string>\",\n        \"UpdateDate\": \"<dateTime>\",\n        \"Status\": 128,\n        \"InstructionDateOffsetPeriod\": \"<integer>\",\n        \"InstructionDateOffsetType\": 0,\n        \"DueDate\": \"<dateTime>\",\n        \"InstructionDate\": \"<dateTime>\",\n        \"InstructionNotes\": \"<string>\",\n        \"RequiresReview\": \"<boolean>\",\n        \"Contractor\": {\n          \"Id\": \"<string>\",\n          \"ExternalRef\": \"<string>\",\n          \"CompanyName\": \"<string>\",\n          \"Title\": \"<string>\",\n          \"FirstName\": \"<string>\",\n          \"Surname\": \"<string>\",\n          \"DisplayName\": \"<string>\",\n          \"EmailAddress\": \"<string>\",\n          \"ContactNumber\": \"<string>\",\n          \"ContactNumberAlt\": \"<string>\",\n          \"IsDeleted\": \"<boolean>\",\n          \"Address\": {\n            \"AddressLine1\": \"<string>\",\n            \"AddressLine2\": \"<string>\",\n            \"Town\": \"<string>\",\n            \"County\": \"<string>\",\n            \"PostCode\": \"<string>\",\n            \"Country\": \"<string>\"\n          },\n          \"InvoiceDetails\": {\n            \"InvoiceDate\": \"<dateTime>\",\n            \"DueDate\": \"<dateTime>\",\n            \"InvoiceNumber\": \"<string>\",\n            \"LineItems\": [\n              {\n                \"LineType\": 2,\n                \"Description\": \"<string>\",\n                \"Quantity\": \"<number>\",\n                \"UnitPrice\": \"<number>\",\n                \"Net\": \"<number>\",\n                \"Tax\": \"<number>\",\n                \"Total\": \"<number>\"\n              },\n              {\n                \"LineType\": 2,\n                \"Description\": \"<string>\",\n                \"Quantity\": \"<number>\",\n                \"UnitPrice\": \"<number>\",\n                \"Net\": \"<number>\",\n                \"Tax\": \"<number>\",\n                \"Total\": \"<number>\"\n              }\n            ]\n          },\n          \"Services\": [\n            {\n              \"id\": \"<integer>\",\n              \"Name\": \"<string>\",\n              \"NameAndSynonyms\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"id\": \"<integer>\",\n              \"Name\": \"<string>\",\n              \"NameAndSynonyms\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ],\n          \"Certifications\": [\n            {\n              \"id\": \"<number>\",\n              \"Name\": \"<string>\",\n              \"Expiry\": \"<dateTime>\"\n            },\n            {\n              \"id\": \"<number>\",\n              \"Name\": \"<string>\",\n              \"Expiry\": \"<dateTime>\"\n            }\n          ],\n          \"Brand\": {\n            \"Id\": \"<uuid>\",\n            \"Name\": \"<string>\"\n          },\n          \"UpdateDate\": \"<dateTime>\"\n        },\n        \"AssignedAgent\": {\n          \"Id\": \"<long>\",\n          \"ExternalRef\": \"<string>\",\n          \"EmailAddress\": \"<string>\",\n          \"DisplayName\": \"<string>\",\n          \"ContactNo\": \"<string>\",\n          \"IsDeleted\": \"<boolean>\",\n          \"Brand\": {\n            \"Id\": \"<uuid>\",\n            \"Name\": \"<string>\"\n          },\n          \"UpdateDate\": \"<dateTime>\"\n        },\n        \"Reviewer\": {\n          \"Id\": \"<long>\",\n          \"ExternalRef\": \"<string>\",\n          \"EmailAddress\": \"<string>\",\n          \"DisplayName\": \"<string>\",\n          \"ContactNo\": \"<string>\",\n          \"IsDeleted\": \"<boolean>\",\n          \"Brand\": {\n            \"Id\": \"<uuid>\",\n            \"Name\": \"<string>\"\n          },\n          \"UpdateDate\": \"<dateTime>\"\n        },\n        \"Reviewed\": \"<dateTime>\",\n        \"Completed\": \"<dateTime>\"\n      },\n      \"MostRecentCompliantServiceEvent\": {\n        \"Id\": \"<string>\",\n        \"Reference\": \"<string>\",\n        \"BlockId\": \"<integer>\",\n        \"ExternalBlockRef\": \"<string>\",\n        \"PropertyAddressId\": \"<integer>\",\n        \"PropertyId\": \"<integer>\",\n        \"ExternalPropertyRef\": \"<string>\",\n        \"ServiceProgrammeDef\": {\n          \"id\": \"<string>\",\n          \"EventType\": \"<string>\",\n          \"Class\": \"<string>\",\n          \"Category\": \"<string>\",\n          \"Description\": \"<string>\",\n          \"IsStatutory\": \"<boolean>\",\n          \"CostCode\": \"<string>\",\n          \"InstructionNotes\": \"<string>\",\n          \"InstructionDateOffsetPeriod\": 0,\n          \"InstructionDateOffsetType\": \"<integer>\",\n          \"ServiceFrequency\": \"<integer>\",\n          \"ServiceFrequencyType\": 0,\n          \"IsDisabled\": \"<boolean>\",\n          \"IsPropertyDefinition\": \"<boolean>\"\n        },\n        \"ServiceProgrammeId\": \"<string>\",\n        \"UpdateDate\": \"<dateTime>\",\n        \"Status\": 32,\n        \"InstructionDateOffsetPeriod\": \"<integer>\",\n        \"InstructionDateOffsetType\": 1,\n        \"DueDate\": \"<dateTime>\",\n        \"InstructionDate\": \"<dateTime>\",\n        \"InstructionNotes\": \"<string>\",\n        \"RequiresReview\": \"<boolean>\",\n        \"Contractor\": {\n          \"Id\": \"<string>\",\n          \"ExternalRef\": \"<string>\",\n          \"CompanyName\": \"<string>\",\n          \"Title\": \"<string>\",\n          \"FirstName\": \"<string>\",\n          \"Surname\": \"<string>\",\n          \"DisplayName\": \"<string>\",\n          \"EmailAddress\": \"<string>\",\n          \"ContactNumber\": \"<string>\",\n          \"ContactNumberAlt\": \"<string>\",\n          \"IsDeleted\": \"<boolean>\",\n          \"Address\": {\n            \"AddressLine1\": \"<string>\",\n            \"AddressLine2\": \"<string>\",\n            \"Town\": \"<string>\",\n            \"County\": \"<string>\",\n            \"PostCode\": \"<string>\",\n            \"Country\": \"<string>\"\n          },\n          \"InvoiceDetails\": {\n            \"InvoiceDate\": \"<dateTime>\",\n            \"DueDate\": \"<dateTime>\",\n            \"InvoiceNumber\": \"<string>\",\n            \"LineItems\": [\n              {\n                \"LineType\": 0,\n                \"Description\": \"<string>\",\n                \"Quantity\": \"<number>\",\n                \"UnitPrice\": \"<number>\",\n                \"Net\": \"<number>\",\n                \"Tax\": \"<number>\",\n                \"Total\": \"<number>\"\n              },\n              {\n                \"LineType\": 0,\n                \"Description\": \"<string>\",\n                \"Quantity\": \"<number>\",\n                \"UnitPrice\": \"<number>\",\n                \"Net\": \"<number>\",\n                \"Tax\": \"<number>\",\n                \"Total\": \"<number>\"\n              }\n            ]\n          },\n          \"Services\": [\n            {\n              \"id\": \"<integer>\",\n              \"Name\": \"<string>\",\n              \"NameAndSynonyms\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"id\": \"<integer>\",\n              \"Name\": \"<string>\",\n              \"NameAndSynonyms\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ],\n          \"Certifications\": [\n            {\n              \"id\": \"<number>\",\n              \"Name\": \"<string>\",\n              \"Expiry\": \"<dateTime>\"\n            },\n            {\n              \"id\": \"<number>\",\n              \"Name\": \"<string>\",\n              \"Expiry\": \"<dateTime>\"\n            }\n          ],\n          \"Brand\": {\n            \"Id\": \"<uuid>\",\n            \"Name\": \"<string>\"\n          },\n          \"UpdateDate\": \"<dateTime>\"\n        },\n        \"AssignedAgent\": {\n          \"Id\": \"<long>\",\n          \"ExternalRef\": \"<string>\",\n          \"EmailAddress\": \"<string>\",\n          \"DisplayName\": \"<string>\",\n          \"ContactNo\": \"<string>\",\n          \"IsDeleted\": \"<boolean>\",\n          \"Brand\": {\n            \"Id\": \"<uuid>\",\n            \"Name\": \"<string>\"\n          },\n          \"UpdateDate\": \"<dateTime>\"\n        },\n        \"Reviewer\": {\n          \"Id\": \"<long>\",\n          \"ExternalRef\": \"<string>\",\n          \"EmailAddress\": \"<string>\",\n          \"DisplayName\": \"<string>\",\n          \"ContactNo\": \"<string>\",\n          \"IsDeleted\": \"<boolean>\",\n          \"Brand\": {\n            \"Id\": \"<uuid>\",\n            \"Name\": \"<string>\"\n          },\n          \"UpdateDate\": \"<dateTime>\"\n        },\n        \"Reviewed\": \"<dateTime>\",\n        \"Completed\": \"<dateTime>\"\n      }\n    }\n  ],\n  \"NextURL\": \"<string>\",\n  \"PreviousURL\": \"<string>\"\n}",
+              "createdAt": "2026-10-22T01:56:02.000Z",
+              "updatedAt": "2026-10-22T01:56:02.000Z",
+              "uid": "35240-6b14db40-9011-4959-aee9-08726e2302d1"
+            }
+          ],
+          "createdAt": "2026-10-22T01:56:02.000Z",
+          "updatedAt": "2026-10-22T01:56:02.000Z",
+          "uid": "35240-ba43e6be-63f7-48f3-8ba6-89a66d5aab4f"
+        }
+      ],
+      "id": "5512687f-6373-4698-8b03-cafd9b15c680",
+      "createdAt": "2026-10-22T01:56:02.000Z",
+      "updatedAt": "2026-10-22T01:56:02.000Z",
+      "uid": "35240-5512687f-6373-4698-8b03-cafd9b15c680"
+    },
+    {
+      "name": "Property",
+      "item": [
+        {
+          "name": "{propertyId}",
+          "item": [
+            {
+              "name": "ServiceProgrammes",
+              "item": [
+                {
+                  "name": "Service programmes by Property",
+                  "id": "990ff2f1-6589-4657-abc6-26d1a687b9a0",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Property/:propertyId/ServiceProgrammes?serviceProgrammeDefId=<string>&isStatutory=<boolean>&pg=<integer>&complianceState=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Property",
+                        ":propertyId",
+                        "ServiceProgrammes"
+                      ],
+                      "query": [
+                        {
+                          "key": "serviceProgrammeDefId",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "isStatutory",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "key": "pg",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "complianceState",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "1c9b8b2c-9627-48f1-9f23-beebba5b12a3",
+                          "key": "propertyId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Get property service programmes"
+                  },
+                  "response": [
+                    {
+                      "id": "5a72b3e5-4909-49c5-9229-92a623842737",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Property/:propertyId/ServiceProgrammes?serviceProgrammeDefId=<string>&isStatutory=<boolean>&pg=<integer>&complianceState=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Property",
+                            ":propertyId",
+                            "ServiceProgrammes"
+                          ],
+                          "query": [
+                            {
+                              "key": "serviceProgrammeDefId",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "isStatutory",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "key": "pg",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "complianceState",
+                              "value": "<integer>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "propertyId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"TotalItems\": \"<integer>\",\n  \"TotalPages\": \"<integer>\",\n  \"Items\": [\n    {\n      \"Id\": \"<string>\",\n      \"BlockId\": \"<integer>\",\n      \"ExternalBlockRef\": \"<string>\",\n      \"PropertyAddressId\": \"<integer>\",\n      \"PropertyId\": \"<integer>\",\n      \"ExternalPropertyRef\": \"<string>\",\n      \"ServiceProgrammeDef\": {\n        \"id\": \"<string>\",\n        \"EventType\": \"<string>\",\n        \"Class\": \"<string>\",\n        \"Category\": \"<string>\",\n        \"Description\": \"<string>\",\n        \"IsStatutory\": \"<boolean>\",\n        \"CostCode\": \"<string>\",\n        \"InstructionNotes\": \"<string>\",\n        \"InstructionDateOffsetPeriod\": 1,\n        \"InstructionDateOffsetType\": \"<integer>\",\n        \"ServiceFrequency\": \"<integer>\",\n        \"ServiceFrequencyType\": 2,\n        \"IsDisabled\": \"<boolean>\",\n        \"IsPropertyDefinition\": \"<boolean>\"\n      },\n      \"UpdateDate\": \"<string>\",\n      \"ProgrammeName\": \"<string>\",\n      \"ServiceFrequency\": \"<integer>\",\n      \"ServiceFrequencyType\": 1,\n      \"IsCompliant\": \"<boolean>\",\n      \"IsStatutory\": \"<boolean>\",\n      \"MostRecentServiceEvent\": {\n        \"Id\": \"<string>\",\n        \"Reference\": \"<string>\",\n        \"BlockId\": \"<integer>\",\n        \"ExternalBlockRef\": \"<string>\",\n        \"PropertyAddressId\": \"<integer>\",\n        \"PropertyId\": \"<integer>\",\n        \"ExternalPropertyRef\": \"<string>\",\n        \"ServiceProgrammeDef\": {\n          \"id\": \"<string>\",\n          \"EventType\": \"<string>\",\n          \"Class\": \"<string>\",\n          \"Category\": \"<string>\",\n          \"Description\": \"<string>\",\n          \"IsStatutory\": \"<boolean>\",\n          \"CostCode\": \"<string>\",\n          \"InstructionNotes\": \"<string>\",\n          \"InstructionDateOffsetPeriod\": 0,\n          \"InstructionDateOffsetType\": \"<integer>\",\n          \"ServiceFrequency\": \"<integer>\",\n          \"ServiceFrequencyType\": 2,\n          \"IsDisabled\": \"<boolean>\",\n          \"IsPropertyDefinition\": \"<boolean>\"\n        },\n        \"ServiceProgrammeId\": \"<string>\",\n        \"UpdateDate\": \"<dateTime>\",\n        \"Status\": 32,\n        \"InstructionDateOffsetPeriod\": \"<integer>\",\n        \"InstructionDateOffsetType\": 2,\n        \"DueDate\": \"<dateTime>\",\n        \"InstructionDate\": \"<dateTime>\",\n        \"InstructionNotes\": \"<string>\",\n        \"RequiresReview\": \"<boolean>\",\n        \"Contractor\": {\n          \"Id\": \"<string>\",\n          \"ExternalRef\": \"<string>\",\n          \"CompanyName\": \"<string>\",\n          \"Title\": \"<string>\",\n          \"FirstName\": \"<string>\",\n          \"Surname\": \"<string>\",\n          \"DisplayName\": \"<string>\",\n          \"EmailAddress\": \"<string>\",\n          \"ContactNumber\": \"<string>\",\n          \"ContactNumberAlt\": \"<string>\",\n          \"IsDeleted\": \"<boolean>\",\n          \"Address\": {\n            \"AddressLine1\": \"<string>\",\n            \"AddressLine2\": \"<string>\",\n            \"Town\": \"<string>\",\n            \"County\": \"<string>\",\n            \"PostCode\": \"<string>\",\n            \"Country\": \"<string>\"\n          },\n          \"InvoiceDetails\": {\n            \"InvoiceDate\": \"<dateTime>\",\n            \"DueDate\": \"<dateTime>\",\n            \"InvoiceNumber\": \"<string>\",\n            \"LineItems\": [\n              {\n                \"LineType\": 2,\n                \"Description\": \"<string>\",\n                \"Quantity\": \"<number>\",\n                \"UnitPrice\": \"<number>\",\n                \"Net\": \"<number>\",\n                \"Tax\": \"<number>\",\n                \"Total\": \"<number>\"\n              },\n              {\n                \"LineType\": 0,\n                \"Description\": \"<string>\",\n                \"Quantity\": \"<number>\",\n                \"UnitPrice\": \"<number>\",\n                \"Net\": \"<number>\",\n                \"Tax\": \"<number>\",\n                \"Total\": \"<number>\"\n              }\n            ]\n          },\n          \"Services\": [\n            {\n              \"id\": \"<integer>\",\n              \"Name\": \"<string>\",\n              \"NameAndSynonyms\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"id\": \"<integer>\",\n              \"Name\": \"<string>\",\n              \"NameAndSynonyms\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ],\n          \"Certifications\": [\n            {\n              \"id\": \"<number>\",\n              \"Name\": \"<string>\",\n              \"Expiry\": \"<dateTime>\"\n            },\n            {\n              \"id\": \"<number>\",\n              \"Name\": \"<string>\",\n              \"Expiry\": \"<dateTime>\"\n            }\n          ],\n          \"Brand\": {\n            \"Id\": \"<uuid>\",\n            \"Name\": \"<string>\"\n          },\n          \"UpdateDate\": \"<dateTime>\"\n        },\n        \"AssignedAgent\": {\n          \"Id\": \"<long>\",\n          \"ExternalRef\": \"<string>\",\n          \"EmailAddress\": \"<string>\",\n          \"DisplayName\": \"<string>\",\n          \"ContactNo\": \"<string>\",\n          \"IsDeleted\": \"<boolean>\",\n          \"Brand\": {\n            \"Id\": \"<uuid>\",\n            \"Name\": \"<string>\"\n          },\n          \"UpdateDate\": \"<dateTime>\"\n        },\n        \"Reviewer\": {\n          \"Id\": \"<long>\",\n          \"ExternalRef\": \"<string>\",\n          \"EmailAddress\": \"<string>\",\n          \"DisplayName\": \"<string>\",\n          \"ContactNo\": \"<string>\",\n          \"IsDeleted\": \"<boolean>\",\n          \"Brand\": {\n            \"Id\": \"<uuid>\",\n            \"Name\": \"<string>\"\n          },\n          \"UpdateDate\": \"<dateTime>\"\n        },\n        \"Reviewed\": \"<dateTime>\",\n        \"Completed\": \"<dateTime>\"\n      },\n      \"MostRecentCompliantServiceEvent\": {\n        \"Id\": \"<string>\",\n        \"Reference\": \"<string>\",\n        \"BlockId\": \"<integer>\",\n        \"ExternalBlockRef\": \"<string>\",\n        \"PropertyAddressId\": \"<integer>\",\n        \"PropertyId\": \"<integer>\",\n        \"ExternalPropertyRef\": \"<string>\",\n        \"ServiceProgrammeDef\": {\n          \"id\": \"<string>\",\n          \"EventType\": \"<string>\",\n          \"Class\": \"<string>\",\n          \"Category\": \"<string>\",\n          \"Description\": \"<string>\",\n          \"IsStatutory\": \"<boolean>\",\n          \"CostCode\": \"<string>\",\n          \"InstructionNotes\": \"<string>\",\n          \"InstructionDateOffsetPeriod\": 2,\n          \"InstructionDateOffsetType\": \"<integer>\",\n          \"ServiceFrequency\": \"<integer>\",\n          \"ServiceFrequencyType\": 2,\n          \"IsDisabled\": \"<boolean>\",\n          \"IsPropertyDefinition\": \"<boolean>\"\n        },\n        \"ServiceProgrammeId\": \"<string>\",\n        \"UpdateDate\": \"<dateTime>\",\n        \"Status\": 16,\n        \"InstructionDateOffsetPeriod\": \"<integer>\",\n        \"InstructionDateOffsetType\": 2,\n        \"DueDate\": \"<dateTime>\",\n        \"InstructionDate\": \"<dateTime>\",\n        \"InstructionNotes\": \"<string>\",\n        \"RequiresReview\": \"<boolean>\",\n        \"Contractor\": {\n          \"Id\": \"<string>\",\n          \"ExternalRef\": \"<string>\",\n          \"CompanyName\": \"<string>\",\n          \"Title\": \"<string>\",\n          \"FirstName\": \"<string>\",\n          \"Surname\": \"<string>\",\n          \"DisplayName\": \"<string>\",\n          \"EmailAddress\": \"<string>\",\n          \"ContactNumber\": \"<string>\",\n          \"ContactNumberAlt\": \"<string>\",\n          \"IsDeleted\": \"<boolean>\",\n          \"Address\": {\n            \"AddressLine1\": \"<string>\",\n            \"AddressLine2\": \"<string>\",\n            \"Town\": \"<string>\",\n            \"County\": \"<string>\",\n            \"PostCode\": \"<string>\",\n            \"Country\": \"<string>\"\n          },\n          \"InvoiceDetails\": {\n            \"InvoiceDate\": \"<dateTime>\",\n            \"DueDate\": \"<dateTime>\",\n            \"InvoiceNumber\": \"<string>\",\n            \"LineItems\": [\n              {\n                \"LineType\": 1,\n                \"Description\": \"<string>\",\n                \"Quantity\": \"<number>\",\n                \"UnitPrice\": \"<number>\",\n                \"Net\": \"<number>\",\n                \"Tax\": \"<number>\",\n                \"Total\": \"<number>\"\n              },\n              {\n                \"LineType\": 2,\n                \"Description\": \"<string>\",\n                \"Quantity\": \"<number>\",\n                \"UnitPrice\": \"<number>\",\n                \"Net\": \"<number>\",\n                \"Tax\": \"<number>\",\n                \"Total\": \"<number>\"\n              }\n            ]\n          },\n          \"Services\": [\n            {\n              \"id\": \"<integer>\",\n              \"Name\": \"<string>\",\n              \"NameAndSynonyms\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"id\": \"<integer>\",\n              \"Name\": \"<string>\",\n              \"NameAndSynonyms\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ],\n          \"Certifications\": [\n            {\n              \"id\": \"<number>\",\n              \"Name\": \"<string>\",\n              \"Expiry\": \"<dateTime>\"\n            },\n            {\n              \"id\": \"<number>\",\n              \"Name\": \"<string>\",\n              \"Expiry\": \"<dateTime>\"\n            }\n          ],\n          \"Brand\": {\n            \"Id\": \"<uuid>\",\n            \"Name\": \"<string>\"\n          },\n          \"UpdateDate\": \"<dateTime>\"\n        },\n        \"AssignedAgent\": {\n          \"Id\": \"<long>\",\n          \"ExternalRef\": \"<string>\",\n          \"EmailAddress\": \"<string>\",\n          \"DisplayName\": \"<string>\",\n          \"ContactNo\": \"<string>\",\n          \"IsDeleted\": \"<boolean>\",\n          \"Brand\": {\n            \"Id\": \"<uuid>\",\n            \"Name\": \"<string>\"\n          },\n          \"UpdateDate\": \"<dateTime>\"\n        },\n        \"Reviewer\": {\n          \"Id\": \"<long>\",\n          \"ExternalRef\": \"<string>\",\n          \"EmailAddress\": \"<string>\",\n          \"DisplayName\": \"<string>\",\n          \"ContactNo\": \"<string>\",\n          \"IsDeleted\": \"<boolean>\",\n          \"Brand\": {\n            \"Id\": \"<uuid>\",\n            \"Name\": \"<string>\"\n          },\n          \"UpdateDate\": \"<dateTime>\"\n        },\n        \"Reviewed\": \"<dateTime>\",\n        \"Completed\": \"<dateTime>\"\n      }\n    },\n    {\n      \"Id\": \"<string>\",\n      \"BlockId\": \"<integer>\",\n      \"ExternalBlockRef\": \"<string>\",\n      \"PropertyAddressId\": \"<integer>\",\n      \"PropertyId\": \"<integer>\",\n      \"ExternalPropertyRef\": \"<string>\",\n      \"ServiceProgrammeDef\": {\n        \"id\": \"<string>\",\n        \"EventType\": \"<string>\",\n        \"Class\": \"<string>\",\n        \"Category\": \"<string>\",\n        \"Description\": \"<string>\",\n        \"IsStatutory\": \"<boolean>\",\n        \"CostCode\": \"<string>\",\n        \"InstructionNotes\": \"<string>\",\n        \"InstructionDateOffsetPeriod\": 2,\n        \"InstructionDateOffsetType\": \"<integer>\",\n        \"ServiceFrequency\": \"<integer>\",\n        \"ServiceFrequencyType\": 2,\n        \"IsDisabled\": \"<boolean>\",\n        \"IsPropertyDefinition\": \"<boolean>\"\n      },\n      \"UpdateDate\": \"<string>\",\n      \"ProgrammeName\": \"<string>\",\n      \"ServiceFrequency\": \"<integer>\",\n      \"ServiceFrequencyType\": 1,\n      \"IsCompliant\": \"<boolean>\",\n      \"IsStatutory\": \"<boolean>\",\n      \"MostRecentServiceEvent\": {\n        \"Id\": \"<string>\",\n        \"Reference\": \"<string>\",\n        \"BlockId\": \"<integer>\",\n        \"ExternalBlockRef\": \"<string>\",\n        \"PropertyAddressId\": \"<integer>\",\n        \"PropertyId\": \"<integer>\",\n        \"ExternalPropertyRef\": \"<string>\",\n        \"ServiceProgrammeDef\": {\n          \"id\": \"<string>\",\n          \"EventType\": \"<string>\",\n          \"Class\": \"<string>\",\n          \"Category\": \"<string>\",\n          \"Description\": \"<string>\",\n          \"IsStatutory\": \"<boolean>\",\n          \"CostCode\": \"<string>\",\n          \"InstructionNotes\": \"<string>\",\n          \"InstructionDateOffsetPeriod\": 1,\n          \"InstructionDateOffsetType\": \"<integer>\",\n          \"ServiceFrequency\": \"<integer>\",\n          \"ServiceFrequencyType\": 0,\n          \"IsDisabled\": \"<boolean>\",\n          \"IsPropertyDefinition\": \"<boolean>\"\n        },\n        \"ServiceProgrammeId\": \"<string>\",\n        \"UpdateDate\": \"<dateTime>\",\n        \"Status\": 128,\n        \"InstructionDateOffsetPeriod\": \"<integer>\",\n        \"InstructionDateOffsetType\": 0,\n        \"DueDate\": \"<dateTime>\",\n        \"InstructionDate\": \"<dateTime>\",\n        \"InstructionNotes\": \"<string>\",\n        \"RequiresReview\": \"<boolean>\",\n        \"Contractor\": {\n          \"Id\": \"<string>\",\n          \"ExternalRef\": \"<string>\",\n          \"CompanyName\": \"<string>\",\n          \"Title\": \"<string>\",\n          \"FirstName\": \"<string>\",\n          \"Surname\": \"<string>\",\n          \"DisplayName\": \"<string>\",\n          \"EmailAddress\": \"<string>\",\n          \"ContactNumber\": \"<string>\",\n          \"ContactNumberAlt\": \"<string>\",\n          \"IsDeleted\": \"<boolean>\",\n          \"Address\": {\n            \"AddressLine1\": \"<string>\",\n            \"AddressLine2\": \"<string>\",\n            \"Town\": \"<string>\",\n            \"County\": \"<string>\",\n            \"PostCode\": \"<string>\",\n            \"Country\": \"<string>\"\n          },\n          \"InvoiceDetails\": {\n            \"InvoiceDate\": \"<dateTime>\",\n            \"DueDate\": \"<dateTime>\",\n            \"InvoiceNumber\": \"<string>\",\n            \"LineItems\": [\n              {\n                \"LineType\": 2,\n                \"Description\": \"<string>\",\n                \"Quantity\": \"<number>\",\n                \"UnitPrice\": \"<number>\",\n                \"Net\": \"<number>\",\n                \"Tax\": \"<number>\",\n                \"Total\": \"<number>\"\n              },\n              {\n                \"LineType\": 2,\n                \"Description\": \"<string>\",\n                \"Quantity\": \"<number>\",\n                \"UnitPrice\": \"<number>\",\n                \"Net\": \"<number>\",\n                \"Tax\": \"<number>\",\n                \"Total\": \"<number>\"\n              }\n            ]\n          },\n          \"Services\": [\n            {\n              \"id\": \"<integer>\",\n              \"Name\": \"<string>\",\n              \"NameAndSynonyms\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"id\": \"<integer>\",\n              \"Name\": \"<string>\",\n              \"NameAndSynonyms\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ],\n          \"Certifications\": [\n            {\n              \"id\": \"<number>\",\n              \"Name\": \"<string>\",\n              \"Expiry\": \"<dateTime>\"\n            },\n            {\n              \"id\": \"<number>\",\n              \"Name\": \"<string>\",\n              \"Expiry\": \"<dateTime>\"\n            }\n          ],\n          \"Brand\": {\n            \"Id\": \"<uuid>\",\n            \"Name\": \"<string>\"\n          },\n          \"UpdateDate\": \"<dateTime>\"\n        },\n        \"AssignedAgent\": {\n          \"Id\": \"<long>\",\n          \"ExternalRef\": \"<string>\",\n          \"EmailAddress\": \"<string>\",\n          \"DisplayName\": \"<string>\",\n          \"ContactNo\": \"<string>\",\n          \"IsDeleted\": \"<boolean>\",\n          \"Brand\": {\n            \"Id\": \"<uuid>\",\n            \"Name\": \"<string>\"\n          },\n          \"UpdateDate\": \"<dateTime>\"\n        },\n        \"Reviewer\": {\n          \"Id\": \"<long>\",\n          \"ExternalRef\": \"<string>\",\n          \"EmailAddress\": \"<string>\",\n          \"DisplayName\": \"<string>\",\n          \"ContactNo\": \"<string>\",\n          \"IsDeleted\": \"<boolean>\",\n          \"Brand\": {\n            \"Id\": \"<uuid>\",\n            \"Name\": \"<string>\"\n          },\n          \"UpdateDate\": \"<dateTime>\"\n        },\n        \"Reviewed\": \"<dateTime>\",\n        \"Completed\": \"<dateTime>\"\n      },\n      \"MostRecentCompliantServiceEvent\": {\n        \"Id\": \"<string>\",\n        \"Reference\": \"<string>\",\n        \"BlockId\": \"<integer>\",\n        \"ExternalBlockRef\": \"<string>\",\n        \"PropertyAddressId\": \"<integer>\",\n        \"PropertyId\": \"<integer>\",\n        \"ExternalPropertyRef\": \"<string>\",\n        \"ServiceProgrammeDef\": {\n          \"id\": \"<string>\",\n          \"EventType\": \"<string>\",\n          \"Class\": \"<string>\",\n          \"Category\": \"<string>\",\n          \"Description\": \"<string>\",\n          \"IsStatutory\": \"<boolean>\",\n          \"CostCode\": \"<string>\",\n          \"InstructionNotes\": \"<string>\",\n          \"InstructionDateOffsetPeriod\": 0,\n          \"InstructionDateOffsetType\": \"<integer>\",\n          \"ServiceFrequency\": \"<integer>\",\n          \"ServiceFrequencyType\": 0,\n          \"IsDisabled\": \"<boolean>\",\n          \"IsPropertyDefinition\": \"<boolean>\"\n        },\n        \"ServiceProgrammeId\": \"<string>\",\n        \"UpdateDate\": \"<dateTime>\",\n        \"Status\": 32,\n        \"InstructionDateOffsetPeriod\": \"<integer>\",\n        \"InstructionDateOffsetType\": 1,\n        \"DueDate\": \"<dateTime>\",\n        \"InstructionDate\": \"<dateTime>\",\n        \"InstructionNotes\": \"<string>\",\n        \"RequiresReview\": \"<boolean>\",\n        \"Contractor\": {\n          \"Id\": \"<string>\",\n          \"ExternalRef\": \"<string>\",\n          \"CompanyName\": \"<string>\",\n          \"Title\": \"<string>\",\n          \"FirstName\": \"<string>\",\n          \"Surname\": \"<string>\",\n          \"DisplayName\": \"<string>\",\n          \"EmailAddress\": \"<string>\",\n          \"ContactNumber\": \"<string>\",\n          \"ContactNumberAlt\": \"<string>\",\n          \"IsDeleted\": \"<boolean>\",\n          \"Address\": {\n            \"AddressLine1\": \"<string>\",\n            \"AddressLine2\": \"<string>\",\n            \"Town\": \"<string>\",\n            \"County\": \"<string>\",\n            \"PostCode\": \"<string>\",\n            \"Country\": \"<string>\"\n          },\n          \"InvoiceDetails\": {\n            \"InvoiceDate\": \"<dateTime>\",\n            \"DueDate\": \"<dateTime>\",\n            \"InvoiceNumber\": \"<string>\",\n            \"LineItems\": [\n              {\n                \"LineType\": 0,\n                \"Description\": \"<string>\",\n                \"Quantity\": \"<number>\",\n                \"UnitPrice\": \"<number>\",\n                \"Net\": \"<number>\",\n                \"Tax\": \"<number>\",\n                \"Total\": \"<number>\"\n              },\n              {\n                \"LineType\": 0,\n                \"Description\": \"<string>\",\n                \"Quantity\": \"<number>\",\n                \"UnitPrice\": \"<number>\",\n                \"Net\": \"<number>\",\n                \"Tax\": \"<number>\",\n                \"Total\": \"<number>\"\n              }\n            ]\n          },\n          \"Services\": [\n            {\n              \"id\": \"<integer>\",\n              \"Name\": \"<string>\",\n              \"NameAndSynonyms\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"id\": \"<integer>\",\n              \"Name\": \"<string>\",\n              \"NameAndSynonyms\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ],\n          \"Certifications\": [\n            {\n              \"id\": \"<number>\",\n              \"Name\": \"<string>\",\n              \"Expiry\": \"<dateTime>\"\n            },\n            {\n              \"id\": \"<number>\",\n              \"Name\": \"<string>\",\n              \"Expiry\": \"<dateTime>\"\n            }\n          ],\n          \"Brand\": {\n            \"Id\": \"<uuid>\",\n            \"Name\": \"<string>\"\n          },\n          \"UpdateDate\": \"<dateTime>\"\n        },\n        \"AssignedAgent\": {\n          \"Id\": \"<long>\",\n          \"ExternalRef\": \"<string>\",\n          \"EmailAddress\": \"<string>\",\n          \"DisplayName\": \"<string>\",\n          \"ContactNo\": \"<string>\",\n          \"IsDeleted\": \"<boolean>\",\n          \"Brand\": {\n            \"Id\": \"<uuid>\",\n            \"Name\": \"<string>\"\n          },\n          \"UpdateDate\": \"<dateTime>\"\n        },\n        \"Reviewer\": {\n          \"Id\": \"<long>\",\n          \"ExternalRef\": \"<string>\",\n          \"EmailAddress\": \"<string>\",\n          \"DisplayName\": \"<string>\",\n          \"ContactNo\": \"<string>\",\n          \"IsDeleted\": \"<boolean>\",\n          \"Brand\": {\n            \"Id\": \"<uuid>\",\n            \"Name\": \"<string>\"\n          },\n          \"UpdateDate\": \"<dateTime>\"\n        },\n        \"Reviewed\": \"<dateTime>\",\n        \"Completed\": \"<dateTime>\"\n      }\n    }\n  ],\n  \"NextURL\": \"<string>\",\n  \"PreviousURL\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T01:56:02.000Z",
+                      "updatedAt": "2026-10-22T01:56:02.000Z",
+                      "uid": "35240-5a72b3e5-4909-49c5-9229-92a623842737"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:56:02.000Z",
+                  "updatedAt": "2026-10-22T01:56:02.000Z",
+                  "uid": "35240-990ff2f1-6589-4657-abc6-26d1a687b9a0"
+                }
+              ],
+              "id": "12e121c5-2f94-485d-816f-59f41fed4043",
+              "createdAt": "2026-10-22T01:56:02.000Z",
+              "updatedAt": "2026-10-22T01:56:02.000Z",
+              "uid": "35240-12e121c5-2f94-485d-816f-59f41fed4043"
+            },
+            {
+              "name": "ServiceProgramme",
+              "item": [
+                {
+                  "name": "{serviceProgrammeId}",
+                  "item": [
+                    {
+                      "name": "ServiceEvent",
+                      "item": [
+                        {
+                          "name": "Create Service Event",
+                          "id": "be8ef803-6d66-41e8-b9bd-8c4ae33ae4bc",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"Id\": \"<string>\",\n  \"Reference\": \"<string>\",\n  \"BlockId\": \"<integer>\",\n  \"ExternalBlockRef\": \"<string>\",\n  \"PropertyAddressId\": \"<integer>\",\n  \"PropertyId\": \"<integer>\",\n  \"ExternalPropertyRef\": \"<string>\",\n  \"ServiceProgrammeDef\": {\n    \"id\": \"<string>\",\n    \"EventType\": \"<string>\",\n    \"Class\": \"<string>\",\n    \"Category\": \"<string>\",\n    \"Description\": \"<string>\",\n    \"IsStatutory\": \"<boolean>\",\n    \"CostCode\": \"<string>\",\n    \"InstructionNotes\": \"<string>\",\n    \"InstructionDateOffsetPeriod\": 1,\n    \"InstructionDateOffsetType\": \"<integer>\",\n    \"ServiceFrequency\": \"<integer>\",\n    \"ServiceFrequencyType\": 2,\n    \"IsDisabled\": \"<boolean>\",\n    \"IsPropertyDefinition\": \"<boolean>\"\n  },\n  \"ServiceProgrammeId\": \"<string>\",\n  \"UpdateDate\": \"<dateTime>\",\n  \"Status\": 16,\n  \"InstructionDateOffsetPeriod\": \"<integer>\",\n  \"InstructionDateOffsetType\": 0,\n  \"DueDate\": \"<dateTime>\",\n  \"InstructionDate\": \"<dateTime>\",\n  \"InstructionNotes\": \"<string>\",\n  \"RequiresReview\": \"<boolean>\",\n  \"Contractor\": {\n    \"Id\": \"<string>\",\n    \"ExternalRef\": \"<string>\",\n    \"CompanyName\": \"<string>\",\n    \"Title\": \"<string>\",\n    \"FirstName\": \"<string>\",\n    \"Surname\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"ContactNumber\": \"<string>\",\n    \"ContactNumberAlt\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Address\": {\n      \"AddressLine1\": \"<string>\",\n      \"AddressLine2\": \"<string>\",\n      \"Town\": \"<string>\",\n      \"County\": \"<string>\",\n      \"PostCode\": \"<string>\",\n      \"Country\": \"<string>\"\n    },\n    \"InvoiceDetails\": {\n      \"InvoiceDate\": \"<dateTime>\",\n      \"DueDate\": \"<dateTime>\",\n      \"InvoiceNumber\": \"<string>\",\n      \"LineItems\": [\n        {\n          \"LineType\": 0,\n          \"Description\": \"<string>\",\n          \"Quantity\": \"<number>\",\n          \"UnitPrice\": \"<number>\",\n          \"Net\": \"<number>\",\n          \"Tax\": \"<number>\",\n          \"Total\": \"<number>\"\n        },\n        {\n          \"LineType\": 1,\n          \"Description\": \"<string>\",\n          \"Quantity\": \"<number>\",\n          \"UnitPrice\": \"<number>\",\n          \"Net\": \"<number>\",\n          \"Tax\": \"<number>\",\n          \"Total\": \"<number>\"\n        }\n      ]\n    },\n    \"Services\": [\n      {\n        \"id\": \"<integer>\",\n        \"Name\": \"<string>\",\n        \"NameAndSynonyms\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"id\": \"<integer>\",\n        \"Name\": \"<string>\",\n        \"NameAndSynonyms\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"Certifications\": [\n      {\n        \"id\": \"<number>\",\n        \"Name\": \"<string>\",\n        \"Expiry\": \"<dateTime>\"\n      },\n      {\n        \"id\": \"<number>\",\n        \"Name\": \"<string>\",\n        \"Expiry\": \"<dateTime>\"\n      }\n    ],\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  },\n  \"AssignedAgent\": {\n    \"Id\": \"<long>\",\n    \"ExternalRef\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"ContactNo\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  },\n  \"Reviewer\": {\n    \"Id\": \"<long>\",\n    \"ExternalRef\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"ContactNo\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  },\n  \"Reviewed\": \"<dateTime>\",\n  \"Completed\": \"<dateTime>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/Property/:propertyId/ServiceProgramme/:serviceProgrammeId/ServiceEvent?serviceProgrammeId=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "Property",
+                                ":propertyId",
+                                "ServiceProgramme",
+                                ":serviceProgrammeId",
+                                "ServiceEvent"
+                              ],
+                              "query": [
+                                {
+                                  "key": "serviceProgrammeId",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "04c1a0bc-5622-4146-80ac-de939aa5ba29",
+                                  "key": "propertyId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "3d3a54ba-9da6-4c72-9d9b-d87af7aab6d7",
+                                  "key": "serviceProgrammeId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "42d02f8c-96ed-4c24-ae63-8483d2a5bed3",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"Id\": \"<string>\",\n  \"Reference\": \"<string>\",\n  \"BlockId\": \"<integer>\",\n  \"ExternalBlockRef\": \"<string>\",\n  \"PropertyAddressId\": \"<integer>\",\n  \"PropertyId\": \"<integer>\",\n  \"ExternalPropertyRef\": \"<string>\",\n  \"ServiceProgrammeDef\": {\n    \"id\": \"<string>\",\n    \"EventType\": \"<string>\",\n    \"Class\": \"<string>\",\n    \"Category\": \"<string>\",\n    \"Description\": \"<string>\",\n    \"IsStatutory\": \"<boolean>\",\n    \"CostCode\": \"<string>\",\n    \"InstructionNotes\": \"<string>\",\n    \"InstructionDateOffsetPeriod\": 1,\n    \"InstructionDateOffsetType\": \"<integer>\",\n    \"ServiceFrequency\": \"<integer>\",\n    \"ServiceFrequencyType\": 2,\n    \"IsDisabled\": \"<boolean>\",\n    \"IsPropertyDefinition\": \"<boolean>\"\n  },\n  \"ServiceProgrammeId\": \"<string>\",\n  \"UpdateDate\": \"<dateTime>\",\n  \"Status\": 16,\n  \"InstructionDateOffsetPeriod\": \"<integer>\",\n  \"InstructionDateOffsetType\": 0,\n  \"DueDate\": \"<dateTime>\",\n  \"InstructionDate\": \"<dateTime>\",\n  \"InstructionNotes\": \"<string>\",\n  \"RequiresReview\": \"<boolean>\",\n  \"Contractor\": {\n    \"Id\": \"<string>\",\n    \"ExternalRef\": \"<string>\",\n    \"CompanyName\": \"<string>\",\n    \"Title\": \"<string>\",\n    \"FirstName\": \"<string>\",\n    \"Surname\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"ContactNumber\": \"<string>\",\n    \"ContactNumberAlt\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Address\": {\n      \"AddressLine1\": \"<string>\",\n      \"AddressLine2\": \"<string>\",\n      \"Town\": \"<string>\",\n      \"County\": \"<string>\",\n      \"PostCode\": \"<string>\",\n      \"Country\": \"<string>\"\n    },\n    \"InvoiceDetails\": {\n      \"InvoiceDate\": \"<dateTime>\",\n      \"DueDate\": \"<dateTime>\",\n      \"InvoiceNumber\": \"<string>\",\n      \"LineItems\": [\n        {\n          \"LineType\": 0,\n          \"Description\": \"<string>\",\n          \"Quantity\": \"<number>\",\n          \"UnitPrice\": \"<number>\",\n          \"Net\": \"<number>\",\n          \"Tax\": \"<number>\",\n          \"Total\": \"<number>\"\n        },\n        {\n          \"LineType\": 1,\n          \"Description\": \"<string>\",\n          \"Quantity\": \"<number>\",\n          \"UnitPrice\": \"<number>\",\n          \"Net\": \"<number>\",\n          \"Tax\": \"<number>\",\n          \"Total\": \"<number>\"\n        }\n      ]\n    },\n    \"Services\": [\n      {\n        \"id\": \"<integer>\",\n        \"Name\": \"<string>\",\n        \"NameAndSynonyms\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"id\": \"<integer>\",\n        \"Name\": \"<string>\",\n        \"NameAndSynonyms\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"Certifications\": [\n      {\n        \"id\": \"<number>\",\n        \"Name\": \"<string>\",\n        \"Expiry\": \"<dateTime>\"\n      },\n      {\n        \"id\": \"<number>\",\n        \"Name\": \"<string>\",\n        \"Expiry\": \"<dateTime>\"\n      }\n    ],\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  },\n  \"AssignedAgent\": {\n    \"Id\": \"<long>\",\n    \"ExternalRef\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"ContactNo\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  },\n  \"Reviewer\": {\n    \"Id\": \"<long>\",\n    \"ExternalRef\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"ContactNo\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  },\n  \"Reviewed\": \"<dateTime>\",\n  \"Completed\": \"<dateTime>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/Property/:propertyId/ServiceProgramme/:serviceProgrammeId/ServiceEvent?serviceProgrammeId=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "Property",
+                                    ":propertyId",
+                                    "ServiceProgramme",
+                                    ":serviceProgrammeId",
+                                    "ServiceEvent"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "serviceProgrammeId",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "propertyId"
+                                    },
+                                    {
+                                      "key": "serviceProgrammeId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"Id\": \"<string>\",\n  \"Reference\": \"<string>\",\n  \"BlockId\": \"<integer>\",\n  \"ExternalBlockRef\": \"<string>\",\n  \"PropertyAddressId\": \"<integer>\",\n  \"PropertyId\": \"<integer>\",\n  \"ExternalPropertyRef\": \"<string>\",\n  \"ServiceProgrammeDef\": {\n    \"id\": \"<string>\",\n    \"EventType\": \"<string>\",\n    \"Class\": \"<string>\",\n    \"Category\": \"<string>\",\n    \"Description\": \"<string>\",\n    \"IsStatutory\": \"<boolean>\",\n    \"CostCode\": \"<string>\",\n    \"InstructionNotes\": \"<string>\",\n    \"InstructionDateOffsetPeriod\": 1,\n    \"InstructionDateOffsetType\": \"<integer>\",\n    \"ServiceFrequency\": \"<integer>\",\n    \"ServiceFrequencyType\": 2,\n    \"IsDisabled\": \"<boolean>\",\n    \"IsPropertyDefinition\": \"<boolean>\"\n  },\n  \"ServiceProgrammeId\": \"<string>\",\n  \"UpdateDate\": \"<dateTime>\",\n  \"Status\": 16,\n  \"InstructionDateOffsetPeriod\": \"<integer>\",\n  \"InstructionDateOffsetType\": 0,\n  \"DueDate\": \"<dateTime>\",\n  \"InstructionDate\": \"<dateTime>\",\n  \"InstructionNotes\": \"<string>\",\n  \"RequiresReview\": \"<boolean>\",\n  \"Contractor\": {\n    \"Id\": \"<string>\",\n    \"ExternalRef\": \"<string>\",\n    \"CompanyName\": \"<string>\",\n    \"Title\": \"<string>\",\n    \"FirstName\": \"<string>\",\n    \"Surname\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"ContactNumber\": \"<string>\",\n    \"ContactNumberAlt\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Address\": {\n      \"AddressLine1\": \"<string>\",\n      \"AddressLine2\": \"<string>\",\n      \"Town\": \"<string>\",\n      \"County\": \"<string>\",\n      \"PostCode\": \"<string>\",\n      \"Country\": \"<string>\"\n    },\n    \"InvoiceDetails\": {\n      \"InvoiceDate\": \"<dateTime>\",\n      \"DueDate\": \"<dateTime>\",\n      \"InvoiceNumber\": \"<string>\",\n      \"LineItems\": [\n        {\n          \"LineType\": 0,\n          \"Description\": \"<string>\",\n          \"Quantity\": \"<number>\",\n          \"UnitPrice\": \"<number>\",\n          \"Net\": \"<number>\",\n          \"Tax\": \"<number>\",\n          \"Total\": \"<number>\"\n        },\n        {\n          \"LineType\": 1,\n          \"Description\": \"<string>\",\n          \"Quantity\": \"<number>\",\n          \"UnitPrice\": \"<number>\",\n          \"Net\": \"<number>\",\n          \"Tax\": \"<number>\",\n          \"Total\": \"<number>\"\n        }\n      ]\n    },\n    \"Services\": [\n      {\n        \"id\": \"<integer>\",\n        \"Name\": \"<string>\",\n        \"NameAndSynonyms\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"id\": \"<integer>\",\n        \"Name\": \"<string>\",\n        \"NameAndSynonyms\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"Certifications\": [\n      {\n        \"id\": \"<number>\",\n        \"Name\": \"<string>\",\n        \"Expiry\": \"<dateTime>\"\n      },\n      {\n        \"id\": \"<number>\",\n        \"Name\": \"<string>\",\n        \"Expiry\": \"<dateTime>\"\n      }\n    ],\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  },\n  \"AssignedAgent\": {\n    \"Id\": \"<long>\",\n    \"ExternalRef\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"ContactNo\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  },\n  \"Reviewer\": {\n    \"Id\": \"<long>\",\n    \"ExternalRef\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"ContactNo\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  },\n  \"Reviewed\": \"<dateTime>\",\n  \"Completed\": \"<dateTime>\"\n}",
+                              "createdAt": "2026-10-22T01:56:02.000Z",
+                              "updatedAt": "2026-10-22T01:56:02.000Z",
+                              "uid": "35240-42d02f8c-96ed-4c24-ae63-8483d2a5bed3"
+                            }
+                          ],
+                          "createdAt": "2026-10-22T01:56:02.000Z",
+                          "updatedAt": "2026-10-22T01:56:02.000Z",
+                          "uid": "35240-be8ef803-6d66-41e8-b9bd-8c4ae33ae4bc"
+                        }
+                      ],
+                      "id": "c0b367b0-a481-4a39-915a-b41ec0c86334",
+                      "createdAt": "2026-10-22T01:56:02.000Z",
+                      "updatedAt": "2026-10-22T01:56:02.000Z",
+                      "uid": "35240-c0b367b0-a481-4a39-915a-b41ec0c86334"
+                    }
+                  ],
+                  "id": "8d2983cf-4b67-4c93-9efa-7812fe54f8c7",
+                  "createdAt": "2026-10-22T01:56:02.000Z",
+                  "updatedAt": "2026-10-22T01:56:02.000Z",
+                  "uid": "35240-8d2983cf-4b67-4c93-9efa-7812fe54f8c7"
+                }
+              ],
+              "id": "b5ca7c0d-7252-4b03-b078-7bd3761276a5",
+              "createdAt": "2026-10-22T01:56:02.000Z",
+              "updatedAt": "2026-10-22T01:56:02.000Z",
+              "uid": "35240-b5ca7c0d-7252-4b03-b078-7bd3761276a5"
+            }
+          ],
+          "id": "ff579942-5580-419f-8181-c86b293adc26",
+          "createdAt": "2026-10-22T01:56:02.000Z",
+          "updatedAt": "2026-10-22T01:56:02.000Z",
+          "uid": "35240-ff579942-5580-419f-8181-c86b293adc26"
+        }
+      ],
+      "id": "13da011a-d196-430a-9864-93ca331d3f5f",
+      "createdAt": "2026-10-22T01:56:02.000Z",
+      "updatedAt": "2026-10-22T01:56:02.000Z",
+      "uid": "35240-13da011a-d196-430a-9864-93ca331d3f5f"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api-sandbox.fixflo.com/api/v2"
+    }
+  ]
+}

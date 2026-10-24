@@ -1,0 +1,1400 @@
+{
+  "info": {
+    "_postman_id": "6ca0306f-84d3-4b06-b138-5fa6c57c2691",
+    "name": "Fixflo Leaseholder API",
+    "description": "Fixflo api docs\n\nContact Support:\n Name: Support\n Email: support@fixflo.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:55:37.000Z",
+    "updatedAt": "2026-10-22T01:55:37.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6ca0306f-84d3-4b06-b138-5fa6c57c2691"
+  },
+  "item": [
+    {
+      "name": "LeaseholderPropertyJoin",
+      "item": [
+        {
+          "name": "Delete",
+          "item": [
+            {
+              "name": "Leaseholder property external/ delete",
+              "id": "cbdf9e5f-81f6-4598-a0e1-8cfeaadacc14",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Id\": \"<integer>\",\n  \"ExternalLandlordRef\": \"<string>\",\n  \"ExternalPropertyRef\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/LeaseholderPropertyJoin/Delete",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "LeaseholderPropertyJoin",
+                    "Delete"
+                  ]
+                },
+                "description": "Deletes a LeaseholderProperty object. Meaning the explicit relationship bewtween the leaseholder and the property is removed"
+              },
+              "response": [
+                {
+                  "id": "9ee1e750-53a9-48a7-b91e-cde58f24938b",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"Id\": \"<integer>\",\n  \"ExternalLandlordRef\": \"<string>\",\n  \"ExternalPropertyRef\": \"<integer>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/LeaseholderPropertyJoin/Delete",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "LeaseholderPropertyJoin",
+                        "Delete"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"HttpStatusCode\": \"<integer>\",\n  \"HttpStatusCodeDesc\": \"<string>\",\n  \"Errors\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Entity\": {\n    \"Id\": \"<integer>\",\n    \"ExternalLandlordRef\": \"<string>\",\n    \"ExternalPropertyRef\": \"<integer>\"\n  }\n}",
+                  "createdAt": "2026-10-22T01:55:37.000Z",
+                  "updatedAt": "2026-10-22T01:55:37.000Z",
+                  "uid": "35240-9ee1e750-53a9-48a7-b91e-cde58f24938b"
+                }
+              ],
+              "createdAt": "2026-10-22T01:55:37.000Z",
+              "updatedAt": "2026-10-22T01:55:37.000Z",
+              "uid": "35240-cbdf9e5f-81f6-4598-a0e1-8cfeaadacc14"
+            }
+          ],
+          "id": "1186e0a9-14d3-4849-b94e-ab33a5911403",
+          "createdAt": "2026-10-22T01:55:37.000Z",
+          "updatedAt": "2026-10-22T01:55:37.000Z",
+          "uid": "35240-1186e0a9-14d3-4849-b94e-ab33a5911403"
+        },
+        {
+          "name": "Search",
+          "item": [
+            {
+              "name": "Leaseholder property search",
+              "id": "07edebb9-007e-4f95-a17b-0ef6e46426fc",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/LeaseholderPropertyJoin/Search?PropertyId=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "LeaseholderPropertyJoin",
+                    "Search"
+                  ],
+                  "query": [
+                    {
+                      "key": "PropertyId",
+                      "value": "<integer>"
+                    }
+                  ]
+                },
+                "description": "Gets a list of leaseholders for a specified property."
+              },
+              "response": [
+                {
+                  "id": "d2d3c43e-c8d7-45d1-92e4-5e0d27949f23",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/LeaseholderPropertyJoin/Search?PropertyId=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "LeaseholderPropertyJoin",
+                        "Search"
+                      ],
+                      "query": [
+                        {
+                          "key": "PropertyId",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"PreviousURL\": {},\n  \"NextURL\": {},\n  \"Items\": [\n    {\n      \"Id\": \"<integer>\",\n      \"ExternalLeaseholderRef\": \"<string>\",\n      \"ExternalPropertyRef\": \"<string>\",\n      \"IsOccupier\": \"<boolean>\"\n    },\n    {\n      \"Id\": \"<integer>\",\n      \"ExternalLeaseholderRef\": \"<string>\",\n      \"ExternalPropertyRef\": \"<string>\",\n      \"IsOccupier\": \"<boolean>\"\n    }\n  ],\n  \"TotalPages\": \"<integer>\",\n  \"TotalItems\": \"<integer>\",\n  \"\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T01:55:37.000Z",
+                  "updatedAt": "2026-10-22T01:55:37.000Z",
+                  "uid": "35240-d2d3c43e-c8d7-45d1-92e4-5e0d27949f23"
+                },
+                {
+                  "id": "de4eead4-58ec-4cc0-80af-3d13246a2eda",
+                  "name": "No leaseholder properties found using the given Property Id",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/LeaseholderPropertyJoin/Search?PropertyId=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "LeaseholderPropertyJoin",
+                        "Search"
+                      ],
+                      "query": [
+                        {
+                          "key": "PropertyId",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T01:55:37.000Z",
+                  "updatedAt": "2026-10-22T01:55:37.000Z",
+                  "uid": "35240-de4eead4-58ec-4cc0-80af-3d13246a2eda"
+                }
+              ],
+              "createdAt": "2026-10-22T01:55:37.000Z",
+              "updatedAt": "2026-10-22T01:55:37.000Z",
+              "uid": "35240-07edebb9-007e-4f95-a17b-0ef6e46426fc"
+            }
+          ],
+          "id": "28efc7fe-dbcf-4741-b5b8-83f03f491cc7",
+          "createdAt": "2026-10-22T01:55:37.000Z",
+          "updatedAt": "2026-10-22T01:55:37.000Z",
+          "uid": "35240-28efc7fe-dbcf-4741-b5b8-83f03f491cc7"
+        },
+        {
+          "name": "Leaseholder property external",
+          "id": "b9261bb0-6d14-4b34-9ca2-0be947a404cb",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/LeaseholderPropertyJoin?LeaseholderPropertyId=<integer>&ExtrernalLeaseholderref=<string>&LeaseholderId=<integer>&ExternalPropertyRef=<string>&PropertyId=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "LeaseholderPropertyJoin"
+              ],
+              "query": [
+                {
+                  "key": "LeaseholderPropertyId",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "ExtrernalLeaseholderref",
+                  "value": "<string>"
+                },
+                {
+                  "key": "LeaseholderId",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "ExternalPropertyRef",
+                  "value": "<string>"
+                },
+                {
+                  "key": "PropertyId",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Gets a specific leaseholder property. The LeaseholderPropertyId or ExternalPropertyRef and ExtrernalLeaseholderRef or LeaseholderId and PropertyId must be supplied"
+          },
+          "response": [
+            {
+              "id": "bfb8605e-0036-436e-955c-c4456b42468c",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/LeaseholderPropertyJoin?LeaseholderPropertyId=<integer>&ExtrernalLeaseholderref=<string>&LeaseholderId=<integer>&ExternalPropertyRef=<string>&PropertyId=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "LeaseholderPropertyJoin"
+                  ],
+                  "query": [
+                    {
+                      "key": "LeaseholderPropertyId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "ExtrernalLeaseholderref",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "LeaseholderId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "ExternalPropertyRef",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "PropertyId",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"Id\": \"<integer>\",\n  \"ExternalLandlordRef\": \"<string>\",\n  \"ExternalPropertyRef\": \"<integer>\"\n}",
+              "createdAt": "2026-10-22T01:55:37.000Z",
+              "updatedAt": "2026-10-22T01:55:37.000Z",
+              "uid": "35240-bfb8605e-0036-436e-955c-c4456b42468c"
+            }
+          ],
+          "createdAt": "2026-10-22T01:55:37.000Z",
+          "updatedAt": "2026-10-22T01:55:37.000Z",
+          "uid": "35240-b9261bb0-6d14-4b34-9ca2-0be947a404cb"
+        },
+        {
+          "name": "Leaseholder property external",
+          "id": "6fa8a5cf-37cf-4f18-8214-144fe419c5d7",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Id\": \"<integer>\",\n  \"ExternalLandlordRef\": \"<string>\",\n  \"ExternalPropertyRef\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/LeaseholderPropertyJoin",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "LeaseholderPropertyJoin"
+              ]
+            },
+            "description": "Adds a LeaseholderProperty object. Meaning the explicit relationship bewtween the leaseholder and the property is added using external refs"
+          },
+          "response": [
+            {
+              "id": "4854772b-f7b3-405c-92d1-48e3a4df7d94",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Id\": \"<integer>\",\n  \"ExternalLandlordRef\": \"<string>\",\n  \"ExternalPropertyRef\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/LeaseholderPropertyJoin",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "LeaseholderPropertyJoin"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"HttpStatusCode\": \"<integer>\",\n  \"HttpStatusCodeDesc\": \"<string>\",\n  \"Errors\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Entity\": {\n    \"Id\": \"<integer>\",\n    \"ExternalLandlordRef\": \"<string>\",\n    \"ExternalPropertyRef\": \"<integer>\"\n  }\n}",
+              "createdAt": "2026-10-22T01:55:37.000Z",
+              "updatedAt": "2026-10-22T01:55:37.000Z",
+              "uid": "35240-4854772b-f7b3-405c-92d1-48e3a4df7d94"
+            }
+          ],
+          "createdAt": "2026-10-22T01:55:37.000Z",
+          "updatedAt": "2026-10-22T01:55:37.000Z",
+          "uid": "35240-6fa8a5cf-37cf-4f18-8214-144fe419c5d7"
+        }
+      ],
+      "id": "81c016f6-73cb-4cf3-b6cf-803c4feb83ba",
+      "createdAt": "2026-10-22T01:55:37.000Z",
+      "updatedAt": "2026-10-22T01:55:37.000Z",
+      "uid": "35240-81c016f6-73cb-4cf3-b6cf-803c4feb83ba"
+    },
+    {
+      "name": "Leaseholder",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Brand",
+              "item": [
+                {
+                  "name": "Leaseholder / brand",
+                  "id": "9339a219-9171-4631-9831-29e2a72f76d7",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Leaseholder/:id/Brand",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Leaseholder",
+                        ":id",
+                        "Brand"
+                      ],
+                      "variable": [
+                        {
+                          "id": "fc86cd23-e174-436c-8da3-7433a93d58cf",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Gets the brand applied to the leasholder"
+                  },
+                  "response": [
+                    {
+                      "id": "2b8f9617-8d5c-4e73-9405-e4aadbc528de",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Leaseholder/:id/Brand",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Leaseholder",
+                            ":id",
+                            "Brand"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Id\": \"<uuid>\",\n  \"Name\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T01:55:37.000Z",
+                      "updatedAt": "2026-10-22T01:55:37.000Z",
+                      "uid": "35240-2b8f9617-8d5c-4e73-9405-e4aadbc528de"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:55:37.000Z",
+                  "updatedAt": "2026-10-22T01:55:37.000Z",
+                  "uid": "35240-9339a219-9171-4631-9831-29e2a72f76d7"
+                },
+                {
+                  "name": "Leaseholder / brand",
+                  "id": "14af1779-6b00-48a4-83d0-61be3e7e9ac0",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"Id\": \"<uuid>\",\n  \"Name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/Leaseholder/:id/Brand",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Leaseholder",
+                        ":id",
+                        "Brand"
+                      ],
+                      "variable": [
+                        {
+                          "id": "451576ff-31d3-43c7-86f9-159ff3245f2b",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Updates the brand applied to the leaseholder"
+                  },
+                  "response": [
+                    {
+                      "id": "ef8f2f9d-b934-4945-938a-884cf6dd44bd",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"Id\": \"<uuid>\",\n  \"Name\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/Leaseholder/:id/Brand",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Leaseholder",
+                            ":id",
+                            "Brand"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"HttpStatusCode\": \"<integer>\",\n  \"HttpStatusCodeDesc\": \"<string>\",\n  \"Errors\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Entity\": {\n    \"Id\": \"<uuid>\",\n    \"Name\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-10-22T01:55:37.000Z",
+                      "updatedAt": "2026-10-22T01:55:37.000Z",
+                      "uid": "35240-ef8f2f9d-b934-4945-938a-884cf6dd44bd"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:55:37.000Z",
+                  "updatedAt": "2026-10-22T01:55:37.000Z",
+                  "uid": "35240-14af1779-6b00-48a4-83d0-61be3e7e9ac0"
+                }
+              ],
+              "id": "82d1a626-87e4-4c0e-beed-052ab34c4191",
+              "createdAt": "2026-10-22T01:55:37.000Z",
+              "updatedAt": "2026-10-22T01:55:37.000Z",
+              "uid": "35240-82d1a626-87e4-4c0e-beed-052ab34c4191"
+            }
+          ],
+          "id": "20de2038-93ce-4379-8934-7d1e61abc511",
+          "createdAt": "2026-10-22T01:55:37.000Z",
+          "updatedAt": "2026-10-22T01:55:37.000Z",
+          "uid": "35240-20de2038-93ce-4379-8934-7d1e61abc511"
+        },
+        {
+          "name": "{LeaseholderId}",
+          "item": [
+            {
+              "name": "LeaseholderProperties",
+              "item": [
+                {
+                  "name": "Leaseholder / leaseholder properties",
+                  "id": "f4cdab26-d507-45db-ac19-a74b0fb1f273",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Leaseholder/:LeaseholderId/LeaseholderProperties?pg=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Leaseholder",
+                        ":LeaseholderId",
+                        "LeaseholderProperties"
+                      ],
+                      "query": [
+                        {
+                          "key": "pg",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "fcbe4e9b-e90c-4e5c-874c-332034239f99",
+                          "key": "LeaseholderId",
+                          "value": "<string>",
+                          "description": "(Required) Leaseholder id"
+                        }
+                      ]
+                    },
+                    "description": "Get leaseholders properties"
+                  },
+                  "response": [
+                    {
+                      "id": "cee66ccb-3773-47d3-a36e-e92af43062f9",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Leaseholder/:LeaseholderId/LeaseholderProperties?pg=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Leaseholder",
+                            ":LeaseholderId",
+                            "LeaseholderProperties"
+                          ],
+                          "query": [
+                            {
+                              "key": "pg",
+                              "value": "<integer>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "LeaseholderId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"TotalItems\": \"<integer>\",\n  \"TotalPages\": \"<integer>\",\n  \"Items\": [\n    {\n      \"Id\": \"<string>\",\n      \"LeaseholderId\": \"<string>\",\n      \"PropertyId\": \"<string>\",\n      \"DateFrom\": \"<dateTime>\",\n      \"DateTo\": \"<dateTime>\",\n      \"Address\": {\n        \"AddressLine1\": \"<string>\",\n        \"AddressLine2\": \"<string>\",\n        \"Town\": \"<string>\",\n        \"County\": \"<string>\",\n        \"PostCode\": \"<string>\",\n        \"Country\": \"<string>\"\n      },\n      \"BlockId\": \"<integer>\",\n      \"ExternalBlockRef\": \"<string>\",\n      \"UpdateDate\": \"<dateTime>\",\n      \"IsOccupier\": \"<boolean>\"\n    },\n    {\n      \"Id\": \"<string>\",\n      \"LeaseholderId\": \"<string>\",\n      \"PropertyId\": \"<string>\",\n      \"DateFrom\": \"<dateTime>\",\n      \"DateTo\": \"<dateTime>\",\n      \"Address\": {\n        \"AddressLine1\": \"<string>\",\n        \"AddressLine2\": \"<string>\",\n        \"Town\": \"<string>\",\n        \"County\": \"<string>\",\n        \"PostCode\": \"<string>\",\n        \"Country\": \"<string>\"\n      },\n      \"BlockId\": \"<integer>\",\n      \"ExternalBlockRef\": \"<string>\",\n      \"UpdateDate\": \"<dateTime>\",\n      \"IsOccupier\": \"<boolean>\"\n    }\n  ],\n  \"NextURL\": \"<string>\",\n  \"PreviousURL\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T01:55:37.000Z",
+                      "updatedAt": "2026-10-22T01:55:37.000Z",
+                      "uid": "35240-cee66ccb-3773-47d3-a36e-e92af43062f9"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:55:37.000Z",
+                  "updatedAt": "2026-10-22T01:55:37.000Z",
+                  "uid": "35240-f4cdab26-d507-45db-ac19-a74b0fb1f273"
+                }
+              ],
+              "id": "b4d7d227-51c4-489c-b4d2-29f68f5d661e",
+              "createdAt": "2026-10-22T01:55:37.000Z",
+              "updatedAt": "2026-10-22T01:55:37.000Z",
+              "uid": "35240-b4d7d227-51c4-489c-b4d2-29f68f5d661e"
+            }
+          ],
+          "id": "28414186-3ea4-40a0-a828-d9d074fe7fa3",
+          "createdAt": "2026-10-22T01:55:37.000Z",
+          "updatedAt": "2026-10-22T01:55:37.000Z",
+          "uid": "35240-28414186-3ea4-40a0-a828-d9d074fe7fa3"
+        },
+        {
+          "name": "Leaseholder",
+          "id": "49b27c58-3eb0-451b-ac8d-05f51c9b5ebd",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/Leaseholder?LeaseholderId=<string>&EmailAddress=<string>&ExternalLeaseholderRef=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Leaseholder"
+              ],
+              "query": [
+                {
+                  "description": "Leaseholder id",
+                  "key": "LeaseholderId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Leaseholder email address",
+                  "key": "EmailAddress",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Leaseholder external ref",
+                  "key": "ExternalLeaseholderRef",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Get leaseholder"
+          },
+          "response": [
+            {
+              "id": "7d63015e-5434-40ed-8764-d503b147852a",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Leaseholder?LeaseholderId=<string>&EmailAddress=<string>&ExternalLeaseholderRef=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Leaseholder"
+                  ],
+                  "query": [
+                    {
+                      "description": "Leaseholder id",
+                      "key": "LeaseholderId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Leaseholder email address",
+                      "key": "EmailAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Leaseholder external ref",
+                      "key": "ExternalLeaseholderRef",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"Id\": \"<string>\",\n  \"ExternalLeaseholderReference\": \"<string>\",\n  \"CompanyName\": \"<string>\",\n  \"Title\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"Surname\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"ContactNumber\": \"<string>\",\n  \"ContactNumberAlt\": \"<string>\",\n  \"DisplayName\": \"<string>\",\n  \"EmailCC\": \"<string>\",\n  \"IsDeleted\": \"<boolean>\",\n  \"UpdateDate\": \"<dateTime>\",\n  \"Brand\": {\n    \"Id\": \"<uuid>\",\n    \"Name\": \"<string>\"\n  },\n  \"Address\": {\n    \"AddressLine1\": \"<string>\",\n    \"AddressLine2\": \"<string>\",\n    \"Town\": \"<string>\",\n    \"County\": \"<string>\",\n    \"PostCode\": \"<string>\",\n    \"Country\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-10-22T01:55:37.000Z",
+              "updatedAt": "2026-10-22T01:55:37.000Z",
+              "uid": "35240-7d63015e-5434-40ed-8764-d503b147852a"
+            }
+          ],
+          "createdAt": "2026-10-22T01:55:37.000Z",
+          "updatedAt": "2026-10-22T01:55:37.000Z",
+          "uid": "35240-49b27c58-3eb0-451b-ac8d-05f51c9b5ebd"
+        },
+        {
+          "name": "Leaseholder / save",
+          "id": "0cce036e-3043-4c6f-a5cd-be806dd45f6a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Id\": \"<string>\",\n  \"ExternalLeaseholderReference\": \"<string>\",\n  \"CompanyName\": \"<string>\",\n  \"Title\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"Surname\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"ContactNumber\": \"<string>\",\n  \"ContactNumberAlt\": \"<string>\",\n  \"DisplayName\": \"<string>\",\n  \"EmailCC\": \"<string>\",\n  \"IsDeleted\": \"<boolean>\",\n  \"UpdateDate\": \"<dateTime>\",\n  \"Brand\": {\n    \"Id\": \"<uuid>\",\n    \"Name\": \"<string>\"\n  },\n  \"Address\": {\n    \"AddressLine1\": \"<string>\",\n    \"AddressLine2\": \"<string>\",\n    \"Town\": \"<string>\",\n    \"County\": \"<string>\",\n    \"PostCode\": \"<string>\",\n    \"Country\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/Leaseholder",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Leaseholder"
+              ]
+            },
+            "description": "Get leaseholder"
+          },
+          "response": [
+            {
+              "id": "63bac7c7-681c-4afe-bcc4-a6400c58d26a",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Id\": \"<string>\",\n  \"ExternalLeaseholderReference\": \"<string>\",\n  \"CompanyName\": \"<string>\",\n  \"Title\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"Surname\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"ContactNumber\": \"<string>\",\n  \"ContactNumberAlt\": \"<string>\",\n  \"DisplayName\": \"<string>\",\n  \"EmailCC\": \"<string>\",\n  \"IsDeleted\": \"<boolean>\",\n  \"UpdateDate\": \"<dateTime>\",\n  \"Brand\": {\n    \"Id\": \"<uuid>\",\n    \"Name\": \"<string>\"\n  },\n  \"Address\": {\n    \"AddressLine1\": \"<string>\",\n    \"AddressLine2\": \"<string>\",\n    \"Town\": \"<string>\",\n    \"County\": \"<string>\",\n    \"PostCode\": \"<string>\",\n    \"Country\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Leaseholder",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Leaseholder"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"HttpStatusCode\": \"<integer>\",\n  \"HttpStatusCodeDesc\": \"<string>\",\n  \"Errors\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Entity\": {\n    \"Id\": \"<string>\",\n    \"ExternalLeaseholderReference\": \"<string>\",\n    \"CompanyName\": \"<string>\",\n    \"Title\": \"<string>\",\n    \"FirstName\": \"<string>\",\n    \"Surname\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"ContactNumber\": \"<string>\",\n    \"ContactNumberAlt\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"EmailCC\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"UpdateDate\": \"<dateTime>\",\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"Address\": {\n      \"AddressLine1\": \"<string>\",\n      \"AddressLine2\": \"<string>\",\n      \"Town\": \"<string>\",\n      \"County\": \"<string>\",\n      \"PostCode\": \"<string>\",\n      \"Country\": \"<string>\"\n    }\n  }\n}",
+              "createdAt": "2026-10-22T01:55:37.000Z",
+              "updatedAt": "2026-10-22T01:55:37.000Z",
+              "uid": "35240-63bac7c7-681c-4afe-bcc4-a6400c58d26a"
+            }
+          ],
+          "createdAt": "2026-10-22T01:55:37.000Z",
+          "updatedAt": "2026-10-22T01:55:37.000Z",
+          "uid": "35240-0cce036e-3043-4c6f-a5cd-be806dd45f6a"
+        }
+      ],
+      "id": "bc7e2df2-53c2-47ee-94ed-e2c98c615f61",
+      "createdAt": "2026-10-22T01:55:37.000Z",
+      "updatedAt": "2026-10-22T01:55:37.000Z",
+      "uid": "35240-bc7e2df2-53c2-47ee-94ed-e2c98c615f61"
+    },
+    {
+      "name": "Leaseholders",
+      "item": [
+        {
+          "name": "Leaseholders",
+          "id": "69f39a1d-3acd-433f-a99d-35958df0c812",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/Leaseholders?Keyword=<string>&updatedSince=<dateTime>&pg=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Leaseholders"
+              ],
+              "query": [
+                {
+                  "key": "Keyword",
+                  "value": "<string>"
+                },
+                {
+                  "key": "updatedSince",
+                  "value": "<dateTime>"
+                },
+                {
+                  "key": "pg",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Get leaseholders"
+          },
+          "response": [
+            {
+              "id": "d166da55-b49a-4610-8933-643007297af9",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Leaseholders?Keyword=<string>&updatedSince=<dateTime>&pg=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Leaseholders"
+                  ],
+                  "query": [
+                    {
+                      "key": "Keyword",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updatedSince",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "pg",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"TotalItems\": \"<integer>\",\n  \"TotalPages\": \"<integer>\",\n  \"Items\": [\n    {\n      \"Id\": \"<string>\",\n      \"ExternalLeaseholderReference\": \"<string>\",\n      \"CompanyName\": \"<string>\",\n      \"Title\": \"<string>\",\n      \"FirstName\": \"<string>\",\n      \"Surname\": \"<string>\",\n      \"EmailAddress\": \"<string>\",\n      \"ContactNumber\": \"<string>\",\n      \"ContactNumberAlt\": \"<string>\",\n      \"DisplayName\": \"<string>\",\n      \"EmailCC\": \"<string>\",\n      \"IsDeleted\": \"<boolean>\",\n      \"UpdateDate\": \"<dateTime>\",\n      \"Brand\": {\n        \"Id\": \"<uuid>\",\n        \"Name\": \"<string>\"\n      },\n      \"Address\": {\n        \"AddressLine1\": \"<string>\",\n        \"AddressLine2\": \"<string>\",\n        \"Town\": \"<string>\",\n        \"County\": \"<string>\",\n        \"PostCode\": \"<string>\",\n        \"Country\": \"<string>\"\n      }\n    },\n    {\n      \"Id\": \"<string>\",\n      \"ExternalLeaseholderReference\": \"<string>\",\n      \"CompanyName\": \"<string>\",\n      \"Title\": \"<string>\",\n      \"FirstName\": \"<string>\",\n      \"Surname\": \"<string>\",\n      \"EmailAddress\": \"<string>\",\n      \"ContactNumber\": \"<string>\",\n      \"ContactNumberAlt\": \"<string>\",\n      \"DisplayName\": \"<string>\",\n      \"EmailCC\": \"<string>\",\n      \"IsDeleted\": \"<boolean>\",\n      \"UpdateDate\": \"<dateTime>\",\n      \"Brand\": {\n        \"Id\": \"<uuid>\",\n        \"Name\": \"<string>\"\n      },\n      \"Address\": {\n        \"AddressLine1\": \"<string>\",\n        \"AddressLine2\": \"<string>\",\n        \"Town\": \"<string>\",\n        \"County\": \"<string>\",\n        \"PostCode\": \"<string>\",\n        \"Country\": \"<string>\"\n      }\n    }\n  ],\n  \"NextURL\": \"<string>\",\n  \"PreviousURL\": \"<string>\"\n}",
+              "createdAt": "2026-10-22T01:55:37.000Z",
+              "updatedAt": "2026-10-22T01:55:37.000Z",
+              "uid": "35240-d166da55-b49a-4610-8933-643007297af9"
+            }
+          ],
+          "createdAt": "2026-10-22T01:55:37.000Z",
+          "updatedAt": "2026-10-22T01:55:37.000Z",
+          "uid": "35240-69f39a1d-3acd-433f-a99d-35958df0c812"
+        }
+      ],
+      "id": "ad6edfc9-702a-4af5-826c-2d353770ce2f",
+      "createdAt": "2026-10-22T01:55:37.000Z",
+      "updatedAt": "2026-10-22T01:55:37.000Z",
+      "uid": "35240-ad6edfc9-702a-4af5-826c-2d353770ce2f"
+    },
+    {
+      "name": "LeaseholderProperty",
+      "item": [
+        {
+          "name": "Delete",
+          "item": [
+            {
+              "name": "Leaseholder property / delete",
+              "id": "4f96f5b7-b55c-4621-8ff4-758c6efeb535",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Id\": \"<string>\",\n  \"LeaseholderId\": \"<string>\",\n  \"PropertyId\": \"<string>\",\n  \"DateFrom\": \"<dateTime>\",\n  \"DateTo\": \"<dateTime>\",\n  \"Address\": {\n    \"AddressLine1\": \"<string>\",\n    \"AddressLine2\": \"<string>\",\n    \"Town\": \"<string>\",\n    \"County\": \"<string>\",\n    \"PostCode\": \"<string>\",\n    \"Country\": \"<string>\"\n  },\n  \"BlockId\": \"<integer>\",\n  \"ExternalBlockRef\": \"<string>\",\n  \"UpdateDate\": \"<dateTime>\",\n  \"IsOccupier\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/LeaseholderProperty/Delete",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "LeaseholderProperty",
+                    "Delete"
+                  ]
+                },
+                "description": "Deletes a LeaseholderProperty relationship"
+              },
+              "response": [
+                {
+                  "id": "6b873e58-32fd-4ba8-8ac1-df933102f940",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"Id\": \"<string>\",\n  \"LeaseholderId\": \"<string>\",\n  \"PropertyId\": \"<string>\",\n  \"DateFrom\": \"<dateTime>\",\n  \"DateTo\": \"<dateTime>\",\n  \"Address\": {\n    \"AddressLine1\": \"<string>\",\n    \"AddressLine2\": \"<string>\",\n    \"Town\": \"<string>\",\n    \"County\": \"<string>\",\n    \"PostCode\": \"<string>\",\n    \"Country\": \"<string>\"\n  },\n  \"BlockId\": \"<integer>\",\n  \"ExternalBlockRef\": \"<string>\",\n  \"UpdateDate\": \"<dateTime>\",\n  \"IsOccupier\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/LeaseholderProperty/Delete",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "LeaseholderProperty",
+                        "Delete"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"HttpStatusCode\": \"<integer>\",\n  \"HttpStatusCodeDesc\": \"<string>\",\n  \"Errors\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Entity\": {\n    \"Id\": \"<string>\",\n    \"ExternalLeaseholderReference\": \"<string>\",\n    \"CompanyName\": \"<string>\",\n    \"Title\": \"<string>\",\n    \"FirstName\": \"<string>\",\n    \"Surname\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"ContactNumber\": \"<string>\",\n    \"ContactNumberAlt\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"EmailCC\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"UpdateDate\": \"<dateTime>\",\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"Address\": {\n      \"AddressLine1\": \"<string>\",\n      \"AddressLine2\": \"<string>\",\n      \"Town\": \"<string>\",\n      \"County\": \"<string>\",\n      \"PostCode\": \"<string>\",\n      \"Country\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-10-22T01:55:37.000Z",
+                  "updatedAt": "2026-10-22T01:55:37.000Z",
+                  "uid": "35240-6b873e58-32fd-4ba8-8ac1-df933102f940"
+                }
+              ],
+              "createdAt": "2026-10-22T01:55:37.000Z",
+              "updatedAt": "2026-10-22T01:55:37.000Z",
+              "uid": "35240-4f96f5b7-b55c-4621-8ff4-758c6efeb535"
+            }
+          ],
+          "id": "ac971047-7422-4da7-bb36-05ea34fd0bd7",
+          "createdAt": "2026-10-22T01:55:37.000Z",
+          "updatedAt": "2026-10-22T01:55:37.000Z",
+          "uid": "35240-ac971047-7422-4da7-bb36-05ea34fd0bd7"
+        },
+        {
+          "name": "Leaseholder property",
+          "id": "6b5ad02a-5720-4cd4-823a-6f39e8a2daa9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/LeaseholderProperty?LeaseholderPropertyId=<string>&LeaseholderId=<string>&PropertyId=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "LeaseholderProperty"
+              ],
+              "query": [
+                {
+                  "key": "LeaseholderPropertyId",
+                  "value": "<string>"
+                },
+                {
+                  "key": "LeaseholderId",
+                  "value": "<string>"
+                },
+                {
+                  "key": "PropertyId",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Either a LeaseholderPropertyId OR a LeaseholderId and PropertyId must be supplied."
+          },
+          "response": [
+            {
+              "id": "140594e0-94b4-4e05-85a7-2d28991779f4",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/LeaseholderProperty?LeaseholderPropertyId=<string>&LeaseholderId=<string>&PropertyId=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "LeaseholderProperty"
+                  ],
+                  "query": [
+                    {
+                      "key": "LeaseholderPropertyId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "LeaseholderId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "PropertyId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"Id\": \"<string>\",\n  \"LeaseholderId\": \"<string>\",\n  \"PropertyId\": \"<string>\",\n  \"DateFrom\": \"<dateTime>\",\n  \"DateTo\": \"<dateTime>\",\n  \"Address\": {\n    \"AddressLine1\": \"<string>\",\n    \"AddressLine2\": \"<string>\",\n    \"Town\": \"<string>\",\n    \"County\": \"<string>\",\n    \"PostCode\": \"<string>\",\n    \"Country\": \"<string>\"\n  },\n  \"BlockId\": \"<integer>\",\n  \"ExternalBlockRef\": \"<string>\",\n  \"UpdateDate\": \"<dateTime>\",\n  \"IsOccupier\": \"<boolean>\"\n}",
+              "createdAt": "2026-10-22T01:55:37.000Z",
+              "updatedAt": "2026-10-22T01:55:37.000Z",
+              "uid": "35240-140594e0-94b4-4e05-85a7-2d28991779f4"
+            }
+          ],
+          "createdAt": "2026-10-22T01:55:37.000Z",
+          "updatedAt": "2026-10-22T01:55:37.000Z",
+          "uid": "35240-6b5ad02a-5720-4cd4-823a-6f39e8a2daa9"
+        }
+      ],
+      "id": "0e36bf3c-3fd2-4a7f-b2b2-f3126de2a447",
+      "createdAt": "2026-10-22T01:55:37.000Z",
+      "updatedAt": "2026-10-22T01:55:37.000Z",
+      "uid": "35240-0e36bf3c-3fd2-4a7f-b2b2-f3126de2a447"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api-sandbox.fixflo.com/api/v2"
+    }
+  ]
+}

@@ -1,0 +1,445 @@
+{
+  "info": {
+    "_postman_id": "ee1dba37-0cdd-42d3-a05e-8a76c6451fef",
+    "name": "Fixflo Webhook API",
+    "description": "Fixflo api docs\n\nContact Support:\n Name: Support\n Email: support@fixflo.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:56:45.000Z",
+    "updatedAt": "2026-10-22T01:56:46.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ee1dba37-0cdd-42d3-a05e-8a76c6451fef"
+  },
+  "item": [
+    {
+      "name": "Webhooks",
+      "item": [
+        {
+          "name": "Webhooks",
+          "id": "d6e11295-9587-4848-ae3d-d654045f7dc0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/Webhooks",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Webhooks"
+              ]
+            },
+            "description": "Returns a list of webhooks which are set up for your agency"
+          },
+          "response": [
+            {
+              "id": "aef26402-953f-4f61-9635-292ce1eafeb3",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Webhooks",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Webhooks"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"id\": \"<string>\",\n    \"Url\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"Url\": \"<string>\"\n  }\n]",
+              "createdAt": "2026-10-22T01:56:46.000Z",
+              "updatedAt": "2026-10-22T01:56:46.000Z",
+              "uid": "35240-aef26402-953f-4f61-9635-292ce1eafeb3"
+            }
+          ],
+          "createdAt": "2026-10-22T01:56:46.000Z",
+          "updatedAt": "2026-10-22T01:56:46.000Z",
+          "uid": "35240-d6e11295-9587-4848-ae3d-d654045f7dc0"
+        }
+      ],
+      "id": "e8244fca-9418-40e2-af3e-516416033473",
+      "createdAt": "2026-10-22T01:56:46.000Z",
+      "updatedAt": "2026-10-22T01:56:46.000Z",
+      "uid": "35240-e8244fca-9418-40e2-af3e-516416033473"
+    },
+    {
+      "name": "Webhook",
+      "item": [
+        {
+          "name": "Activity",
+          "item": [
+            {
+              "name": "Webhooks",
+              "id": "f1cdaddc-c9e4-42ee-b556-40e466a2a9be",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Webhook/Activity?Id=<string>&FailedOnly=<boolean>&pg=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Webhook",
+                    "Activity"
+                  ],
+                  "query": [
+                    {
+                      "description": "The webhook id",
+                      "key": "Id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "set as true if you want only failed attempts to return",
+                      "key": "FailedOnly",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "pg",
+                      "value": "<integer>"
+                    }
+                  ]
+                },
+                "description": "Returns a paged list (20 per page) of activity from a specific webhook listed in reverse time order"
+              },
+              "response": [
+                {
+                  "id": "88cf94d2-c2f4-4e0e-9015-c57890dd5683",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Webhook/Activity?Id=<string>&FailedOnly=<boolean>&pg=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Webhook",
+                        "Activity"
+                      ],
+                      "query": [
+                        {
+                          "description": "The webhook id",
+                          "key": "Id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "set as true if you want only failed attempts to return",
+                          "key": "FailedOnly",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "key": "pg",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"TotalItems\": \"<integer>\",\n    \"TotalPages\": \"<integer>\",\n    \"Items\": [\n      {\n        \"id\": \"<string>\",\n        \"WebHookUrl\": \"<string>\",\n        \"SendTime\": \"<dateTime>\",\n        \"Failed\": \"<string>\",\n        \"FailureMessage\": \"<string>\",\n        \"ResponseStatus\": \"<string>\",\n        \"RequestBody\": \"<string>\",\n        \"ResponseBody\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"WebHookUrl\": \"<string>\",\n        \"SendTime\": \"<dateTime>\",\n        \"Failed\": \"<string>\",\n        \"FailureMessage\": \"<string>\",\n        \"ResponseStatus\": \"<string>\",\n        \"RequestBody\": \"<string>\",\n        \"ResponseBody\": \"<string>\"\n      }\n    ],\n    \"NextURL\": \"<string>\",\n    \"PreviousURL\": \"<string>\"\n  },\n  {\n    \"TotalItems\": \"<integer>\",\n    \"TotalPages\": \"<integer>\",\n    \"Items\": [\n      {\n        \"id\": \"<string>\",\n        \"WebHookUrl\": \"<string>\",\n        \"SendTime\": \"<dateTime>\",\n        \"Failed\": \"<string>\",\n        \"FailureMessage\": \"<string>\",\n        \"ResponseStatus\": \"<string>\",\n        \"RequestBody\": \"<string>\",\n        \"ResponseBody\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"WebHookUrl\": \"<string>\",\n        \"SendTime\": \"<dateTime>\",\n        \"Failed\": \"<string>\",\n        \"FailureMessage\": \"<string>\",\n        \"ResponseStatus\": \"<string>\",\n        \"RequestBody\": \"<string>\",\n        \"ResponseBody\": \"<string>\"\n      }\n    ],\n    \"NextURL\": \"<string>\",\n    \"PreviousURL\": \"<string>\"\n  }\n]",
+                  "createdAt": "2026-10-22T01:56:46.000Z",
+                  "updatedAt": "2026-10-22T01:56:46.000Z",
+                  "uid": "35240-88cf94d2-c2f4-4e0e-9015-c57890dd5683"
+                }
+              ],
+              "createdAt": "2026-10-22T01:56:46.000Z",
+              "updatedAt": "2026-10-22T01:56:46.000Z",
+              "uid": "35240-f1cdaddc-c9e4-42ee-b556-40e466a2a9be"
+            }
+          ],
+          "id": "0b074cc5-6ccc-476b-a36c-cc0c6b47ef83",
+          "createdAt": "2026-10-22T01:56:46.000Z",
+          "updatedAt": "2026-10-22T01:56:46.000Z",
+          "uid": "35240-0b074cc5-6ccc-476b-a36c-cc0c6b47ef83"
+        },
+        {
+          "name": "Subscribe",
+          "item": [
+            {
+              "name": "Webhook / subscribe",
+              "id": "3d7fba5b-8f17-4634-ad02-af554f6830a3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"TargetUrl\": \"<uri>\",\n  \"Event\": \"Job invoice updated\",\n  \"Events\": [\n    \"Job invoice updated\",\n    \"Property added\"\n  ],\n  \"Secret\": \"<string>\",\n  \"RemoveBody\": \"<boolean>\",\n  \"HttpMethod\": \"PUSH\",\n  \"EntityType\": \"Property\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Webhook/Subscribe",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Webhook",
+                    "Subscribe"
+                  ]
+                },
+                "description": "Create a new webhook for the agency"
+              },
+              "response": [
+                {
+                  "id": "fe2415ca-a5e7-41ce-827d-f986932811e0",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"TargetUrl\": \"<uri>\",\n  \"Event\": \"Job invoice updated\",\n  \"Events\": [\n    \"Job invoice updated\",\n    \"Property added\"\n  ],\n  \"Secret\": \"<string>\",\n  \"RemoveBody\": \"<boolean>\",\n  \"HttpMethod\": \"PUSH\",\n  \"EntityType\": \"Property\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/Webhook/Subscribe",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Webhook",
+                        "Subscribe"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T01:56:46.000Z",
+                  "updatedAt": "2026-10-22T01:56:46.000Z",
+                  "uid": "35240-fe2415ca-a5e7-41ce-827d-f986932811e0"
+                }
+              ],
+              "createdAt": "2026-10-22T01:56:46.000Z",
+              "updatedAt": "2026-10-22T01:56:46.000Z",
+              "uid": "35240-3d7fba5b-8f17-4634-ad02-af554f6830a3"
+            }
+          ],
+          "id": "ddc86c49-7ef8-4b15-b789-f11a00ed62b9",
+          "createdAt": "2026-10-22T01:56:46.000Z",
+          "updatedAt": "2026-10-22T01:56:46.000Z",
+          "uid": "35240-ddc86c49-7ef8-4b15-b789-f11a00ed62b9"
+        },
+        {
+          "name": "Unsubscribe",
+          "item": [
+            {
+              "name": "Webhook / unsubscribe",
+              "id": "432715c2-f0f8-45e6-8774-f28d9f56a649",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Webhook/Unsubscribe?id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Webhook",
+                    "Unsubscribe"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Unsubscribe webhook"
+              },
+              "response": [
+                {
+                  "id": "71b3dea9-10c6-4b12-ba83-abe422392886",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Webhook/Unsubscribe?id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Webhook",
+                        "Unsubscribe"
+                      ],
+                      "query": [
+                        {
+                          "key": "id",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-10-22T01:56:46.000Z",
+                  "updatedAt": "2026-10-22T01:56:46.000Z",
+                  "uid": "35240-71b3dea9-10c6-4b12-ba83-abe422392886"
+                }
+              ],
+              "createdAt": "2026-10-22T01:56:46.000Z",
+              "updatedAt": "2026-10-22T01:56:46.000Z",
+              "uid": "35240-432715c2-f0f8-45e6-8774-f28d9f56a649"
+            }
+          ],
+          "id": "2e29437d-ae66-42bf-8fa8-0afbed4c6fc6",
+          "createdAt": "2026-10-22T01:56:46.000Z",
+          "updatedAt": "2026-10-22T01:56:46.000Z",
+          "uid": "35240-2e29437d-ae66-42bf-8fa8-0afbed4c6fc6"
+        }
+      ],
+      "id": "b5fe5097-ac77-4f0c-9b6a-90a6fab39c77",
+      "createdAt": "2026-10-22T01:56:46.000Z",
+      "updatedAt": "2026-10-22T01:56:46.000Z",
+      "uid": "35240-b5fe5097-ac77-4f0c-9b6a-90a6fab39c77"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api-sandbox.fixflo.com/api/v2"
+    }
+  ]
+}

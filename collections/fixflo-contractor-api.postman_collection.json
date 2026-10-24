@@ -1,0 +1,621 @@
+{
+  "info": {
+    "_postman_id": "8e674396-39e8-44bb-bd6e-5ab5edc3eb38",
+    "name": "Fixflo Contractor API",
+    "description": "Fixflo api docs\n\nContact Support:\n Name: Support\n Email: support@fixflo.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:54:38.000Z",
+    "updatedAt": "2026-10-22T01:54:39.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-8e674396-39e8-44bb-bd6e-5ab5edc3eb38"
+  },
+  "item": [
+    {
+      "name": "Contractor",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Contractor",
+              "id": "edfe96ab-443d-4d3b-a2e5-dc1c828dbb92",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Id\": \"<string>\",\n  \"ExternalRef\": \"<string>\",\n  \"CompanyName\": \"<string>\",\n  \"Title\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"Surname\": \"<string>\",\n  \"DisplayName\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"ContactNumber\": \"<string>\",\n  \"ContactNumberAlt\": \"<string>\",\n  \"IsDeleted\": \"<boolean>\",\n  \"Address\": {\n    \"AddressLine1\": \"<string>\",\n    \"AddressLine2\": \"<string>\",\n    \"Town\": \"<string>\",\n    \"County\": \"<string>\",\n    \"PostCode\": \"<string>\",\n    \"Country\": \"<string>\"\n  },\n  \"InvoiceDetails\": {\n    \"InvoiceDate\": \"<dateTime>\",\n    \"DueDate\": \"<dateTime>\",\n    \"InvoiceNumber\": \"<string>\",\n    \"LineItems\": [\n      {\n        \"LineType\": 2,\n        \"Description\": \"<string>\",\n        \"Quantity\": \"<number>\",\n        \"UnitPrice\": \"<number>\",\n        \"Net\": \"<number>\",\n        \"Tax\": \"<number>\",\n        \"Total\": \"<number>\"\n      },\n      {\n        \"LineType\": 2,\n        \"Description\": \"<string>\",\n        \"Quantity\": \"<number>\",\n        \"UnitPrice\": \"<number>\",\n        \"Net\": \"<number>\",\n        \"Tax\": \"<number>\",\n        \"Total\": \"<number>\"\n      }\n    ]\n  },\n  \"Services\": [\n    {\n      \"id\": \"<integer>\",\n      \"Name\": \"<string>\",\n      \"NameAndSynonyms\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"id\": \"<integer>\",\n      \"Name\": \"<string>\",\n      \"NameAndSynonyms\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"Certifications\": [\n    {\n      \"id\": \"<number>\",\n      \"Name\": \"<string>\",\n      \"Expiry\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<number>\",\n      \"Name\": \"<string>\",\n      \"Expiry\": \"<dateTime>\"\n    }\n  ],\n  \"Brand\": {\n    \"Id\": \"<uuid>\",\n    \"Name\": \"<string>\"\n  },\n  \"UpdateDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Contractor/:id?EmailAddress=<string>&ExternalRef=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Contractor",
+                    ":id"
+                  ],
+                  "query": [
+                    {
+                      "key": "EmailAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ExternalRef",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "fd693fd4-8cdd-4254-af9c-719c82dc7569",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Gets contractor"
+              },
+              "response": [
+                {
+                  "id": "66bd6f4a-53cc-4b81-a2da-34b8ad125dac",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"Id\": \"<string>\",\n  \"ExternalRef\": \"<string>\",\n  \"CompanyName\": \"<string>\",\n  \"Title\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"Surname\": \"<string>\",\n  \"DisplayName\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"ContactNumber\": \"<string>\",\n  \"ContactNumberAlt\": \"<string>\",\n  \"IsDeleted\": \"<boolean>\",\n  \"Address\": {\n    \"AddressLine1\": \"<string>\",\n    \"AddressLine2\": \"<string>\",\n    \"Town\": \"<string>\",\n    \"County\": \"<string>\",\n    \"PostCode\": \"<string>\",\n    \"Country\": \"<string>\"\n  },\n  \"InvoiceDetails\": {\n    \"InvoiceDate\": \"<dateTime>\",\n    \"DueDate\": \"<dateTime>\",\n    \"InvoiceNumber\": \"<string>\",\n    \"LineItems\": [\n      {\n        \"LineType\": 2,\n        \"Description\": \"<string>\",\n        \"Quantity\": \"<number>\",\n        \"UnitPrice\": \"<number>\",\n        \"Net\": \"<number>\",\n        \"Tax\": \"<number>\",\n        \"Total\": \"<number>\"\n      },\n      {\n        \"LineType\": 2,\n        \"Description\": \"<string>\",\n        \"Quantity\": \"<number>\",\n        \"UnitPrice\": \"<number>\",\n        \"Net\": \"<number>\",\n        \"Tax\": \"<number>\",\n        \"Total\": \"<number>\"\n      }\n    ]\n  },\n  \"Services\": [\n    {\n      \"id\": \"<integer>\",\n      \"Name\": \"<string>\",\n      \"NameAndSynonyms\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"id\": \"<integer>\",\n      \"Name\": \"<string>\",\n      \"NameAndSynonyms\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"Certifications\": [\n    {\n      \"id\": \"<number>\",\n      \"Name\": \"<string>\",\n      \"Expiry\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<number>\",\n      \"Name\": \"<string>\",\n      \"Expiry\": \"<dateTime>\"\n    }\n  ],\n  \"Brand\": {\n    \"Id\": \"<uuid>\",\n    \"Name\": \"<string>\"\n  },\n  \"UpdateDate\": \"<dateTime>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/Contractor/:id?EmailAddress=<string>&ExternalRef=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Contractor",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "key": "EmailAddress",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "ExternalRef",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Id\": \"<string>\",\n  \"ExternalRef\": \"<string>\",\n  \"CompanyName\": \"<string>\",\n  \"Title\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"Surname\": \"<string>\",\n  \"DisplayName\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"ContactNumber\": \"<string>\",\n  \"ContactNumberAlt\": \"<string>\",\n  \"IsDeleted\": \"<boolean>\",\n  \"Address\": {\n    \"AddressLine1\": \"<string>\",\n    \"AddressLine2\": \"<string>\",\n    \"Town\": \"<string>\",\n    \"County\": \"<string>\",\n    \"PostCode\": \"<string>\",\n    \"Country\": \"<string>\"\n  },\n  \"InvoiceDetails\": {\n    \"InvoiceDate\": \"<dateTime>\",\n    \"DueDate\": \"<dateTime>\",\n    \"InvoiceNumber\": \"<string>\",\n    \"LineItems\": [\n      {\n        \"LineType\": 2,\n        \"Description\": \"<string>\",\n        \"Quantity\": \"<number>\",\n        \"UnitPrice\": \"<number>\",\n        \"Net\": \"<number>\",\n        \"Tax\": \"<number>\",\n        \"Total\": \"<number>\"\n      },\n      {\n        \"LineType\": 2,\n        \"Description\": \"<string>\",\n        \"Quantity\": \"<number>\",\n        \"UnitPrice\": \"<number>\",\n        \"Net\": \"<number>\",\n        \"Tax\": \"<number>\",\n        \"Total\": \"<number>\"\n      }\n    ]\n  },\n  \"Services\": [\n    {\n      \"id\": \"<integer>\",\n      \"Name\": \"<string>\",\n      \"NameAndSynonyms\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"id\": \"<integer>\",\n      \"Name\": \"<string>\",\n      \"NameAndSynonyms\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"Certifications\": [\n    {\n      \"id\": \"<number>\",\n      \"Name\": \"<string>\",\n      \"Expiry\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<number>\",\n      \"Name\": \"<string>\",\n      \"Expiry\": \"<dateTime>\"\n    }\n  ],\n  \"Brand\": {\n    \"Id\": \"<uuid>\",\n    \"Name\": \"<string>\"\n  },\n  \"UpdateDate\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-10-22T01:54:39.000Z",
+                  "updatedAt": "2026-10-22T01:54:39.000Z",
+                  "uid": "35240-66bd6f4a-53cc-4b81-a2da-34b8ad125dac"
+                }
+              ],
+              "createdAt": "2026-10-22T01:54:39.000Z",
+              "updatedAt": "2026-10-22T01:54:39.000Z",
+              "uid": "35240-edfe96ab-443d-4d3b-a2e5-dc1c828dbb92"
+            }
+          ],
+          "id": "f858a843-ae95-4c28-ac46-c12198b80de3",
+          "createdAt": "2026-10-22T01:54:39.000Z",
+          "updatedAt": "2026-10-22T01:54:39.000Z",
+          "uid": "35240-f858a843-ae95-4c28-ac46-c12198b80de3"
+        },
+        {
+          "name": "{Id}",
+          "item": [
+            {
+              "name": "Brand",
+              "item": [
+                {
+                  "name": "Contractor brand",
+                  "id": "eec6e907-abdf-40b1-b858-a8106b121c01",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"HttpStatusCode\": \"<integer>\",\n  \"HttpStatusCodeDesc\": \"<string>\",\n  \"Errors\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Entity\": {\n    \"Id\": \"<uuid>\",\n    \"Name\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/Contractor/:Id/Brand",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Contractor",
+                        ":Id",
+                        "Brand"
+                      ],
+                      "variable": [
+                        {
+                          "id": "69d1e695-4616-40b5-abac-4b061c8f1e79",
+                          "key": "Id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "This endpoint sets the contractor brand."
+                  },
+                  "response": [
+                    {
+                      "id": "36f3d72c-ef18-4fae-b217-cb96e34813f4",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"HttpStatusCode\": \"<integer>\",\n  \"HttpStatusCodeDesc\": \"<string>\",\n  \"Errors\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Entity\": {\n    \"Id\": \"<uuid>\",\n    \"Name\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/Contractor/:Id/Brand",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Contractor",
+                            ":Id",
+                            "Brand"
+                          ],
+                          "variable": [
+                            {
+                              "key": "Id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"HttpStatusCode\": \"<integer>\",\n  \"HttpStatusCodeDesc\": \"<string>\",\n  \"Errors\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Messages\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-10-22T01:54:39.000Z",
+                      "updatedAt": "2026-10-22T01:54:39.000Z",
+                      "uid": "35240-36f3d72c-ef18-4fae-b217-cb96e34813f4"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:54:39.000Z",
+                  "updatedAt": "2026-10-22T01:54:39.000Z",
+                  "uid": "35240-eec6e907-abdf-40b1-b858-a8106b121c01"
+                }
+              ],
+              "id": "93f21546-23b4-4bb0-8810-3c382849adb2",
+              "createdAt": "2026-10-22T01:54:39.000Z",
+              "updatedAt": "2026-10-22T01:54:39.000Z",
+              "uid": "35240-93f21546-23b4-4bb0-8810-3c382849adb2"
+            }
+          ],
+          "id": "5c37ae47-78fb-4c5a-9b1e-e9a4d3d6d977",
+          "createdAt": "2026-10-22T01:54:39.000Z",
+          "updatedAt": "2026-10-22T01:54:39.000Z",
+          "uid": "35240-5c37ae47-78fb-4c5a-9b1e-e9a4d3d6d977"
+        },
+        {
+          "name": "Services",
+          "item": [
+            {
+              "name": "Contractor / services",
+              "id": "6458a981-6f69-4789-9cae-69670608b768",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Contractor/Services",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Contractor",
+                    "Services"
+                  ]
+                },
+                "description": "Get the list of contractor services. There are no paramters for this request"
+              },
+              "response": [
+                {
+                  "id": "c3078518-4986-43f7-935f-20b8fc4a4bbe",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Contractor/Services",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Contractor",
+                        "Services"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"id\": \"<integer>\",\n    \"Name\": \"<string>\",\n    \"NameAndSynonyms\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  {\n    \"id\": \"<integer>\",\n    \"Name\": \"<string>\",\n    \"NameAndSynonyms\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n]",
+                  "createdAt": "2026-10-22T01:54:39.000Z",
+                  "updatedAt": "2026-10-22T01:54:39.000Z",
+                  "uid": "35240-c3078518-4986-43f7-935f-20b8fc4a4bbe"
+                }
+              ],
+              "createdAt": "2026-10-22T01:54:39.000Z",
+              "updatedAt": "2026-10-22T01:54:39.000Z",
+              "uid": "35240-6458a981-6f69-4789-9cae-69670608b768"
+            }
+          ],
+          "id": "6a3889ac-58ac-40e1-a47e-8a9eb7add5b9",
+          "createdAt": "2026-10-22T01:54:39.000Z",
+          "updatedAt": "2026-10-22T01:54:39.000Z",
+          "uid": "35240-6a3889ac-58ac-40e1-a47e-8a9eb7add5b9"
+        },
+        {
+          "name": "Contractor",
+          "id": "a5db91a0-c495-4611-b24d-5fda248025e3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Id\": \"<string>\",\n  \"ExternalRef\": \"<string>\",\n  \"CompanyName\": \"<string>\",\n  \"Title\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"Surname\": \"<string>\",\n  \"DisplayName\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"ContactNumber\": \"<string>\",\n  \"ContactNumberAlt\": \"<string>\",\n  \"IsDeleted\": \"<boolean>\",\n  \"Address\": {\n    \"AddressLine1\": \"<string>\",\n    \"AddressLine2\": \"<string>\",\n    \"Town\": \"<string>\",\n    \"County\": \"<string>\",\n    \"PostCode\": \"<string>\",\n    \"Country\": \"<string>\"\n  },\n  \"InvoiceDetails\": {\n    \"InvoiceDate\": \"<dateTime>\",\n    \"DueDate\": \"<dateTime>\",\n    \"InvoiceNumber\": \"<string>\",\n    \"LineItems\": [\n      {\n        \"LineType\": 2,\n        \"Description\": \"<string>\",\n        \"Quantity\": \"<number>\",\n        \"UnitPrice\": \"<number>\",\n        \"Net\": \"<number>\",\n        \"Tax\": \"<number>\",\n        \"Total\": \"<number>\"\n      },\n      {\n        \"LineType\": 2,\n        \"Description\": \"<string>\",\n        \"Quantity\": \"<number>\",\n        \"UnitPrice\": \"<number>\",\n        \"Net\": \"<number>\",\n        \"Tax\": \"<number>\",\n        \"Total\": \"<number>\"\n      }\n    ]\n  },\n  \"Services\": [\n    {\n      \"id\": \"<integer>\",\n      \"Name\": \"<string>\",\n      \"NameAndSynonyms\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"id\": \"<integer>\",\n      \"Name\": \"<string>\",\n      \"NameAndSynonyms\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"Certifications\": [\n    {\n      \"id\": \"<number>\",\n      \"Name\": \"<string>\",\n      \"Expiry\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<number>\",\n      \"Name\": \"<string>\",\n      \"Expiry\": \"<dateTime>\"\n    }\n  ],\n  \"Brand\": {\n    \"Id\": \"<uuid>\",\n    \"Name\": \"<string>\"\n  },\n  \"UpdateDate\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/Contractor",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Contractor"
+              ]
+            },
+            "description": "Creates or updates a contractor.\n\nIf the Id of the contractor object is null or empty an attempt to create a new record will be attempted.\n\nIf the Id of the contractor object is not null or empty it must match an exiting contractor."
+          },
+          "response": [
+            {
+              "id": "49fc4a81-e557-4fdf-8511-f86860551894",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Id\": \"<string>\",\n  \"ExternalRef\": \"<string>\",\n  \"CompanyName\": \"<string>\",\n  \"Title\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"Surname\": \"<string>\",\n  \"DisplayName\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"ContactNumber\": \"<string>\",\n  \"ContactNumberAlt\": \"<string>\",\n  \"IsDeleted\": \"<boolean>\",\n  \"Address\": {\n    \"AddressLine1\": \"<string>\",\n    \"AddressLine2\": \"<string>\",\n    \"Town\": \"<string>\",\n    \"County\": \"<string>\",\n    \"PostCode\": \"<string>\",\n    \"Country\": \"<string>\"\n  },\n  \"InvoiceDetails\": {\n    \"InvoiceDate\": \"<dateTime>\",\n    \"DueDate\": \"<dateTime>\",\n    \"InvoiceNumber\": \"<string>\",\n    \"LineItems\": [\n      {\n        \"LineType\": 2,\n        \"Description\": \"<string>\",\n        \"Quantity\": \"<number>\",\n        \"UnitPrice\": \"<number>\",\n        \"Net\": \"<number>\",\n        \"Tax\": \"<number>\",\n        \"Total\": \"<number>\"\n      },\n      {\n        \"LineType\": 2,\n        \"Description\": \"<string>\",\n        \"Quantity\": \"<number>\",\n        \"UnitPrice\": \"<number>\",\n        \"Net\": \"<number>\",\n        \"Tax\": \"<number>\",\n        \"Total\": \"<number>\"\n      }\n    ]\n  },\n  \"Services\": [\n    {\n      \"id\": \"<integer>\",\n      \"Name\": \"<string>\",\n      \"NameAndSynonyms\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"id\": \"<integer>\",\n      \"Name\": \"<string>\",\n      \"NameAndSynonyms\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"Certifications\": [\n    {\n      \"id\": \"<number>\",\n      \"Name\": \"<string>\",\n      \"Expiry\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<number>\",\n      \"Name\": \"<string>\",\n      \"Expiry\": \"<dateTime>\"\n    }\n  ],\n  \"Brand\": {\n    \"Id\": \"<uuid>\",\n    \"Name\": \"<string>\"\n  },\n  \"UpdateDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Contractor",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Contractor"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"HttpStatusCode\": \"<integer>\",\n  \"HttpStatusCodeDesc\": \"<string>\",\n  \"Errors\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Entity\": {\n    \"Id\": \"<string>\",\n    \"ExternalRef\": \"<string>\",\n    \"CompanyName\": \"<string>\",\n    \"Title\": \"<string>\",\n    \"FirstName\": \"<string>\",\n    \"Surname\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"ContactNumber\": \"<string>\",\n    \"ContactNumberAlt\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Address\": {\n      \"AddressLine1\": \"<string>\",\n      \"AddressLine2\": \"<string>\",\n      \"Town\": \"<string>\",\n      \"County\": \"<string>\",\n      \"PostCode\": \"<string>\",\n      \"Country\": \"<string>\"\n    },\n    \"InvoiceDetails\": {\n      \"InvoiceDate\": \"<dateTime>\",\n      \"DueDate\": \"<dateTime>\",\n      \"InvoiceNumber\": \"<string>\",\n      \"LineItems\": [\n        {\n          \"LineType\": 0,\n          \"Description\": \"<string>\",\n          \"Quantity\": \"<number>\",\n          \"UnitPrice\": \"<number>\",\n          \"Net\": \"<number>\",\n          \"Tax\": \"<number>\",\n          \"Total\": \"<number>\"\n        },\n        {\n          \"LineType\": 1,\n          \"Description\": \"<string>\",\n          \"Quantity\": \"<number>\",\n          \"UnitPrice\": \"<number>\",\n          \"Net\": \"<number>\",\n          \"Tax\": \"<number>\",\n          \"Total\": \"<number>\"\n        }\n      ]\n    },\n    \"Services\": [\n      {\n        \"id\": \"<integer>\",\n        \"Name\": \"<string>\",\n        \"NameAndSynonyms\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"id\": \"<integer>\",\n        \"Name\": \"<string>\",\n        \"NameAndSynonyms\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"Certifications\": [\n      {\n        \"id\": \"<number>\",\n        \"Name\": \"<string>\",\n        \"Expiry\": \"<dateTime>\"\n      },\n      {\n        \"id\": \"<number>\",\n        \"Name\": \"<string>\",\n        \"Expiry\": \"<dateTime>\"\n      }\n    ],\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  }\n}",
+              "createdAt": "2026-10-22T01:54:39.000Z",
+              "updatedAt": "2026-10-22T01:54:39.000Z",
+              "uid": "35240-49fc4a81-e557-4fdf-8511-f86860551894"
+            }
+          ],
+          "createdAt": "2026-10-22T01:54:39.000Z",
+          "updatedAt": "2026-10-22T01:54:39.000Z",
+          "uid": "35240-a5db91a0-c495-4611-b24d-5fda248025e3"
+        }
+      ],
+      "id": "e9d29c14-519d-4cf3-9099-1260ddb4a0ff",
+      "createdAt": "2026-10-22T01:54:39.000Z",
+      "updatedAt": "2026-10-22T01:54:39.000Z",
+      "uid": "35240-e9d29c14-519d-4cf3-9099-1260ddb4a0ff"
+    },
+    {
+      "name": "Contractors",
+      "item": [
+        {
+          "name": "Contractors",
+          "id": "007d7ad3-bb2a-4dfa-a321-b35b68d73ca0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/Contractors?UpdatedSince=<string>&Keyword=<string>&Pg=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Contractors"
+              ],
+              "query": [
+                {
+                  "description": "Filters on items that have been updated since this date time. (UTC date/time)",
+                  "key": "UpdatedSince",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Keyword to search with",
+                  "key": "Keyword",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Page number to return",
+                  "key": "Pg",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Find contractors"
+          },
+          "response": [
+            {
+              "id": "bf4323cc-3fca-4136-9a13-1e60ec41d118",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Contractors?UpdatedSince=<string>&Keyword=<string>&Pg=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Contractors"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filters on items that have been updated since this date time. (UTC date/time)",
+                      "key": "UpdatedSince",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Keyword to search with",
+                      "key": "Keyword",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Page number to return",
+                      "key": "Pg",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"TotalItems\": \"<integer>\",\n  \"TotalPages\": \"<integer>\",\n  \"Items\": [\n    {\n      \"Id\": \"<string>\",\n      \"ExternalRef\": \"<string>\",\n      \"CompanyName\": \"<string>\",\n      \"Title\": \"<string>\",\n      \"FirstName\": \"<string>\",\n      \"Surname\": \"<string>\",\n      \"DisplayName\": \"<string>\",\n      \"EmailAddress\": \"<string>\",\n      \"ContactNumber\": \"<string>\",\n      \"ContactNumberAlt\": \"<string>\",\n      \"IsDeleted\": \"<boolean>\",\n      \"Address\": {\n        \"AddressLine1\": \"<string>\",\n        \"AddressLine2\": \"<string>\",\n        \"Town\": \"<string>\",\n        \"County\": \"<string>\",\n        \"PostCode\": \"<string>\",\n        \"Country\": \"<string>\"\n      },\n      \"InvoiceDetails\": {\n        \"InvoiceDate\": \"<dateTime>\",\n        \"DueDate\": \"<dateTime>\",\n        \"InvoiceNumber\": \"<string>\",\n        \"LineItems\": [\n          {\n            \"LineType\": 2,\n            \"Description\": \"<string>\",\n            \"Quantity\": \"<number>\",\n            \"UnitPrice\": \"<number>\",\n            \"Net\": \"<number>\",\n            \"Tax\": \"<number>\",\n            \"Total\": \"<number>\"\n          },\n          {\n            \"LineType\": 2,\n            \"Description\": \"<string>\",\n            \"Quantity\": \"<number>\",\n            \"UnitPrice\": \"<number>\",\n            \"Net\": \"<number>\",\n            \"Tax\": \"<number>\",\n            \"Total\": \"<number>\"\n          }\n        ]\n      },\n      \"Services\": [\n        {\n          \"id\": \"<integer>\",\n          \"Name\": \"<string>\",\n          \"NameAndSynonyms\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"id\": \"<integer>\",\n          \"Name\": \"<string>\",\n          \"NameAndSynonyms\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ],\n      \"Certifications\": [\n        {\n          \"id\": \"<number>\",\n          \"Name\": \"<string>\",\n          \"Expiry\": \"<dateTime>\"\n        },\n        {\n          \"id\": \"<number>\",\n          \"Name\": \"<string>\",\n          \"Expiry\": \"<dateTime>\"\n        }\n      ],\n      \"Brand\": {\n        \"Id\": \"<uuid>\",\n        \"Name\": \"<string>\"\n      },\n      \"UpdateDate\": \"<dateTime>\"\n    },\n    {\n      \"Id\": \"<string>\",\n      \"ExternalRef\": \"<string>\",\n      \"CompanyName\": \"<string>\",\n      \"Title\": \"<string>\",\n      \"FirstName\": \"<string>\",\n      \"Surname\": \"<string>\",\n      \"DisplayName\": \"<string>\",\n      \"EmailAddress\": \"<string>\",\n      \"ContactNumber\": \"<string>\",\n      \"ContactNumberAlt\": \"<string>\",\n      \"IsDeleted\": \"<boolean>\",\n      \"Address\": {\n        \"AddressLine1\": \"<string>\",\n        \"AddressLine2\": \"<string>\",\n        \"Town\": \"<string>\",\n        \"County\": \"<string>\",\n        \"PostCode\": \"<string>\",\n        \"Country\": \"<string>\"\n      },\n      \"InvoiceDetails\": {\n        \"InvoiceDate\": \"<dateTime>\",\n        \"DueDate\": \"<dateTime>\",\n        \"InvoiceNumber\": \"<string>\",\n        \"LineItems\": [\n          {\n            \"LineType\": 0,\n            \"Description\": \"<string>\",\n            \"Quantity\": \"<number>\",\n            \"UnitPrice\": \"<number>\",\n            \"Net\": \"<number>\",\n            \"Tax\": \"<number>\",\n            \"Total\": \"<number>\"\n          },\n          {\n            \"LineType\": 2,\n            \"Description\": \"<string>\",\n            \"Quantity\": \"<number>\",\n            \"UnitPrice\": \"<number>\",\n            \"Net\": \"<number>\",\n            \"Tax\": \"<number>\",\n            \"Total\": \"<number>\"\n          }\n        ]\n      },\n      \"Services\": [\n        {\n          \"id\": \"<integer>\",\n          \"Name\": \"<string>\",\n          \"NameAndSynonyms\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"id\": \"<integer>\",\n          \"Name\": \"<string>\",\n          \"NameAndSynonyms\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ],\n      \"Certifications\": [\n        {\n          \"id\": \"<number>\",\n          \"Name\": \"<string>\",\n          \"Expiry\": \"<dateTime>\"\n        },\n        {\n          \"id\": \"<number>\",\n          \"Name\": \"<string>\",\n          \"Expiry\": \"<dateTime>\"\n        }\n      ],\n      \"Brand\": {\n        \"Id\": \"<uuid>\",\n        \"Name\": \"<string>\"\n      },\n      \"UpdateDate\": \"<dateTime>\"\n    }\n  ],\n  \"NextURL\": \"<string>\",\n  \"PreviousURL\": \"<string>\"\n}",
+              "createdAt": "2026-10-22T01:54:39.000Z",
+              "updatedAt": "2026-10-22T01:54:39.000Z",
+              "uid": "35240-bf4323cc-3fca-4136-9a13-1e60ec41d118"
+            }
+          ],
+          "createdAt": "2026-10-22T01:54:39.000Z",
+          "updatedAt": "2026-10-22T01:54:39.000Z",
+          "uid": "35240-007d7ad3-bb2a-4dfa-a321-b35b68d73ca0"
+        }
+      ],
+      "id": "462aa22d-7117-4d8b-b748-c5ffb7e99373",
+      "createdAt": "2026-10-22T01:54:39.000Z",
+      "updatedAt": "2026-10-22T01:54:39.000Z",
+      "uid": "35240-462aa22d-7117-4d8b-b748-c5ffb7e99373"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api-sandbox.fixflo.com/api/v2"
+    }
+  ]
+}

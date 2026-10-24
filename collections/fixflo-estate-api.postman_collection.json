@@ -1,0 +1,365 @@
+{
+  "info": {
+    "_postman_id": "7effd0de-b994-47bb-9e3f-d9debcc69457",
+    "name": "Fixflo Estate API",
+    "description": "Fixflo api docs\n\nContact Support:\n Name: Support\n Email: support@fixflo.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:54:58.000Z",
+    "updatedAt": "2026-10-22T01:54:58.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7effd0de-b994-47bb-9e3f-d9debcc69457"
+  },
+  "item": [
+    {
+      "name": "Estate",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Estate",
+              "id": "5acb21ab-286c-4168-ad18-9dd7b2729719",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Estate/:id?ExternalEstateRef=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Estate",
+                    ":id"
+                  ],
+                  "query": [
+                    {
+                      "key": "ExternalEstateRef",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "a27676bb-d6ad-458d-be03-97601b19ae5d",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Gets an estate by id or external reference (your ref)"
+              },
+              "response": [
+                {
+                  "id": "70464f1b-28d1-4399-901f-8013c5601a62",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Estate/:id?ExternalEstateRef=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Estate",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "key": "ExternalEstateRef",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<integer>\",\n  \"Name\": \"<string>\",\n  \"ExternalEstateRef\": \"<string>\",\n  \"AssignedAgent\": {\n    \"Id\": \"<long>\",\n    \"ExternalRef\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"ContactNo\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  },\n  \"IsDeleted\": \"<boolean>\",\n  \"UpdateDate\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-10-22T01:54:59.000Z",
+                  "updatedAt": "2026-10-22T01:54:59.000Z",
+                  "uid": "35240-70464f1b-28d1-4399-901f-8013c5601a62"
+                }
+              ],
+              "createdAt": "2026-10-22T01:54:59.000Z",
+              "updatedAt": "2026-10-22T01:54:59.000Z",
+              "uid": "35240-5acb21ab-286c-4168-ad18-9dd7b2729719"
+            }
+          ],
+          "id": "47046486-5f9b-4f5f-8a41-9a1aab321aac",
+          "createdAt": "2026-10-22T01:54:59.000Z",
+          "updatedAt": "2026-10-22T01:54:59.000Z",
+          "uid": "35240-47046486-5f9b-4f5f-8a41-9a1aab321aac"
+        },
+        {
+          "name": "Estate",
+          "id": "a3fbbe2c-408e-4af3-b0af-c28e0b9b3f0b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<integer>\",\n  \"Name\": \"<string>\",\n  \"ExternalEstateRef\": \"<string>\",\n  \"AssignedAgent\": {\n    \"Id\": \"<long>\",\n    \"ExternalRef\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"ContactNo\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  },\n  \"IsDeleted\": \"<boolean>\",\n  \"UpdateDate\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/Estate",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Estate"
+              ]
+            },
+            "description": "Create or update an estate"
+          },
+          "response": [
+            {
+              "id": "ced4f1a8-97f6-4f5f-bb2f-79702810b19c",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"Name\": \"<string>\",\n  \"ExternalEstateRef\": \"<string>\",\n  \"AssignedAgent\": {\n    \"Id\": \"<long>\",\n    \"ExternalRef\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"ContactNo\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  },\n  \"IsDeleted\": \"<boolean>\",\n  \"UpdateDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Estate",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Estate"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"HttpStatusCode\": \"<integer>\",\n  \"HttpStatusCodeDesc\": \"<string>\",\n  \"Errors\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Entity\": {\n    \"id\": \"<integer>\",\n    \"Name\": \"<string>\",\n    \"ExternalEstateRef\": \"<string>\",\n    \"AssignedAgent\": {\n      \"Id\": \"<long>\",\n      \"ExternalRef\": \"<string>\",\n      \"EmailAddress\": \"<string>\",\n      \"DisplayName\": \"<string>\",\n      \"ContactNo\": \"<string>\",\n      \"IsDeleted\": \"<boolean>\",\n      \"Brand\": {\n        \"Id\": \"<uuid>\",\n        \"Name\": \"<string>\"\n      },\n      \"UpdateDate\": \"<dateTime>\"\n    },\n    \"IsDeleted\": \"<boolean>\",\n    \"UpdateDate\": \"<dateTime>\"\n  }\n}",
+              "createdAt": "2026-10-22T01:54:59.000Z",
+              "updatedAt": "2026-10-22T01:54:59.000Z",
+              "uid": "35240-ced4f1a8-97f6-4f5f-bb2f-79702810b19c"
+            }
+          ],
+          "createdAt": "2026-10-22T01:54:59.000Z",
+          "updatedAt": "2026-10-22T01:54:59.000Z",
+          "uid": "35240-a3fbbe2c-408e-4af3-b0af-c28e0b9b3f0b"
+        }
+      ],
+      "id": "e656d074-90a6-45d6-9d8d-3c896abcda11",
+      "createdAt": "2026-10-22T01:54:59.000Z",
+      "updatedAt": "2026-10-22T01:54:59.000Z",
+      "uid": "35240-e656d074-90a6-45d6-9d8d-3c896abcda11"
+    },
+    {
+      "name": "Estates",
+      "item": [
+        {
+          "name": "Estates",
+          "id": "7a537550-80dc-4d5a-a8a0-cdd91f98cd6e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/Estates?Keyword=<string>&UpdatedSince=<dateTime>&Pg=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Estates"
+              ],
+              "query": [
+                {
+                  "description": "Keyword to search with",
+                  "key": "Keyword",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filters on items that have been updated since this date time. (UTC date/time)",
+                  "key": "UpdatedSince",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "pg",
+                  "key": "Pg",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Find estates by keyword or other parameters"
+          },
+          "response": [
+            {
+              "id": "40266f99-a4af-4e83-a3ae-53c2603736df",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Estates?Keyword=<string>&UpdatedSince=<dateTime>&Pg=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Estates"
+                  ],
+                  "query": [
+                    {
+                      "description": "Keyword to search with",
+                      "key": "Keyword",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters on items that have been updated since this date time. (UTC date/time)",
+                      "key": "UpdatedSince",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "pg",
+                      "key": "Pg",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"TotalItems\": \"<integer>\",\n  \"TotalPages\": \"<integer>\",\n  \"Items\": [\n    {\n      \"id\": \"<integer>\",\n      \"Name\": \"<string>\",\n      \"ExternalEstateRef\": \"<string>\",\n      \"AssignedAgent\": {\n        \"Id\": \"<long>\",\n        \"ExternalRef\": \"<string>\",\n        \"EmailAddress\": \"<string>\",\n        \"DisplayName\": \"<string>\",\n        \"ContactNo\": \"<string>\",\n        \"IsDeleted\": \"<boolean>\",\n        \"Brand\": {\n          \"Id\": \"<uuid>\",\n          \"Name\": \"<string>\"\n        },\n        \"UpdateDate\": \"<dateTime>\"\n      },\n      \"IsDeleted\": \"<boolean>\",\n      \"UpdateDate\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"Name\": \"<string>\",\n      \"ExternalEstateRef\": \"<string>\",\n      \"AssignedAgent\": {\n        \"Id\": \"<long>\",\n        \"ExternalRef\": \"<string>\",\n        \"EmailAddress\": \"<string>\",\n        \"DisplayName\": \"<string>\",\n        \"ContactNo\": \"<string>\",\n        \"IsDeleted\": \"<boolean>\",\n        \"Brand\": {\n          \"Id\": \"<uuid>\",\n          \"Name\": \"<string>\"\n        },\n        \"UpdateDate\": \"<dateTime>\"\n      },\n      \"IsDeleted\": \"<boolean>\",\n      \"UpdateDate\": \"<dateTime>\"\n    }\n  ],\n  \"NextURL\": \"<string>\",\n  \"PreviousURL\": \"<string>\"\n}",
+              "createdAt": "2026-10-22T01:54:59.000Z",
+              "updatedAt": "2026-10-22T01:54:59.000Z",
+              "uid": "35240-40266f99-a4af-4e83-a3ae-53c2603736df"
+            }
+          ],
+          "createdAt": "2026-10-22T01:54:59.000Z",
+          "updatedAt": "2026-10-22T01:54:59.000Z",
+          "uid": "35240-7a537550-80dc-4d5a-a8a0-cdd91f98cd6e"
+        }
+      ],
+      "id": "eaabc244-33ce-4830-8aad-0dfcd10d0d25",
+      "createdAt": "2026-10-22T01:54:59.000Z",
+      "updatedAt": "2026-10-22T01:54:59.000Z",
+      "uid": "35240-eaabc244-33ce-4830-8aad-0dfcd10d0d25"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api-sandbox.fixflo.com/api/v2"
+    }
+  ]
+}

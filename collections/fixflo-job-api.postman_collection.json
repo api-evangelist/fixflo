@@ -1,0 +1,136 @@
+{
+  "info": {
+    "_postman_id": "dc7ca22b-2da2-4f03-a5f0-dcb591a62325",
+    "name": "Fixflo Job API",
+    "description": "Fixflo api docs\n\nContact Support:\n Name: Support\n Email: support@fixflo.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:55:26.000Z",
+    "updatedAt": "2026-10-22T01:55:26.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-dc7ca22b-2da2-4f03-a5f0-dcb591a62325"
+  },
+  "item": [
+    {
+      "name": "Job",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Job",
+              "id": "68aa2618-241f-466c-8dc7-60bafd4982ee",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Job/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Job",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "41631b1b-155b-4bb3-ae85-a4800746e350",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) Job id"
+                    }
+                  ]
+                },
+                "description": "Gets a Job object"
+              },
+              "response": [
+                {
+                  "id": "bd23203e-3a86-442a-8e58-7efe041b26c7",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Job/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Job",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"IssueId\": \"<string>\",\n  \"TenantNotes\": \"<string>\",\n  \"JobberNotes\": \"<string>\",\n  \"StartDate\": \"<dateTime>\",\n  \"ExternalRefJob\": \"<string>\",\n  \"PriceAgencyPayableGross\": \"<number>\",\n  \"PriceAgencyPayableNet\": \"<number>\",\n  \"PriceAgencyPayableTax\": \"<number>\",\n  \"PriceAgencyReceivableGross\": \"<number>\",\n  \"PriceAgencyReceivableNet\": \"<number>\",\n  \"PriceAgencyReceivableTax\": \"<number>\",\n  \"JobInvoiceNumber\": \"<string>\",\n  \"QuotedPriceAgencyPayableGross\": \"<number>\",\n  \"QuotedPriceAgencyPayableNet\": \"<number>\",\n  \"QuotedPriceAgencyPayableTax\": \"<number>\",\n  \"QuotedPriceAgencyReceivableGross\": \"<number>\",\n  \"QuotedPriceAgencyReceivableNet\": \"<number>\",\n  \"QuotedPriceAgencyReceivableTax\": \"<number>\",\n  \"AppointmentDescription\": \"<string>\",\n  \"AppointmentRange\": \"<string>\",\n  \"CreatedDate\": \"<dateTime>\",\n  \"JobCompleted\": \"<dateTime>\",\n  \"JobDuration\": \"<string>\",\n  \"TenantAcceptedStartDate\": \"<boolean>\",\n  \"JobberAgreedWithTenantStartDate\": \"<boolean>\",\n  \"LandlordApproval\": {\n    \"ApprovalNameTyped\": \"<string>\",\n    \"Approved\": \"<boolean>\",\n    \"ApprovedDate\": \"<dateTime>\",\n    \"QuoteAmount\": \"<number>\",\n    \"RequestedDate\": \"<dateTime>\",\n    \"QuoteId\": \"<string>\",\n    \"PriceAgencyReceivableGross\": \"<number>\",\n    \"PriceAgencyReceivableNet\": \"<number>\",\n    \"PriceAgencyReceivableTax\": \"<number>\"\n  },\n  \"InsurerApproval\": {\n    \"ApprovalNameTyped\": \"<string>\",\n    \"Approved\": \"<boolean>\",\n    \"ApprovedDate\": \"<dateTime>\",\n    \"QuoteAmount\": \"<number>\",\n    \"RequestedDate\": \"<dateTime>\",\n    \"QuoteId\": \"<string>\",\n    \"PriceAgencyReceivableGross\": \"<number>\",\n    \"PriceAgencyReceivableNet\": \"<number>\",\n    \"PriceAgencyReceivableTax\": \"<number>\"\n  },\n  \"Contractor\": {\n    \"Id\": \"<string>\",\n    \"ExternalRef\": \"<string>\",\n    \"CompanyName\": \"<string>\",\n    \"Title\": \"<string>\",\n    \"FirstName\": \"<string>\",\n    \"Surname\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"ContactNumber\": \"<string>\",\n    \"ContactNumberAlt\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Address\": {\n      \"AddressLine1\": \"<string>\",\n      \"AddressLine2\": \"<string>\",\n      \"Town\": \"<string>\",\n      \"County\": \"<string>\",\n      \"PostCode\": \"<string>\",\n      \"Country\": \"<string>\"\n    },\n    \"InvoiceDetails\": {\n      \"InvoiceDate\": \"<dateTime>\",\n      \"DueDate\": \"<dateTime>\",\n      \"InvoiceNumber\": \"<string>\",\n      \"LineItems\": [\n        {\n          \"LineType\": 1,\n          \"Description\": \"<string>\",\n          \"Quantity\": \"<number>\",\n          \"UnitPrice\": \"<number>\",\n          \"Net\": \"<number>\",\n          \"Tax\": \"<number>\",\n          \"Total\": \"<number>\"\n        },\n        {\n          \"LineType\": 2,\n          \"Description\": \"<string>\",\n          \"Quantity\": \"<number>\",\n          \"UnitPrice\": \"<number>\",\n          \"Net\": \"<number>\",\n          \"Tax\": \"<number>\",\n          \"Total\": \"<number>\"\n        }\n      ]\n    },\n    \"Services\": [\n      {\n        \"id\": \"<integer>\",\n        \"Name\": \"<string>\",\n        \"NameAndSynonyms\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"id\": \"<integer>\",\n        \"Name\": \"<string>\",\n        \"NameAndSynonyms\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"Certifications\": [\n      {\n        \"id\": \"<number>\",\n        \"Name\": \"<string>\",\n        \"Expiry\": \"<dateTime>\"\n      },\n      {\n        \"id\": \"<number>\",\n        \"Name\": \"<string>\",\n        \"Expiry\": \"<dateTime>\"\n      }\n    ],\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  }\n}",
+                  "createdAt": "2026-10-22T01:55:27.000Z",
+                  "updatedAt": "2026-10-22T01:55:27.000Z",
+                  "uid": "35240-bd23203e-3a86-442a-8e58-7efe041b26c7"
+                }
+              ],
+              "createdAt": "2026-10-22T01:55:26.000Z",
+              "updatedAt": "2026-10-22T01:55:26.000Z",
+              "uid": "35240-68aa2618-241f-466c-8dc7-60bafd4982ee"
+            }
+          ],
+          "id": "d0d8ce1a-1712-4043-963c-1e16b57f2ce1",
+          "createdAt": "2026-10-22T01:55:26.000Z",
+          "updatedAt": "2026-10-22T01:55:26.000Z",
+          "uid": "35240-d0d8ce1a-1712-4043-963c-1e16b57f2ce1"
+        }
+      ],
+      "id": "78fe581c-35ff-402d-8668-6382b10024d3",
+      "createdAt": "2026-10-22T01:55:26.000Z",
+      "updatedAt": "2026-10-22T01:55:26.000Z",
+      "uid": "35240-78fe581c-35ff-402d-8668-6382b10024d3"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api-sandbox.fixflo.com/api/v2"
+    }
+  ]
+}

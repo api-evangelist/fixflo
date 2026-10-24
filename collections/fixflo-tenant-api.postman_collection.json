@@ -1,0 +1,1073 @@
+{
+  "info": {
+    "_postman_id": "7543e128-5709-4f3a-9a04-669b52eb878a",
+    "name": "Fixflo Tenant API",
+    "description": "Fixflo api docs\n\nContact Support:\n Name: Support\n Email: support@fixflo.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:56:33.000Z",
+    "updatedAt": "2026-10-22T01:56:34.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7543e128-5709-4f3a-9a04-669b52eb878a"
+  },
+  "item": [
+    {
+      "name": "Tenant",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Brand",
+              "item": [
+                {
+                  "name": "Tenant / brand",
+                  "id": "822046f3-8708-4e33-85f4-865d3eca6c59",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"Id\": \"<uuid>\",\n  \"Name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/Tenant/:id/Brand",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Tenant",
+                        ":id",
+                        "Brand"
+                      ],
+                      "variable": [
+                        {
+                          "id": "9625d9a3-c6ff-46d5-9cb7-cdf59faed8ae",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Updates the tenants brand"
+                  },
+                  "response": [
+                    {
+                      "id": "207418f9-102d-4b53-af70-f0589983e4c6",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"Id\": \"<uuid>\",\n  \"Name\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/Tenant/:id/Brand",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Tenant",
+                            ":id",
+                            "Brand"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Id\": \"<uuid>\",\n  \"Name\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T01:56:34.000Z",
+                      "updatedAt": "2026-10-22T01:56:34.000Z",
+                      "uid": "35240-207418f9-102d-4b53-af70-f0589983e4c6"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:56:34.000Z",
+                  "updatedAt": "2026-10-22T01:56:34.000Z",
+                  "uid": "35240-822046f3-8708-4e33-85f4-865d3eca6c59"
+                }
+              ],
+              "id": "c693888d-42cb-48d7-a956-50d543396d02",
+              "createdAt": "2026-10-22T01:56:34.000Z",
+              "updatedAt": "2026-10-22T01:56:34.000Z",
+              "uid": "35240-c693888d-42cb-48d7-a956-50d543396d02"
+            }
+          ],
+          "id": "62478fd6-746c-419c-a7d3-60f0fd524c61",
+          "createdAt": "2026-10-22T01:56:34.000Z",
+          "updatedAt": "2026-10-22T01:56:34.000Z",
+          "uid": "35240-62478fd6-746c-419c-a7d3-60f0fd524c61"
+        },
+        {
+          "name": "{Id}",
+          "item": [
+            {
+              "name": "Properties",
+              "item": [
+                {
+                  "name": "Get tenant id properties",
+                  "id": "b605cccc-7e52-43bd-93c2-ee256600710b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Tenant/:Id/Properties",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Tenant",
+                        ":Id",
+                        "Properties"
+                      ],
+                      "variable": [
+                        {
+                          "id": "ab0aacba-909a-4ea6-851c-bcedf17d0875",
+                          "key": "Id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "28baebd4-843f-4a4c-9125-d7f2de188015",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Tenant/:Id/Properties",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Tenant",
+                            ":Id",
+                            "Properties"
+                          ],
+                          "variable": [
+                            {
+                              "key": "Id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"TotalItems\": \"<integer>\",\n  \"TotalPages\": \"<integer>\",\n  \"NextURL\": \"<string>\",\n  \"PreviousURL\": \"<string>\",\n  \"\": [\n    {\n      \"Id\": \"<string>\",\n      \"PropertyId\": \"<string>\",\n      \"PropertyExternalRef\": \"<string>\",\n      \"LinkType\": \"Tenant\"\n    },\n    {\n      \"Id\": \"<string>\",\n      \"PropertyId\": \"<string>\",\n      \"PropertyExternalRef\": \"<string>\",\n      \"LinkType\": \"TenantCorrespondence\"\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T01:56:34.000Z",
+                      "updatedAt": "2026-10-22T01:56:34.000Z",
+                      "uid": "35240-28baebd4-843f-4a4c-9125-d7f2de188015"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:56:34.000Z",
+                  "updatedAt": "2026-10-22T01:56:34.000Z",
+                  "uid": "35240-b605cccc-7e52-43bd-93c2-ee256600710b"
+                }
+              ],
+              "id": "1091f213-5354-4a91-8edd-3d1d75c221c9",
+              "createdAt": "2026-10-22T01:56:34.000Z",
+              "updatedAt": "2026-10-22T01:56:34.000Z",
+              "uid": "35240-1091f213-5354-4a91-8edd-3d1d75c221c9"
+            },
+            {
+              "name": "Property",
+              "item": [
+                {
+                  "name": "{PropertyId}",
+                  "item": [
+                    {
+                      "name": "Delete tenant id property propert id",
+                      "id": "d348d832-56a5-40e0-90ba-3edb275af5c4",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/Tenant/:Id/Property/:PropertyId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Tenant",
+                            ":Id",
+                            "Property",
+                            ":PropertyId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "3b2e2f3e-2c4f-426c-985c-c729cb4abf41",
+                              "key": "Id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "3762de4c-a85a-4a57-b4e1-efa2add026ea",
+                              "key": "PropertyId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "40031e89-b2e9-45d6-b915-6fad446b19ec",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/Tenant/:Id/Property/:PropertyId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "Tenant",
+                                ":Id",
+                                "Property",
+                                ":PropertyId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "Id"
+                                },
+                                {
+                                  "key": "PropertyId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T01:56:34.000Z",
+                          "updatedAt": "2026-10-22T01:56:34.000Z",
+                          "uid": "35240-40031e89-b2e9-45d6-b915-6fad446b19ec"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:56:34.000Z",
+                      "updatedAt": "2026-10-22T01:56:34.000Z",
+                      "uid": "35240-d348d832-56a5-40e0-90ba-3edb275af5c4"
+                    },
+                    {
+                      "name": "Get tenant id property property id",
+                      "id": "ca144f2d-e297-4bdf-8bc4-be15048ec7d3",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Tenant/:Id/Property/:PropertyId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Tenant",
+                            ":Id",
+                            "Property",
+                            ":PropertyId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "c44c385e-e938-43e7-9ef2-12711e84b390",
+                              "key": "Id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "06891268-7447-4d77-a431-601e275c9bab",
+                              "key": "PropertyId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "d315328f-ec4e-4e5e-a2a3-06e265bd7992",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/Tenant/:Id/Property/:PropertyId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "Tenant",
+                                ":Id",
+                                "Property",
+                                ":PropertyId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "Id"
+                                },
+                                {
+                                  "key": "PropertyId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<number>\",\n  \"BlockId\": \"<number>\",\n  \"ExternalPropertyRef\": \"<string>\",\n  \"PropertyAddressId\": \"<string>\",\n  \"Address\": {\n    \"AddressLine1\": \"<string>\",\n    \"AddressLine2\": \"<string>\",\n    \"Town\": \"<string>\",\n    \"County\": \"<string>\",\n    \"PostCode\": \"<string>\",\n    \"Country\": \"<string>\"\n  },\n  \"UpdateDate\": \"<dateTime>\",\n  \"KeyReference\": \"<string>\",\n  \"IsNotManaged\": \"<boolean>\",\n  \"IsDeleted\": \"<boolean>\",\n  \"ArchiveStatus\": \"Active\",\n  \"AssignedAgent\": {\n    \"Id\": \"<long>\",\n    \"ExternalRef\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"ContactNo\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  },\n  \"AssignedTeam\": {\n    \"id\": \"<string>\",\n    \"Name\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\"\n  },\n  \"PropertyManager\": {\n    \"Id\": \"<long>\",\n    \"ExternalRef\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"ContactNo\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  },\n  \"Warranties\": [\n    {\n      \"id\": \"<string>\",\n      \"StartDate\": \"<dateTime>\",\n      \"EndDate\": \"<dateTime>\",\n      \"ExternalContractorRef\": \"<string>\",\n      \"AssignedContractorCaption\": \"<string>\",\n      \"PropertyExternalRef\": \"<string>\",\n      \"BlockExternalRef\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"StartDate\": \"<dateTime>\",\n      \"EndDate\": \"<dateTime>\",\n      \"ExternalContractorRef\": \"<string>\",\n      \"AssignedContractorCaption\": \"<string>\",\n      \"PropertyExternalRef\": \"<string>\",\n      \"BlockExternalRef\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-10-22T01:56:34.000Z",
+                          "updatedAt": "2026-10-22T01:56:34.000Z",
+                          "uid": "35240-d315328f-ec4e-4e5e-a2a3-06e265bd7992"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:56:34.000Z",
+                      "updatedAt": "2026-10-22T01:56:34.000Z",
+                      "uid": "35240-ca144f2d-e297-4bdf-8bc4-be15048ec7d3"
+                    }
+                  ],
+                  "id": "21bc66d9-d92d-40fe-9cf6-9b05c830add2",
+                  "createdAt": "2026-10-22T01:56:34.000Z",
+                  "updatedAt": "2026-10-22T01:56:34.000Z",
+                  "uid": "35240-21bc66d9-d92d-40fe-9cf6-9b05c830add2"
+                },
+                {
+                  "name": "Post Tenant Id Property",
+                  "id": "df4a5ebf-b10a-493b-a1a4-7b9b5a9307dd",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"Id\": \"<string>\",\n  \"PropertyId\": \"<string>\",\n  \"PropertyExternalRef\": \"<string>\",\n  \"LinkType\": \"TenantCorrespondence\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/Tenant/:Id/Property?tenantId=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Tenant",
+                        ":Id",
+                        "Property"
+                      ],
+                      "query": [
+                        {
+                          "key": "tenantId",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "cb3c6b28-cba9-407b-b9e1-d3fe94356b89",
+                          "key": "Id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Post property"
+                  },
+                  "response": [
+                    {
+                      "id": "7f99e593-8b91-4396-9d32-67df5b46cdaa",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"Id\": \"<string>\",\n  \"PropertyId\": \"<string>\",\n  \"PropertyExternalRef\": \"<string>\",\n  \"LinkType\": \"TenantCorrespondence\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/Tenant/:Id/Property?tenantId=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Tenant",
+                            ":Id",
+                            "Property"
+                          ],
+                          "query": [
+                            {
+                              "key": "tenantId",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "Id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"HttpStatusCode\": \"<integer>\",\n  \"HttpStatusCodeDesc\": \"<string>\",\n  \"Errors\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Id\": \"<string>\",\n  \"PropertyId\": \"<string>\",\n  \"PropertyExternalRef\": \"<string>\",\n  \"LinkType\": \"Tenant\"\n}",
+                      "createdAt": "2026-10-22T01:56:34.000Z",
+                      "updatedAt": "2026-10-22T01:56:34.000Z",
+                      "uid": "35240-7f99e593-8b91-4396-9d32-67df5b46cdaa"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:56:34.000Z",
+                  "updatedAt": "2026-10-22T01:56:34.000Z",
+                  "uid": "35240-df4a5ebf-b10a-493b-a1a4-7b9b5a9307dd"
+                }
+              ],
+              "id": "a8b15860-0be5-4ece-8d6c-9c38b193ac71",
+              "createdAt": "2026-10-22T01:56:34.000Z",
+              "updatedAt": "2026-10-22T01:56:34.000Z",
+              "uid": "35240-a8b15860-0be5-4ece-8d6c-9c38b193ac71"
+            },
+            {
+              "name": "Anonymise",
+              "item": [
+                {
+                  "name": "Post Tenant Id Anonymise",
+                  "id": "d1f9c74b-4751-4f14-ab5e-fec56f1a9754",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"tenantId\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/Tenant/:Id/Anonymise?tenantId=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Tenant",
+                        ":Id",
+                        "Anonymise"
+                      ],
+                      "query": [
+                        {
+                          "key": "tenantId",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "9788a8ae-27de-4db0-907c-eb1a2993c116",
+                          "key": "Id",
+                          "value": "<string>",
+                          "description": "(Required) tenant id"
+                        }
+                      ]
+                    },
+                    "description": "Deletes tenant"
+                  },
+                  "response": [
+                    {
+                      "id": "a93e0456-f691-46d3-a20c-1e7888cafc7a",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"tenantId\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/Tenant/:Id/Anonymise?tenantId=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Tenant",
+                            ":Id",
+                            "Anonymise"
+                          ],
+                          "query": [
+                            {
+                              "key": "tenantId",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "Id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"HttpStatusCode\": \"<integer>\",\n  \"HttpStatusCodeDesc\": \"<string>\",\n  \"Errors\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Messages\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-10-22T01:56:34.000Z",
+                      "updatedAt": "2026-10-22T01:56:34.000Z",
+                      "uid": "35240-a93e0456-f691-46d3-a20c-1e7888cafc7a"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:56:34.000Z",
+                  "updatedAt": "2026-10-22T01:56:34.000Z",
+                  "uid": "35240-d1f9c74b-4751-4f14-ab5e-fec56f1a9754"
+                }
+              ],
+              "id": "17ccb0f5-1092-480d-a103-204f3ad0207a",
+              "createdAt": "2026-10-22T01:56:34.000Z",
+              "updatedAt": "2026-10-22T01:56:34.000Z",
+              "uid": "35240-17ccb0f5-1092-480d-a103-204f3ad0207a"
+            }
+          ],
+          "id": "f359911b-ae8d-498a-be11-dfbc7504bd60",
+          "createdAt": "2026-10-22T01:56:34.000Z",
+          "updatedAt": "2026-10-22T01:56:34.000Z",
+          "uid": "35240-f359911b-ae8d-498a-be11-dfbc7504bd60"
+        },
+        {
+          "name": "Tenant",
+          "id": "cdab01fd-3624-4c93-a470-62e08e947108",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/Tenant?Id=<string>&EmailAddress=<string>&ExternalRef=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Tenant"
+              ],
+              "query": [
+                {
+                  "description": "Tenant id",
+                  "key": "Id",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Email address",
+                  "key": "EmailAddress",
+                  "value": "<string>"
+                },
+                {
+                  "description": "External reference",
+                  "key": "ExternalRef",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Get tenant"
+          },
+          "response": [
+            {
+              "id": "88cd2c0f-c8e8-4cac-a24a-291a15905247",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Tenant?Id=<string>&EmailAddress=<string>&ExternalRef=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Tenant"
+                  ],
+                  "query": [
+                    {
+                      "description": "Tenant id",
+                      "key": "Id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Email address",
+                      "key": "EmailAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "External reference",
+                      "key": "ExternalRef",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"ExternalRef\": \"<string>\",\n  \"ExternalPropertyRef\": \"<string>\",\n  \"Title\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"Surname\": \"<string>\",\n  \"CompanyName\": \"<string>\",\n  \"Address\": {\n    \"AddressLine1\": \"<string>\",\n    \"AddressLine2\": \"<string>\",\n    \"Town\": \"<string>\",\n    \"County\": \"<string>\",\n    \"PostCode\": \"<string>\",\n    \"Country\": \"<string>\"\n  },\n  \"EmailAddress\": \"<string>\",\n  \"ContactNumber\": \"<string>\",\n  \"ContactNumberAlt\": \"<string>\",\n  \"DisplayName\": \"<string>\",\n  \"IsDeleted\": \"<boolean>\",\n  \"Brand\": {\n    \"Id\": \"<uuid>\",\n    \"Name\": \"<string>\"\n  },\n  \"UpdateDate\": \"<dateTime>\"\n}",
+              "createdAt": "2026-10-22T01:56:34.000Z",
+              "updatedAt": "2026-10-22T01:56:34.000Z",
+              "uid": "35240-88cd2c0f-c8e8-4cac-a24a-291a15905247"
+            }
+          ],
+          "createdAt": "2026-10-22T01:56:34.000Z",
+          "updatedAt": "2026-10-22T01:56:34.000Z",
+          "uid": "35240-cdab01fd-3624-4c93-a470-62e08e947108"
+        },
+        {
+          "name": "Tenant",
+          "id": "d8b1dadc-6239-414a-9755-9a08e6c991c4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"ExternalRef\": \"<string>\",\n  \"ExternalPropertyRef\": \"<string>\",\n  \"Title\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"Surname\": \"<string>\",\n  \"CompanyName\": \"<string>\",\n  \"Address\": {\n    \"AddressLine1\": \"<string>\",\n    \"AddressLine2\": \"<string>\",\n    \"Town\": \"<string>\",\n    \"County\": \"<string>\",\n    \"PostCode\": \"<string>\",\n    \"Country\": \"<string>\"\n  },\n  \"EmailAddress\": \"<string>\",\n  \"ContactNumber\": \"<string>\",\n  \"ContactNumberAlt\": \"<string>\",\n  \"DisplayName\": \"<string>\",\n  \"IsDeleted\": \"<boolean>\",\n  \"Brand\": {\n    \"Id\": \"<uuid>\",\n    \"Name\": \"<string>\"\n  },\n  \"UpdateDate\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/Tenant",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Tenant"
+              ]
+            },
+            "description": "Save tenant"
+          },
+          "response": [
+            {
+              "id": "1c012fcc-2285-4c08-8cb7-78e1350f5ad3",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"ExternalRef\": \"<string>\",\n  \"ExternalPropertyRef\": \"<string>\",\n  \"Title\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"Surname\": \"<string>\",\n  \"CompanyName\": \"<string>\",\n  \"Address\": {\n    \"AddressLine1\": \"<string>\",\n    \"AddressLine2\": \"<string>\",\n    \"Town\": \"<string>\",\n    \"County\": \"<string>\",\n    \"PostCode\": \"<string>\",\n    \"Country\": \"<string>\"\n  },\n  \"EmailAddress\": \"<string>\",\n  \"ContactNumber\": \"<string>\",\n  \"ContactNumberAlt\": \"<string>\",\n  \"DisplayName\": \"<string>\",\n  \"IsDeleted\": \"<boolean>\",\n  \"Brand\": {\n    \"Id\": \"<uuid>\",\n    \"Name\": \"<string>\"\n  },\n  \"UpdateDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Tenant",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Tenant"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"HttpStatusCode\": \"<integer>\",\n  \"HttpStatusCodeDesc\": \"<string>\",\n  \"Errors\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Entity\": {\n    \"id\": \"<string>\",\n    \"ExternalRef\": \"<string>\",\n    \"ExternalPropertyRef\": \"<string>\",\n    \"Title\": \"<string>\",\n    \"FirstName\": \"<string>\",\n    \"Surname\": \"<string>\",\n    \"CompanyName\": \"<string>\",\n    \"Address\": {\n      \"AddressLine1\": \"<string>\",\n      \"AddressLine2\": \"<string>\",\n      \"Town\": \"<string>\",\n      \"County\": \"<string>\",\n      \"PostCode\": \"<string>\",\n      \"Country\": \"<string>\"\n    },\n    \"EmailAddress\": \"<string>\",\n    \"ContactNumber\": \"<string>\",\n    \"ContactNumberAlt\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  }\n}",
+              "createdAt": "2026-10-22T01:56:34.000Z",
+              "updatedAt": "2026-10-22T01:56:34.000Z",
+              "uid": "35240-1c012fcc-2285-4c08-8cb7-78e1350f5ad3"
+            }
+          ],
+          "createdAt": "2026-10-22T01:56:34.000Z",
+          "updatedAt": "2026-10-22T01:56:34.000Z",
+          "uid": "35240-d8b1dadc-6239-414a-9755-9a08e6c991c4"
+        }
+      ],
+      "id": "34e8348d-0684-4eb2-9007-1d8786dd98ec",
+      "createdAt": "2026-10-22T01:56:34.000Z",
+      "updatedAt": "2026-10-22T01:56:34.000Z",
+      "uid": "35240-34e8348d-0684-4eb2-9007-1d8786dd98ec"
+    },
+    {
+      "name": "Tenants",
+      "item": [
+        {
+          "name": "Tenants",
+          "id": "a955c657-9057-49d3-9321-e40e0c0bfbbc",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/Tenants?Keyword=<string>&pg=<integer>&UpdatedSince=<dateTime>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Tenants"
+              ],
+              "query": [
+                {
+                  "key": "Keyword",
+                  "value": "<string>"
+                },
+                {
+                  "key": "pg",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "UpdatedSince",
+                  "value": "<dateTime>"
+                }
+              ]
+            },
+            "description": "Get tenants"
+          },
+          "response": [
+            {
+              "id": "7ff6c104-8220-4dbe-b840-0a098a0f1f73",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Tenants?Keyword=<string>&pg=<integer>&UpdatedSince=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Tenants"
+                  ],
+                  "query": [
+                    {
+                      "key": "Keyword",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pg",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "UpdatedSince",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"TotalItems\": \"<integer>\",\n  \"TotalPages\": \"<integer>\",\n  \"Items\": [\n    {\n      \"id\": \"<string>\",\n      \"ExternalRef\": \"<string>\",\n      \"ExternalPropertyRef\": \"<string>\",\n      \"Title\": \"<string>\",\n      \"FirstName\": \"<string>\",\n      \"Surname\": \"<string>\",\n      \"CompanyName\": \"<string>\",\n      \"Address\": {\n        \"AddressLine1\": \"<string>\",\n        \"AddressLine2\": \"<string>\",\n        \"Town\": \"<string>\",\n        \"County\": \"<string>\",\n        \"PostCode\": \"<string>\",\n        \"Country\": \"<string>\"\n      },\n      \"EmailAddress\": \"<string>\",\n      \"ContactNumber\": \"<string>\",\n      \"ContactNumberAlt\": \"<string>\",\n      \"DisplayName\": \"<string>\",\n      \"IsDeleted\": \"<boolean>\",\n      \"Brand\": {\n        \"Id\": \"<uuid>\",\n        \"Name\": \"<string>\"\n      },\n      \"UpdateDate\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"ExternalRef\": \"<string>\",\n      \"ExternalPropertyRef\": \"<string>\",\n      \"Title\": \"<string>\",\n      \"FirstName\": \"<string>\",\n      \"Surname\": \"<string>\",\n      \"CompanyName\": \"<string>\",\n      \"Address\": {\n        \"AddressLine1\": \"<string>\",\n        \"AddressLine2\": \"<string>\",\n        \"Town\": \"<string>\",\n        \"County\": \"<string>\",\n        \"PostCode\": \"<string>\",\n        \"Country\": \"<string>\"\n      },\n      \"EmailAddress\": \"<string>\",\n      \"ContactNumber\": \"<string>\",\n      \"ContactNumberAlt\": \"<string>\",\n      \"DisplayName\": \"<string>\",\n      \"IsDeleted\": \"<boolean>\",\n      \"Brand\": {\n        \"Id\": \"<uuid>\",\n        \"Name\": \"<string>\"\n      },\n      \"UpdateDate\": \"<dateTime>\"\n    }\n  ],\n  \"NextURL\": \"<string>\",\n  \"PreviousURL\": \"<string>\"\n}",
+              "createdAt": "2026-10-22T01:56:34.000Z",
+              "updatedAt": "2026-10-22T01:56:34.000Z",
+              "uid": "35240-7ff6c104-8220-4dbe-b840-0a098a0f1f73"
+            }
+          ],
+          "createdAt": "2026-10-22T01:56:34.000Z",
+          "updatedAt": "2026-10-22T01:56:34.000Z",
+          "uid": "35240-a955c657-9057-49d3-9321-e40e0c0bfbbc"
+        }
+      ],
+      "id": "442daf2d-0dec-46e7-ae93-03d6858084f7",
+      "createdAt": "2026-10-22T01:56:34.000Z",
+      "updatedAt": "2026-10-22T01:56:34.000Z",
+      "uid": "35240-442daf2d-0dec-46e7-ae93-03d6858084f7"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api-sandbox.fixflo.com/api/v2"
+    }
+  ]
+}

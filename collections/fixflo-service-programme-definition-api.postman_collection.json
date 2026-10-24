@@ -1,0 +1,335 @@
+{
+  "info": {
+    "_postman_id": "6f18d015-2eb6-4fef-a388-2ca24c66db19",
+    "name": "Fixflo Service programme definition API",
+    "description": "Fixflo api docs\n\nContact Support:\n Name: Support\n Email: support@fixflo.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:56:14.000Z",
+    "updatedAt": "2026-10-22T01:56:14.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6f18d015-2eb6-4fef-a388-2ca24c66db19"
+  },
+  "item": [
+    {
+      "name": "ServiceProgrammeDef",
+      "item": [
+        {
+          "name": "Service programme definition",
+          "id": "eab5d485-e754-42d6-b370-01e928a0036b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/ServiceProgrammeDef?Id=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ServiceProgrammeDef"
+              ],
+              "query": [
+                {
+                  "key": "Id",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Get service programme definition"
+          },
+          "response": [
+            {
+              "id": "ca8a13c9-b028-4a62-9a75-d14d98c44666",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/ServiceProgrammeDef?Id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ServiceProgrammeDef"
+                  ],
+                  "query": [
+                    {
+                      "key": "Id",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"EventType\": \"<string>\",\n  \"Class\": \"<string>\",\n  \"Category\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"IsStatutory\": \"<boolean>\",\n  \"CostCode\": \"<string>\",\n  \"InstructionNotes\": \"<string>\",\n  \"InstructionDateOffsetPeriod\": 2,\n  \"InstructionDateOffsetType\": \"<integer>\",\n  \"ServiceFrequency\": \"<integer>\",\n  \"ServiceFrequencyType\": 0,\n  \"IsDisabled\": \"<boolean>\",\n  \"IsPropertyDefinition\": \"<boolean>\"\n}",
+              "createdAt": "2026-10-22T01:56:15.000Z",
+              "updatedAt": "2026-10-22T01:56:15.000Z",
+              "uid": "35240-ca8a13c9-b028-4a62-9a75-d14d98c44666"
+            }
+          ],
+          "createdAt": "2026-10-22T01:56:14.000Z",
+          "updatedAt": "2026-10-22T01:56:14.000Z",
+          "uid": "35240-eab5d485-e754-42d6-b370-01e928a0036b"
+        },
+        {
+          "name": "Service programme definition",
+          "id": "6b9ebefd-b933-4c22-98ae-e80ba2b4b249",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"EventType\": \"<string>\",\n  \"Class\": \"<string>\",\n  \"Category\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"IsStatutory\": \"<boolean>\",\n  \"CostCode\": \"<string>\",\n  \"InstructionNotes\": \"<string>\",\n  \"InstructionDateOffsetPeriod\": 2,\n  \"InstructionDateOffsetType\": \"<integer>\",\n  \"ServiceFrequency\": \"<integer>\",\n  \"ServiceFrequencyType\": 0,\n  \"IsDisabled\": \"<boolean>\",\n  \"IsPropertyDefinition\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/ServiceProgrammeDef",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ServiceProgrammeDef"
+              ]
+            },
+            "description": "If Id is not set the record will be added, the record corresponding to the Id will be updated. If Id is set and a record cannot be found a 404 error will be returned."
+          },
+          "response": [
+            {
+              "id": "3d344a27-d389-452a-aeab-2cc0957ab8e9",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"EventType\": \"<string>\",\n  \"Class\": \"<string>\",\n  \"Category\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"IsStatutory\": \"<boolean>\",\n  \"CostCode\": \"<string>\",\n  \"InstructionNotes\": \"<string>\",\n  \"InstructionDateOffsetPeriod\": 2,\n  \"InstructionDateOffsetType\": \"<integer>\",\n  \"ServiceFrequency\": \"<integer>\",\n  \"ServiceFrequencyType\": 0,\n  \"IsDisabled\": \"<boolean>\",\n  \"IsPropertyDefinition\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/ServiceProgrammeDef",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ServiceProgrammeDef"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"HttpStatusCode\": \"<integer>\",\n  \"HttpStatusCodeDesc\": \"<string>\",\n  \"Errors\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Entity\": {\n    \"id\": \"<string>\",\n    \"EventType\": \"<string>\",\n    \"Class\": \"<string>\",\n    \"Category\": \"<string>\",\n    \"Description\": \"<string>\",\n    \"IsStatutory\": \"<boolean>\",\n    \"CostCode\": \"<string>\",\n    \"InstructionNotes\": \"<string>\",\n    \"InstructionDateOffsetPeriod\": 2,\n    \"InstructionDateOffsetType\": \"<integer>\",\n    \"ServiceFrequency\": \"<integer>\",\n    \"ServiceFrequencyType\": 0,\n    \"IsDisabled\": \"<boolean>\",\n    \"IsPropertyDefinition\": \"<boolean>\"\n  }\n}",
+              "createdAt": "2026-10-22T01:56:15.000Z",
+              "updatedAt": "2026-10-22T01:56:15.000Z",
+              "uid": "35240-3d344a27-d389-452a-aeab-2cc0957ab8e9"
+            }
+          ],
+          "createdAt": "2026-10-22T01:56:14.000Z",
+          "updatedAt": "2026-10-22T01:56:14.000Z",
+          "uid": "35240-6b9ebefd-b933-4c22-98ae-e80ba2b4b249"
+        }
+      ],
+      "id": "ba66dda2-d0e0-4ab9-8926-658a107f214f",
+      "createdAt": "2026-10-22T01:56:14.000Z",
+      "updatedAt": "2026-10-22T01:56:14.000Z",
+      "uid": "35240-ba66dda2-d0e0-4ab9-8926-658a107f214f"
+    },
+    {
+      "name": "ServiceProgrammeDefs",
+      "item": [
+        {
+          "name": "Service programme definition",
+          "id": "9f4aee7f-ee87-4b20-bb15-ceb9902a4a8a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/ServiceProgrammeDefs?pg=<integer>&keyword=<string>&isDisabled=<boolean>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ServiceProgrammeDefs"
+              ],
+              "query": [
+                {
+                  "key": "pg",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "keyword",
+                  "value": "<string>"
+                },
+                {
+                  "key": "isDisabled",
+                  "value": "<boolean>"
+                }
+              ]
+            },
+            "description": "Get service programme definitions"
+          },
+          "response": [
+            {
+              "id": "12fc324d-8a65-4887-b659-2fcb8675cafe",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/ServiceProgrammeDefs?pg=<integer>&keyword=<string>&isDisabled=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ServiceProgrammeDefs"
+                  ],
+                  "query": [
+                    {
+                      "key": "pg",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "keyword",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isDisabled",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"TotalItems\": \"<integer>\",\n  \"TotalPages\": \"<integer>\",\n  \"Items\": [\n    {\n      \"id\": \"<string>\",\n      \"EventType\": \"<string>\",\n      \"Class\": \"<string>\",\n      \"Category\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"IsStatutory\": \"<boolean>\",\n      \"CostCode\": \"<string>\",\n      \"InstructionNotes\": \"<string>\",\n      \"InstructionDateOffsetPeriod\": 1,\n      \"InstructionDateOffsetType\": \"<integer>\",\n      \"ServiceFrequency\": \"<integer>\",\n      \"ServiceFrequencyType\": 1,\n      \"IsDisabled\": \"<boolean>\",\n      \"IsPropertyDefinition\": \"<boolean>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"EventType\": \"<string>\",\n      \"Class\": \"<string>\",\n      \"Category\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"IsStatutory\": \"<boolean>\",\n      \"CostCode\": \"<string>\",\n      \"InstructionNotes\": \"<string>\",\n      \"InstructionDateOffsetPeriod\": 2,\n      \"InstructionDateOffsetType\": \"<integer>\",\n      \"ServiceFrequency\": \"<integer>\",\n      \"ServiceFrequencyType\": 2,\n      \"IsDisabled\": \"<boolean>\",\n      \"IsPropertyDefinition\": \"<boolean>\"\n    }\n  ],\n  \"NextURL\": \"<string>\",\n  \"PreviousURL\": \"<string>\"\n}",
+              "createdAt": "2026-10-22T01:56:15.000Z",
+              "updatedAt": "2026-10-22T01:56:15.000Z",
+              "uid": "35240-12fc324d-8a65-4887-b659-2fcb8675cafe"
+            }
+          ],
+          "createdAt": "2026-10-22T01:56:14.000Z",
+          "updatedAt": "2026-10-22T01:56:14.000Z",
+          "uid": "35240-9f4aee7f-ee87-4b20-bb15-ceb9902a4a8a"
+        }
+      ],
+      "id": "76d24ddb-7af7-4622-91c5-3a73acb75820",
+      "createdAt": "2026-10-22T01:56:14.000Z",
+      "updatedAt": "2026-10-22T01:56:14.000Z",
+      "uid": "35240-76d24ddb-7af7-4622-91c5-3a73acb75820"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api-sandbox.fixflo.com/api/v2"
+    }
+  ]
+}

@@ -1,0 +1,796 @@
+{
+  "info": {
+    "_postman_id": "dd5c3c37-f2b6-4776-aa7f-691375cb4721",
+    "name": "Fixflo Block API",
+    "description": "Fixflo api docs\n\nContact Support:\n Name: Support\n Email: support@fixflo.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:54:24.000Z",
+    "updatedAt": "2026-10-22T01:54:24.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-dd5c3c37-f2b6-4776-aa7f-691375cb4721"
+  },
+  "item": [
+    {
+      "name": "Block",
+      "item": [
+        {
+          "name": "{Id}",
+          "item": [
+            {
+              "name": "Tags",
+              "item": [
+                {
+                  "name": "Block / tags",
+                  "id": "4d242d7e-0106-48bd-a103-8cdc46dd4be1",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Block/:Id/Tags",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Block",
+                        ":Id",
+                        "Tags"
+                      ],
+                      "variable": [
+                        {
+                          "id": "a77cb1e1-9f58-4b6d-9f0e-d5939a65a1ae",
+                          "key": "Id",
+                          "value": "<string>",
+                          "description": "(Required) Id of Block"
+                        }
+                      ]
+                    },
+                    "description": "Returns tags associated with given property id"
+                  },
+                  "response": [
+                    {
+                      "id": "b17c48d6-6b5a-4e96-aeb2-9e520e0bc9e7",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Block/:Id/Tags",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Block",
+                            ":Id",
+                            "Tags"
+                          ],
+                          "variable": [
+                            {
+                              "key": "Id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Name\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T01:54:24.000Z",
+                      "updatedAt": "2026-10-22T01:54:24.000Z",
+                      "uid": "35240-b17c48d6-6b5a-4e96-aeb2-9e520e0bc9e7"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:54:24.000Z",
+                  "updatedAt": "2026-10-22T01:54:24.000Z",
+                  "uid": "35240-4d242d7e-0106-48bd-a103-8cdc46dd4be1"
+                },
+                {
+                  "name": "Block / tags",
+                  "id": "b6fbf5bc-1c21-44eb-a0aa-b64df2d87d48",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "[\n  \"<string>\",\n  \"<string>\"\n]",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/Block/:Id/Tags",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Block",
+                        ":Id",
+                        "Tags"
+                      ],
+                      "variable": [
+                        {
+                          "id": "486b339f-b88e-4d80-8c02-9c87dddf0b47",
+                          "key": "Id",
+                          "value": "<string>",
+                          "description": "(Required) Id of Block"
+                        }
+                      ]
+                    },
+                    "description": "Will replace all tags at the given block with the new given tags"
+                  },
+                  "response": [
+                    {
+                      "id": "d6e5fa76-4caa-416a-898c-ba474d5327f0",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "[\n  \"<string>\",\n  \"<string>\"\n]",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/Block/:Id/Tags",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Block",
+                            ":Id",
+                            "Tags"
+                          ],
+                          "variable": [
+                            {
+                              "key": "Id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"HttpStatusCode\": \"<integer>\",\n  \"HttpStatusCodeDesc\": \"<string>\",\n  \"Errors\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Entity\": {\n    \"Name\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-10-22T01:54:24.000Z",
+                      "updatedAt": "2026-10-22T01:54:24.000Z",
+                      "uid": "35240-d6e5fa76-4caa-416a-898c-ba474d5327f0"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:54:24.000Z",
+                  "updatedAt": "2026-10-22T01:54:24.000Z",
+                  "uid": "35240-b6fbf5bc-1c21-44eb-a0aa-b64df2d87d48"
+                }
+              ],
+              "id": "8c817f8c-0fc0-4c70-a546-967e4d735ef9",
+              "createdAt": "2026-10-22T01:54:24.000Z",
+              "updatedAt": "2026-10-22T01:54:24.000Z",
+              "uid": "35240-8c817f8c-0fc0-4c70-a546-967e4d735ef9"
+            },
+            {
+              "name": "Brand",
+              "item": [
+                {
+                  "name": "Block / brand",
+                  "id": "4134ea73-7e04-4627-bdbd-dd45f6093dba",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Block/:Id/Brand",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Block",
+                        ":Id",
+                        "Brand"
+                      ],
+                      "variable": [
+                        {
+                          "id": "ad2e1ee5-f8af-4f35-9d4c-9cedc7c090dc",
+                          "key": "Id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "gets the current brand by id"
+                  },
+                  "response": [
+                    {
+                      "id": "b7aae79b-e3b9-4458-a17c-97d324f9906d",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Block/:Id/Brand",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Block",
+                            ":Id",
+                            "Brand"
+                          ],
+                          "variable": [
+                            {
+                              "key": "Id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Id\": \"<uuid>\",\n  \"Name\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T01:54:24.000Z",
+                      "updatedAt": "2026-10-22T01:54:24.000Z",
+                      "uid": "35240-b7aae79b-e3b9-4458-a17c-97d324f9906d"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:54:24.000Z",
+                  "updatedAt": "2026-10-22T01:54:24.000Z",
+                  "uid": "35240-4134ea73-7e04-4627-bdbd-dd45f6093dba"
+                },
+                {
+                  "name": "Block / brand",
+                  "id": "3d099855-fcea-49c3-84ed-8f9ba1cf0e74",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"Id\": \"<uuid>\",\n  \"Name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/Block/:Id/Brand",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Block",
+                        ":Id",
+                        "Brand"
+                      ],
+                      "variable": [
+                        {
+                          "id": "56360bfb-6327-4b20-841e-8d46c44c5b69",
+                          "key": "Id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "sets a brand on the current block"
+                  },
+                  "response": [
+                    {
+                      "id": "bf46ff05-f68b-457c-8df9-6f5a6e8cb45f",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"Id\": \"<uuid>\",\n  \"Name\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/Block/:Id/Brand",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Block",
+                            ":Id",
+                            "Brand"
+                          ],
+                          "variable": [
+                            {
+                              "key": "Id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"HttpStatusCode\": \"<integer>\",\n  \"HttpStatusCodeDesc\": \"<string>\",\n  \"Errors\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Entity\": {\n    \"Id\": \"<uuid>\",\n    \"Name\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-10-22T01:54:24.000Z",
+                      "updatedAt": "2026-10-22T01:54:24.000Z",
+                      "uid": "35240-bf46ff05-f68b-457c-8df9-6f5a6e8cb45f"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:54:24.000Z",
+                  "updatedAt": "2026-10-22T01:54:24.000Z",
+                  "uid": "35240-3d099855-fcea-49c3-84ed-8f9ba1cf0e74"
+                }
+              ],
+              "id": "f90e7c21-2609-47c4-a0a5-27c6b671f599",
+              "createdAt": "2026-10-22T01:54:24.000Z",
+              "updatedAt": "2026-10-22T01:54:24.000Z",
+              "uid": "35240-f90e7c21-2609-47c4-a0a5-27c6b671f599"
+            }
+          ],
+          "id": "d669042a-ab6f-4fc8-92db-17aa4c71772c",
+          "createdAt": "2026-10-22T01:54:24.000Z",
+          "updatedAt": "2026-10-22T01:54:24.000Z",
+          "uid": "35240-d669042a-ab6f-4fc8-92db-17aa4c71772c"
+        },
+        {
+          "name": "Block",
+          "id": "5a9ffd61-1fe3-4a02-8403-26e129ca2608",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/Block?Id=<number>&ExternalBlockRef=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Block"
+              ],
+              "query": [
+                {
+                  "description": "The block id",
+                  "key": "Id",
+                  "value": "<number>"
+                },
+                {
+                  "description": "External block reference",
+                  "key": "ExternalBlockRef",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Get block by id or external reference"
+          },
+          "response": [
+            {
+              "id": "b36c2ebf-c328-41ef-89c5-33245803e6cb",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Block?Id=<number>&ExternalBlockRef=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Block"
+                  ],
+                  "query": [
+                    {
+                      "description": "The block id",
+                      "key": "Id",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "External block reference",
+                      "key": "ExternalBlockRef",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"Id\": \"<integer>\",\n  \"ExternalBlockReference\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"Address\": {\n    \"AddressLine1\": \"<string>\",\n    \"AddressLine2\": \"<string>\",\n    \"Town\": \"<string>\",\n    \"County\": \"<string>\",\n    \"PostCode\": \"<string>\",\n    \"Country\": \"<string>\"\n  },\n  \"IsStandAlone\": \"<boolean>\",\n  \"KeyReference\": \"<string>\",\n  \"ManagementStartDate\": \"<dateTime>\",\n  \"ManagementEndDate\": \"<dateTime>\",\n  \"EstateId\": \"<integer>\",\n  \"ExternalEstateRef\": \"<string>\",\n  \"LandlordId\": \"<string>\",\n  \"ExternalLandlordRef\": \"<string>\",\n  \"PropertyManager\": {\n    \"Id\": \"<long>\",\n    \"ExternalRef\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"ContactNo\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  },\n  \"AssignedAgent\": {\n    \"Id\": \"<long>\",\n    \"ExternalRef\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"ContactNo\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  },\n  \"IsDeleted\": \"<boolean>\",\n  \"Created\": \"<dateTime>\",\n  \"UpdateDate\": \"<dateTime>\",\n  \"Warranties\": [\n    {\n      \"id\": \"<string>\",\n      \"StartDate\": \"<dateTime>\",\n      \"EndDate\": \"<dateTime>\",\n      \"ExternalContractorRef\": \"<string>\",\n      \"AssignedContractorCaption\": \"<string>\",\n      \"PropertyExternalRef\": \"<string>\",\n      \"BlockExternalRef\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"StartDate\": \"<dateTime>\",\n      \"EndDate\": \"<dateTime>\",\n      \"ExternalContractorRef\": \"<string>\",\n      \"AssignedContractorCaption\": \"<string>\",\n      \"PropertyExternalRef\": \"<string>\",\n      \"BlockExternalRef\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-10-22T01:54:24.000Z",
+              "updatedAt": "2026-10-22T01:54:24.000Z",
+              "uid": "35240-b36c2ebf-c328-41ef-89c5-33245803e6cb"
+            }
+          ],
+          "createdAt": "2026-10-22T01:54:24.000Z",
+          "updatedAt": "2026-10-22T01:54:24.000Z",
+          "uid": "35240-5a9ffd61-1fe3-4a02-8403-26e129ca2608"
+        },
+        {
+          "name": "Block",
+          "id": "531ec43e-f38c-4e64-9120-041730c87cd1",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Id\": \"<integer>\",\n  \"ExternalBlockReference\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"Address\": {\n    \"AddressLine1\": \"<string>\",\n    \"AddressLine2\": \"<string>\",\n    \"Town\": \"<string>\",\n    \"County\": \"<string>\",\n    \"PostCode\": \"<string>\",\n    \"Country\": \"<string>\"\n  },\n  \"IsStandAlone\": \"<boolean>\",\n  \"KeyReference\": \"<string>\",\n  \"ManagementStartDate\": \"<dateTime>\",\n  \"ManagementEndDate\": \"<dateTime>\",\n  \"EstateId\": \"<integer>\",\n  \"ExternalEstateRef\": \"<string>\",\n  \"LandlordId\": \"<string>\",\n  \"ExternalLandlordRef\": \"<string>\",\n  \"PropertyManager\": {\n    \"Id\": \"<long>\",\n    \"ExternalRef\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"ContactNo\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  },\n  \"AssignedAgent\": {\n    \"Id\": \"<long>\",\n    \"ExternalRef\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"ContactNo\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  },\n  \"IsDeleted\": \"<boolean>\",\n  \"Created\": \"<dateTime>\",\n  \"UpdateDate\": \"<dateTime>\",\n  \"Warranties\": [\n    {\n      \"id\": \"<string>\",\n      \"StartDate\": \"<dateTime>\",\n      \"EndDate\": \"<dateTime>\",\n      \"ExternalContractorRef\": \"<string>\",\n      \"AssignedContractorCaption\": \"<string>\",\n      \"PropertyExternalRef\": \"<string>\",\n      \"BlockExternalRef\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"StartDate\": \"<dateTime>\",\n      \"EndDate\": \"<dateTime>\",\n      \"ExternalContractorRef\": \"<string>\",\n      \"AssignedContractorCaption\": \"<string>\",\n      \"PropertyExternalRef\": \"<string>\",\n      \"BlockExternalRef\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/Block",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Block"
+              ]
+            },
+            "description": "Saves a block"
+          },
+          "response": [
+            {
+              "id": "00ecba5b-e05d-4b55-b828-033a63767dd3",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Id\": \"<integer>\",\n  \"ExternalBlockReference\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"Address\": {\n    \"AddressLine1\": \"<string>\",\n    \"AddressLine2\": \"<string>\",\n    \"Town\": \"<string>\",\n    \"County\": \"<string>\",\n    \"PostCode\": \"<string>\",\n    \"Country\": \"<string>\"\n  },\n  \"IsStandAlone\": \"<boolean>\",\n  \"KeyReference\": \"<string>\",\n  \"ManagementStartDate\": \"<dateTime>\",\n  \"ManagementEndDate\": \"<dateTime>\",\n  \"EstateId\": \"<integer>\",\n  \"ExternalEstateRef\": \"<string>\",\n  \"LandlordId\": \"<string>\",\n  \"ExternalLandlordRef\": \"<string>\",\n  \"PropertyManager\": {\n    \"Id\": \"<long>\",\n    \"ExternalRef\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"ContactNo\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  },\n  \"AssignedAgent\": {\n    \"Id\": \"<long>\",\n    \"ExternalRef\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"ContactNo\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  },\n  \"IsDeleted\": \"<boolean>\",\n  \"Created\": \"<dateTime>\",\n  \"UpdateDate\": \"<dateTime>\",\n  \"Warranties\": [\n    {\n      \"id\": \"<string>\",\n      \"StartDate\": \"<dateTime>\",\n      \"EndDate\": \"<dateTime>\",\n      \"ExternalContractorRef\": \"<string>\",\n      \"AssignedContractorCaption\": \"<string>\",\n      \"PropertyExternalRef\": \"<string>\",\n      \"BlockExternalRef\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"StartDate\": \"<dateTime>\",\n      \"EndDate\": \"<dateTime>\",\n      \"ExternalContractorRef\": \"<string>\",\n      \"AssignedContractorCaption\": \"<string>\",\n      \"PropertyExternalRef\": \"<string>\",\n      \"BlockExternalRef\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Block",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Block"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"HttpStatusCode\": \"<integer>\",\n  \"HttpStatusCodeDesc\": \"<string>\",\n  \"Errors\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Entity\": {\n    \"Id\": \"<integer>\",\n    \"ExternalBlockReference\": \"<string>\",\n    \"Name\": \"<string>\",\n    \"Address\": {\n      \"AddressLine1\": \"<string>\",\n      \"AddressLine2\": \"<string>\",\n      \"Town\": \"<string>\",\n      \"County\": \"<string>\",\n      \"PostCode\": \"<string>\",\n      \"Country\": \"<string>\"\n    },\n    \"IsStandAlone\": \"<boolean>\",\n    \"KeyReference\": \"<string>\",\n    \"ManagementStartDate\": \"<dateTime>\",\n    \"ManagementEndDate\": \"<dateTime>\",\n    \"EstateId\": \"<integer>\",\n    \"ExternalEstateRef\": \"<string>\",\n    \"LandlordId\": \"<string>\",\n    \"ExternalLandlordRef\": \"<string>\",\n    \"PropertyManager\": {\n      \"Id\": \"<long>\",\n      \"ExternalRef\": \"<string>\",\n      \"EmailAddress\": \"<string>\",\n      \"DisplayName\": \"<string>\",\n      \"ContactNo\": \"<string>\",\n      \"IsDeleted\": \"<boolean>\",\n      \"Brand\": {\n        \"Id\": \"<uuid>\",\n        \"Name\": \"<string>\"\n      },\n      \"UpdateDate\": \"<dateTime>\"\n    },\n    \"AssignedAgent\": {\n      \"Id\": \"<long>\",\n      \"ExternalRef\": \"<string>\",\n      \"EmailAddress\": \"<string>\",\n      \"DisplayName\": \"<string>\",\n      \"ContactNo\": \"<string>\",\n      \"IsDeleted\": \"<boolean>\",\n      \"Brand\": {\n        \"Id\": \"<uuid>\",\n        \"Name\": \"<string>\"\n      },\n      \"UpdateDate\": \"<dateTime>\"\n    },\n    \"IsDeleted\": \"<boolean>\",\n    \"Created\": \"<dateTime>\",\n    \"UpdateDate\": \"<dateTime>\",\n    \"Warranties\": [\n      {\n        \"id\": \"<string>\",\n        \"StartDate\": \"<dateTime>\",\n        \"EndDate\": \"<dateTime>\",\n        \"ExternalContractorRef\": \"<string>\",\n        \"AssignedContractorCaption\": \"<string>\",\n        \"PropertyExternalRef\": \"<string>\",\n        \"BlockExternalRef\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"StartDate\": \"<dateTime>\",\n        \"EndDate\": \"<dateTime>\",\n        \"ExternalContractorRef\": \"<string>\",\n        \"AssignedContractorCaption\": \"<string>\",\n        \"PropertyExternalRef\": \"<string>\",\n        \"BlockExternalRef\": \"<string>\"\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-10-22T01:54:24.000Z",
+              "updatedAt": "2026-10-22T01:54:24.000Z",
+              "uid": "35240-00ecba5b-e05d-4b55-b828-033a63767dd3"
+            }
+          ],
+          "createdAt": "2026-10-22T01:54:24.000Z",
+          "updatedAt": "2026-10-22T01:54:24.000Z",
+          "uid": "35240-531ec43e-f38c-4e64-9120-041730c87cd1"
+        }
+      ],
+      "id": "0b27c9b6-2e3c-4170-a192-36dc995fd16e",
+      "createdAt": "2026-10-22T01:54:24.000Z",
+      "updatedAt": "2026-10-22T01:54:24.000Z",
+      "uid": "35240-0b27c9b6-2e3c-4170-a192-36dc995fd16e"
+    },
+    {
+      "name": "Blocks",
+      "item": [
+        {
+          "name": "Blocks",
+          "id": "6436bb37-6a65-47fb-9e6b-5690c74c3304",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/Blocks?UpdatedSince=<string>&keyword=<string>&pg=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Blocks"
+              ],
+              "query": [
+                {
+                  "description": "Updated since",
+                  "key": "UpdatedSince",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Keyword",
+                  "key": "keyword",
+                  "value": "<string>"
+                },
+                {
+                  "description": "page",
+                  "key": "pg",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Find blocks"
+          },
+          "response": [
+            {
+              "id": "a31cff7f-852e-4205-9659-604db0a1d569",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Blocks?UpdatedSince=<string>&keyword=<string>&pg=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Blocks"
+                  ],
+                  "query": [
+                    {
+                      "description": "Updated since",
+                      "key": "UpdatedSince",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Keyword",
+                      "key": "keyword",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "page",
+                      "key": "pg",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"TotalItems\": \"<integer>\",\n  \"TotalPages\": \"<integer>\",\n  \"Items\": [\n    {\n      \"Id\": \"<integer>\",\n      \"ExternalBlockReference\": \"<string>\",\n      \"Name\": \"<string>\",\n      \"Address\": {\n        \"AddressLine1\": \"<string>\",\n        \"AddressLine2\": \"<string>\",\n        \"Town\": \"<string>\",\n        \"County\": \"<string>\",\n        \"PostCode\": \"<string>\",\n        \"Country\": \"<string>\"\n      },\n      \"IsStandAlone\": \"<boolean>\",\n      \"KeyReference\": \"<string>\",\n      \"ManagementStartDate\": \"<dateTime>\",\n      \"ManagementEndDate\": \"<dateTime>\",\n      \"EstateId\": \"<integer>\",\n      \"ExternalEstateRef\": \"<string>\",\n      \"LandlordId\": \"<string>\",\n      \"ExternalLandlordRef\": \"<string>\",\n      \"PropertyManager\": {\n        \"Id\": \"<long>\",\n        \"ExternalRef\": \"<string>\",\n        \"EmailAddress\": \"<string>\",\n        \"DisplayName\": \"<string>\",\n        \"ContactNo\": \"<string>\",\n        \"IsDeleted\": \"<boolean>\",\n        \"Brand\": {\n          \"Id\": \"<uuid>\",\n          \"Name\": \"<string>\"\n        },\n        \"UpdateDate\": \"<dateTime>\"\n      },\n      \"AssignedAgent\": {\n        \"Id\": \"<long>\",\n        \"ExternalRef\": \"<string>\",\n        \"EmailAddress\": \"<string>\",\n        \"DisplayName\": \"<string>\",\n        \"ContactNo\": \"<string>\",\n        \"IsDeleted\": \"<boolean>\",\n        \"Brand\": {\n          \"Id\": \"<uuid>\",\n          \"Name\": \"<string>\"\n        },\n        \"UpdateDate\": \"<dateTime>\"\n      },\n      \"IsDeleted\": \"<boolean>\",\n      \"Created\": \"<dateTime>\",\n      \"UpdateDate\": \"<dateTime>\",\n      \"Warranties\": [\n        {\n          \"id\": \"<string>\",\n          \"StartDate\": \"<dateTime>\",\n          \"EndDate\": \"<dateTime>\",\n          \"ExternalContractorRef\": \"<string>\",\n          \"AssignedContractorCaption\": \"<string>\",\n          \"PropertyExternalRef\": \"<string>\",\n          \"BlockExternalRef\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"StartDate\": \"<dateTime>\",\n          \"EndDate\": \"<dateTime>\",\n          \"ExternalContractorRef\": \"<string>\",\n          \"AssignedContractorCaption\": \"<string>\",\n          \"PropertyExternalRef\": \"<string>\",\n          \"BlockExternalRef\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"Id\": \"<integer>\",\n      \"ExternalBlockReference\": \"<string>\",\n      \"Name\": \"<string>\",\n      \"Address\": {\n        \"AddressLine1\": \"<string>\",\n        \"AddressLine2\": \"<string>\",\n        \"Town\": \"<string>\",\n        \"County\": \"<string>\",\n        \"PostCode\": \"<string>\",\n        \"Country\": \"<string>\"\n      },\n      \"IsStandAlone\": \"<boolean>\",\n      \"KeyReference\": \"<string>\",\n      \"ManagementStartDate\": \"<dateTime>\",\n      \"ManagementEndDate\": \"<dateTime>\",\n      \"EstateId\": \"<integer>\",\n      \"ExternalEstateRef\": \"<string>\",\n      \"LandlordId\": \"<string>\",\n      \"ExternalLandlordRef\": \"<string>\",\n      \"PropertyManager\": {\n        \"Id\": \"<long>\",\n        \"ExternalRef\": \"<string>\",\n        \"EmailAddress\": \"<string>\",\n        \"DisplayName\": \"<string>\",\n        \"ContactNo\": \"<string>\",\n        \"IsDeleted\": \"<boolean>\",\n        \"Brand\": {\n          \"Id\": \"<uuid>\",\n          \"Name\": \"<string>\"\n        },\n        \"UpdateDate\": \"<dateTime>\"\n      },\n      \"AssignedAgent\": {\n        \"Id\": \"<long>\",\n        \"ExternalRef\": \"<string>\",\n        \"EmailAddress\": \"<string>\",\n        \"DisplayName\": \"<string>\",\n        \"ContactNo\": \"<string>\",\n        \"IsDeleted\": \"<boolean>\",\n        \"Brand\": {\n          \"Id\": \"<uuid>\",\n          \"Name\": \"<string>\"\n        },\n        \"UpdateDate\": \"<dateTime>\"\n      },\n      \"IsDeleted\": \"<boolean>\",\n      \"Created\": \"<dateTime>\",\n      \"UpdateDate\": \"<dateTime>\",\n      \"Warranties\": [\n        {\n          \"id\": \"<string>\",\n          \"StartDate\": \"<dateTime>\",\n          \"EndDate\": \"<dateTime>\",\n          \"ExternalContractorRef\": \"<string>\",\n          \"AssignedContractorCaption\": \"<string>\",\n          \"PropertyExternalRef\": \"<string>\",\n          \"BlockExternalRef\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"StartDate\": \"<dateTime>\",\n          \"EndDate\": \"<dateTime>\",\n          \"ExternalContractorRef\": \"<string>\",\n          \"AssignedContractorCaption\": \"<string>\",\n          \"PropertyExternalRef\": \"<string>\",\n          \"BlockExternalRef\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"NextURL\": \"<string>\",\n  \"PreviousURL\": \"<string>\"\n}",
+              "createdAt": "2026-10-22T01:54:24.000Z",
+              "updatedAt": "2026-10-22T01:54:24.000Z",
+              "uid": "35240-a31cff7f-852e-4205-9659-604db0a1d569"
+            }
+          ],
+          "createdAt": "2026-10-22T01:54:24.000Z",
+          "updatedAt": "2026-10-22T01:54:24.000Z",
+          "uid": "35240-6436bb37-6a65-47fb-9e6b-5690c74c3304"
+        }
+      ],
+      "id": "491a7b0c-3286-4a30-8a9e-d831e49b68be",
+      "createdAt": "2026-10-22T01:54:24.000Z",
+      "updatedAt": "2026-10-22T01:54:24.000Z",
+      "uid": "35240-491a7b0c-3286-4a30-8a9e-d831e49b68be"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api-sandbox.fixflo.com/api/v2"
+    }
+  ]
+}

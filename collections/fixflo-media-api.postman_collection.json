@@ -1,0 +1,510 @@
+{
+  "info": {
+    "_postman_id": "5d9ef47c-6e9f-479d-9631-b28c51e7c981",
+    "name": "Fixflo Media API",
+    "description": "Fixflo api docs\n\nContact Support:\n Name: Support\n Email: support@fixflo.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:55:42.000Z",
+    "updatedAt": "2026-10-22T01:55:42.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-5d9ef47c-6e9f-479d-9631-b28c51e7c981"
+  },
+  "item": [
+    {
+      "name": "Medias",
+      "item": [
+        {
+          "name": "PropertyCertificate",
+          "item": [
+            {
+              "name": "Media Search",
+              "id": "afbdf0fe-0dca-41e6-9cda-31fb4b6d3fff",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Medias/PropertyCertificate?PropertyId=<string>&ExternalPropertyRef=<string>&BlockId=<string>&ExternalBlockRef=<string>&ServiceProgrammeDefId=<string>&Created.To=<string>&Created.From=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Medias",
+                    "PropertyCertificate"
+                  ],
+                  "query": [
+                    {
+                      "key": "PropertyId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ExternalPropertyRef",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "BlockId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ExternalBlockRef",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ServiceProgrammeDefId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Created.To",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Created.From",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "d7b9b61b-f61c-4844-8dff-99df2a5eb508",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Medias/PropertyCertificate?PropertyId=<string>&ExternalPropertyRef=<string>&BlockId=<string>&ExternalBlockRef=<string>&ServiceProgrammeDefId=<string>&Created.To=<string>&Created.From=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Medias",
+                        "PropertyCertificate"
+                      ],
+                      "query": [
+                        {
+                          "key": "PropertyId",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "ExternalPropertyRef",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "BlockId",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "ExternalBlockRef",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "ServiceProgrammeDefId",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "Created.To",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "Created.From",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"TotalItems\": \"<integer>\",\n  \"TotalPages\": \"<integer>\",\n  \"Items\": [\n    {\n      \"Id\": \"<uuid>\",\n      \"URL\": \"<string>\",\n      \"ContentType\": \"<string>\",\n      \"MediaType\": \"<string>\",\n      \"MediaTypeDescription\": \"<string>\",\n      \"ShortDescription\": \"<string>\",\n      \"AddedByUserTypeId\": \"<string>\",\n      \"EncodedByteData\": \"<string>\",\n      \"ServiceProgrammeDef\": {\n        \"id\": \"<string>\",\n        \"EventType\": \"<string>\",\n        \"Class\": \"<string>\",\n        \"Category\": \"<string>\",\n        \"Description\": \"<string>\",\n        \"IsStatutory\": \"<boolean>\",\n        \"CostCode\": \"<string>\",\n        \"InstructionNotes\": \"<string>\",\n        \"InstructionDateOffsetPeriod\": 2,\n        \"InstructionDateOffsetType\": \"<integer>\",\n        \"ServiceFrequency\": \"<integer>\",\n        \"ServiceFrequencyType\": 0,\n        \"IsDisabled\": \"<boolean>\",\n        \"IsPropertyDefinition\": \"<boolean>\"\n      },\n      \"DocumentStartDate\": \"<dateTime>\",\n      \"DocumentExpiryDate\": \"<dateTime>\"\n    },\n    {\n      \"Id\": \"<uuid>\",\n      \"URL\": \"<string>\",\n      \"ContentType\": \"<string>\",\n      \"MediaType\": \"<string>\",\n      \"MediaTypeDescription\": \"<string>\",\n      \"ShortDescription\": \"<string>\",\n      \"AddedByUserTypeId\": \"<string>\",\n      \"EncodedByteData\": \"<string>\",\n      \"ServiceProgrammeDef\": {\n        \"id\": \"<string>\",\n        \"EventType\": \"<string>\",\n        \"Class\": \"<string>\",\n        \"Category\": \"<string>\",\n        \"Description\": \"<string>\",\n        \"IsStatutory\": \"<boolean>\",\n        \"CostCode\": \"<string>\",\n        \"InstructionNotes\": \"<string>\",\n        \"InstructionDateOffsetPeriod\": 0,\n        \"InstructionDateOffsetType\": \"<integer>\",\n        \"ServiceFrequency\": \"<integer>\",\n        \"ServiceFrequencyType\": 0,\n        \"IsDisabled\": \"<boolean>\",\n        \"IsPropertyDefinition\": \"<boolean>\"\n      },\n      \"DocumentStartDate\": \"<dateTime>\",\n      \"DocumentExpiryDate\": \"<dateTime>\"\n    }\n  ],\n  \"NextURL\": \"<string>\",\n  \"PreviousURL\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T01:55:43.000Z",
+                  "updatedAt": "2026-10-22T01:55:43.000Z",
+                  "uid": "35240-d7b9b61b-f61c-4844-8dff-99df2a5eb508"
+                }
+              ],
+              "createdAt": "2026-10-22T01:55:43.000Z",
+              "updatedAt": "2026-10-22T01:55:43.000Z",
+              "uid": "35240-afbdf0fe-0dca-41e6-9cda-31fb4b6d3fff"
+            }
+          ],
+          "id": "d852079d-ae7a-4b56-94fe-f3d564fb8058",
+          "createdAt": "2026-10-22T01:55:43.000Z",
+          "updatedAt": "2026-10-22T01:55:43.000Z",
+          "uid": "35240-d852079d-ae7a-4b56-94fe-f3d564fb8058"
+        }
+      ],
+      "id": "4b183644-dd3a-4e6f-82e2-fc3b4777b5f4",
+      "createdAt": "2026-10-22T01:55:43.000Z",
+      "updatedAt": "2026-10-22T01:55:43.000Z",
+      "uid": "35240-4b183644-dd3a-4e6f-82e2-fc3b4777b5f4"
+    },
+    {
+      "name": "Media",
+      "item": [
+        {
+          "name": "PropertyCertificate",
+          "item": [
+            {
+              "name": "{Id}",
+              "item": [
+                {
+                  "name": "Your GET endpoint",
+                  "id": "012e3f36-412d-4193-8711-a7458ac3ac9a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Media/PropertyCertificate/:Id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Media",
+                        "PropertyCertificate",
+                        ":Id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "36bebdf4-734f-44c1-a9cf-720681aa3d3d",
+                          "key": "Id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "b1a80593-c2f6-414d-a4d5-b2d71954bc9b",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Media/PropertyCertificate/:Id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Media",
+                            "PropertyCertificate",
+                            ":Id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "Id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Id\": \"<uuid>\",\n  \"URL\": \"<string>\",\n  \"ContentType\": \"<string>\",\n  \"MediaType\": \"<string>\",\n  \"MediaTypeDescription\": \"<string>\",\n  \"ShortDescription\": \"<string>\",\n  \"AddedByUserTypeId\": \"<string>\",\n  \"EncodedByteData\": \"<string>\",\n  \"ServiceProgrammeDef\": {\n    \"id\": \"<string>\",\n    \"EventType\": \"<string>\",\n    \"Class\": \"<string>\",\n    \"Category\": \"<string>\",\n    \"Description\": \"<string>\",\n    \"IsStatutory\": \"<boolean>\",\n    \"CostCode\": \"<string>\",\n    \"InstructionNotes\": \"<string>\",\n    \"InstructionDateOffsetPeriod\": 1,\n    \"InstructionDateOffsetType\": \"<integer>\",\n    \"ServiceFrequency\": \"<integer>\",\n    \"ServiceFrequencyType\": 1,\n    \"IsDisabled\": \"<boolean>\",\n    \"IsPropertyDefinition\": \"<boolean>\"\n  },\n  \"DocumentStartDate\": \"<dateTime>\",\n  \"DocumentExpiryDate\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-10-22T01:55:43.000Z",
+                      "updatedAt": "2026-10-22T01:55:43.000Z",
+                      "uid": "35240-b1a80593-c2f6-414d-a4d5-b2d71954bc9b"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:55:43.000Z",
+                  "updatedAt": "2026-10-22T01:55:43.000Z",
+                  "uid": "35240-012e3f36-412d-4193-8711-a7458ac3ac9a"
+                },
+                {
+                  "name": "Post media property certificate id",
+                  "id": "6551f7a6-e46c-4aa6-9e45-d36dcb1fc5be",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"Id\": \"<uuid>\",\n  \"URL\": \"<string>\",\n  \"ContentType\": \"<string>\",\n  \"MediaType\": \"<string>\",\n  \"MediaTypeDescription\": \"<string>\",\n  \"ShortDescription\": \"<string>\",\n  \"AddedByUserTypeId\": \"<string>\",\n  \"EncodedByteData\": \"<string>\",\n  \"ServiceProgrammeDef\": {\n    \"id\": \"<string>\",\n    \"EventType\": \"<string>\",\n    \"Class\": \"<string>\",\n    \"Category\": \"<string>\",\n    \"Description\": \"<string>\",\n    \"IsStatutory\": \"<boolean>\",\n    \"CostCode\": \"<string>\",\n    \"InstructionNotes\": \"<string>\",\n    \"InstructionDateOffsetPeriod\": 1,\n    \"InstructionDateOffsetType\": \"<integer>\",\n    \"ServiceFrequency\": \"<integer>\",\n    \"ServiceFrequencyType\": 1,\n    \"IsDisabled\": \"<boolean>\",\n    \"IsPropertyDefinition\": \"<boolean>\"\n  },\n  \"DocumentStartDate\": \"<dateTime>\",\n  \"DocumentExpiryDate\": \"<dateTime>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/Media/PropertyCertificate/:Id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Media",
+                        "PropertyCertificate",
+                        ":Id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "0a77533f-b1eb-4675-a150-8f10ee418fef",
+                          "key": "Id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "This can be used to update:\nDocumentExpiryDate\nDocumentStartDate\nShortDescription"
+                  },
+                  "response": [
+                    {
+                      "id": "cbd5d897-be42-4157-ad79-e6094055206b",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"Id\": \"<uuid>\",\n  \"URL\": \"<string>\",\n  \"ContentType\": \"<string>\",\n  \"MediaType\": \"<string>\",\n  \"MediaTypeDescription\": \"<string>\",\n  \"ShortDescription\": \"<string>\",\n  \"AddedByUserTypeId\": \"<string>\",\n  \"EncodedByteData\": \"<string>\",\n  \"ServiceProgrammeDef\": {\n    \"id\": \"<string>\",\n    \"EventType\": \"<string>\",\n    \"Class\": \"<string>\",\n    \"Category\": \"<string>\",\n    \"Description\": \"<string>\",\n    \"IsStatutory\": \"<boolean>\",\n    \"CostCode\": \"<string>\",\n    \"InstructionNotes\": \"<string>\",\n    \"InstructionDateOffsetPeriod\": 1,\n    \"InstructionDateOffsetType\": \"<integer>\",\n    \"ServiceFrequency\": \"<integer>\",\n    \"ServiceFrequencyType\": 1,\n    \"IsDisabled\": \"<boolean>\",\n    \"IsPropertyDefinition\": \"<boolean>\"\n  },\n  \"DocumentStartDate\": \"<dateTime>\",\n  \"DocumentExpiryDate\": \"<dateTime>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/Media/PropertyCertificate/:Id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Media",
+                            "PropertyCertificate",
+                            ":Id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "Id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"HttpStatusCode\": \"<integer>\",\n  \"HttpStatusCodeDesc\": \"<string>\",\n  \"Errors\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Id\": \"<uuid>\",\n  \"URL\": \"<string>\",\n  \"ContentType\": \"<string>\",\n  \"MediaType\": \"<string>\",\n  \"MediaTypeDescription\": \"<string>\",\n  \"ShortDescription\": \"<string>\",\n  \"AddedByUserTypeId\": \"<string>\",\n  \"EncodedByteData\": \"<string>\",\n  \"ServiceProgrammeDef\": {\n    \"id\": \"<string>\",\n    \"EventType\": \"<string>\",\n    \"Class\": \"<string>\",\n    \"Category\": \"<string>\",\n    \"Description\": \"<string>\",\n    \"IsStatutory\": \"<boolean>\",\n    \"CostCode\": \"<string>\",\n    \"InstructionNotes\": \"<string>\",\n    \"InstructionDateOffsetPeriod\": 0,\n    \"InstructionDateOffsetType\": \"<integer>\",\n    \"ServiceFrequency\": \"<integer>\",\n    \"ServiceFrequencyType\": 0,\n    \"IsDisabled\": \"<boolean>\",\n    \"IsPropertyDefinition\": \"<boolean>\"\n  },\n  \"DocumentStartDate\": \"<dateTime>\",\n  \"DocumentExpiryDate\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-10-22T01:55:43.000Z",
+                      "updatedAt": "2026-10-22T01:55:43.000Z",
+                      "uid": "35240-cbd5d897-be42-4157-ad79-e6094055206b"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:55:43.000Z",
+                  "updatedAt": "2026-10-22T01:55:43.000Z",
+                  "uid": "35240-6551f7a6-e46c-4aa6-9e45-d36dcb1fc5be"
+                }
+              ],
+              "id": "277878b2-f16f-4b97-afd6-5fc68ce9d068",
+              "createdAt": "2026-10-22T01:55:43.000Z",
+              "updatedAt": "2026-10-22T01:55:43.000Z",
+              "uid": "35240-277878b2-f16f-4b97-afd6-5fc68ce9d068"
+            }
+          ],
+          "id": "d18ea1e5-a30e-4afb-b339-063c13de1229",
+          "createdAt": "2026-10-22T01:55:43.000Z",
+          "updatedAt": "2026-10-22T01:55:43.000Z",
+          "uid": "35240-d18ea1e5-a30e-4afb-b339-063c13de1229"
+        },
+        {
+          "name": "{Id}",
+          "item": [
+            {
+              "name": "Download",
+              "item": [
+                {
+                  "name": "Media download",
+                  "id": "5b964ee1-e109-4c7b-872b-7f517289a7ca",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/Media/:Id/Download",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Media",
+                        ":Id",
+                        "Download"
+                      ],
+                      "variable": [
+                        {
+                          "id": "90dd9835-d57f-48b2-bc36-a429e13ea032",
+                          "key": "Id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "This will allow you to download the file as a stream"
+                  },
+                  "response": [
+                    {
+                      "id": "0ab84f73-be0f-49e3-8ce6-6e42653f52df",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Media/:Id/Download",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Media",
+                            ":Id",
+                            "Download"
+                          ],
+                          "variable": [
+                            {
+                              "key": "Id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T01:55:43.000Z",
+                      "updatedAt": "2026-10-22T01:55:43.000Z",
+                      "uid": "35240-0ab84f73-be0f-49e3-8ce6-6e42653f52df"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:55:43.000Z",
+                  "updatedAt": "2026-10-22T01:55:43.000Z",
+                  "uid": "35240-5b964ee1-e109-4c7b-872b-7f517289a7ca"
+                }
+              ],
+              "id": "e6cbcc70-8f13-4964-bc36-7dcdfe2dcab6",
+              "createdAt": "2026-10-22T01:55:43.000Z",
+              "updatedAt": "2026-10-22T01:55:43.000Z",
+              "uid": "35240-e6cbcc70-8f13-4964-bc36-7dcdfe2dcab6"
+            }
+          ],
+          "id": "26932caa-d09a-4760-bd33-4a05ba53e90c",
+          "createdAt": "2026-10-22T01:55:43.000Z",
+          "updatedAt": "2026-10-22T01:55:43.000Z",
+          "uid": "35240-26932caa-d09a-4760-bd33-4a05ba53e90c"
+        }
+      ],
+      "id": "4ab05b7c-9a2c-4cf1-8741-b55828ba2d91",
+      "createdAt": "2026-10-22T01:55:43.000Z",
+      "updatedAt": "2026-10-22T01:55:43.000Z",
+      "uid": "35240-4ab05b7c-9a2c-4cf1-8741-b55828ba2d91"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api-sandbox.fixflo.com/api/v2"
+    }
+  ]
+}

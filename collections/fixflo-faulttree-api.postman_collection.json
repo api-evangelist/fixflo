@@ -1,0 +1,147 @@
+{
+  "info": {
+    "_postman_id": "cfbe54f9-14e9-4514-8dc5-02a6a5fc169e",
+    "name": "Fixflo Fault Tree API",
+    "description": "Fixflo api docs\n\nContact Support:\n Name: Support\n Email: support@fixflo.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:55:05.000Z",
+    "updatedAt": "2026-10-22T01:55:06.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-cfbe54f9-14e9-4514-8dc5-02a6a5fc169e"
+  },
+  "item": [
+    {
+      "name": "FaultTree",
+      "item": [
+        {
+          "name": "Walk",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "Fault tree walk",
+                  "id": "de622a07-ee4b-4f96-9bd6-d10552bed3d2",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/FaultTree/Walk/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "FaultTree",
+                        "Walk",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "c0bd317c-9c4f-4b43-a325-9af0ffbce56b",
+                          "key": "id",
+                          "value": "<integer>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Fault tree branches or leaves"
+                  },
+                  "response": [
+                    {
+                      "id": "012dc1b7-eb73-458b-b531-9c65ae7c8ab3",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/FaultTree/Walk/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "FaultTree",
+                            "Walk",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Fault\": {\n    \"FaultId\": \"<integer>\",\n    \"FaultTitle\": \"<string>\",\n    \"ParentFaultId\": \"<integer>\",\n    \"FaultLevelTypeId\": \"<string>\",\n    \"Depth\": \"<integer>\",\n    \"Image\": \"<string>\",\n    \"Warning\": \"<string>\"\n  },\n  \"Children\": [\n    {\n      \"FaultId\": \"<integer>\",\n      \"FaultTitle\": \"<string>\",\n      \"ParentFaultId\": \"<integer>\",\n      \"FaultLevelTypeId\": \"<string>\",\n      \"Depth\": \"<integer>\",\n      \"Image\": \"<string>\",\n      \"Warning\": \"<string>\"\n    },\n    {\n      \"FaultId\": \"<integer>\",\n      \"FaultTitle\": \"<string>\",\n      \"ParentFaultId\": \"<integer>\",\n      \"FaultLevelTypeId\": \"<string>\",\n      \"Depth\": \"<integer>\",\n      \"Image\": \"<string>\",\n      \"Warning\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T01:55:06.000Z",
+                      "updatedAt": "2026-10-22T01:55:06.000Z",
+                      "uid": "35240-012dc1b7-eb73-458b-b531-9c65ae7c8ab3"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:55:06.000Z",
+                  "updatedAt": "2026-10-22T01:55:06.000Z",
+                  "uid": "35240-de622a07-ee4b-4f96-9bd6-d10552bed3d2"
+                }
+              ],
+              "id": "7eaa7078-d225-48e8-9791-75893e674ca9",
+              "createdAt": "2026-10-22T01:55:06.000Z",
+              "updatedAt": "2026-10-22T01:55:06.000Z",
+              "uid": "35240-7eaa7078-d225-48e8-9791-75893e674ca9"
+            }
+          ],
+          "id": "fa43b1b0-4a6f-4206-97e7-39c31ac57637",
+          "createdAt": "2026-10-22T01:55:06.000Z",
+          "updatedAt": "2026-10-22T01:55:06.000Z",
+          "uid": "35240-fa43b1b0-4a6f-4206-97e7-39c31ac57637"
+        }
+      ],
+      "id": "6954158d-e32b-45bd-b717-d360eff39406",
+      "createdAt": "2026-10-22T01:55:06.000Z",
+      "updatedAt": "2026-10-22T01:55:06.000Z",
+      "uid": "35240-6954158d-e32b-45bd-b717-d360eff39406"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api-sandbox.fixflo.com/api/v2"
+    }
+  ]
+}

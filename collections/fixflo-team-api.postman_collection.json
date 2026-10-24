@@ -1,0 +1,319 @@
+{
+  "info": {
+    "_postman_id": "49f9cd96-45ab-499a-a2e3-c6232939274c",
+    "name": "Fixflo Team API",
+    "description": "Fixflo api docs\n\nContact Support:\n Name: Support\n Email: support@fixflo.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:56:26.000Z",
+    "updatedAt": "2026-10-22T01:56:27.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-49f9cd96-45ab-499a-a2e3-c6232939274c"
+  },
+  "item": [
+    {
+      "name": "Team",
+      "item": [
+        {
+          "name": "Team",
+          "id": "24cd717e-ecc5-4518-b87b-c39ed1176d53",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/Team?Id=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Team"
+              ],
+              "query": [
+                {
+                  "key": "Id",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Get team"
+          },
+          "response": [
+            {
+              "id": "3e607203-5cfe-4805-a3b2-586494ec7482",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Team?Id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Team"
+                  ],
+                  "query": [
+                    {
+                      "key": "Id",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"IsDeleted\": \"<boolean>\"\n}",
+              "createdAt": "2026-10-22T01:56:27.000Z",
+              "updatedAt": "2026-10-22T01:56:27.000Z",
+              "uid": "35240-3e607203-5cfe-4805-a3b2-586494ec7482"
+            }
+          ],
+          "createdAt": "2026-10-22T01:56:27.000Z",
+          "updatedAt": "2026-10-22T01:56:27.000Z",
+          "uid": "35240-24cd717e-ecc5-4518-b87b-c39ed1176d53"
+        },
+        {
+          "name": "Team",
+          "id": "5c1adf08-43c2-466f-aaa1-fde2fa1304a6",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"IsDeleted\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/Team",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Team"
+              ]
+            },
+            "description": "Save team"
+          },
+          "response": [
+            {
+              "id": "d82e8b1c-f0bc-4f6c-a3db-e9c644e73caf",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"IsDeleted\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Team",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Team"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"HttpStatusCode\": \"<integer>\",\n  \"HttpStatusCodeDesc\": \"<string>\",\n  \"Errors\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Entity\": {\n    \"id\": \"<string>\",\n    \"Name\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\"\n  }\n}",
+              "createdAt": "2026-10-22T01:56:27.000Z",
+              "updatedAt": "2026-10-22T01:56:27.000Z",
+              "uid": "35240-d82e8b1c-f0bc-4f6c-a3db-e9c644e73caf"
+            }
+          ],
+          "createdAt": "2026-10-22T01:56:27.000Z",
+          "updatedAt": "2026-10-22T01:56:27.000Z",
+          "uid": "35240-5c1adf08-43c2-466f-aaa1-fde2fa1304a6"
+        }
+      ],
+      "id": "67299082-62c5-4682-9a19-38bcb0f6b779",
+      "createdAt": "2026-10-22T01:56:27.000Z",
+      "updatedAt": "2026-10-22T01:56:27.000Z",
+      "uid": "35240-67299082-62c5-4682-9a19-38bcb0f6b779"
+    },
+    {
+      "name": "Teams",
+      "item": [
+        {
+          "name": "Teams",
+          "id": "2880fa5f-f61c-4497-b629-7ed02e8801e1",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/Teams?pg=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Teams"
+              ],
+              "query": [
+                {
+                  "key": "pg",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Get teams"
+          },
+          "response": [
+            {
+              "id": "d8b05bb1-7c1f-4ea0-b4d9-50bc6c71f2ea",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Teams?pg=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Teams"
+                  ],
+                  "query": [
+                    {
+                      "key": "pg",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"TotalItems\": \"<integer>\",\n  \"TotalPages\": \"<integer>\",\n  \"Items\": [\n    {\n      \"id\": \"<string>\",\n      \"Name\": \"<string>\",\n      \"IsDeleted\": \"<boolean>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"Name\": \"<string>\",\n      \"IsDeleted\": \"<boolean>\"\n    }\n  ],\n  \"NextURL\": \"<string>\",\n  \"PreviousURL\": \"<string>\"\n}",
+              "createdAt": "2026-10-22T01:56:27.000Z",
+              "updatedAt": "2026-10-22T01:56:27.000Z",
+              "uid": "35240-d8b05bb1-7c1f-4ea0-b4d9-50bc6c71f2ea"
+            }
+          ],
+          "createdAt": "2026-10-22T01:56:27.000Z",
+          "updatedAt": "2026-10-22T01:56:27.000Z",
+          "uid": "35240-2880fa5f-f61c-4497-b629-7ed02e8801e1"
+        }
+      ],
+      "id": "79a66598-0525-49d0-8b10-fc796b03e7c4",
+      "createdAt": "2026-10-22T01:56:27.000Z",
+      "updatedAt": "2026-10-22T01:56:27.000Z",
+      "uid": "35240-79a66598-0525-49d0-8b10-fc796b03e7c4"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api-sandbox.fixflo.com/api/v2"
+    }
+  ]
+}

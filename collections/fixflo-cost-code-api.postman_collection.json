@@ -1,0 +1,397 @@
+{
+  "info": {
+    "_postman_id": "5bb97b20-16d5-463d-8f7c-4fc1d37baa80",
+    "name": "Fixflo Cost code API",
+    "description": "Fixflo api docs\n\nContact Support:\n Name: Support\n Email: support@fixflo.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:54:51.000Z",
+    "updatedAt": "2026-10-22T01:54:51.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-5bb97b20-16d5-463d-8f7c-4fc1d37baa80"
+  },
+  "item": [
+    {
+      "name": "CostCode",
+      "item": [
+        {
+          "name": "Cost code",
+          "id": "55b4344d-3ebb-49fa-8f23-6375ef41b1ff",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/CostCode?CostCode=<string>&BlockId=<string>&ExternalBlockRef=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "CostCode"
+              ],
+              "query": [
+                {
+                  "key": "CostCode",
+                  "value": "<string>"
+                },
+                {
+                  "key": "BlockId",
+                  "value": "<string>"
+                },
+                {
+                  "key": "ExternalBlockRef",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Get cost code"
+          },
+          "response": [
+            {
+              "id": "e1812982-7bbb-4da3-a550-6fe20af15dbc",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/CostCode?CostCode=<string>&BlockId=<string>&ExternalBlockRef=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "CostCode"
+                  ],
+                  "query": [
+                    {
+                      "key": "CostCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "BlockId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ExternalBlockRef",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"BlockId\": \"<number>\",\n  \"ExternalBlockRef\": \"<string>\",\n  \"IsDeleted\": \"<boolean>\",\n  \"CostCode\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"EstateId\": \"<integer>\",\n  \"ExternalEstateRef\": \"<string>\"\n}",
+              "createdAt": "2026-10-22T01:54:51.000Z",
+              "updatedAt": "2026-10-22T01:54:51.000Z",
+              "uid": "35240-e1812982-7bbb-4da3-a550-6fe20af15dbc"
+            }
+          ],
+          "createdAt": "2026-10-22T01:54:51.000Z",
+          "updatedAt": "2026-10-22T01:54:51.000Z",
+          "uid": "35240-55b4344d-3ebb-49fa-8f23-6375ef41b1ff"
+        },
+        {
+          "name": "Cost code",
+          "id": "9d698219-b9d6-4c51-aec2-75ecfca0a1ee",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"BlockId\": \"<number>\",\n  \"ExternalBlockRef\": \"<string>\",\n  \"IsDeleted\": \"<boolean>\",\n  \"CostCode\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"EstateId\": \"<integer>\",\n  \"ExternalEstateRef\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/CostCode",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "CostCode"
+              ]
+            },
+            "description": "Create/update cost code"
+          },
+          "response": [
+            {
+              "id": "2f8c2599-fd7d-4931-a0ce-d38a9b719d98",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"BlockId\": \"<number>\",\n  \"ExternalBlockRef\": \"<string>\",\n  \"IsDeleted\": \"<boolean>\",\n  \"CostCode\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"EstateId\": \"<integer>\",\n  \"ExternalEstateRef\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/CostCode",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "CostCode"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"HttpStatusCode\": \"<integer>\",\n  \"HttpStatusCodeDesc\": \"<string>\",\n  \"Errors\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Entity\": {\n    \"BlockId\": \"<number>\",\n    \"ExternalBlockRef\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"CostCode\": \"<string>\",\n    \"Description\": \"<string>\",\n    \"EstateId\": \"<integer>\",\n    \"ExternalEstateRef\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-10-22T01:54:51.000Z",
+              "updatedAt": "2026-10-22T01:54:51.000Z",
+              "uid": "35240-2f8c2599-fd7d-4931-a0ce-d38a9b719d98"
+            }
+          ],
+          "createdAt": "2026-10-22T01:54:51.000Z",
+          "updatedAt": "2026-10-22T01:54:51.000Z",
+          "uid": "35240-9d698219-b9d6-4c51-aec2-75ecfca0a1ee"
+        }
+      ],
+      "id": "0eed88d8-8505-47ae-84a0-9daf7a8d870e",
+      "createdAt": "2026-10-22T01:54:51.000Z",
+      "updatedAt": "2026-10-22T01:54:51.000Z",
+      "uid": "35240-0eed88d8-8505-47ae-84a0-9daf7a8d870e"
+    },
+    {
+      "name": "CostCodes",
+      "item": [
+        {
+          "name": "Cost codes",
+          "id": "18212350-bdf7-48b8-a148-e2d5fceabe49",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/CostCodes?BlockId=<number>&ExternalBlockRef=<string>&isDeleted=<boolean>&pg=<integer>&Keyword=<string>&EstateId=<number>&ExternalEstateRef=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "CostCodes"
+              ],
+              "query": [
+                {
+                  "description": "block Id",
+                  "key": "BlockId",
+                  "value": "<number>"
+                },
+                {
+                  "description": "external block ref",
+                  "key": "ExternalBlockRef",
+                  "value": "<string>"
+                },
+                {
+                  "description": "is deleted",
+                  "key": "isDeleted",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "pg",
+                  "key": "pg",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "keyword",
+                  "key": "Keyword",
+                  "value": "<string>"
+                },
+                {
+                  "description": "estate id",
+                  "key": "EstateId",
+                  "value": "<number>"
+                },
+                {
+                  "description": "external estate ref",
+                  "key": "ExternalEstateRef",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Finds cost codes"
+          },
+          "response": [
+            {
+              "id": "04fcb323-f20b-49a5-ba3e-9339b2be48f7",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/CostCodes?BlockId=<number>&ExternalBlockRef=<string>&isDeleted=<boolean>&pg=<integer>&Keyword=<string>&EstateId=<number>&ExternalEstateRef=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "CostCodes"
+                  ],
+                  "query": [
+                    {
+                      "description": "block Id",
+                      "key": "BlockId",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "external block ref",
+                      "key": "ExternalBlockRef",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "is deleted",
+                      "key": "isDeleted",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "pg",
+                      "key": "pg",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "keyword",
+                      "key": "Keyword",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "estate id",
+                      "key": "EstateId",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "external estate ref",
+                      "key": "ExternalEstateRef",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"TotalItems\": \"<integer>\",\n  \"TotalPages\": \"<integer>\",\n  \"Items\": [\n    {\n      \"BlockId\": \"<number>\",\n      \"ExternalBlockRef\": \"<string>\",\n      \"IsDeleted\": \"<boolean>\",\n      \"CostCode\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"EstateId\": \"<integer>\",\n      \"ExternalEstateRef\": \"<string>\"\n    },\n    {\n      \"BlockId\": \"<number>\",\n      \"ExternalBlockRef\": \"<string>\",\n      \"IsDeleted\": \"<boolean>\",\n      \"CostCode\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"EstateId\": \"<integer>\",\n      \"ExternalEstateRef\": \"<string>\"\n    }\n  ],\n  \"NextURL\": \"<string>\",\n  \"PreviousURL\": \"<string>\"\n}",
+              "createdAt": "2026-10-22T01:54:51.000Z",
+              "updatedAt": "2026-10-22T01:54:51.000Z",
+              "uid": "35240-04fcb323-f20b-49a5-ba3e-9339b2be48f7"
+            }
+          ],
+          "createdAt": "2026-10-22T01:54:51.000Z",
+          "updatedAt": "2026-10-22T01:54:51.000Z",
+          "uid": "35240-18212350-bdf7-48b8-a148-e2d5fceabe49"
+        }
+      ],
+      "id": "98ac509e-004d-464e-aff1-a4a92b168529",
+      "createdAt": "2026-10-22T01:54:51.000Z",
+      "updatedAt": "2026-10-22T01:54:51.000Z",
+      "uid": "35240-98ac509e-004d-464e-aff1-a4a92b168529"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api-sandbox.fixflo.com/api/v2"
+    }
+  ]
+}

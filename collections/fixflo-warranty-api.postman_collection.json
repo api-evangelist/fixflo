@@ -1,0 +1,371 @@
+{
+  "info": {
+    "_postman_id": "7f1dfa46-5799-4cbd-a333-bfd62116c93e",
+    "name": "Fixflo Warranty API",
+    "description": "Fixflo api docs\n\nContact Support:\n Name: Support\n Email: support@fixflo.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:56:39.000Z",
+    "updatedAt": "2026-10-22T01:56:39.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7f1dfa46-5799-4cbd-a333-bfd62116c93e"
+  },
+  "item": [
+    {
+      "name": "Warranty",
+      "item": [
+        {
+          "name": "Add",
+          "item": [
+            {
+              "name": "Warranty / add",
+              "id": "a295e84f-56af-4333-a763-6a20bb4b2a79",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"StartDate\": \"<dateTime>\",\n  \"EndDate\": \"<dateTime>\",\n  \"ExternalContractorRef\": \"<string>\",\n  \"AssignedContractorCaption\": \"<string>\",\n  \"PropertyExternalRef\": \"<string>\",\n  \"BlockExternalRef\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Warranty/Add",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Warranty",
+                    "Add"
+                  ]
+                },
+                "description": "Creates a new warranty"
+              },
+              "response": [
+                {
+                  "id": "f2b6192f-84d5-4f91-96e6-0d9793e32d55",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\",\n  \"StartDate\": \"<dateTime>\",\n  \"EndDate\": \"<dateTime>\",\n  \"ExternalContractorRef\": \"<string>\",\n  \"AssignedContractorCaption\": \"<string>\",\n  \"PropertyExternalRef\": \"<string>\",\n  \"BlockExternalRef\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/Warranty/Add",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Warranty",
+                        "Add"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"HttpStatusCode\": \"<integer>\",\n  \"HttpStatusCodeDesc\": \"<string>\",\n  \"Errors\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Entity\": {\n    \"id\": \"<string>\",\n    \"StartDate\": \"<dateTime>\",\n    \"EndDate\": \"<dateTime>\",\n    \"ExternalContractorRef\": \"<string>\",\n    \"AssignedContractorCaption\": \"<string>\",\n    \"PropertyExternalRef\": \"<string>\",\n    \"BlockExternalRef\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-10-22T01:56:39.000Z",
+                  "updatedAt": "2026-10-22T01:56:39.000Z",
+                  "uid": "35240-f2b6192f-84d5-4f91-96e6-0d9793e32d55"
+                }
+              ],
+              "createdAt": "2026-10-22T01:56:39.000Z",
+              "updatedAt": "2026-10-22T01:56:39.000Z",
+              "uid": "35240-a295e84f-56af-4333-a763-6a20bb4b2a79"
+            }
+          ],
+          "id": "5a683420-eb1c-4555-ae07-e9aa764bbfc5",
+          "createdAt": "2026-10-22T01:56:39.000Z",
+          "updatedAt": "2026-10-22T01:56:39.000Z",
+          "uid": "35240-5a683420-eb1c-4555-ae07-e9aa764bbfc5"
+        },
+        {
+          "name": "Save",
+          "item": [
+            {
+              "name": "Warranty / save",
+              "id": "666cf110-6940-4578-9f2c-734a108708e2",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"StartDate\": \"<dateTime>\",\n  \"EndDate\": \"<dateTime>\",\n  \"ExternalContractorRef\": \"<string>\",\n  \"AssignedContractorCaption\": \"<string>\",\n  \"PropertyExternalRef\": \"<string>\",\n  \"BlockExternalRef\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Warranty/Save",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Warranty",
+                    "Save"
+                  ]
+                },
+                "description": "Save warranty"
+              },
+              "response": [
+                {
+                  "id": "43733871-e5fe-418e-aa0b-682ad9333efc",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\",\n  \"StartDate\": \"<dateTime>\",\n  \"EndDate\": \"<dateTime>\",\n  \"ExternalContractorRef\": \"<string>\",\n  \"AssignedContractorCaption\": \"<string>\",\n  \"PropertyExternalRef\": \"<string>\",\n  \"BlockExternalRef\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/Warranty/Save",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Warranty",
+                        "Save"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"HttpStatusCode\": \"<integer>\",\n  \"HttpStatusCodeDesc\": \"<string>\",\n  \"Errors\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Entity\": {\n    \"id\": \"<string>\",\n    \"StartDate\": \"<dateTime>\",\n    \"EndDate\": \"<dateTime>\",\n    \"ExternalContractorRef\": \"<string>\",\n    \"AssignedContractorCaption\": \"<string>\",\n    \"PropertyExternalRef\": \"<string>\",\n    \"BlockExternalRef\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-10-22T01:56:39.000Z",
+                  "updatedAt": "2026-10-22T01:56:39.000Z",
+                  "uid": "35240-43733871-e5fe-418e-aa0b-682ad9333efc"
+                }
+              ],
+              "createdAt": "2026-10-22T01:56:39.000Z",
+              "updatedAt": "2026-10-22T01:56:39.000Z",
+              "uid": "35240-666cf110-6940-4578-9f2c-734a108708e2"
+            }
+          ],
+          "id": "e2b4b9c5-dfe1-447b-bbed-e77a95f96c9e",
+          "createdAt": "2026-10-22T01:56:39.000Z",
+          "updatedAt": "2026-10-22T01:56:39.000Z",
+          "uid": "35240-e2b4b9c5-dfe1-447b-bbed-e77a95f96c9e"
+        },
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Delete",
+              "item": [
+                {
+                  "name": "Warranty / delete",
+                  "id": "6bf32245-97c4-4269-9547-edd443b5de82",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Warranty/:id/Delete",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Warranty",
+                        ":id",
+                        "Delete"
+                      ],
+                      "variable": [
+                        {
+                          "id": "e62707a8-7e6b-4ec3-8b5c-46647a0ae47e",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Deletes a warranty"
+                  },
+                  "response": [
+                    {
+                      "id": "ba586b76-40e9-4b4d-b718-73fe48a01114",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Warranty/:id/Delete",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Warranty",
+                            ":id",
+                            "Delete"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"HttpStatusCode\": \"<integer>\",\n  \"HttpStatusCodeDesc\": \"<string>\",\n  \"Errors\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Entity\": {\n    \"id\": \"<string>\",\n    \"StartDate\": \"<dateTime>\",\n    \"EndDate\": \"<dateTime>\",\n    \"ExternalContractorRef\": \"<string>\",\n    \"AssignedContractorCaption\": \"<string>\",\n    \"PropertyExternalRef\": \"<string>\",\n    \"BlockExternalRef\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-10-22T01:56:39.000Z",
+                      "updatedAt": "2026-10-22T01:56:39.000Z",
+                      "uid": "35240-ba586b76-40e9-4b4d-b718-73fe48a01114"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:56:39.000Z",
+                  "updatedAt": "2026-10-22T01:56:39.000Z",
+                  "uid": "35240-6bf32245-97c4-4269-9547-edd443b5de82"
+                }
+              ],
+              "id": "a10ce176-962f-43c5-8432-55a76d10fa5f",
+              "createdAt": "2026-10-22T01:56:39.000Z",
+              "updatedAt": "2026-10-22T01:56:39.000Z",
+              "uid": "35240-a10ce176-962f-43c5-8432-55a76d10fa5f"
+            }
+          ],
+          "id": "0e057573-7cf3-4cef-ba34-c878e3eca70c",
+          "createdAt": "2026-10-22T01:56:39.000Z",
+          "updatedAt": "2026-10-22T01:56:39.000Z",
+          "uid": "35240-0e057573-7cf3-4cef-ba34-c878e3eca70c"
+        }
+      ],
+      "id": "4360a437-2c94-42f1-8917-295b1f85aa6b",
+      "createdAt": "2026-10-22T01:56:39.000Z",
+      "updatedAt": "2026-10-22T01:56:39.000Z",
+      "uid": "35240-4360a437-2c94-42f1-8917-295b1f85aa6b"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api-sandbox.fixflo.com/api/v2"
+    }
+  ]
+}

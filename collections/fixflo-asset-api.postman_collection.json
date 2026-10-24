@@ -1,0 +1,651 @@
+{
+  "info": {
+    "_postman_id": "4180e24f-845e-4307-9400-0631aae2efca",
+    "name": "Fixflo Asset API",
+    "description": "Fixflo api docs\n\nContact Support:\n Name: Support\n Email: support@fixflo.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:54:16.000Z",
+    "updatedAt": "2026-10-22T01:54:17.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-4180e24f-845e-4307-9400-0631aae2efca"
+  },
+  "item": [
+    {
+      "name": "Assets",
+      "item": [
+        {
+          "name": "Search assets",
+          "id": "b896da30-318b-4d73-8a92-9e1168dd368b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/Assets?AssetId=<string>&AssetRef=<string>&ExternalAssetRef=<string>&Name=<string>&ExternalBlockRef=<string>&ExternalPropertyRef=<string>&UpdatedBefore=<dateTime>&UpdatedSince=<dateTime>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Assets"
+              ],
+              "query": [
+                {
+                  "description": "The Fixflo unique identifier for the asset",
+                  "key": "AssetId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The reference on the tag or label of the asset",
+                  "key": "AssetRef",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The reference of the asset in an external system",
+                  "key": "ExternalAssetRef",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The name of the asset",
+                  "key": "Name",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The reference for the block of the asset in an external system",
+                  "key": "ExternalBlockRef",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The reference for the property of the asset in an external system",
+                  "key": "ExternalPropertyRef",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Used to only return assets updated before this date",
+                  "key": "UpdatedBefore",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "Used to only return assets updated after this date",
+                  "key": "UpdatedSince",
+                  "value": "<dateTime>"
+                }
+              ]
+            },
+            "description": "Search for assets using the criteria provided in the query string."
+          },
+          "response": [
+            {
+              "id": "a9aa3a10-29af-4d11-b8fc-e19b28a9bf54",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Assets?AssetId=<string>&AssetRef=<string>&ExternalAssetRef=<string>&Name=<string>&ExternalBlockRef=<string>&ExternalPropertyRef=<string>&UpdatedBefore=<dateTime>&UpdatedSince=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Assets"
+                  ],
+                  "query": [
+                    {
+                      "description": "The Fixflo unique identifier for the asset",
+                      "key": "AssetId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The reference on the tag or label of the asset",
+                      "key": "AssetRef",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The reference of the asset in an external system",
+                      "key": "ExternalAssetRef",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name of the asset",
+                      "key": "Name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The reference for the block of the asset in an external system",
+                      "key": "ExternalBlockRef",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The reference for the property of the asset in an external system",
+                      "key": "ExternalPropertyRef",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Used to only return assets updated before this date",
+                      "key": "UpdatedBefore",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Used to only return assets updated after this date",
+                      "key": "UpdatedSince",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"TotalItems\": \"<integer>\",\n  \"TotalPages\": \"<integer>\",\n  \"NextURL\": \"<string>\",\n  \"PreviousURL\": \"<string>\",\n  \"Assets\": [\n    {\n      \"Name\": \"<string>\",\n      \"ExternalPropertyRef\": \"<string>\",\n      \"ExternalBlockRef\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"Id\": \"<string>\",\n      \"AssetRef\": \"<string>\",\n      \"ExternalAssetRef\": \"<string>\",\n      \"Updated\": \"<string,null-date-time>\",\n      \"Location\": \"<string>\",\n      \"Subcontracted\": \"<boolean,null>\",\n      \"Manufacturer\": \"<string>\",\n      \"Model number\": \"<string>\",\n      \"Serial number\": \"<string>\",\n      \"Quantity\": \"<string>\",\n      \"InstallationDate\": \"<string,null-date-time>\",\n      \"InstallationCost\": \"<float>\",\n      \"Warranty\": {\n        \"id\": \"<string>\",\n        \"StartDate\": \"<dateTime>\",\n        \"EndDate\": \"<dateTime>\",\n        \"ExternalContractorRef\": \"<string>\",\n        \"AssignedContractorCaption\": \"<string>\"\n      }\n    },\n    {\n      \"Name\": \"<string>\",\n      \"ExternalPropertyRef\": \"<string>\",\n      \"ExternalBlockRef\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"Id\": \"<string>\",\n      \"AssetRef\": \"<string>\",\n      \"ExternalAssetRef\": \"<string>\",\n      \"Updated\": \"<string,null-date-time>\",\n      \"Location\": \"<string>\",\n      \"Subcontracted\": \"<boolean,null>\",\n      \"Manufacturer\": \"<string>\",\n      \"Model number\": \"<string>\",\n      \"Serial number\": \"<string>\",\n      \"Quantity\": \"<string>\",\n      \"InstallationDate\": \"<string,null-date-time>\",\n      \"InstallationCost\": \"<float>\",\n      \"Warranty\": {\n        \"id\": \"<string>\",\n        \"StartDate\": \"<dateTime>\",\n        \"EndDate\": \"<dateTime>\",\n        \"ExternalContractorRef\": \"<string>\",\n        \"AssignedContractorCaption\": \"<string>\"\n      }\n    }\n  ]\n}",
+              "createdAt": "2026-10-22T01:54:17.000Z",
+              "updatedAt": "2026-10-22T01:54:17.000Z",
+              "uid": "35240-a9aa3a10-29af-4d11-b8fc-e19b28a9bf54"
+            }
+          ],
+          "createdAt": "2026-10-22T01:54:17.000Z",
+          "updatedAt": "2026-10-22T01:54:17.000Z",
+          "uid": "35240-b896da30-318b-4d73-8a92-9e1168dd368b"
+        }
+      ],
+      "id": "27f239e2-016f-429d-8220-6fb8cdd285e5",
+      "createdAt": "2026-10-22T01:54:17.000Z",
+      "updatedAt": "2026-10-22T01:54:17.000Z",
+      "uid": "35240-27f239e2-016f-429d-8220-6fb8cdd285e5"
+    },
+    {
+      "name": "Asset",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Get asset by id",
+              "id": "afc414a9-db63-4576-9682-e93dc51ab143",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Asset/:id?id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Asset",
+                    ":id"
+                  ],
+                  "query": [
+                    {
+                      "description": "The Fixflo asset id",
+                      "key": "id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "0f063c82-94ec-465b-842c-58946021a069",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Retrieve an asset by Id"
+              },
+              "response": [
+                {
+                  "id": "09efde96-b069-4c25-a4ff-2b966cb9ad0d",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Asset/:id?id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Asset",
+                        ":id"
+                      ],
+                      "query": [
+                        {
+                          "description": "The Fixflo asset id",
+                          "key": "id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Asset\": {\n    \"Name\": \"<string>\",\n    \"ExternalPropertyRef\": \"<string>\",\n    \"ExternalBlockRef\": \"<string>\",\n    \"Description\": \"<string>\",\n    \"Id\": \"<string>\",\n    \"AssetRef\": \"<string>\",\n    \"ExternalAssetRef\": \"<string>\",\n    \"Updated\": \"<string,null-date-time>\",\n    \"Location\": \"<string>\",\n    \"Subcontracted\": \"<boolean,null>\",\n    \"Manufacturer\": \"<string>\",\n    \"Model number\": \"<string>\",\n    \"Serial number\": \"<string>\",\n    \"Quantity\": \"<string>\",\n    \"InstallationDate\": \"<string,null-date-time>\",\n    \"InstallationCost\": \"<float>\",\n    \"Warranty\": {\n      \"id\": \"<string>\",\n      \"StartDate\": \"<dateTime>\",\n      \"EndDate\": \"<dateTime>\",\n      \"ExternalContractorRef\": \"<string>\",\n      \"AssignedContractorCaption\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-10-22T01:54:17.000Z",
+                  "updatedAt": "2026-10-22T01:54:17.000Z",
+                  "uid": "35240-09efde96-b069-4c25-a4ff-2b966cb9ad0d"
+                }
+              ],
+              "createdAt": "2026-10-22T01:54:17.000Z",
+              "updatedAt": "2026-10-22T01:54:17.000Z",
+              "uid": "35240-afc414a9-db63-4576-9682-e93dc51ab143"
+            },
+            {
+              "name": "Update asset",
+              "id": "7f465b45-2ff4-4519-99ac-d0054f2db960",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Id\": \"<string>\",\n  \"AssetRef\": \"<string>\",\n  \"ExternalAssetRef\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"Updated\": \"<string,null-date-time>\",\n  \"Description\": \"<string>\",\n  \"Location\": \"<string>\",\n  \"Subcontracted\": \"<boolean,null>\",\n  \"Manufacturer\": \"<string>\",\n  \"Model number\": \"<string>\",\n  \"Serial number\": \"<string>\",\n  \"Quantity\": \"<string>\",\n  \"InstallationDate\": \"<string,null-date-time>\",\n  \"InstallationCost\": \"<float>\",\n  \"Warranty\": {\n    \"id\": \"<string>\",\n    \"StartDate\": \"<dateTime>\",\n    \"EndDate\": \"<dateTime>\",\n    \"ExternalContractorRef\": \"<string>\",\n    \"AssignedContractorCaption\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Asset/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Asset",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "e7ceed27-89ec-49be-9579-c4410c7f433b",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Update an existing asset"
+              },
+              "response": [
+                {
+                  "id": "4fdce660-bc79-40c1-a8d3-def45de7219e",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"Id\": \"<string>\",\n  \"AssetRef\": \"<string>\",\n  \"ExternalAssetRef\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"Updated\": \"<string,null-date-time>\",\n  \"Description\": \"<string>\",\n  \"Location\": \"<string>\",\n  \"Subcontracted\": \"<boolean,null>\",\n  \"Manufacturer\": \"<string>\",\n  \"Model number\": \"<string>\",\n  \"Serial number\": \"<string>\",\n  \"Quantity\": \"<string>\",\n  \"InstallationDate\": \"<string,null-date-time>\",\n  \"InstallationCost\": \"<float>\",\n  \"Warranty\": {\n    \"id\": \"<string>\",\n    \"StartDate\": \"<dateTime>\",\n    \"EndDate\": \"<dateTime>\",\n    \"ExternalContractorRef\": \"<string>\",\n    \"AssignedContractorCaption\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/Asset/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Asset",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"HttpStatusCode\": \"<integer>\",\n  \"HttpStatusCodeDesc\": \"<string>\",\n  \"Errors\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Asset\": {\n    \"Name\": \"<string>\",\n    \"ExternalPropertyRef\": \"<string>\",\n    \"ExternalBlockRef\": \"<string>\",\n    \"Description\": \"<string>\",\n    \"Id\": \"<string>\",\n    \"AssetRef\": \"<string>\",\n    \"ExternalAssetRef\": \"<string>\",\n    \"Updated\": \"<string,null-date-time>\",\n    \"Location\": \"<string>\",\n    \"Subcontracted\": \"<boolean,null>\",\n    \"Manufacturer\": \"<string>\",\n    \"Model number\": \"<string>\",\n    \"Serial number\": \"<string>\",\n    \"Quantity\": \"<string>\",\n    \"InstallationDate\": \"<string,null-date-time>\",\n    \"InstallationCost\": \"<float>\",\n    \"Warranty\": {\n      \"id\": \"<string>\",\n      \"StartDate\": \"<dateTime>\",\n      \"EndDate\": \"<dateTime>\",\n      \"ExternalContractorRef\": \"<string>\",\n      \"AssignedContractorCaption\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-10-22T01:54:17.000Z",
+                  "updatedAt": "2026-10-22T01:54:17.000Z",
+                  "uid": "35240-4fdce660-bc79-40c1-a8d3-def45de7219e"
+                },
+                {
+                  "id": "73f570be-8f2c-45ce-9e0d-646302158a37",
+                  "name": "Not Found",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"Id\": \"<string>\",\n  \"AssetRef\": \"<string>\",\n  \"ExternalAssetRef\": \"<string>\",\n  \"Name\": \"<string>\",\n  \"Updated\": \"<string,null-date-time>\",\n  \"Description\": \"<string>\",\n  \"Location\": \"<string>\",\n  \"Subcontracted\": \"<boolean,null>\",\n  \"Manufacturer\": \"<string>\",\n  \"Model number\": \"<string>\",\n  \"Serial number\": \"<string>\",\n  \"Quantity\": \"<string>\",\n  \"InstallationDate\": \"<string,null-date-time>\",\n  \"InstallationCost\": \"<float>\",\n  \"Warranty\": {\n    \"id\": \"<string>\",\n    \"StartDate\": \"<dateTime>\",\n    \"EndDate\": \"<dateTime>\",\n    \"ExternalContractorRef\": \"<string>\",\n    \"AssignedContractorCaption\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/Asset/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Asset",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"HttpStatusCode\": \"<integer>\",\n  \"HttpStatusCodeDesc\": \"<string>\",\n  \"Errors\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Messages\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-10-22T01:54:17.000Z",
+                  "updatedAt": "2026-10-22T01:54:17.000Z",
+                  "uid": "35240-73f570be-8f2c-45ce-9e0d-646302158a37"
+                }
+              ],
+              "createdAt": "2026-10-22T01:54:17.000Z",
+              "updatedAt": "2026-10-22T01:54:17.000Z",
+              "uid": "35240-7f465b45-2ff4-4519-99ac-d0054f2db960"
+            }
+          ],
+          "id": "9a008d41-d6c0-4bf0-9c88-cded83761724",
+          "createdAt": "2026-10-22T01:54:17.000Z",
+          "updatedAt": "2026-10-22T01:54:17.000Z",
+          "uid": "35240-9a008d41-d6c0-4bf0-9c88-cded83761724"
+        },
+        {
+          "name": "Create asset",
+          "id": "32d10609-68ce-4bac-ba07-3a39021f9f1f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Name\": \"<string>\",\n  \"ExternalPropertyRef\": \"<string>\",\n  \"ExternalBlockRef\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"Id\": \"<string>\",\n  \"AssetRef\": \"<string>\",\n  \"ExternalAssetRef\": \"<string>\",\n  \"Updated\": \"<string,null-date-time>\",\n  \"Location\": \"<string>\",\n  \"Subcontracted\": \"<boolean,null>\",\n  \"Manufacturer\": \"<string>\",\n  \"Model number\": \"<string>\",\n  \"Serial number\": \"<string>\",\n  \"Quantity\": \"<string>\",\n  \"InstallationDate\": \"<string,null-date-time>\",\n  \"InstallationCost\": \"<float>\",\n  \"Warranty\": {\n    \"id\": \"<string>\",\n    \"StartDate\": \"<dateTime>\",\n    \"EndDate\": \"<dateTime>\",\n    \"ExternalContractorRef\": \"<string>\",\n    \"AssignedContractorCaption\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/Asset",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Asset"
+              ]
+            },
+            "description": "Endpoint used for creating a new asset"
+          },
+          "response": [
+            {
+              "id": "08f426a5-b083-4020-a948-2a25015e9843",
+              "name": "Created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"ExternalPropertyRef\": \"<string>\",\n  \"ExternalBlockRef\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"Id\": \"<string>\",\n  \"AssetRef\": \"<string>\",\n  \"ExternalAssetRef\": \"<string>\",\n  \"Updated\": \"<string,null-date-time>\",\n  \"Location\": \"<string>\",\n  \"Subcontracted\": \"<boolean,null>\",\n  \"Manufacturer\": \"<string>\",\n  \"Model number\": \"<string>\",\n  \"Serial number\": \"<string>\",\n  \"Quantity\": \"<string>\",\n  \"InstallationDate\": \"<string,null-date-time>\",\n  \"InstallationCost\": \"<float>\",\n  \"Warranty\": {\n    \"id\": \"<string>\",\n    \"StartDate\": \"<dateTime>\",\n    \"EndDate\": \"<dateTime>\",\n    \"ExternalContractorRef\": \"<string>\",\n    \"AssignedContractorCaption\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Asset",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Asset"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"HttpStatusCode\": \"<integer>\",\n  \"HttpStatusCodeDesc\": \"<string>\",\n  \"Errors\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Asset\": {\n    \"Name\": \"<string>\",\n    \"ExternalPropertyRef\": \"<string>\",\n    \"ExternalBlockRef\": \"<string>\",\n    \"Description\": \"<string>\",\n    \"Id\": \"<string>\",\n    \"AssetRef\": \"<string>\",\n    \"ExternalAssetRef\": \"<string>\",\n    \"Updated\": \"<string,null-date-time>\",\n    \"Location\": \"<string>\",\n    \"Subcontracted\": \"<boolean,null>\",\n    \"Manufacturer\": \"<string>\",\n    \"Model number\": \"<string>\",\n    \"Serial number\": \"<string>\",\n    \"Quantity\": \"<string>\",\n    \"InstallationDate\": \"<string,null-date-time>\",\n    \"InstallationCost\": \"<float>\",\n    \"Warranty\": {\n      \"id\": \"<string>\",\n      \"StartDate\": \"<dateTime>\",\n      \"EndDate\": \"<dateTime>\",\n      \"ExternalContractorRef\": \"<string>\",\n      \"AssignedContractorCaption\": \"<string>\"\n    }\n  }\n}",
+              "createdAt": "2026-10-22T01:54:17.000Z",
+              "updatedAt": "2026-10-22T01:54:17.000Z",
+              "uid": "35240-08f426a5-b083-4020-a948-2a25015e9843"
+            },
+            {
+              "id": "3c0151fc-90f7-47d5-a3b0-d26953df10f4",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"ExternalPropertyRef\": \"<string>\",\n  \"ExternalBlockRef\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"Id\": \"<string>\",\n  \"AssetRef\": \"<string>\",\n  \"ExternalAssetRef\": \"<string>\",\n  \"Updated\": \"<string,null-date-time>\",\n  \"Location\": \"<string>\",\n  \"Subcontracted\": \"<boolean,null>\",\n  \"Manufacturer\": \"<string>\",\n  \"Model number\": \"<string>\",\n  \"Serial number\": \"<string>\",\n  \"Quantity\": \"<string>\",\n  \"InstallationDate\": \"<string,null-date-time>\",\n  \"InstallationCost\": \"<float>\",\n  \"Warranty\": {\n    \"id\": \"<string>\",\n    \"StartDate\": \"<dateTime>\",\n    \"EndDate\": \"<dateTime>\",\n    \"ExternalContractorRef\": \"<string>\",\n    \"AssignedContractorCaption\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Asset",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Asset"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"HttpStatusCode\": \"<integer>\",\n  \"HttpStatusCodeDesc\": \"<string>\",\n  \"Errors\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Asset\": {\n    \"Name\": \"<string>\",\n    \"ExternalPropertyRef\": \"<string>\",\n    \"ExternalBlockRef\": \"<string>\",\n    \"Description\": \"<string>\",\n    \"Id\": \"<string>\",\n    \"AssetRef\": \"<string>\",\n    \"ExternalAssetRef\": \"<string>\",\n    \"Updated\": \"<string,null-date-time>\",\n    \"Location\": \"<string>\",\n    \"Subcontracted\": \"<boolean,null>\",\n    \"Manufacturer\": \"<string>\",\n    \"Model number\": \"<string>\",\n    \"Serial number\": \"<string>\",\n    \"Quantity\": \"<string>\",\n    \"InstallationDate\": \"<string,null-date-time>\",\n    \"InstallationCost\": \"<float>\",\n    \"Warranty\": {\n      \"id\": \"<string>\",\n      \"StartDate\": \"<dateTime>\",\n      \"EndDate\": \"<dateTime>\",\n      \"ExternalContractorRef\": \"<string>\",\n      \"AssignedContractorCaption\": \"<string>\"\n    }\n  }\n}",
+              "createdAt": "2026-10-22T01:54:17.000Z",
+              "updatedAt": "2026-10-22T01:54:17.000Z",
+              "uid": "35240-3c0151fc-90f7-47d5-a3b0-d26953df10f4"
+            }
+          ],
+          "createdAt": "2026-10-22T01:54:17.000Z",
+          "updatedAt": "2026-10-22T01:54:17.000Z",
+          "uid": "35240-32d10609-68ce-4bac-ba07-3a39021f9f1f"
+        }
+      ],
+      "id": "1fb62c4f-3a6a-4463-bf47-b783a8e4855b",
+      "createdAt": "2026-10-22T01:54:17.000Z",
+      "updatedAt": "2026-10-22T01:54:17.000Z",
+      "uid": "35240-1fb62c4f-3a6a-4463-bf47-b783a8e4855b"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api-sandbox.fixflo.com/api/v2"
+    }
+  ]
+}

@@ -1,0 +1,548 @@
+{
+  "info": {
+    "_postman_id": "ed3d3e5c-e5f6-4d2a-82e9-93374ca2a796",
+    "name": "Fixflo Agent API",
+    "description": "Fixflo api docs\n\nContact Support:\n Name: Support\n Email: support@fixflo.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:54:09.000Z",
+    "updatedAt": "2026-10-22T01:54:09.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ed3d3e5c-e5f6-4d2a-82e9-93374ca2a796"
+  },
+  "item": [
+    {
+      "name": "Agent",
+      "item": [
+        {
+          "name": "{Id}",
+          "item": [
+            {
+              "name": "Brand",
+              "item": [
+                {
+                  "name": "Agent / brand",
+                  "id": "b99f44fd-f48f-46b1-961f-6ee082589786",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"Id\": \"<uuid>\",\n  \"Name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/Agent/:Id/Brand?Id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Agent",
+                        ":Id",
+                        "Brand"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Id of agent",
+                          "key": "Id",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "faa5fb80-3a5e-4f57-ae20-ec989533f4ba",
+                          "key": "Id",
+                          "value": "<string>",
+                          "description": "(Required) The Fixflo id of the agent to be updated"
+                        }
+                      ]
+                    },
+                    "description": "Update agent brand"
+                  },
+                  "response": [
+                    {
+                      "id": "d346826c-0616-4163-a496-e6686ede18be",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"Id\": \"<uuid>\",\n  \"Name\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/Agent/:Id/Brand?Id=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Agent",
+                            ":Id",
+                            "Brand"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Id of agent",
+                              "key": "Id",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "Id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"HttpStatusCode\": \"<integer>\",\n  \"HttpStatusCodeDesc\": \"<string>\",\n  \"Errors\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Entity\": {\n    \"Id\": \"<long>\",\n    \"ExternalRef\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"ContactNo\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  }\n}",
+                      "createdAt": "2026-10-22T01:54:10.000Z",
+                      "updatedAt": "2026-10-22T01:54:10.000Z",
+                      "uid": "35240-d346826c-0616-4163-a496-e6686ede18be"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:54:10.000Z",
+                  "updatedAt": "2026-10-22T01:54:10.000Z",
+                  "uid": "35240-b99f44fd-f48f-46b1-961f-6ee082589786"
+                }
+              ],
+              "id": "0836d4bc-28fd-49fc-86d3-f3ba529a6fb0",
+              "createdAt": "2026-10-22T01:54:10.000Z",
+              "updatedAt": "2026-10-22T01:54:10.000Z",
+              "uid": "35240-0836d4bc-28fd-49fc-86d3-f3ba529a6fb0"
+            }
+          ],
+          "id": "f144f961-096c-49f5-af42-63b8aee934dc",
+          "createdAt": "2026-10-22T01:54:10.000Z",
+          "updatedAt": "2026-10-22T01:54:10.000Z",
+          "uid": "35240-f144f961-096c-49f5-af42-63b8aee934dc"
+        },
+        {
+          "name": "Agent",
+          "id": "36be092e-3209-4aa1-a424-c1ef88b7c6aa",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Id\": \"<long>\",\n  \"ExternalRef\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"DisplayName\": \"<string>\",\n  \"ContactNo\": \"<string>\",\n  \"IsDeleted\": \"<boolean>\",\n  \"Brand\": {\n    \"Id\": \"<uuid>\",\n    \"Name\": \"<string>\"\n  },\n  \"UpdateDate\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/Agent",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Agent"
+              ]
+            },
+            "description": "Saves (create or update) agent record\n\nIf the Id has a value and the agent entity exists the agent will be updated. If the ExternalagentRef value is set this value must be unique for the given agency. If the Id has a value = null or \"\" an attempt to create a new agent will be made."
+          },
+          "response": [
+            {
+              "id": "3868bd2f-a06a-4f9d-9e54-d2d66495dd4c",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Id\": \"<long>\",\n  \"ExternalRef\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"DisplayName\": \"<string>\",\n  \"ContactNo\": \"<string>\",\n  \"IsDeleted\": \"<boolean>\",\n  \"Brand\": {\n    \"Id\": \"<uuid>\",\n    \"Name\": \"<string>\"\n  },\n  \"UpdateDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Agent",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Agent"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"HttpStatusCode\": \"<integer>\",\n  \"HttpStatusCodeDesc\": \"<string>\",\n  \"Errors\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Entity\": {\n    \"Id\": \"<long>\",\n    \"ExternalRef\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"ContactNo\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  }\n}",
+              "createdAt": "2026-10-22T01:54:10.000Z",
+              "updatedAt": "2026-10-22T01:54:10.000Z",
+              "uid": "35240-3868bd2f-a06a-4f9d-9e54-d2d66495dd4c"
+            }
+          ],
+          "createdAt": "2026-10-22T01:54:10.000Z",
+          "updatedAt": "2026-10-22T01:54:10.000Z",
+          "uid": "35240-36be092e-3209-4aa1-a424-c1ef88b7c6aa"
+        },
+        {
+          "name": "Agent",
+          "id": "af3f03e6-7ad0-44a7-bba0-67e50a534c93",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/Agent?EmailAddress=<string>&ExternalAgentRef=<string>&AgentId=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Agent"
+              ],
+              "query": [
+                {
+                  "description": "Agent email address",
+                  "key": "EmailAddress",
+                  "value": "<string>"
+                },
+                {
+                  "description": "External ref",
+                  "key": "ExternalAgentRef",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Fixflo agent id",
+                  "key": "AgentId",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Gets agent record"
+          },
+          "response": [
+            {
+              "id": "8549523d-d96d-4228-a29c-84710aecefcb",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Agent?EmailAddress=<string>&ExternalAgentRef=<string>&AgentId=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Agent"
+                  ],
+                  "query": [
+                    {
+                      "description": "Agent email address",
+                      "key": "EmailAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "External ref",
+                      "key": "ExternalAgentRef",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Fixflo agent id",
+                      "key": "AgentId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"Id\": \"<long>\",\n  \"ExternalRef\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"DisplayName\": \"<string>\",\n  \"ContactNo\": \"<string>\",\n  \"IsDeleted\": \"<boolean>\",\n  \"Brand\": {\n    \"Id\": \"<uuid>\",\n    \"Name\": \"<string>\"\n  },\n  \"UpdateDate\": \"<dateTime>\"\n}",
+              "createdAt": "2026-10-22T01:54:10.000Z",
+              "updatedAt": "2026-10-22T01:54:10.000Z",
+              "uid": "35240-8549523d-d96d-4228-a29c-84710aecefcb"
+            }
+          ],
+          "createdAt": "2026-10-22T01:54:10.000Z",
+          "updatedAt": "2026-10-22T01:54:10.000Z",
+          "uid": "35240-af3f03e6-7ad0-44a7-bba0-67e50a534c93"
+        }
+      ],
+      "id": "5cea1cd6-259f-4f85-8a82-a8db73bd181a",
+      "createdAt": "2026-10-22T01:54:10.000Z",
+      "updatedAt": "2026-10-22T01:54:10.000Z",
+      "uid": "35240-5cea1cd6-259f-4f85-8a82-a8db73bd181a"
+    },
+    {
+      "name": "Agents",
+      "item": [
+        {
+          "name": "Agents",
+          "id": "303e94e6-02c5-4c52-84c1-3ed1bb319606",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/Agents?keyword=<string>&pg=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Agents"
+              ],
+              "query": [
+                {
+                  "description": "keywords to search",
+                  "key": "keyword",
+                  "value": "<string>"
+                },
+                {
+                  "description": "page to return",
+                  "key": "pg",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Find agents by keyword"
+          },
+          "response": [
+            {
+              "id": "e4752869-5a10-4242-bc16-541ad0b3734b",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Agents?keyword=<string>&pg=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Agents"
+                  ],
+                  "query": [
+                    {
+                      "description": "keywords to search",
+                      "key": "keyword",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "page to return",
+                      "key": "pg",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"TotalItems\": \"<integer>\",\n  \"TotalPages\": \"<integer>\",\n  \"Items\": [\n    {\n      \"Id\": \"<long>\",\n      \"ExternalRef\": \"<string>\",\n      \"EmailAddress\": \"<string>\",\n      \"DisplayName\": \"<string>\",\n      \"ContactNo\": \"<string>\",\n      \"IsDeleted\": \"<boolean>\",\n      \"Brand\": {\n        \"Id\": \"<uuid>\",\n        \"Name\": \"<string>\"\n      },\n      \"UpdateDate\": \"<dateTime>\"\n    },\n    {\n      \"Id\": \"<long>\",\n      \"ExternalRef\": \"<string>\",\n      \"EmailAddress\": \"<string>\",\n      \"DisplayName\": \"<string>\",\n      \"ContactNo\": \"<string>\",\n      \"IsDeleted\": \"<boolean>\",\n      \"Brand\": {\n        \"Id\": \"<uuid>\",\n        \"Name\": \"<string>\"\n      },\n      \"UpdateDate\": \"<dateTime>\"\n    }\n  ],\n  \"NextURL\": \"<string>\",\n  \"PreviousURL\": \"<string>\"\n}",
+              "createdAt": "2026-10-22T01:54:10.000Z",
+              "updatedAt": "2026-10-22T01:54:10.000Z",
+              "uid": "35240-e4752869-5a10-4242-bc16-541ad0b3734b"
+            },
+            {
+              "id": "be9762d3-5c1e-46d3-bc91-3b3dea467d9e",
+              "name": "Created",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Agents?keyword=<string>&pg=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Agents"
+                  ],
+                  "query": [
+                    {
+                      "description": "keywords to search",
+                      "key": "keyword",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "page to return",
+                      "key": "pg",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T01:54:10.000Z",
+              "updatedAt": "2026-10-22T01:54:10.000Z",
+              "uid": "35240-be9762d3-5c1e-46d3-bc91-3b3dea467d9e"
+            }
+          ],
+          "createdAt": "2026-10-22T01:54:10.000Z",
+          "updatedAt": "2026-10-22T01:54:10.000Z",
+          "uid": "35240-303e94e6-02c5-4c52-84c1-3ed1bb319606"
+        }
+      ],
+      "id": "ad87458d-5692-488d-bff8-0851fe738df0",
+      "createdAt": "2026-10-22T01:54:10.000Z",
+      "updatedAt": "2026-10-22T01:54:10.000Z",
+      "uid": "35240-ad87458d-5692-488d-bff8-0851fe738df0"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api-sandbox.fixflo.com/api/v2"
+    }
+  ]
+}

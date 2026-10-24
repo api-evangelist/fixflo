@@ -1,0 +1,1279 @@
+{
+  "info": {
+    "_postman_id": "85847303-3ef1-4d4a-bc85-02d8c41f7154",
+    "name": "Fixflo Service Event API",
+    "description": "Fixflo api docs\n\nContact Support:\n Name: Support\n Email: support@fixflo.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:55:55.000Z",
+    "updatedAt": "2026-10-22T01:55:56.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-85847303-3ef1-4d4a-bc85-02d8c41f7154"
+  },
+  "item": [
+    {
+      "name": "ServiceEvent",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Medias",
+              "item": [
+                {
+                  "name": "Service event media",
+                  "id": "cbf3fc74-f9ba-4fdb-9541-f73c4a5f1501",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/ServiceEvent/:id/Medias?pg=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "ServiceEvent",
+                        ":id",
+                        "Medias"
+                      ],
+                      "query": [
+                        {
+                          "description": "The page number to return",
+                          "key": "pg",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "6c388d41-2a3e-43de-82bd-58864f07e7d7",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) The id of the Service Event"
+                        }
+                      ]
+                    },
+                    "description": "Get all Media associated with a Service Event"
+                  },
+                  "response": [
+                    {
+                      "id": "7badb927-aa41-4537-9aeb-fc2758c95d39",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/ServiceEvent/:id/Medias?pg=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "ServiceEvent",
+                            ":id",
+                            "Medias"
+                          ],
+                          "query": [
+                            {
+                              "description": "The page number to return",
+                              "key": "pg",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"TotalItems\": \"<integer>\",\n  \"TotalPages\": \"<integer>\",\n  \"NextURL\": \"<string>\",\n  \"PreviousURL\": \"<string>\",\n  \"items\": {\n    \"Id\": \"<uuid>\",\n    \"URL\": \"<string>\",\n    \"ContentType\": \"<string>\",\n    \"MediaType\": \"<string>\",\n    \"MediaTypeDescription\": \"<string>\",\n    \"ShortDescription\": \"<string>\",\n    \"AddedByUserTypeId\": \"<string>\",\n    \"EncodedByteData\": \"<string>\",\n    \"ServiceProgrammeDef\": {\n      \"id\": \"<string>\",\n      \"EventType\": \"<string>\",\n      \"Class\": \"<string>\",\n      \"Category\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"IsStatutory\": \"<boolean>\",\n      \"CostCode\": \"<string>\",\n      \"InstructionNotes\": \"<string>\",\n      \"InstructionDateOffsetPeriod\": 2,\n      \"InstructionDateOffsetType\": \"<integer>\",\n      \"ServiceFrequency\": \"<integer>\",\n      \"ServiceFrequencyType\": 0,\n      \"IsDisabled\": \"<boolean>\",\n      \"IsPropertyDefinition\": \"<boolean>\"\n    },\n    \"DocumentStartDate\": \"<dateTime>\",\n    \"DocumentExpiryDate\": \"<dateTime>\"\n  }\n}",
+                      "createdAt": "2026-10-22T01:55:56.000Z",
+                      "updatedAt": "2026-10-22T01:55:56.000Z",
+                      "uid": "35240-7badb927-aa41-4537-9aeb-fc2758c95d39"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:55:56.000Z",
+                  "updatedAt": "2026-10-22T01:55:56.000Z",
+                  "uid": "35240-cbf3fc74-f9ba-4fdb-9541-f73c4a5f1501"
+                }
+              ],
+              "id": "16e47a63-58c5-4f0b-853f-efd26d1e60a7",
+              "createdAt": "2026-10-22T01:55:56.000Z",
+              "updatedAt": "2026-10-22T01:55:56.000Z",
+              "uid": "35240-16e47a63-58c5-4f0b-853f-efd26d1e60a7"
+            },
+            {
+              "name": "Service event by Id",
+              "id": "39194446-6666-47f1-ae6b-767cabc499c2",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/ServiceEvent/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ServiceEvent",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "90570967-55c7-4d87-b278-9b9346ae770a",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) The id of the Service Event"
+                    }
+                  ]
+                },
+                "description": "Get service event"
+              },
+              "response": [
+                {
+                  "id": "462cfc41-89a3-41cf-a472-b85640547926",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/ServiceEvent/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "ServiceEvent",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"Id\": \"<string>\",\n  \"Reference\": \"<string>\",\n  \"BlockId\": \"<integer>\",\n  \"ExternalBlockRef\": \"<string>\",\n  \"PropertyAddressId\": \"<integer>\",\n  \"PropertyId\": \"<integer>\",\n  \"ExternalPropertyRef\": \"<string>\",\n  \"ServiceProgrammeDef\": {\n    \"id\": \"<string>\",\n    \"EventType\": \"<string>\",\n    \"Class\": \"<string>\",\n    \"Category\": \"<string>\",\n    \"Description\": \"<string>\",\n    \"IsStatutory\": \"<boolean>\",\n    \"CostCode\": \"<string>\",\n    \"InstructionNotes\": \"<string>\",\n    \"InstructionDateOffsetPeriod\": 2,\n    \"InstructionDateOffsetType\": \"<integer>\",\n    \"ServiceFrequency\": \"<integer>\",\n    \"ServiceFrequencyType\": 0,\n    \"IsDisabled\": \"<boolean>\",\n    \"IsPropertyDefinition\": \"<boolean>\"\n  },\n  \"ServiceProgrammeId\": \"<string>\",\n  \"UpdateDate\": \"<dateTime>\",\n  \"Status\": 16,\n  \"InstructionDateOffsetPeriod\": \"<integer>\",\n  \"InstructionDateOffsetType\": 2,\n  \"DueDate\": \"<dateTime>\",\n  \"InstructionDate\": \"<dateTime>\",\n  \"InstructionNotes\": \"<string>\",\n  \"RequiresReview\": \"<boolean>\",\n  \"Contractor\": {\n    \"Id\": \"<string>\",\n    \"ExternalRef\": \"<string>\",\n    \"CompanyName\": \"<string>\",\n    \"Title\": \"<string>\",\n    \"FirstName\": \"<string>\",\n    \"Surname\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"ContactNumber\": \"<string>\",\n    \"ContactNumberAlt\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Address\": {\n      \"AddressLine1\": \"<string>\",\n      \"AddressLine2\": \"<string>\",\n      \"Town\": \"<string>\",\n      \"County\": \"<string>\",\n      \"PostCode\": \"<string>\",\n      \"Country\": \"<string>\"\n    },\n    \"InvoiceDetails\": {\n      \"InvoiceDate\": \"<dateTime>\",\n      \"DueDate\": \"<dateTime>\",\n      \"InvoiceNumber\": \"<string>\",\n      \"LineItems\": [\n        {\n          \"LineType\": 2,\n          \"Description\": \"<string>\",\n          \"Quantity\": \"<number>\",\n          \"UnitPrice\": \"<number>\",\n          \"Net\": \"<number>\",\n          \"Tax\": \"<number>\",\n          \"Total\": \"<number>\"\n        },\n        {\n          \"LineType\": 0,\n          \"Description\": \"<string>\",\n          \"Quantity\": \"<number>\",\n          \"UnitPrice\": \"<number>\",\n          \"Net\": \"<number>\",\n          \"Tax\": \"<number>\",\n          \"Total\": \"<number>\"\n        }\n      ]\n    },\n    \"Services\": [\n      {\n        \"id\": \"<integer>\",\n        \"Name\": \"<string>\",\n        \"NameAndSynonyms\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"id\": \"<integer>\",\n        \"Name\": \"<string>\",\n        \"NameAndSynonyms\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"Certifications\": [\n      {\n        \"id\": \"<number>\",\n        \"Name\": \"<string>\",\n        \"Expiry\": \"<dateTime>\"\n      },\n      {\n        \"id\": \"<number>\",\n        \"Name\": \"<string>\",\n        \"Expiry\": \"<dateTime>\"\n      }\n    ],\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  },\n  \"AssignedAgent\": {\n    \"Id\": \"<long>\",\n    \"ExternalRef\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"ContactNo\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  },\n  \"Reviewer\": {\n    \"Id\": \"<long>\",\n    \"ExternalRef\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"ContactNo\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  },\n  \"Reviewed\": \"<dateTime>\",\n  \"Completed\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-10-22T01:55:56.000Z",
+                  "updatedAt": "2026-10-22T01:55:56.000Z",
+                  "uid": "35240-462cfc41-89a3-41cf-a472-b85640547926"
+                }
+              ],
+              "createdAt": "2026-10-22T01:55:56.000Z",
+              "updatedAt": "2026-10-22T01:55:56.000Z",
+              "uid": "35240-39194446-6666-47f1-ae6b-767cabc499c2"
+            }
+          ],
+          "id": "968a8601-615f-4003-aff4-679e92d9f250",
+          "createdAt": "2026-10-22T01:55:56.000Z",
+          "updatedAt": "2026-10-22T01:55:56.000Z",
+          "uid": "35240-968a8601-615f-4003-aff4-679e92d9f250"
+        }
+      ],
+      "id": "e7b71ee3-14c0-44b0-8ac6-cf89a6ccee34",
+      "createdAt": "2026-10-22T01:55:56.000Z",
+      "updatedAt": "2026-10-22T01:55:56.000Z",
+      "uid": "35240-e7b71ee3-14c0-44b0-8ac6-cf89a6ccee34"
+    },
+    {
+      "name": "ServiceEvents",
+      "item": [
+        {
+          "name": "Service events by Agency",
+          "id": "2a58ea9c-b85d-42c3-99a0-ea7cb2dc32cb",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/ServiceEvents?pg=<string>&propertyId=<integer>&externalPropertyRef=<string>&blockId=<integer>&externalBlockRef=<string>&serviceProgrammeDefId=<string>&serviceProgrammeId=<string>&dueDateSince=<string>&dueDateBefore=<string>&instructionDateSince=<string>&instructionDateBefore=<string>&updateDateSince=<string>&updateDateBefore=<string>&completedDateSince=<string>&completedDateBefore=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ServiceEvents"
+              ],
+              "query": [
+                {
+                  "description": "The page number to return",
+                  "key": "pg",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filters service events by the property Id of the property associated with them",
+                  "key": "propertyId",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Filters service events by the external property ref of the property associated with them",
+                  "key": "externalPropertyRef",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filters service events by the block Id of the block associated with them",
+                  "key": "blockId",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Filters service events by the external block ref of the block associated with them",
+                  "key": "externalBlockRef",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filters service events by their associated service programme def",
+                  "key": "serviceProgrammeDefId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filters service events by their associated service programme",
+                  "key": "serviceProgrammeId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filters service events that are due after the specified date time. (UTC date/time)",
+                  "key": "dueDateSince",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filters service events that are due before the specified date time. (UTC date/time)",
+                  "key": "dueDateBefore",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filters service events that are due for instruction after the specified date time. (UTC date/time)",
+                  "key": "instructionDateSince",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filters service events that are due for instruction before the specified date time. (UTC date/time)",
+                  "key": "instructionDateBefore",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filters service events that have been updated since the specified date time. (UTC date/time)",
+                  "key": "updateDateSince",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filters service events that have been updated before the specified date time. (UTC date/time)",
+                  "key": "updateDateBefore",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filters service events that have been completed since the specified date time. (UTC date/time)",
+                  "key": "completedDateSince",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filters service events that have been completed before the specified date time. (UTC date/time)",
+                  "key": "completedDateBefore",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Get agency service events"
+          },
+          "response": [
+            {
+              "id": "364746c2-ddea-4553-a133-1636cf512827",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/ServiceEvents?pg=<string>&propertyId=<integer>&externalPropertyRef=<string>&blockId=<integer>&externalBlockRef=<string>&serviceProgrammeDefId=<string>&serviceProgrammeId=<string>&dueDateSince=<string>&dueDateBefore=<string>&instructionDateSince=<string>&instructionDateBefore=<string>&updateDateSince=<string>&updateDateBefore=<string>&completedDateSince=<string>&completedDateBefore=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "ServiceEvents"
+                  ],
+                  "query": [
+                    {
+                      "description": "The page number to return",
+                      "key": "pg",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters service events by the property Id of the property associated with them",
+                      "key": "propertyId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filters service events by the external property ref of the property associated with them",
+                      "key": "externalPropertyRef",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters service events by the block Id of the block associated with them",
+                      "key": "blockId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Filters service events by the external block ref of the block associated with them",
+                      "key": "externalBlockRef",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters service events by their associated service programme def",
+                      "key": "serviceProgrammeDefId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters service events by their associated service programme",
+                      "key": "serviceProgrammeId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters service events that are due after the specified date time. (UTC date/time)",
+                      "key": "dueDateSince",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters service events that are due before the specified date time. (UTC date/time)",
+                      "key": "dueDateBefore",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters service events that are due for instruction after the specified date time. (UTC date/time)",
+                      "key": "instructionDateSince",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters service events that are due for instruction before the specified date time. (UTC date/time)",
+                      "key": "instructionDateBefore",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters service events that have been updated since the specified date time. (UTC date/time)",
+                      "key": "updateDateSince",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters service events that have been updated before the specified date time. (UTC date/time)",
+                      "key": "updateDateBefore",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters service events that have been completed since the specified date time. (UTC date/time)",
+                      "key": "completedDateSince",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters service events that have been completed before the specified date time. (UTC date/time)",
+                      "key": "completedDateBefore",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"value\": \"<Error: Could not resolve allOf schema\"\n}",
+              "createdAt": "2026-10-22T01:55:56.000Z",
+              "updatedAt": "2026-10-22T01:55:56.000Z",
+              "uid": "35240-364746c2-ddea-4553-a133-1636cf512827"
+            }
+          ],
+          "createdAt": "2026-10-22T01:55:56.000Z",
+          "updatedAt": "2026-10-22T01:55:56.000Z",
+          "uid": "35240-2a58ea9c-b85d-42c3-99a0-ea7cb2dc32cb"
+        }
+      ],
+      "id": "ec7863e6-d132-4a5d-982e-5d38767d3137",
+      "createdAt": "2026-10-22T01:55:56.000Z",
+      "updatedAt": "2026-10-22T01:55:56.000Z",
+      "uid": "35240-ec7863e6-d132-4a5d-982e-5d38767d3137"
+    },
+    {
+      "name": "Property",
+      "item": [
+        {
+          "name": "{propertyId}",
+          "item": [
+            {
+              "name": "ServiceProgramme",
+              "item": [
+                {
+                  "name": "{serviceProgrammeId}",
+                  "item": [
+                    {
+                      "name": "ServiceEvent",
+                      "item": [
+                        {
+                          "name": "{serviceEventId}",
+                          "item": [
+                            {
+                              "name": "Get Service Event By Property and Service Programme",
+                              "id": "2aeb3138-b00d-474e-abac-02938b16f054",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/Property/:propertyId/ServiceProgramme/:serviceProgrammeId/ServiceEvent/:serviceEventId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "Property",
+                                    ":propertyId",
+                                    "ServiceProgramme",
+                                    ":serviceProgrammeId",
+                                    "ServiceEvent",
+                                    ":serviceEventId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "d7cd5721-ec49-4892-a434-91a177209191",
+                                      "key": "propertyId",
+                                      "value": "<string>",
+                                      "description": "(Required) The Fixflo id of the property"
+                                    },
+                                    {
+                                      "id": "49b6856b-ef14-4a15-85a0-f38fedc23406",
+                                      "key": "serviceProgrammeId",
+                                      "value": "<string>",
+                                      "description": "(Required) The Fixflo id of the service programme"
+                                    },
+                                    {
+                                      "id": "83831881-b722-48fd-8274-f0f8e8befe6e",
+                                      "key": "serviceEventId",
+                                      "value": "<string>",
+                                      "description": "(Required) The Fixflo id of the service event"
+                                    }
+                                  ]
+                                },
+                                "description": "Gets a single service event by property, service programme and service event id."
+                              },
+                              "response": [
+                                {
+                                  "id": "3b86908b-443c-44e1-9e99-c3ce66d17fb8",
+                                  "name": "OK",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/Property/:propertyId/ServiceProgramme/:serviceProgrammeId/ServiceEvent/:serviceEventId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "Property",
+                                        ":propertyId",
+                                        "ServiceProgramme",
+                                        ":serviceProgrammeId",
+                                        "ServiceEvent",
+                                        ":serviceEventId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "propertyId"
+                                        },
+                                        {
+                                          "key": "serviceProgrammeId"
+                                        },
+                                        {
+                                          "key": "serviceEventId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"Id\": \"<string>\",\n  \"Reference\": \"<string>\",\n  \"BlockId\": \"<integer>\",\n  \"ExternalBlockRef\": \"<string>\",\n  \"PropertyAddressId\": \"<integer>\",\n  \"PropertyId\": \"<integer>\",\n  \"ExternalPropertyRef\": \"<string>\",\n  \"ServiceProgrammeDef\": {\n    \"id\": \"<string>\",\n    \"EventType\": \"<string>\",\n    \"Class\": \"<string>\",\n    \"Category\": \"<string>\",\n    \"Description\": \"<string>\",\n    \"IsStatutory\": \"<boolean>\",\n    \"CostCode\": \"<string>\",\n    \"InstructionNotes\": \"<string>\",\n    \"InstructionDateOffsetPeriod\": 2,\n    \"InstructionDateOffsetType\": \"<integer>\",\n    \"ServiceFrequency\": \"<integer>\",\n    \"ServiceFrequencyType\": 0,\n    \"IsDisabled\": \"<boolean>\",\n    \"IsPropertyDefinition\": \"<boolean>\"\n  },\n  \"ServiceProgrammeId\": \"<string>\",\n  \"UpdateDate\": \"<dateTime>\",\n  \"Status\": 16,\n  \"InstructionDateOffsetPeriod\": \"<integer>\",\n  \"InstructionDateOffsetType\": 2,\n  \"DueDate\": \"<dateTime>\",\n  \"InstructionDate\": \"<dateTime>\",\n  \"InstructionNotes\": \"<string>\",\n  \"RequiresReview\": \"<boolean>\",\n  \"Contractor\": {\n    \"Id\": \"<string>\",\n    \"ExternalRef\": \"<string>\",\n    \"CompanyName\": \"<string>\",\n    \"Title\": \"<string>\",\n    \"FirstName\": \"<string>\",\n    \"Surname\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"ContactNumber\": \"<string>\",\n    \"ContactNumberAlt\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Address\": {\n      \"AddressLine1\": \"<string>\",\n      \"AddressLine2\": \"<string>\",\n      \"Town\": \"<string>\",\n      \"County\": \"<string>\",\n      \"PostCode\": \"<string>\",\n      \"Country\": \"<string>\"\n    },\n    \"InvoiceDetails\": {\n      \"InvoiceDate\": \"<dateTime>\",\n      \"DueDate\": \"<dateTime>\",\n      \"InvoiceNumber\": \"<string>\",\n      \"LineItems\": [\n        {\n          \"LineType\": 2,\n          \"Description\": \"<string>\",\n          \"Quantity\": \"<number>\",\n          \"UnitPrice\": \"<number>\",\n          \"Net\": \"<number>\",\n          \"Tax\": \"<number>\",\n          \"Total\": \"<number>\"\n        },\n        {\n          \"LineType\": 0,\n          \"Description\": \"<string>\",\n          \"Quantity\": \"<number>\",\n          \"UnitPrice\": \"<number>\",\n          \"Net\": \"<number>\",\n          \"Tax\": \"<number>\",\n          \"Total\": \"<number>\"\n        }\n      ]\n    },\n    \"Services\": [\n      {\n        \"id\": \"<integer>\",\n        \"Name\": \"<string>\",\n        \"NameAndSynonyms\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"id\": \"<integer>\",\n        \"Name\": \"<string>\",\n        \"NameAndSynonyms\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"Certifications\": [\n      {\n        \"id\": \"<number>\",\n        \"Name\": \"<string>\",\n        \"Expiry\": \"<dateTime>\"\n      },\n      {\n        \"id\": \"<number>\",\n        \"Name\": \"<string>\",\n        \"Expiry\": \"<dateTime>\"\n      }\n    ],\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  },\n  \"AssignedAgent\": {\n    \"Id\": \"<long>\",\n    \"ExternalRef\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"ContactNo\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  },\n  \"Reviewer\": {\n    \"Id\": \"<long>\",\n    \"ExternalRef\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"ContactNo\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  },\n  \"Reviewed\": \"<dateTime>\",\n  \"Completed\": \"<dateTime>\"\n}",
+                                  "createdAt": "2026-10-22T01:55:56.000Z",
+                                  "updatedAt": "2026-10-22T01:55:56.000Z",
+                                  "uid": "35240-3b86908b-443c-44e1-9e99-c3ce66d17fb8"
+                                }
+                              ],
+                              "createdAt": "2026-10-22T01:55:56.000Z",
+                              "updatedAt": "2026-10-22T01:55:56.000Z",
+                              "uid": "35240-2aeb3138-b00d-474e-abac-02938b16f054"
+                            },
+                            {
+                              "name": "Update Service Event",
+                              "id": "1a5c7acf-a457-4021-b3a8-b3a17995c060",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"Id\": \"<string>\",\n  \"Reference\": \"<string>\",\n  \"BlockId\": \"<integer>\",\n  \"ExternalBlockRef\": \"<string>\",\n  \"PropertyAddressId\": \"<integer>\",\n  \"PropertyId\": \"<integer>\",\n  \"ExternalPropertyRef\": \"<string>\",\n  \"ServiceProgrammeDef\": {\n    \"id\": \"<string>\",\n    \"EventType\": \"<string>\",\n    \"Class\": \"<string>\",\n    \"Category\": \"<string>\",\n    \"Description\": \"<string>\",\n    \"IsStatutory\": \"<boolean>\",\n    \"CostCode\": \"<string>\",\n    \"InstructionNotes\": \"<string>\",\n    \"InstructionDateOffsetPeriod\": 2,\n    \"InstructionDateOffsetType\": \"<integer>\",\n    \"ServiceFrequency\": \"<integer>\",\n    \"ServiceFrequencyType\": 0,\n    \"IsDisabled\": \"<boolean>\",\n    \"IsPropertyDefinition\": \"<boolean>\"\n  },\n  \"ServiceProgrammeId\": \"<string>\",\n  \"UpdateDate\": \"<dateTime>\",\n  \"Status\": 16,\n  \"InstructionDateOffsetPeriod\": \"<integer>\",\n  \"InstructionDateOffsetType\": 2,\n  \"DueDate\": \"<dateTime>\",\n  \"InstructionDate\": \"<dateTime>\",\n  \"InstructionNotes\": \"<string>\",\n  \"RequiresReview\": \"<boolean>\",\n  \"Contractor\": {\n    \"Id\": \"<string>\",\n    \"ExternalRef\": \"<string>\",\n    \"CompanyName\": \"<string>\",\n    \"Title\": \"<string>\",\n    \"FirstName\": \"<string>\",\n    \"Surname\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"ContactNumber\": \"<string>\",\n    \"ContactNumberAlt\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Address\": {\n      \"AddressLine1\": \"<string>\",\n      \"AddressLine2\": \"<string>\",\n      \"Town\": \"<string>\",\n      \"County\": \"<string>\",\n      \"PostCode\": \"<string>\",\n      \"Country\": \"<string>\"\n    },\n    \"InvoiceDetails\": {\n      \"InvoiceDate\": \"<dateTime>\",\n      \"DueDate\": \"<dateTime>\",\n      \"InvoiceNumber\": \"<string>\",\n      \"LineItems\": [\n        {\n          \"LineType\": 2,\n          \"Description\": \"<string>\",\n          \"Quantity\": \"<number>\",\n          \"UnitPrice\": \"<number>\",\n          \"Net\": \"<number>\",\n          \"Tax\": \"<number>\",\n          \"Total\": \"<number>\"\n        },\n        {\n          \"LineType\": 0,\n          \"Description\": \"<string>\",\n          \"Quantity\": \"<number>\",\n          \"UnitPrice\": \"<number>\",\n          \"Net\": \"<number>\",\n          \"Tax\": \"<number>\",\n          \"Total\": \"<number>\"\n        }\n      ]\n    },\n    \"Services\": [\n      {\n        \"id\": \"<integer>\",\n        \"Name\": \"<string>\",\n        \"NameAndSynonyms\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"id\": \"<integer>\",\n        \"Name\": \"<string>\",\n        \"NameAndSynonyms\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"Certifications\": [\n      {\n        \"id\": \"<number>\",\n        \"Name\": \"<string>\",\n        \"Expiry\": \"<dateTime>\"\n      },\n      {\n        \"id\": \"<number>\",\n        \"Name\": \"<string>\",\n        \"Expiry\": \"<dateTime>\"\n      }\n    ],\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  },\n  \"AssignedAgent\": {\n    \"Id\": \"<long>\",\n    \"ExternalRef\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"ContactNo\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  },\n  \"Reviewer\": {\n    \"Id\": \"<long>\",\n    \"ExternalRef\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"ContactNo\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  },\n  \"Reviewed\": \"<dateTime>\",\n  \"Completed\": \"<dateTime>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/Property/:propertyId/ServiceProgramme/:serviceProgrammeId/ServiceEvent/:serviceEventId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "Property",
+                                    ":propertyId",
+                                    "ServiceProgramme",
+                                    ":serviceProgrammeId",
+                                    "ServiceEvent",
+                                    ":serviceEventId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "b6bb6e72-8697-46cf-bb93-a1b519dc83bf",
+                                      "key": "propertyId",
+                                      "value": "<string>",
+                                      "description": "(Required) The Fixflo id of the property"
+                                    },
+                                    {
+                                      "id": "32c00e5d-f607-408b-87fa-9c8d2d767bb3",
+                                      "key": "serviceProgrammeId",
+                                      "value": "<string>",
+                                      "description": "(Required) The Fixflo id of the service programme"
+                                    },
+                                    {
+                                      "id": "4bc3d162-9973-4108-94ca-1ac6521940ee",
+                                      "key": "serviceEventId",
+                                      "value": "<string>",
+                                      "description": "(Required) The Fixflo id of the service event"
+                                    }
+                                  ]
+                                },
+                                "description": "Updates the service event identified by property, service programme and service event id."
+                              },
+                              "response": [
+                                {
+                                  "id": "a02d5b91-d6be-4ba3-9561-ab9dabba9030",
+                                  "name": "OK",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"Id\": \"<string>\",\n  \"Reference\": \"<string>\",\n  \"BlockId\": \"<integer>\",\n  \"ExternalBlockRef\": \"<string>\",\n  \"PropertyAddressId\": \"<integer>\",\n  \"PropertyId\": \"<integer>\",\n  \"ExternalPropertyRef\": \"<string>\",\n  \"ServiceProgrammeDef\": {\n    \"id\": \"<string>\",\n    \"EventType\": \"<string>\",\n    \"Class\": \"<string>\",\n    \"Category\": \"<string>\",\n    \"Description\": \"<string>\",\n    \"IsStatutory\": \"<boolean>\",\n    \"CostCode\": \"<string>\",\n    \"InstructionNotes\": \"<string>\",\n    \"InstructionDateOffsetPeriod\": 2,\n    \"InstructionDateOffsetType\": \"<integer>\",\n    \"ServiceFrequency\": \"<integer>\",\n    \"ServiceFrequencyType\": 0,\n    \"IsDisabled\": \"<boolean>\",\n    \"IsPropertyDefinition\": \"<boolean>\"\n  },\n  \"ServiceProgrammeId\": \"<string>\",\n  \"UpdateDate\": \"<dateTime>\",\n  \"Status\": 16,\n  \"InstructionDateOffsetPeriod\": \"<integer>\",\n  \"InstructionDateOffsetType\": 2,\n  \"DueDate\": \"<dateTime>\",\n  \"InstructionDate\": \"<dateTime>\",\n  \"InstructionNotes\": \"<string>\",\n  \"RequiresReview\": \"<boolean>\",\n  \"Contractor\": {\n    \"Id\": \"<string>\",\n    \"ExternalRef\": \"<string>\",\n    \"CompanyName\": \"<string>\",\n    \"Title\": \"<string>\",\n    \"FirstName\": \"<string>\",\n    \"Surname\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"ContactNumber\": \"<string>\",\n    \"ContactNumberAlt\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Address\": {\n      \"AddressLine1\": \"<string>\",\n      \"AddressLine2\": \"<string>\",\n      \"Town\": \"<string>\",\n      \"County\": \"<string>\",\n      \"PostCode\": \"<string>\",\n      \"Country\": \"<string>\"\n    },\n    \"InvoiceDetails\": {\n      \"InvoiceDate\": \"<dateTime>\",\n      \"DueDate\": \"<dateTime>\",\n      \"InvoiceNumber\": \"<string>\",\n      \"LineItems\": [\n        {\n          \"LineType\": 2,\n          \"Description\": \"<string>\",\n          \"Quantity\": \"<number>\",\n          \"UnitPrice\": \"<number>\",\n          \"Net\": \"<number>\",\n          \"Tax\": \"<number>\",\n          \"Total\": \"<number>\"\n        },\n        {\n          \"LineType\": 0,\n          \"Description\": \"<string>\",\n          \"Quantity\": \"<number>\",\n          \"UnitPrice\": \"<number>\",\n          \"Net\": \"<number>\",\n          \"Tax\": \"<number>\",\n          \"Total\": \"<number>\"\n        }\n      ]\n    },\n    \"Services\": [\n      {\n        \"id\": \"<integer>\",\n        \"Name\": \"<string>\",\n        \"NameAndSynonyms\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"id\": \"<integer>\",\n        \"Name\": \"<string>\",\n        \"NameAndSynonyms\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"Certifications\": [\n      {\n        \"id\": \"<number>\",\n        \"Name\": \"<string>\",\n        \"Expiry\": \"<dateTime>\"\n      },\n      {\n        \"id\": \"<number>\",\n        \"Name\": \"<string>\",\n        \"Expiry\": \"<dateTime>\"\n      }\n    ],\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  },\n  \"AssignedAgent\": {\n    \"Id\": \"<long>\",\n    \"ExternalRef\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"ContactNo\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  },\n  \"Reviewer\": {\n    \"Id\": \"<long>\",\n    \"ExternalRef\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"ContactNo\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  },\n  \"Reviewed\": \"<dateTime>\",\n  \"Completed\": \"<dateTime>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/Property/:propertyId/ServiceProgramme/:serviceProgrammeId/ServiceEvent/:serviceEventId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "Property",
+                                        ":propertyId",
+                                        "ServiceProgramme",
+                                        ":serviceProgrammeId",
+                                        "ServiceEvent",
+                                        ":serviceEventId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "propertyId"
+                                        },
+                                        {
+                                          "key": "serviceProgrammeId"
+                                        },
+                                        {
+                                          "key": "serviceEventId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"Id\": \"<string>\",\n  \"Reference\": \"<string>\",\n  \"BlockId\": \"<integer>\",\n  \"ExternalBlockRef\": \"<string>\",\n  \"PropertyAddressId\": \"<integer>\",\n  \"PropertyId\": \"<integer>\",\n  \"ExternalPropertyRef\": \"<string>\",\n  \"ServiceProgrammeDef\": {\n    \"id\": \"<string>\",\n    \"EventType\": \"<string>\",\n    \"Class\": \"<string>\",\n    \"Category\": \"<string>\",\n    \"Description\": \"<string>\",\n    \"IsStatutory\": \"<boolean>\",\n    \"CostCode\": \"<string>\",\n    \"InstructionNotes\": \"<string>\",\n    \"InstructionDateOffsetPeriod\": 2,\n    \"InstructionDateOffsetType\": \"<integer>\",\n    \"ServiceFrequency\": \"<integer>\",\n    \"ServiceFrequencyType\": 0,\n    \"IsDisabled\": \"<boolean>\",\n    \"IsPropertyDefinition\": \"<boolean>\"\n  },\n  \"ServiceProgrammeId\": \"<string>\",\n  \"UpdateDate\": \"<dateTime>\",\n  \"Status\": 16,\n  \"InstructionDateOffsetPeriod\": \"<integer>\",\n  \"InstructionDateOffsetType\": 2,\n  \"DueDate\": \"<dateTime>\",\n  \"InstructionDate\": \"<dateTime>\",\n  \"InstructionNotes\": \"<string>\",\n  \"RequiresReview\": \"<boolean>\",\n  \"Contractor\": {\n    \"Id\": \"<string>\",\n    \"ExternalRef\": \"<string>\",\n    \"CompanyName\": \"<string>\",\n    \"Title\": \"<string>\",\n    \"FirstName\": \"<string>\",\n    \"Surname\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"ContactNumber\": \"<string>\",\n    \"ContactNumberAlt\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Address\": {\n      \"AddressLine1\": \"<string>\",\n      \"AddressLine2\": \"<string>\",\n      \"Town\": \"<string>\",\n      \"County\": \"<string>\",\n      \"PostCode\": \"<string>\",\n      \"Country\": \"<string>\"\n    },\n    \"InvoiceDetails\": {\n      \"InvoiceDate\": \"<dateTime>\",\n      \"DueDate\": \"<dateTime>\",\n      \"InvoiceNumber\": \"<string>\",\n      \"LineItems\": [\n        {\n          \"LineType\": 2,\n          \"Description\": \"<string>\",\n          \"Quantity\": \"<number>\",\n          \"UnitPrice\": \"<number>\",\n          \"Net\": \"<number>\",\n          \"Tax\": \"<number>\",\n          \"Total\": \"<number>\"\n        },\n        {\n          \"LineType\": 0,\n          \"Description\": \"<string>\",\n          \"Quantity\": \"<number>\",\n          \"UnitPrice\": \"<number>\",\n          \"Net\": \"<number>\",\n          \"Tax\": \"<number>\",\n          \"Total\": \"<number>\"\n        }\n      ]\n    },\n    \"Services\": [\n      {\n        \"id\": \"<integer>\",\n        \"Name\": \"<string>\",\n        \"NameAndSynonyms\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"id\": \"<integer>\",\n        \"Name\": \"<string>\",\n        \"NameAndSynonyms\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"Certifications\": [\n      {\n        \"id\": \"<number>\",\n        \"Name\": \"<string>\",\n        \"Expiry\": \"<dateTime>\"\n      },\n      {\n        \"id\": \"<number>\",\n        \"Name\": \"<string>\",\n        \"Expiry\": \"<dateTime>\"\n      }\n    ],\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  },\n  \"AssignedAgent\": {\n    \"Id\": \"<long>\",\n    \"ExternalRef\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"ContactNo\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  },\n  \"Reviewer\": {\n    \"Id\": \"<long>\",\n    \"ExternalRef\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"ContactNo\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  },\n  \"Reviewed\": \"<dateTime>\",\n  \"Completed\": \"<dateTime>\"\n}",
+                                  "createdAt": "2026-10-22T01:55:56.000Z",
+                                  "updatedAt": "2026-10-22T01:55:56.000Z",
+                                  "uid": "35240-a02d5b91-d6be-4ba3-9561-ab9dabba9030"
+                                }
+                              ],
+                              "createdAt": "2026-10-22T01:55:56.000Z",
+                              "updatedAt": "2026-10-22T01:55:56.000Z",
+                              "uid": "35240-1a5c7acf-a457-4021-b3a8-b3a17995c060"
+                            },
+                            {
+                              "name": "Your OPTIONS endpoint",
+                              "id": "4e8c05f8-6b3a-4912-8183-38709584aedf",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "OPTIONS",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/Property/:propertyId/ServiceProgramme/:serviceProgrammeId/ServiceEvent/:serviceEventId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "Property",
+                                    ":propertyId",
+                                    "ServiceProgramme",
+                                    ":serviceProgrammeId",
+                                    "ServiceEvent",
+                                    ":serviceEventId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "d156bce0-e5c7-455b-95b0-7ad73ac72c83",
+                                      "key": "propertyId",
+                                      "value": "<string>",
+                                      "description": "(Required) The Fixflo id of the property"
+                                    },
+                                    {
+                                      "id": "857caefc-9d92-4ce7-b226-46a1971d29b7",
+                                      "key": "serviceProgrammeId",
+                                      "value": "<string>",
+                                      "description": "(Required) The Fixflo id of the service programme"
+                                    },
+                                    {
+                                      "id": "87bb6372-81a4-4e1b-a5a6-9833da133d4b",
+                                      "key": "serviceEventId",
+                                      "value": "<string>",
+                                      "description": "(Required) The Fixflo id of the service event"
+                                    }
+                                  ]
+                                },
+                                "description": "CORS preflight support for this endpoint."
+                              },
+                              "response": [
+                                {
+                                  "id": "9d02b7da-c95f-4211-a06f-55d05d81c1df",
+                                  "name": "OK",
+                                  "originalRequest": {
+                                    "method": "OPTIONS",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/Property/:propertyId/ServiceProgramme/:serviceProgrammeId/ServiceEvent/:serviceEventId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "Property",
+                                        ":propertyId",
+                                        "ServiceProgramme",
+                                        ":serviceProgrammeId",
+                                        "ServiceEvent",
+                                        ":serviceEventId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "propertyId"
+                                        },
+                                        {
+                                          "key": "serviceProgrammeId"
+                                        },
+                                        {
+                                          "key": "serviceEventId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-10-22T01:55:56.000Z",
+                                  "updatedAt": "2026-10-22T01:55:56.000Z",
+                                  "uid": "35240-9d02b7da-c95f-4211-a06f-55d05d81c1df"
+                                }
+                              ],
+                              "createdAt": "2026-10-22T01:55:56.000Z",
+                              "updatedAt": "2026-10-22T01:55:56.000Z",
+                              "uid": "35240-4e8c05f8-6b3a-4912-8183-38709584aedf"
+                            }
+                          ],
+                          "id": "d72fd24d-a756-4cdd-a965-143ce11ebc51",
+                          "createdAt": "2026-10-22T01:55:56.000Z",
+                          "updatedAt": "2026-10-22T01:55:56.000Z",
+                          "uid": "35240-d72fd24d-a756-4cdd-a965-143ce11ebc51"
+                        },
+                        {
+                          "name": "Create Service Event",
+                          "id": "5e830248-dd31-4cd9-acd3-b467be251a2f",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"Id\": \"<string>\",\n  \"Reference\": \"<string>\",\n  \"BlockId\": \"<integer>\",\n  \"ExternalBlockRef\": \"<string>\",\n  \"PropertyAddressId\": \"<integer>\",\n  \"PropertyId\": \"<integer>\",\n  \"ExternalPropertyRef\": \"<string>\",\n  \"ServiceProgrammeDef\": {\n    \"id\": \"<string>\",\n    \"EventType\": \"<string>\",\n    \"Class\": \"<string>\",\n    \"Category\": \"<string>\",\n    \"Description\": \"<string>\",\n    \"IsStatutory\": \"<boolean>\",\n    \"CostCode\": \"<string>\",\n    \"InstructionNotes\": \"<string>\",\n    \"InstructionDateOffsetPeriod\": 2,\n    \"InstructionDateOffsetType\": \"<integer>\",\n    \"ServiceFrequency\": \"<integer>\",\n    \"ServiceFrequencyType\": 0,\n    \"IsDisabled\": \"<boolean>\",\n    \"IsPropertyDefinition\": \"<boolean>\"\n  },\n  \"ServiceProgrammeId\": \"<string>\",\n  \"UpdateDate\": \"<dateTime>\",\n  \"Status\": 16,\n  \"InstructionDateOffsetPeriod\": \"<integer>\",\n  \"InstructionDateOffsetType\": 2,\n  \"DueDate\": \"<dateTime>\",\n  \"InstructionDate\": \"<dateTime>\",\n  \"InstructionNotes\": \"<string>\",\n  \"RequiresReview\": \"<boolean>\",\n  \"Contractor\": {\n    \"Id\": \"<string>\",\n    \"ExternalRef\": \"<string>\",\n    \"CompanyName\": \"<string>\",\n    \"Title\": \"<string>\",\n    \"FirstName\": \"<string>\",\n    \"Surname\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"ContactNumber\": \"<string>\",\n    \"ContactNumberAlt\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Address\": {\n      \"AddressLine1\": \"<string>\",\n      \"AddressLine2\": \"<string>\",\n      \"Town\": \"<string>\",\n      \"County\": \"<string>\",\n      \"PostCode\": \"<string>\",\n      \"Country\": \"<string>\"\n    },\n    \"InvoiceDetails\": {\n      \"InvoiceDate\": \"<dateTime>\",\n      \"DueDate\": \"<dateTime>\",\n      \"InvoiceNumber\": \"<string>\",\n      \"LineItems\": [\n        {\n          \"LineType\": 2,\n          \"Description\": \"<string>\",\n          \"Quantity\": \"<number>\",\n          \"UnitPrice\": \"<number>\",\n          \"Net\": \"<number>\",\n          \"Tax\": \"<number>\",\n          \"Total\": \"<number>\"\n        },\n        {\n          \"LineType\": 0,\n          \"Description\": \"<string>\",\n          \"Quantity\": \"<number>\",\n          \"UnitPrice\": \"<number>\",\n          \"Net\": \"<number>\",\n          \"Tax\": \"<number>\",\n          \"Total\": \"<number>\"\n        }\n      ]\n    },\n    \"Services\": [\n      {\n        \"id\": \"<integer>\",\n        \"Name\": \"<string>\",\n        \"NameAndSynonyms\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"id\": \"<integer>\",\n        \"Name\": \"<string>\",\n        \"NameAndSynonyms\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"Certifications\": [\n      {\n        \"id\": \"<number>\",\n        \"Name\": \"<string>\",\n        \"Expiry\": \"<dateTime>\"\n      },\n      {\n        \"id\": \"<number>\",\n        \"Name\": \"<string>\",\n        \"Expiry\": \"<dateTime>\"\n      }\n    ],\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  },\n  \"AssignedAgent\": {\n    \"Id\": \"<long>\",\n    \"ExternalRef\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"ContactNo\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  },\n  \"Reviewer\": {\n    \"Id\": \"<long>\",\n    \"ExternalRef\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"ContactNo\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  },\n  \"Reviewed\": \"<dateTime>\",\n  \"Completed\": \"<dateTime>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/Property/:propertyId/ServiceProgramme/:serviceProgrammeId/ServiceEvent?serviceProgrammeId=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "Property",
+                                ":propertyId",
+                                "ServiceProgramme",
+                                ":serviceProgrammeId",
+                                "ServiceEvent"
+                              ],
+                              "query": [
+                                {
+                                  "key": "serviceProgrammeId",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "18557c86-c35a-4482-ae0e-1cc20fcfb0cf",
+                                  "key": "propertyId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "b545ddb0-f462-4d0b-b071-de8afa310cdf",
+                                  "key": "serviceProgrammeId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "a4f5d752-438a-40a1-b37f-8672cb38b2a4",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"Id\": \"<string>\",\n  \"Reference\": \"<string>\",\n  \"BlockId\": \"<integer>\",\n  \"ExternalBlockRef\": \"<string>\",\n  \"PropertyAddressId\": \"<integer>\",\n  \"PropertyId\": \"<integer>\",\n  \"ExternalPropertyRef\": \"<string>\",\n  \"ServiceProgrammeDef\": {\n    \"id\": \"<string>\",\n    \"EventType\": \"<string>\",\n    \"Class\": \"<string>\",\n    \"Category\": \"<string>\",\n    \"Description\": \"<string>\",\n    \"IsStatutory\": \"<boolean>\",\n    \"CostCode\": \"<string>\",\n    \"InstructionNotes\": \"<string>\",\n    \"InstructionDateOffsetPeriod\": 2,\n    \"InstructionDateOffsetType\": \"<integer>\",\n    \"ServiceFrequency\": \"<integer>\",\n    \"ServiceFrequencyType\": 0,\n    \"IsDisabled\": \"<boolean>\",\n    \"IsPropertyDefinition\": \"<boolean>\"\n  },\n  \"ServiceProgrammeId\": \"<string>\",\n  \"UpdateDate\": \"<dateTime>\",\n  \"Status\": 16,\n  \"InstructionDateOffsetPeriod\": \"<integer>\",\n  \"InstructionDateOffsetType\": 2,\n  \"DueDate\": \"<dateTime>\",\n  \"InstructionDate\": \"<dateTime>\",\n  \"InstructionNotes\": \"<string>\",\n  \"RequiresReview\": \"<boolean>\",\n  \"Contractor\": {\n    \"Id\": \"<string>\",\n    \"ExternalRef\": \"<string>\",\n    \"CompanyName\": \"<string>\",\n    \"Title\": \"<string>\",\n    \"FirstName\": \"<string>\",\n    \"Surname\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"ContactNumber\": \"<string>\",\n    \"ContactNumberAlt\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Address\": {\n      \"AddressLine1\": \"<string>\",\n      \"AddressLine2\": \"<string>\",\n      \"Town\": \"<string>\",\n      \"County\": \"<string>\",\n      \"PostCode\": \"<string>\",\n      \"Country\": \"<string>\"\n    },\n    \"InvoiceDetails\": {\n      \"InvoiceDate\": \"<dateTime>\",\n      \"DueDate\": \"<dateTime>\",\n      \"InvoiceNumber\": \"<string>\",\n      \"LineItems\": [\n        {\n          \"LineType\": 2,\n          \"Description\": \"<string>\",\n          \"Quantity\": \"<number>\",\n          \"UnitPrice\": \"<number>\",\n          \"Net\": \"<number>\",\n          \"Tax\": \"<number>\",\n          \"Total\": \"<number>\"\n        },\n        {\n          \"LineType\": 0,\n          \"Description\": \"<string>\",\n          \"Quantity\": \"<number>\",\n          \"UnitPrice\": \"<number>\",\n          \"Net\": \"<number>\",\n          \"Tax\": \"<number>\",\n          \"Total\": \"<number>\"\n        }\n      ]\n    },\n    \"Services\": [\n      {\n        \"id\": \"<integer>\",\n        \"Name\": \"<string>\",\n        \"NameAndSynonyms\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"id\": \"<integer>\",\n        \"Name\": \"<string>\",\n        \"NameAndSynonyms\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"Certifications\": [\n      {\n        \"id\": \"<number>\",\n        \"Name\": \"<string>\",\n        \"Expiry\": \"<dateTime>\"\n      },\n      {\n        \"id\": \"<number>\",\n        \"Name\": \"<string>\",\n        \"Expiry\": \"<dateTime>\"\n      }\n    ],\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  },\n  \"AssignedAgent\": {\n    \"Id\": \"<long>\",\n    \"ExternalRef\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"ContactNo\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  },\n  \"Reviewer\": {\n    \"Id\": \"<long>\",\n    \"ExternalRef\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"ContactNo\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  },\n  \"Reviewed\": \"<dateTime>\",\n  \"Completed\": \"<dateTime>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/Property/:propertyId/ServiceProgramme/:serviceProgrammeId/ServiceEvent?serviceProgrammeId=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "Property",
+                                    ":propertyId",
+                                    "ServiceProgramme",
+                                    ":serviceProgrammeId",
+                                    "ServiceEvent"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "serviceProgrammeId",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "propertyId"
+                                    },
+                                    {
+                                      "key": "serviceProgrammeId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"Id\": \"<string>\",\n  \"Reference\": \"<string>\",\n  \"BlockId\": \"<integer>\",\n  \"ExternalBlockRef\": \"<string>\",\n  \"PropertyAddressId\": \"<integer>\",\n  \"PropertyId\": \"<integer>\",\n  \"ExternalPropertyRef\": \"<string>\",\n  \"ServiceProgrammeDef\": {\n    \"id\": \"<string>\",\n    \"EventType\": \"<string>\",\n    \"Class\": \"<string>\",\n    \"Category\": \"<string>\",\n    \"Description\": \"<string>\",\n    \"IsStatutory\": \"<boolean>\",\n    \"CostCode\": \"<string>\",\n    \"InstructionNotes\": \"<string>\",\n    \"InstructionDateOffsetPeriod\": 2,\n    \"InstructionDateOffsetType\": \"<integer>\",\n    \"ServiceFrequency\": \"<integer>\",\n    \"ServiceFrequencyType\": 0,\n    \"IsDisabled\": \"<boolean>\",\n    \"IsPropertyDefinition\": \"<boolean>\"\n  },\n  \"ServiceProgrammeId\": \"<string>\",\n  \"UpdateDate\": \"<dateTime>\",\n  \"Status\": 16,\n  \"InstructionDateOffsetPeriod\": \"<integer>\",\n  \"InstructionDateOffsetType\": 2,\n  \"DueDate\": \"<dateTime>\",\n  \"InstructionDate\": \"<dateTime>\",\n  \"InstructionNotes\": \"<string>\",\n  \"RequiresReview\": \"<boolean>\",\n  \"Contractor\": {\n    \"Id\": \"<string>\",\n    \"ExternalRef\": \"<string>\",\n    \"CompanyName\": \"<string>\",\n    \"Title\": \"<string>\",\n    \"FirstName\": \"<string>\",\n    \"Surname\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"ContactNumber\": \"<string>\",\n    \"ContactNumberAlt\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Address\": {\n      \"AddressLine1\": \"<string>\",\n      \"AddressLine2\": \"<string>\",\n      \"Town\": \"<string>\",\n      \"County\": \"<string>\",\n      \"PostCode\": \"<string>\",\n      \"Country\": \"<string>\"\n    },\n    \"InvoiceDetails\": {\n      \"InvoiceDate\": \"<dateTime>\",\n      \"DueDate\": \"<dateTime>\",\n      \"InvoiceNumber\": \"<string>\",\n      \"LineItems\": [\n        {\n          \"LineType\": 2,\n          \"Description\": \"<string>\",\n          \"Quantity\": \"<number>\",\n          \"UnitPrice\": \"<number>\",\n          \"Net\": \"<number>\",\n          \"Tax\": \"<number>\",\n          \"Total\": \"<number>\"\n        },\n        {\n          \"LineType\": 0,\n          \"Description\": \"<string>\",\n          \"Quantity\": \"<number>\",\n          \"UnitPrice\": \"<number>\",\n          \"Net\": \"<number>\",\n          \"Tax\": \"<number>\",\n          \"Total\": \"<number>\"\n        }\n      ]\n    },\n    \"Services\": [\n      {\n        \"id\": \"<integer>\",\n        \"Name\": \"<string>\",\n        \"NameAndSynonyms\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"id\": \"<integer>\",\n        \"Name\": \"<string>\",\n        \"NameAndSynonyms\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"Certifications\": [\n      {\n        \"id\": \"<number>\",\n        \"Name\": \"<string>\",\n        \"Expiry\": \"<dateTime>\"\n      },\n      {\n        \"id\": \"<number>\",\n        \"Name\": \"<string>\",\n        \"Expiry\": \"<dateTime>\"\n      }\n    ],\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  },\n  \"AssignedAgent\": {\n    \"Id\": \"<long>\",\n    \"ExternalRef\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"ContactNo\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  },\n  \"Reviewer\": {\n    \"Id\": \"<long>\",\n    \"ExternalRef\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"ContactNo\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  },\n  \"Reviewed\": \"<dateTime>\",\n  \"Completed\": \"<dateTime>\"\n}",
+                              "createdAt": "2026-10-22T01:55:56.000Z",
+                              "updatedAt": "2026-10-22T01:55:56.000Z",
+                              "uid": "35240-a4f5d752-438a-40a1-b37f-8672cb38b2a4"
+                            }
+                          ],
+                          "createdAt": "2026-10-22T01:55:56.000Z",
+                          "updatedAt": "2026-10-22T01:55:56.000Z",
+                          "uid": "35240-5e830248-dd31-4cd9-acd3-b467be251a2f"
+                        }
+                      ],
+                      "id": "d570c0ab-36d5-4286-8687-87b2b27f16ac",
+                      "createdAt": "2026-10-22T01:55:56.000Z",
+                      "updatedAt": "2026-10-22T01:55:56.000Z",
+                      "uid": "35240-d570c0ab-36d5-4286-8687-87b2b27f16ac"
+                    },
+                    {
+                      "name": "ServiceEvents",
+                      "item": [
+                        {
+                          "name": "Get Service Events by service programme id",
+                          "id": "3eca3fec-4467-43a2-bc43-70318516e3e3",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/Property/:propertyId/ServiceProgramme/:serviceProgrammeId/ServiceEvents",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "Property",
+                                ":propertyId",
+                                "ServiceProgramme",
+                                ":serviceProgrammeId",
+                                "ServiceEvents"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "605c0deb-9bc4-4266-a1f5-84c1ea9b963b",
+                                  "key": "propertyId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "5036c39e-9631-476b-8ae8-e7e8a9d66a68",
+                                  "key": "serviceProgrammeId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "251c0a03-dd5a-4a0f-b0c3-9bff9059419a",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/Property/:propertyId/ServiceProgramme/:serviceProgrammeId/ServiceEvents",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "Property",
+                                    ":propertyId",
+                                    "ServiceProgramme",
+                                    ":serviceProgrammeId",
+                                    "ServiceEvents"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "propertyId"
+                                    },
+                                    {
+                                      "key": "serviceProgrammeId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"TotalItems\": \"<integer>\",\n  \"TotalPages\": \"<integer>\",\n  \"NextURL\": \"<string>\",\n  \"PreviousURL\": \"<string>\"\n}",
+                              "createdAt": "2026-10-22T01:55:56.000Z",
+                              "updatedAt": "2026-10-22T01:55:56.000Z",
+                              "uid": "35240-251c0a03-dd5a-4a0f-b0c3-9bff9059419a"
+                            }
+                          ],
+                          "createdAt": "2026-10-22T01:55:56.000Z",
+                          "updatedAt": "2026-10-22T01:55:56.000Z",
+                          "uid": "35240-3eca3fec-4467-43a2-bc43-70318516e3e3"
+                        }
+                      ],
+                      "id": "da3ebd86-fc51-4833-87ce-0b73f5bb0628",
+                      "createdAt": "2026-10-22T01:55:56.000Z",
+                      "updatedAt": "2026-10-22T01:55:56.000Z",
+                      "uid": "35240-da3ebd86-fc51-4833-87ce-0b73f5bb0628"
+                    }
+                  ],
+                  "id": "33639cea-5e02-47b8-a829-5f7bff21ee08",
+                  "createdAt": "2026-10-22T01:55:56.000Z",
+                  "updatedAt": "2026-10-22T01:55:56.000Z",
+                  "uid": "35240-33639cea-5e02-47b8-a829-5f7bff21ee08"
+                },
+                {
+                  "name": "{serviceProgramme}",
+                  "item": [
+                    {
+                      "name": "ServiceEvent",
+                      "item": [
+                        {
+                          "name": "Complete",
+                          "item": [
+                            {
+                              "name": "Complete Service Event",
+                              "id": "5230a371-c589-43ad-a83f-5402a3020a97",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/Property/:propertyId/ServiceProgramme/:serviceProgramme/ServiceEvent/Complete",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "Property",
+                                    ":propertyId",
+                                    "ServiceProgramme",
+                                    ":serviceProgramme",
+                                    "ServiceEvent",
+                                    "Complete"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "a4ce9615-16fd-4c31-b29b-a08819f8484e",
+                                      "key": "propertyId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "c6e1f0e0-3d83-46ca-b83c-55be6763b8d9",
+                                      "key": "serviceProgramme",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                }
+                              },
+                              "response": [
+                                {
+                                  "id": "24379903-3467-4420-9790-dda2204069f1",
+                                  "name": "OK",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/Property/:propertyId/ServiceProgramme/:serviceProgramme/ServiceEvent/Complete",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "Property",
+                                        ":propertyId",
+                                        "ServiceProgramme",
+                                        ":serviceProgramme",
+                                        "ServiceEvent",
+                                        "Complete"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "propertyId"
+                                        },
+                                        {
+                                          "key": "serviceProgramme"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"CertificateStartDate\": \"<dateTime>\",\n  \"certificateExpiryDate\": \"<dateTime>\"\n}",
+                                  "createdAt": "2026-10-22T01:55:56.000Z",
+                                  "updatedAt": "2026-10-22T01:55:56.000Z",
+                                  "uid": "35240-24379903-3467-4420-9790-dda2204069f1"
+                                }
+                              ],
+                              "createdAt": "2026-10-22T01:55:56.000Z",
+                              "updatedAt": "2026-10-22T01:55:56.000Z",
+                              "uid": "35240-5230a371-c589-43ad-a83f-5402a3020a97"
+                            }
+                          ],
+                          "id": "400bd24d-37cb-4cc2-893f-04da2c62bfd1",
+                          "createdAt": "2026-10-22T01:55:56.000Z",
+                          "updatedAt": "2026-10-22T01:55:56.000Z",
+                          "uid": "35240-400bd24d-37cb-4cc2-893f-04da2c62bfd1"
+                        }
+                      ],
+                      "id": "38d23b28-e038-46fd-95a2-42ad71a22f9c",
+                      "createdAt": "2026-10-22T01:55:56.000Z",
+                      "updatedAt": "2026-10-22T01:55:56.000Z",
+                      "uid": "35240-38d23b28-e038-46fd-95a2-42ad71a22f9c"
+                    }
+                  ],
+                  "id": "a4f2b236-f6c3-412f-9617-46b50b559cca",
+                  "createdAt": "2026-10-22T01:55:56.000Z",
+                  "updatedAt": "2026-10-22T01:55:56.000Z",
+                  "uid": "35240-a4f2b236-f6c3-412f-9617-46b50b559cca"
+                }
+              ],
+              "id": "6e6bb04e-dbf3-4bb9-944c-d2c6602dadcc",
+              "createdAt": "2026-10-22T01:55:56.000Z",
+              "updatedAt": "2026-10-22T01:55:56.000Z",
+              "uid": "35240-6e6bb04e-dbf3-4bb9-944c-d2c6602dadcc"
+            }
+          ],
+          "id": "1b40080f-9a17-460d-8cad-4fcc1f2d7a96",
+          "createdAt": "2026-10-22T01:55:56.000Z",
+          "updatedAt": "2026-10-22T01:55:56.000Z",
+          "uid": "35240-1b40080f-9a17-460d-8cad-4fcc1f2d7a96"
+        }
+      ],
+      "id": "868be263-06f4-415c-9108-5c59b79b4276",
+      "createdAt": "2026-10-22T01:55:56.000Z",
+      "updatedAt": "2026-10-22T01:55:56.000Z",
+      "uid": "35240-868be263-06f4-415c-9108-5c59b79b4276"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api-sandbox.fixflo.com/api/v2"
+    }
+  ]
+}

@@ -1,0 +1,1321 @@
+{
+  "info": {
+    "_postman_id": "437128fa-7b61-42da-ae10-34c0870cb4d3",
+    "name": "Fixflo Landlord API",
+    "description": "Fixflo api docs\n\nContact Support:\n Name: Support\n Email: support@fixflo.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:55:31.000Z",
+    "updatedAt": "2026-10-22T01:55:32.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-437128fa-7b61-42da-ae10-34c0870cb4d3"
+  },
+  "item": [
+    {
+      "name": "Landlord",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Brand",
+              "item": [
+                {
+                  "name": "Landlord / brand",
+                  "id": "2994545d-e956-4fa6-aa8e-1c8ec833cd62",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Landlord/:id/Brand",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Landlord",
+                        ":id",
+                        "Brand"
+                      ],
+                      "variable": [
+                        {
+                          "id": "3afd7653-9cb6-4125-97f0-85f4e1f0a266",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Gets the brand related to the landlord"
+                  },
+                  "response": [
+                    {
+                      "id": "ec489ab8-7c1c-4b2e-82f2-8222aa0caac2",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Landlord/:id/Brand",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Landlord",
+                            ":id",
+                            "Brand"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Id\": \"<uuid>\",\n  \"Name\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T01:55:32.000Z",
+                      "updatedAt": "2026-10-22T01:55:32.000Z",
+                      "uid": "35240-ec489ab8-7c1c-4b2e-82f2-8222aa0caac2"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:55:32.000Z",
+                  "updatedAt": "2026-10-22T01:55:32.000Z",
+                  "uid": "35240-2994545d-e956-4fa6-aa8e-1c8ec833cd62"
+                },
+                {
+                  "name": "Landlord / brand",
+                  "id": "47e38699-48ac-4c63-a35b-463119283285",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"Id\": \"<uuid>\",\n  \"Name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/Landlord/:id/Brand",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Landlord",
+                        ":id",
+                        "Brand"
+                      ],
+                      "variable": [
+                        {
+                          "id": "a99d3661-00e6-425d-bed7-e862e06b2bc1",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Updates the brand relating to the landlord"
+                  },
+                  "response": [
+                    {
+                      "id": "6fe52ee6-d2e0-4cfb-929c-c558cc75741c",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"Id\": \"<uuid>\",\n  \"Name\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/Landlord/:id/Brand",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Landlord",
+                            ":id",
+                            "Brand"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"HttpStatusCode\": \"<integer>\",\n  \"HttpStatusCodeDesc\": \"<string>\",\n  \"Errors\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Entity\": {\n    \"Id\": \"<uuid>\",\n    \"Name\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-10-22T01:55:32.000Z",
+                      "updatedAt": "2026-10-22T01:55:32.000Z",
+                      "uid": "35240-6fe52ee6-d2e0-4cfb-929c-c558cc75741c"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:55:32.000Z",
+                  "updatedAt": "2026-10-22T01:55:32.000Z",
+                  "uid": "35240-47e38699-48ac-4c63-a35b-463119283285"
+                }
+              ],
+              "id": "ff5b763a-2b81-4e98-8628-817495011571",
+              "createdAt": "2026-10-22T01:55:32.000Z",
+              "updatedAt": "2026-10-22T01:55:32.000Z",
+              "uid": "35240-ff5b763a-2b81-4e98-8628-817495011571"
+            }
+          ],
+          "id": "a87bcec0-c939-4c0c-83d0-268a6dfd0ccc",
+          "createdAt": "2026-10-22T01:55:32.000Z",
+          "updatedAt": "2026-10-22T01:55:32.000Z",
+          "uid": "35240-a87bcec0-c939-4c0c-83d0-268a6dfd0ccc"
+        },
+        {
+          "name": "{LandlordId}",
+          "item": [
+            {
+              "name": "LandlordProperties",
+              "item": [
+                {
+                  "name": "Landlord / landlord properties",
+                  "id": "23f7bfc8-faa6-4a10-bd1c-485d15eb74ec",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/Landlord/:LandlordId/LandlordProperties",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "Landlord",
+                        ":LandlordId",
+                        "LandlordProperties"
+                      ],
+                      "variable": [
+                        {
+                          "id": "704a8f2c-c795-4c77-8838-9d579ee58832",
+                          "key": "LandlordId",
+                          "value": "<string>",
+                          "description": "(Required) LandlordId"
+                        }
+                      ]
+                    },
+                    "description": "Lists all LandlordProperties for a given landlord"
+                  },
+                  "response": [
+                    {
+                      "id": "fc6430b5-2399-479e-8ccd-d953f5d3e09b",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/Landlord/:LandlordId/LandlordProperties",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "Landlord",
+                            ":LandlordId",
+                            "LandlordProperties"
+                          ],
+                          "variable": [
+                            {
+                              "key": "LandlordId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"TotalItems\": \"<integer>\",\n  \"TotalPages\": \"<integer>\",\n  \"Items\": [\n    {\n      \"Id\": \"<integer>\",\n      \"LandlordId\": \"<string>\",\n      \"PropertyId\": \"<integer>\",\n      \"DateFrom\": \"<dateTime>\",\n      \"DateTo\": \"<dateTime>\",\n      \"IsPrimaryLandlord\": \"<boolean>\",\n      \"Address\": {\n        \"AddressLine1\": \"<string>\",\n        \"AddressLine2\": \"<string>\",\n        \"Town\": \"<string>\",\n        \"County\": \"<string>\",\n        \"PostCode\": \"<string>\",\n        \"Country\": \"<string>\"\n      }\n    },\n    {\n      \"Id\": \"<integer>\",\n      \"LandlordId\": \"<string>\",\n      \"PropertyId\": \"<integer>\",\n      \"DateFrom\": \"<dateTime>\",\n      \"DateTo\": \"<dateTime>\",\n      \"IsPrimaryLandlord\": \"<boolean>\",\n      \"Address\": {\n        \"AddressLine1\": \"<string>\",\n        \"AddressLine2\": \"<string>\",\n        \"Town\": \"<string>\",\n        \"County\": \"<string>\",\n        \"PostCode\": \"<string>\",\n        \"Country\": \"<string>\"\n      }\n    }\n  ],\n  \"NextURL\": \"<string>\",\n  \"PreviousURL\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T01:55:32.000Z",
+                      "updatedAt": "2026-10-22T01:55:32.000Z",
+                      "uid": "35240-fc6430b5-2399-479e-8ccd-d953f5d3e09b"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:55:32.000Z",
+                  "updatedAt": "2026-10-22T01:55:32.000Z",
+                  "uid": "35240-23f7bfc8-faa6-4a10-bd1c-485d15eb74ec"
+                }
+              ],
+              "id": "c5f3b68f-316b-4566-b734-b98a3a3a08c7",
+              "createdAt": "2026-10-22T01:55:32.000Z",
+              "updatedAt": "2026-10-22T01:55:32.000Z",
+              "uid": "35240-c5f3b68f-316b-4566-b734-b98a3a3a08c7"
+            }
+          ],
+          "id": "7dacd9bf-9d93-4319-983f-5b9a8278e74c",
+          "createdAt": "2026-10-22T01:55:32.000Z",
+          "updatedAt": "2026-10-22T01:55:32.000Z",
+          "uid": "35240-7dacd9bf-9d93-4319-983f-5b9a8278e74c"
+        },
+        {
+          "name": "Landlord",
+          "id": "d494832a-0c23-422d-a573-465bea176f4a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/Landlord",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Landlord"
+              ]
+            },
+            "description": "Gets a landlord object"
+          },
+          "response": [
+            {
+              "id": "e23e7d95-f364-430d-80e7-91f048902103",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Landlord",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Landlord"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"ExternalRef\": \"<string>\",\n  \"CompanyName\": \"<string>\",\n  \"Title\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"Surname\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"ContactNumber\": \"<string>\",\n  \"ContactNumberAlt\": \"<string>\",\n  \"DisplayName\": \"<string>\",\n  \"WorksAuthorisationLimit\": \"<string>\",\n  \"EmailCC\\t\": \"<string>\",\n  \"IsDeleted\": \"<boolean>\",\n  \"UpdateDate\": \"<dateTime>\",\n  \"Brand\": {\n    \"Id\": \"<uuid>\",\n    \"Name\": \"<string>\"\n  },\n  \"AssignedAgent\": {\n    \"Id\": \"<long>\",\n    \"ExternalRef\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"ContactNo\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  },\n  \"Address\\t\": {\n    \"AddressLine1\": \"<string>\",\n    \"AddressLine2\": \"<string>\",\n    \"Town\": \"<string>\",\n    \"County\": \"<string>\",\n    \"PostCode\": \"<string>\",\n    \"Country\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-10-22T01:55:32.000Z",
+              "updatedAt": "2026-10-22T01:55:32.000Z",
+              "uid": "35240-e23e7d95-f364-430d-80e7-91f048902103"
+            }
+          ],
+          "createdAt": "2026-10-22T01:55:32.000Z",
+          "updatedAt": "2026-10-22T01:55:32.000Z",
+          "uid": "35240-d494832a-0c23-422d-a573-465bea176f4a"
+        },
+        {
+          "name": "Landlord",
+          "id": "102be61f-d67a-453f-a777-1a0d8db16984",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"ExternalRef\": \"<string>\",\n  \"CompanyName\": \"<string>\",\n  \"Title\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"Surname\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"ContactNumber\": \"<string>\",\n  \"ContactNumberAlt\": \"<string>\",\n  \"DisplayName\": \"<string>\",\n  \"WorksAuthorisationLimit\": \"<string>\",\n  \"EmailCC\\t\": \"<string>\",\n  \"IsDeleted\": \"<boolean>\",\n  \"UpdateDate\": \"<dateTime>\",\n  \"Brand\": {\n    \"Id\": \"<uuid>\",\n    \"Name\": \"<string>\"\n  },\n  \"AssignedAgent\": {\n    \"Id\": \"<long>\",\n    \"ExternalRef\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"ContactNo\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  },\n  \"Address\\t\": {\n    \"AddressLine1\": \"<string>\",\n    \"AddressLine2\": \"<string>\",\n    \"Town\": \"<string>\",\n    \"County\": \"<string>\",\n    \"PostCode\": \"<string>\",\n    \"Country\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/Landlord",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Landlord"
+              ]
+            },
+            "description": "Create/update landlord"
+          },
+          "response": [
+            {
+              "id": "5bd06bc6-054f-48d4-81d7-70b62e3a8eeb",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"ExternalRef\": \"<string>\",\n  \"CompanyName\": \"<string>\",\n  \"Title\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"Surname\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"ContactNumber\": \"<string>\",\n  \"ContactNumberAlt\": \"<string>\",\n  \"DisplayName\": \"<string>\",\n  \"WorksAuthorisationLimit\": \"<string>\",\n  \"EmailCC\\t\": \"<string>\",\n  \"IsDeleted\": \"<boolean>\",\n  \"UpdateDate\": \"<dateTime>\",\n  \"Brand\": {\n    \"Id\": \"<uuid>\",\n    \"Name\": \"<string>\"\n  },\n  \"AssignedAgent\": {\n    \"Id\": \"<long>\",\n    \"ExternalRef\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"ContactNo\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"UpdateDate\": \"<dateTime>\"\n  },\n  \"Address\\t\": {\n    \"AddressLine1\": \"<string>\",\n    \"AddressLine2\": \"<string>\",\n    \"Town\": \"<string>\",\n    \"County\": \"<string>\",\n    \"PostCode\": \"<string>\",\n    \"Country\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Landlord",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Landlord"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"HttpStatusCode\": \"<integer>\",\n  \"HttpStatusCodeDesc\": \"<string>\",\n  \"Errors\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Entity\": {\n    \"id\": \"<string>\",\n    \"ExternalRef\": \"<string>\",\n    \"CompanyName\": \"<string>\",\n    \"Title\": \"<string>\",\n    \"FirstName\": \"<string>\",\n    \"Surname\": \"<string>\",\n    \"EmailAddress\": \"<string>\",\n    \"ContactNumber\": \"<string>\",\n    \"ContactNumberAlt\": \"<string>\",\n    \"DisplayName\": \"<string>\",\n    \"WorksAuthorisationLimit\": \"<string>\",\n    \"EmailCC\\t\": \"<string>\",\n    \"IsDeleted\": \"<boolean>\",\n    \"UpdateDate\": \"<dateTime>\",\n    \"Brand\": {\n      \"Id\": \"<uuid>\",\n      \"Name\": \"<string>\"\n    },\n    \"AssignedAgent\": {\n      \"Id\": \"<long>\",\n      \"ExternalRef\": \"<string>\",\n      \"EmailAddress\": \"<string>\",\n      \"DisplayName\": \"<string>\",\n      \"ContactNo\": \"<string>\",\n      \"IsDeleted\": \"<boolean>\",\n      \"Brand\": {\n        \"Id\": \"<uuid>\",\n        \"Name\": \"<string>\"\n      },\n      \"UpdateDate\": \"<dateTime>\"\n    },\n    \"Address\\t\": {\n      \"AddressLine1\": \"<string>\",\n      \"AddressLine2\": \"<string>\",\n      \"Town\": \"<string>\",\n      \"County\": \"<string>\",\n      \"PostCode\": \"<string>\",\n      \"Country\": \"<string>\"\n    }\n  }\n}",
+              "createdAt": "2026-10-22T01:55:32.000Z",
+              "updatedAt": "2026-10-22T01:55:32.000Z",
+              "uid": "35240-5bd06bc6-054f-48d4-81d7-70b62e3a8eeb"
+            }
+          ],
+          "createdAt": "2026-10-22T01:55:32.000Z",
+          "updatedAt": "2026-10-22T01:55:32.000Z",
+          "uid": "35240-102be61f-d67a-453f-a777-1a0d8db16984"
+        }
+      ],
+      "id": "acbbdb31-ad59-4e15-a83d-eb334ebfffa3",
+      "createdAt": "2026-10-22T01:55:32.000Z",
+      "updatedAt": "2026-10-22T01:55:32.000Z",
+      "uid": "35240-acbbdb31-ad59-4e15-a83d-eb334ebfffa3"
+    },
+    {
+      "name": "Landlords",
+      "item": [
+        {
+          "name": "Landlords",
+          "id": "ce65cf1d-f7b2-4e0f-bd82-731ba738cdda",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/Landlords?Keyword=<string>&UpdatedSince=<dateTime>&pg=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Landlords"
+              ],
+              "query": [
+                {
+                  "key": "Keyword",
+                  "value": "<string>"
+                },
+                {
+                  "description": "string representing a date/time",
+                  "key": "UpdatedSince",
+                  "value": "<dateTime>"
+                },
+                {
+                  "key": "pg",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Finds the relevant landlords"
+          },
+          "response": [
+            {
+              "id": "06690a2a-7f8c-45d8-99c2-39f54c4742ea",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/Landlords?Keyword=<string>&UpdatedSince=<dateTime>&pg=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Landlords"
+                  ],
+                  "query": [
+                    {
+                      "key": "Keyword",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "string representing a date/time",
+                      "key": "UpdatedSince",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "pg",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"TotalItems\": \"<integer>\",\n  \"TotalPages\": \"<integer>\",\n  \"Items\": [\n    {\n      \"id\": \"<string>\",\n      \"ExternalRef\": \"<string>\",\n      \"CompanyName\": \"<string>\",\n      \"Title\": \"<string>\",\n      \"FirstName\": \"<string>\",\n      \"Surname\": \"<string>\",\n      \"EmailAddress\": \"<string>\",\n      \"ContactNumber\": \"<string>\",\n      \"ContactNumberAlt\": \"<string>\",\n      \"DisplayName\": \"<string>\",\n      \"WorksAuthorisationLimit\": \"<string>\",\n      \"EmailCC\\t\": \"<string>\",\n      \"IsDeleted\": \"<boolean>\",\n      \"UpdateDate\": \"<dateTime>\",\n      \"Brand\": {\n        \"Id\": \"<uuid>\",\n        \"Name\": \"<string>\"\n      },\n      \"AssignedAgent\": {\n        \"Id\": \"<long>\",\n        \"ExternalRef\": \"<string>\",\n        \"EmailAddress\": \"<string>\",\n        \"DisplayName\": \"<string>\",\n        \"ContactNo\": \"<string>\",\n        \"IsDeleted\": \"<boolean>\",\n        \"Brand\": {\n          \"Id\": \"<uuid>\",\n          \"Name\": \"<string>\"\n        },\n        \"UpdateDate\": \"<dateTime>\"\n      },\n      \"Address\\t\": {\n        \"AddressLine1\": \"<string>\",\n        \"AddressLine2\": \"<string>\",\n        \"Town\": \"<string>\",\n        \"County\": \"<string>\",\n        \"PostCode\": \"<string>\",\n        \"Country\": \"<string>\"\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"ExternalRef\": \"<string>\",\n      \"CompanyName\": \"<string>\",\n      \"Title\": \"<string>\",\n      \"FirstName\": \"<string>\",\n      \"Surname\": \"<string>\",\n      \"EmailAddress\": \"<string>\",\n      \"ContactNumber\": \"<string>\",\n      \"ContactNumberAlt\": \"<string>\",\n      \"DisplayName\": \"<string>\",\n      \"WorksAuthorisationLimit\": \"<string>\",\n      \"EmailCC\\t\": \"<string>\",\n      \"IsDeleted\": \"<boolean>\",\n      \"UpdateDate\": \"<dateTime>\",\n      \"Brand\": {\n        \"Id\": \"<uuid>\",\n        \"Name\": \"<string>\"\n      },\n      \"AssignedAgent\": {\n        \"Id\": \"<long>\",\n        \"ExternalRef\": \"<string>\",\n        \"EmailAddress\": \"<string>\",\n        \"DisplayName\": \"<string>\",\n        \"ContactNo\": \"<string>\",\n        \"IsDeleted\": \"<boolean>\",\n        \"Brand\": {\n          \"Id\": \"<uuid>\",\n          \"Name\": \"<string>\"\n        },\n        \"UpdateDate\": \"<dateTime>\"\n      },\n      \"Address\\t\": {\n        \"AddressLine1\": \"<string>\",\n        \"AddressLine2\": \"<string>\",\n        \"Town\": \"<string>\",\n        \"County\": \"<string>\",\n        \"PostCode\": \"<string>\",\n        \"Country\": \"<string>\"\n      }\n    }\n  ],\n  \"NextURL\": \"<string>\",\n  \"PreviousURL\": \"<string>\"\n}",
+              "createdAt": "2026-10-22T01:55:32.000Z",
+              "updatedAt": "2026-10-22T01:55:32.000Z",
+              "uid": "35240-06690a2a-7f8c-45d8-99c2-39f54c4742ea"
+            }
+          ],
+          "createdAt": "2026-10-22T01:55:32.000Z",
+          "updatedAt": "2026-10-22T01:55:32.000Z",
+          "uid": "35240-ce65cf1d-f7b2-4e0f-bd82-731ba738cdda"
+        }
+      ],
+      "id": "5da8418c-cfca-46ff-8d9e-631cfb8782c3",
+      "createdAt": "2026-10-22T01:55:32.000Z",
+      "updatedAt": "2026-10-22T01:55:32.000Z",
+      "uid": "35240-5da8418c-cfca-46ff-8d9e-631cfb8782c3"
+    },
+    {
+      "name": "LandlordProperty",
+      "item": [
+        {
+          "name": "Delete",
+          "item": [
+            {
+              "name": "Landlord property / delete",
+              "id": "8bdcd864-b60a-499a-af26-1041b1afcb44",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Id\": \"<integer>\",\n  \"LandlordId\": \"<string>\",\n  \"PropertyId\": \"<integer>\",\n  \"DateFrom\": \"<dateTime>\",\n  \"DateTo\": \"<dateTime>\",\n  \"IsPrimaryLandlord\": \"<boolean>\",\n  \"Address\": {\n    \"AddressLine1\": \"<string>\",\n    \"AddressLine2\": \"<string>\",\n    \"Town\": \"<string>\",\n    \"County\": \"<string>\",\n    \"PostCode\": \"<string>\",\n    \"Country\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/LandlordProperty/Delete",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "LandlordProperty",
+                    "Delete"
+                  ]
+                },
+                "description": "Deletes a LandlordProperty object. Meaning the explicit relationship bewtween the landlord and the property is removed"
+              },
+              "response": [
+                {
+                  "id": "88b52f4e-1e6d-4b2e-977b-6236439da92a",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"Id\": \"<integer>\",\n  \"LandlordId\": \"<string>\",\n  \"PropertyId\": \"<integer>\",\n  \"DateFrom\": \"<dateTime>\",\n  \"DateTo\": \"<dateTime>\",\n  \"IsPrimaryLandlord\": \"<boolean>\",\n  \"Address\": {\n    \"AddressLine1\": \"<string>\",\n    \"AddressLine2\": \"<string>\",\n    \"Town\": \"<string>\",\n    \"County\": \"<string>\",\n    \"PostCode\": \"<string>\",\n    \"Country\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/LandlordProperty/Delete",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "LandlordProperty",
+                        "Delete"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"HttpStatusCode\": \"<integer>\",\n  \"HttpStatusCodeDesc\": \"<string>\",\n  \"Errors\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Entity\": {\n    \"Id\": \"<integer>\",\n    \"LandlordId\": \"<string>\",\n    \"PropertyId\": \"<integer>\",\n    \"DateFrom\": \"<dateTime>\",\n    \"DateTo\": \"<dateTime>\",\n    \"IsPrimaryLandlord\": \"<boolean>\",\n    \"Address\": {\n      \"AddressLine1\": \"<string>\",\n      \"AddressLine2\": \"<string>\",\n      \"Town\": \"<string>\",\n      \"County\": \"<string>\",\n      \"PostCode\": \"<string>\",\n      \"Country\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-10-22T01:55:32.000Z",
+                  "updatedAt": "2026-10-22T01:55:32.000Z",
+                  "uid": "35240-88b52f4e-1e6d-4b2e-977b-6236439da92a"
+                }
+              ],
+              "createdAt": "2026-10-22T01:55:32.000Z",
+              "updatedAt": "2026-10-22T01:55:32.000Z",
+              "uid": "35240-8bdcd864-b60a-499a-af26-1041b1afcb44"
+            }
+          ],
+          "id": "addf169e-d982-4aeb-b176-3ff84751b464",
+          "createdAt": "2026-10-22T01:55:32.000Z",
+          "updatedAt": "2026-10-22T01:55:32.000Z",
+          "uid": "35240-addf169e-d982-4aeb-b176-3ff84751b464"
+        },
+        {
+          "name": "Landlord property",
+          "id": "12674a25-7161-4ff5-a195-01739e69d121",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/LandlordProperty?LandlordPropertyId=<integer>&LandlordId=<integer>&PropertyId=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "LandlordProperty"
+              ],
+              "query": [
+                {
+                  "key": "LandlordPropertyId",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "LandlordId",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "PropertyId",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Gets a specific landlord property. The LandlordPropertyId OR LandlordId and PropertyId must be supplied"
+          },
+          "response": [
+            {
+              "id": "fbdbe721-2e7a-456f-aa3c-33b9cebc153c",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/LandlordProperty?LandlordPropertyId=<integer>&LandlordId=<integer>&PropertyId=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "LandlordProperty"
+                  ],
+                  "query": [
+                    {
+                      "key": "LandlordPropertyId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "LandlordId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "PropertyId",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"Id\": \"<integer>\",\n  \"LandlordId\": \"<string>\",\n  \"PropertyId\": \"<integer>\",\n  \"DateFrom\": \"<dateTime>\",\n  \"DateTo\": \"<dateTime>\",\n  \"IsPrimaryLandlord\": \"<boolean>\",\n  \"Address\": {\n    \"AddressLine1\": \"<string>\",\n    \"AddressLine2\": \"<string>\",\n    \"Town\": \"<string>\",\n    \"County\": \"<string>\",\n    \"PostCode\": \"<string>\",\n    \"Country\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-10-22T01:55:32.000Z",
+              "updatedAt": "2026-10-22T01:55:32.000Z",
+              "uid": "35240-fbdbe721-2e7a-456f-aa3c-33b9cebc153c"
+            }
+          ],
+          "createdAt": "2026-10-22T01:55:32.000Z",
+          "updatedAt": "2026-10-22T01:55:32.000Z",
+          "uid": "35240-12674a25-7161-4ff5-a195-01739e69d121"
+        },
+        {
+          "name": "Landlord property",
+          "id": "782a21be-4bfd-49b4-bb63-16573cb505ff",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Id\": \"<integer>\",\n  \"LandlordId\": \"<string>\",\n  \"PropertyId\": \"<integer>\",\n  \"DateFrom\": \"<dateTime>\",\n  \"DateTo\": \"<dateTime>\",\n  \"IsPrimaryLandlord\": \"<boolean>\",\n  \"Address\": {\n    \"AddressLine1\": \"<string>\",\n    \"AddressLine2\": \"<string>\",\n    \"Town\": \"<string>\",\n    \"County\": \"<string>\",\n    \"PostCode\": \"<string>\",\n    \"Country\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/LandlordProperty",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "LandlordProperty"
+              ]
+            },
+            "description": "Adds a LandlordProperty object. Meaning the explicit relationship bewtween the landlord and the property is added"
+          },
+          "response": [
+            {
+              "id": "e17a99b2-555e-448a-ae4e-0cb28d775280",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Id\": \"<integer>\",\n  \"LandlordId\": \"<string>\",\n  \"PropertyId\": \"<integer>\",\n  \"DateFrom\": \"<dateTime>\",\n  \"DateTo\": \"<dateTime>\",\n  \"IsPrimaryLandlord\": \"<boolean>\",\n  \"Address\": {\n    \"AddressLine1\": \"<string>\",\n    \"AddressLine2\": \"<string>\",\n    \"Town\": \"<string>\",\n    \"County\": \"<string>\",\n    \"PostCode\": \"<string>\",\n    \"Country\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/LandlordProperty",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "LandlordProperty"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"HttpStatusCode\": \"<integer>\",\n  \"HttpStatusCodeDesc\": \"<string>\",\n  \"Errors\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Messages\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-10-22T01:55:32.000Z",
+              "updatedAt": "2026-10-22T01:55:32.000Z",
+              "uid": "35240-e17a99b2-555e-448a-ae4e-0cb28d775280"
+            }
+          ],
+          "createdAt": "2026-10-22T01:55:32.000Z",
+          "updatedAt": "2026-10-22T01:55:32.000Z",
+          "uid": "35240-782a21be-4bfd-49b4-bb63-16573cb505ff"
+        }
+      ],
+      "id": "05dc2cd2-9048-48ac-9aa0-b147c2c59604",
+      "createdAt": "2026-10-22T01:55:32.000Z",
+      "updatedAt": "2026-10-22T01:55:32.000Z",
+      "uid": "35240-05dc2cd2-9048-48ac-9aa0-b147c2c59604"
+    },
+    {
+      "name": "LandlordPropertyJoin",
+      "item": [
+        {
+          "name": "Delete",
+          "item": [
+            {
+              "name": "Landlord property external/ delete",
+              "id": "7b8e836c-2768-4809-a95a-e0cd55ecc015",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Id\": \"<integer>\",\n  \"ExternalLandlordRef\": \"<string>\",\n  \"ExternalPropertyRef\": \"<string>\",\n  \"IsPrimaryLandlord\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/LandlordPropertyJoin/Delete",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "LandlordPropertyJoin",
+                    "Delete"
+                  ]
+                },
+                "description": "Deletes a LandlordProperty object. Meaning the explicit relationship bewtween the landlord and the property is removed"
+              },
+              "response": [
+                {
+                  "id": "a8be6aad-d566-46fa-93bd-0934ac912e23",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"Id\": \"<integer>\",\n  \"ExternalLandlordRef\": \"<string>\",\n  \"ExternalPropertyRef\": \"<string>\",\n  \"IsPrimaryLandlord\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/LandlordPropertyJoin/Delete",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "LandlordPropertyJoin",
+                        "Delete"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"HttpStatusCode\": \"<integer>\",\n  \"HttpStatusCodeDesc\": \"<string>\",\n  \"Errors\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Entity\": {\n    \"Id\": \"<integer>\",\n    \"ExternalLandlordRef\": \"<string>\",\n    \"ExternalPropertyRef\": \"<string>\",\n    \"IsPrimaryLandlord\": \"<boolean>\"\n  }\n}",
+                  "createdAt": "2026-10-22T01:55:32.000Z",
+                  "updatedAt": "2026-10-22T01:55:32.000Z",
+                  "uid": "35240-a8be6aad-d566-46fa-93bd-0934ac912e23"
+                }
+              ],
+              "createdAt": "2026-10-22T01:55:32.000Z",
+              "updatedAt": "2026-10-22T01:55:32.000Z",
+              "uid": "35240-7b8e836c-2768-4809-a95a-e0cd55ecc015"
+            }
+          ],
+          "id": "e7818c27-0272-4975-9be8-1d1b797f5df5",
+          "createdAt": "2026-10-22T01:55:32.000Z",
+          "updatedAt": "2026-10-22T01:55:32.000Z",
+          "uid": "35240-e7818c27-0272-4975-9be8-1d1b797f5df5"
+        },
+        {
+          "name": "Landlord property external",
+          "id": "86231d7a-cb82-41a4-8f84-72b0fdc9fa0a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/LandlordPropertyJoin?LandlordPropertyId=<integer>&ExtrernalLandlordref=<string>&LandlordId=<integer>&ExternalPropertyRef=<string>&PropertyId=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "LandlordPropertyJoin"
+              ],
+              "query": [
+                {
+                  "key": "LandlordPropertyId",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "ExtrernalLandlordref",
+                  "value": "<string>"
+                },
+                {
+                  "key": "LandlordId",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "ExternalPropertyRef",
+                  "value": "<string>"
+                },
+                {
+                  "key": "PropertyId",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Gets a specific landlord property. The LandlordPropertyId or ExternalPropertyRef and ExtrernalLandlordref or LandlordId and PropertyId must be supplied"
+          },
+          "response": [
+            {
+              "id": "6e2e990d-8788-45b3-89a6-1a20f1700c81",
+              "name": "OK",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/LandlordPropertyJoin?LandlordPropertyId=<integer>&ExtrernalLandlordref=<string>&LandlordId=<integer>&ExternalPropertyRef=<string>&PropertyId=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "LandlordPropertyJoin"
+                  ],
+                  "query": [
+                    {
+                      "key": "LandlordPropertyId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "ExtrernalLandlordref",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "LandlordId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "ExternalPropertyRef",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "PropertyId",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"Id\": \"<integer>\",\n  \"ExternalLandlordRef\": \"<string>\",\n  \"ExternalPropertyRef\": \"<string>\",\n  \"IsPrimaryLandlord\": \"<boolean>\"\n}",
+              "createdAt": "2026-10-22T01:55:32.000Z",
+              "updatedAt": "2026-10-22T01:55:32.000Z",
+              "uid": "35240-6e2e990d-8788-45b3-89a6-1a20f1700c81"
+            }
+          ],
+          "createdAt": "2026-10-22T01:55:32.000Z",
+          "updatedAt": "2026-10-22T01:55:32.000Z",
+          "uid": "35240-86231d7a-cb82-41a4-8f84-72b0fdc9fa0a"
+        },
+        {
+          "name": "Landlord property external",
+          "id": "f86a3a3e-aac4-499c-8556-5c91a078ef83",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Id\": \"<integer>\",\n  \"ExternalLandlordRef\": \"<string>\",\n  \"ExternalPropertyRef\": \"<string>\",\n  \"IsPrimaryLandlord\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/LandlordPropertyJoin",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "LandlordPropertyJoin"
+              ]
+            },
+            "description": "Adds a LandlordProperty object. Meaning the explicit relationship bewtween the landlord and the property is added using external refs"
+          },
+          "response": [
+            {
+              "id": "a0ad85b6-62d0-415e-a5b0-cfa10897729a",
+              "name": "OK",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Id\": \"<integer>\",\n  \"ExternalLandlordRef\": \"<string>\",\n  \"ExternalPropertyRef\": \"<string>\",\n  \"IsPrimaryLandlord\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/LandlordPropertyJoin",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "LandlordPropertyJoin"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"HttpStatusCode\": \"<integer>\",\n  \"HttpStatusCodeDesc\": \"<string>\",\n  \"Errors\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Entity\": {\n    \"Id\": \"<integer>\",\n    \"ExternalLandlordRef\": \"<string>\",\n    \"ExternalPropertyRef\": \"<string>\",\n    \"IsPrimaryLandlord\": \"<boolean>\"\n  }\n}",
+              "createdAt": "2026-10-22T01:55:32.000Z",
+              "updatedAt": "2026-10-22T01:55:32.000Z",
+              "uid": "35240-a0ad85b6-62d0-415e-a5b0-cfa10897729a"
+            }
+          ],
+          "createdAt": "2026-10-22T01:55:32.000Z",
+          "updatedAt": "2026-10-22T01:55:32.000Z",
+          "uid": "35240-f86a3a3e-aac4-499c-8556-5c91a078ef83"
+        }
+      ],
+      "id": "03f83362-5ba9-4a93-b314-502ae2443bc3",
+      "createdAt": "2026-10-22T01:55:32.000Z",
+      "updatedAt": "2026-10-22T01:55:32.000Z",
+      "uid": "35240-03f83362-5ba9-4a93-b314-502ae2443bc3"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api-sandbox.fixflo.com/api/v2"
+    }
+  ]
+}
