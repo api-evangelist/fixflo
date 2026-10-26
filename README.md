@@ -1,0 +1,197 @@
+# Fixflo (fixflo)
+
+<!-- API-EVANGELIST-PROVENANCE:BEGIN -->
+> ### About this repository
+>
+> **This is not our API.** This repository is an independent, third-party profile of a company's
+> **publicly available** API surface, maintained by [API Evangelist](https://apievangelist.com).
+> API Evangelist does not operate, host, resell, or support this company's APIs, and is not
+> affiliated with or endorsed by the company unless stated on the profile.
+>
+> **Where the information came from.** Everything here is assembled from material a member of the
+> public can reach with a browser and no credentials — the company's own website, developer portal
+> and documentation, the specifications it publishes for public use (OpenAPI, AsyncAPI, JSON Schema,
+> `apis.json`, `llms.txt` and similar), its public repositories, and its public status, pricing and
+> changelog pages. **Nothing here is obtained by breaching a system, defeating an access control, or
+> using credentials of any kind.**
+>
+> **The rating is an independent assessment.** The Kin Score and Agent Readiness rating are
+> independently calculated scores of a company's *public* API artifacts, produced by API Evangelist
+> against a published rubric. They are not certifications, endorsements, security assessments, or
+> audits, and they score published artifacts — not the quality, safety, or security of the software.
+>
+> **Corrections, re-scores, and removal are free.** No partnership, contract, or purchase is
+> required, and you do not need to justify the request.
+>
+> - **Something wrong?** Open an issue on this repository, or email
+>   [info@apievangelist.com](mailto:info@apievangelist.com).
+> - **Published something new?** Ask for a re-score and we will re-run the rating.
+> - **Want the listing taken down?** Say so and we will honor it. The profile is reduced to your
+>   company name, a factual description, and a link to your own site, and the company is recorded as
+>   **unrated** — never scored zero for having asked.
+>
+> **Response times.** Acknowledgement within **one business day**; removal or restriction within
+> **two business days**; corrections and re-scores within **five business days**.
+>
+> **Not from the company, and here with a question?** You are welcome here — we would rather be the
+> front line and point you the right way than have a good report go nowhere. What this repository
+> can answer is narrow, though, so it is worth knowing who you are actually looking for:
+>
+> - **A question about how the API works, an account, billing, or a bug in the service** — that is
+>   the company's own support, not us. We profile this API; we do not operate it and cannot see
+>   your account.
+> - **A bug in an open-source project we only catalog** — file it on that project's own repository.
+>   This has happened with a real and correct bug report that reached us instead of the people who
+>   could fix it, which helped nobody.
+> - **Anything about this listing itself** — the description, the tags, the rating, a missing or
+>   wrong artifact — is ours. Open an issue here.
+> - **Not sure, or something general about API Evangelist or APIs.io** — open an issue on the
+>   [APIs.io Inbox](https://github.com/api-search/inbox) and we will route it.
+>
+> **This repository contains no software, and we will never ask you to download anything.** There is
+> no build, release, installer, or binary here — only text and machine-readable API descriptions, so
+> there is nothing here that can be "corrupt" or need "repairing". Any issue, comment, or email
+> claiming otherwise and offering a download link is not from us and is hostile. Do not follow the
+> link; it is a lure. Report it to GitHub and, if you like, tell us at
+> [info@apievangelist.com](mailto:info@apievangelist.com) so we can take it down.
+>
+> **On a security or compliance team?** Email
+> [info@apievangelist.com](mailto:info@apievangelist.com) with *security* in the subject line and
+> you will get a person, not a form. We will tell you exactly which public URLs this profile was
+> built from so your team can see the same surface we did, and we will take the listing down on
+> request while you work through it.
+>
+> Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
+<!-- API-EVANGELIST-PROVENANCE:END -->
+
+Fixflo (a trading name of Tactile Limited, London, United Kingdom, acquired by Aareon in 2021) is a UK repairs, maintenance and compliance management platform for lettings agents, block managers and commercial property managers. Occupiers report issues through a guided fault tree, and Fixflo routes the work to contractors, tracks jobs, service programmes, warranties and invoices, and syncs the resulting records back into the agency CRM. It sits in the post-tenancy operations layer of the UK property value chain rather than the listings layer — the UK has no MLS and no RESO, so there is no industry-mandated machine-readable listing contract here and Fixflo makes no RESO claim. Its API posture is unusually open for the sector in one respect and closed in another. A genuinely public Stoplight developer portal at api-docs.fixflo.com publishes a complete OpenAPI 3.0 description of the v2 API (135 paths, 164 operations, 25 resource tags) that anyone can read and download without logging in, but actually calling it is licensed. Every use of the API is subject to the signed Fixflo Application Developer and API Licence Agreement, keys are issued by support after a review of the use case, and the runtime base URL is the customer's own per-tenant subdomain. Read the contract freely; sign an agreement to use it.
+
+**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/fixflo/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/fixflo/refs/heads/main/apis.yml)
+
+## Tags
+
+- Real Estate
+- United Kingdom
+- Property Management
+- PropTech
+- Repairs and Maintenance
+- Block Management
+- Lettings
+- Rentals
+- Commercial Real Estate
+- Contractors
+
+## Timestamps
+
+- **Created:** 2026-07-26
+- **Modified:** 2026-07-26
+
+## APIs
+
+### Fixflo API v2
+
+The Fixflo v2 REST API, described by a publicly downloadable OpenAPI 3.0 document on the Fixflo Stoplight developer portal. It exposes the repairs and maintenance domain — issues and issue drafts, properties, blocks and estates, agencies, agents, brands and teams, landlords, leaseholders, tenants and customers, contractors and contractor networks, assets and warranties, cost codes, service programmes, service agreements and service events, jobs, custom field configuration and webhook subscriptions. Authentication is a bearer token issued inside a Fixflo account (documented as OAuth2-aligned but deliberately not a full OAuth2 implementation); a separate OpenID Connect discovery document is served anonymously at api.fixflo.com. Production calls are made against the customer's own subdomain (`https://[subdomain].fixflo.com/api/v2`); the published server is the shared sandbox. Rate limiting is documented as not below 500 requests per minute, returning HTTP 429. Use of the API requires the signed Fixflo Application Developer and API Licence Agreement.
+
+- **Human URL:** [https://api-docs.fixflo.com/](https://api-docs.fixflo.com/)
+- **Base URL:** `https://api-sandbox.fixflo.com/api/v2`
+
+#### Tags
+
+- Agent
+- Agency
+- Asset
+- Block
+- Cost code
+- Brand
+- Contractor
+- Estate
+- FaultTree
+- Issue
+- Issue draft
+- Landlord
+- Leaseholder
+- Property
+- Service programme definition
+- Team
+- Tenant
+- Warranty
+- Webhook
+- Contractor networks
+- Customer
+- Service Event
+- Service Programme
+- Service Agreement
+- CustomFieldConfiguration
+
+#### Properties
+
+- [OpenAPI](openapi/fixflo-api-v2-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Documentation](https://api-docs.fixflo.com/)
+- [API Reference](https://api-docs.fixflo.com/5aaf5f6f6bc52-fixflo)
+- [Getting Started](https://api-docs.fixflo.com/72b66de24898e-welcome-to-fixflo)
+- [Webhooks](https://api-docs.fixflo.com/5cc9374300b99-webhooks)
+- [Authentication](authentication/fixflo-authentication.yml)
+- [OpenID Connect Discovery](https://api.fixflo.com/.well-known/openid-configuration)
+- [JWKS](https://api.fixflo.com/.well-known/jwks)
+- [Overlay](overlays/fixflo-api-v2-overlay.yaml)
+- [Conventions](conventions/fixflo-conventions.yml)
+- [Error Catalog](errors/fixflo-problem-types.yml)
+- [Data Model](data-model/fixflo-data-model.yml)
+- [Sandbox](sandbox/fixflo-sandbox.yml)
+- [Rate Limits](rate-limits/fixflo-rate-limits.yml)
+- [Postman Collection](https://www.postman.com/fixflo/fixflo-public/collection/glxckcp/fixflo-docs)
+- [SDK](https://www.nuget.org/packages/Fixflo.WebApi.Client.V2/)
+- [Terms of Service](https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf)
+- [Support](https://help.fixflo.com/support/solutions/articles/61000295569-api-faqs-commonly-asked-questions-when-creating-an-integration)
+
+## Artifacts
+
+Produced by the API Evangelist enrichment pipeline on 2026-07-26 from the public Fixflo
+developer portal and the published OpenAPI. Nothing here is fabricated; absences (no
+security.txt, no trust centre, no AsyncAPI, no MCP server, no CLI) are recorded as absences.
+
+- [Authentication profile](authentication/fixflo-authentication.yml) — bearer token for the REST API, plus the separate application OIDC surface
+- [OAuth scopes](scopes/fixflo-scopes.yml) — application-login scopes only; the REST API has none
+- [Well-known documents](well-known/fixflo-well-known.yml) — OIDC discovery, RFC 8414 metadata, JWKS (raw files harvested)
+- [Packages / SDKs](packages/fixflo-packages.yml) — one first-party .NET client on NuGet
+- [API conventions](conventions/fixflo-conventions.yml) — auth, tenancy, natural-key upsert idempotency, pagination, locales, error envelope
+- [Rate limits](rate-limits/fixflo-rate-limits.yml) — "not below 500 requests a minute", HTTP 429
+- [Error catalog](errors/fixflo-problem-types.yml) — the eight documented error responses; not RFC 9457
+- [Lifecycle](lifecycle/fixflo-lifecycle.yml) — URI-path versioning, v1 retired, status page, no SLA
+- [Conformance](conformance/fixflo-conformance.yml) — what the contract does and does not conform to
+- [Data model](data-model/fixflo-data-model.yml) — 96 relationships derived from the 67 schemas
+- [Webhook / event surface](asyncapi/fixflo-webhooks.yml) — one event, ff-signature HMAC, retries; no AsyncAPI published
+- [Sandbox](sandbox/fixflo-sandbox.yml) — real but provisioned on request; no published test values
+- [Agent skills](skills/_index.yml) — five generated skills grounded in verified operationIds
+- [MCP candidate tools](mcp/fixflo-mcp.yml) — derived; Fixflo publishes no MCP server
+- [Agentic access contracts](agentic-access/fixflo-agentic-access.yml) — recommended `x-agentic-access` per operation
+- [OpenAPI overlay](overlays/fixflo-api-v2-overlay.yaml) — our enhancements, applied without mutating the harvested spec
+- [Domain security](security/fixflo-domain-security.yml) — TLS/HSTS/DNS probe results
+- [llms.txt](llms/fixflo-llms.txt) — generated; Fixflo publishes none
+
+## Common Properties
+
+- [Website](https://www.fixflo.com/)
+- [Documentation](https://api-docs.fixflo.com/)
+- [API Reference](https://api-docs.fixflo.com/5aaf5f6f6bc52-fixflo)
+- [Blog](https://www.fixflo.com/blog)
+- [Integrations](https://www.fixflo.com/integrations)
+- [Support Knowledge Base](https://help.fixflo.com/support/home)
+- [Status Page](https://status.fixflo.com/)
+- [Terms of Service](https://www.fixflo.com/legal-and-patents)
+- [Privacy Policy](https://www.fixflo.com/privacy-policy)
+- [GitHub Organization](https://github.com/Fixflo)
+- [LinkedIn](https://www.linkedin.com/company/fixflo)
+- [Twitter](https://twitter.com/Fixflo)
+
+## Access Notes
+
+- **Home market:** United Kingdom
+- **RESO posture:** No RESO reference found. No RESO Web API or Data Dictionary certification, no RESO directory listing, no OData service root, no `$metadata` document, and no Universal Property Identifier (UPI). RESO is a US/Canadian MLS-centred regime and the UK has no MLS.
+- **Access gate:** Licence agreement. The [Fixflo Application Developer and API Licence Agreement](https://fixflostore.blob.core.windows.net/live-assets/SystemApplicationDeveloperAndAPILicenseAgreement.pdf) must be signed before access is granted; keys are requested from `support@fixflo.com` with a described use case, and a Fixflo agency account is a prerequisite because tokens are generated from inside a live Fixflo system.
+- **Open data:** None. Fixflo publishes no open dataset. The UK's open property data layer (HM Land Registry Price Paid Data, Ordnance Survey open products) sits entirely outside Fixflo.
+- **Auth model:** HTTP `Authorization: Bearer [token]` (64-char token, "aligned with OAuth2 standards but the full range of OAuth2 functionality is not required and has not been implemented"). A real OpenID Connect discovery document for the Fixflo application login is served anonymously at `https://api.fixflo.com/.well-known/openid-configuration`.
+
+## Maintainers
+
+- Kin Lane — kin@apievangelist.com
